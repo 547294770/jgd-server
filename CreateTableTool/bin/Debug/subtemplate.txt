@@ -1,0 +1,2 @@
+﻿[Column(Name = "{{columname1}}"{{attrs}})]
+        public {{datatype}} {{columname2}} { get; set; }

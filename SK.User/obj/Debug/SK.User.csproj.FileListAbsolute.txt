@@ -1,0 +1,15 @@
+E:\src\web\vs2012\SK\SK.User\obj\Debug\SK.User.csprojResolveAssemblyReference.cache
+E:\src\web\vs2012\SK\SK.User\bin\Debug\SK.User.dll
+E:\src\web\vs2012\SK\SK.User\bin\Debug\SK.User.pdb
+E:\src\web\vs2012\SK\SK.User\bin\Debug\Newtonsoft.Json.dll
+E:\src\web\vs2012\SK\SK.User\bin\Debug\SK.Common.dll
+E:\src\web\vs2012\SK\SK.User\bin\Debug\SK.Entities.dll
+E:\src\web\vs2012\SK\SK.User\bin\Debug\SK.Handler.dll
+E:\src\web\vs2012\SK\SK.User\bin\Debug\SK.Common.pdb
+E:\src\web\vs2012\SK\SK.User\bin\Debug\SK.Entities.pdb
+E:\src\web\vs2012\SK\SK.User\bin\Debug\SK.Handler.pdb
+E:\src\web\vs2012\SK\SK.User\bin\Debug\Newtonsoft.Json.xml
+E:\src\web\vs2012\SK\SK.User\obj\Debug\SK.User.dll
+E:\src\web\vs2012\SK\SK.User\obj\Debug\SK.User.pdb
+E:\src\web\vs2012\SK\SK.Web\bin\SK.User.dll
+E:\src\web\vs2012\SK\SK.Web\bin\SK.User.pdb

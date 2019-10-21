@@ -1,0 +1,6 @@
+E:\src\web\vs2012\SK\SK.Entities\bin\Debug\SK.Entities.dll
+E:\src\web\vs2012\SK\SK.Entities\bin\Debug\SK.Entities.pdb
+E:\src\web\vs2012\SK\SK.Entities\obj\Debug\SK.Entities.dll
+E:\src\web\vs2012\SK\SK.Entities\obj\Debug\SK.Entities.pdb
+E:\src\web\vs2012\SK\SK.Web\bin\SK.Entities.dll
+E:\src\web\vs2012\SK\SK.Web\bin\SK.Entities.pdb

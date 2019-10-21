@@ -1,0 +1,7 @@
+E:\src\web\vs2012\SK\UnitTestProject1\bin\Debug\UnitTestProject1.dll
+E:\src\web\vs2012\SK\UnitTestProject1\bin\Debug\UnitTestProject1.pdb
+E:\src\web\vs2012\SK\UnitTestProject1\bin\Debug\SK.Common.dll
+E:\src\web\vs2012\SK\UnitTestProject1\bin\Debug\SK.Common.pdb
+E:\src\web\vs2012\SK\UnitTestProject1\obj\Debug\UnitTestProject1.csprojResolveAssemblyReference.cache
+E:\src\web\vs2012\SK\UnitTestProject1\obj\Debug\UnitTestProject1.dll
+E:\src\web\vs2012\SK\UnitTestProject1\obj\Debug\UnitTestProject1.pdb

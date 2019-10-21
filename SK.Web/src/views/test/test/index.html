@@ -1,0 +1,40 @@
+﻿<title>测试页面</title>
+
+<div class="layui-card layadmin-header">
+    <div class="layui-breadcrumb" lay-filter="breadcrumb">
+        <a lay-href="">主页</a>
+        <a><cite>客户管理</cite></a>
+        <a><cite>我的客户</cite></a>
+    </div>
+</div>
+<div class="layui-fluid">
+    <div class="layui-card">
+        <div class="layui-card-header">测试页面</div>
+        <div class="layui-card-body">
+            <script id="lay-template" type="text/html" template lay-url="/handler/user/Info" lay-type="POST" lay-data="{'ID':123}">
+                <div>{{ d.data.Title }}</div>
+            </script>
+            <div id="lay-content"></div>
+        </div>
+    </div>
+</div>
+<!--<script type="text/javascript">
+    layui.use(['admin', 'table', 'form'], function () {
+        var $ = layui.$
+            , admin = layui.admin
+            , laytpl = layui.laytpl;
+
+        admin.req({
+            url: "/admin/Test/Info",
+            success: function (d) {
+                console.log("6666666666666");
+                console.log(d.data.Title);
+
+                var temp = $("#lay-template").html();
+                laytpl(temp).render(d.data, function (html) {
+                    $("#lay-content").html(html);
+                });
+            }
+        })
+    })
+</script>-->

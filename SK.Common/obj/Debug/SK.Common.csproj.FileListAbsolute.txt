@@ -1,0 +1,7 @@
+E:\src\web\vs2012\SK\SK.Common\bin\Debug\SK.Common.dll
+E:\src\web\vs2012\SK\SK.Common\bin\Debug\SK.Common.pdb
+E:\src\web\vs2012\SK\SK.Web\bin\SK.Common.dll
+E:\src\web\vs2012\SK\SK.Web\bin\SK.Common.pdb
+E:\src\web\vs2012\SK\SK.Common\obj\Debug\SK.Common.dll
+E:\src\web\vs2012\SK\SK.Common\obj\Debug\SK.Common.pdb
+E:\src\web\vs2012\SK\SK.Common\obj\Debug\SK.Common.csprojResolveAssemblyReference.cache
