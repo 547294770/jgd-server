@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>利迅达加工系统微信端</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../css/mui.min.css">
+        <link rel="stylesheet" href="../css/mui.extends.css">
+		<!--App自定义的css-->
+		<!--<link rel="stylesheet" type="text/css" href="../css/app.css"/>-->
+        
+	</head>
+
+<body>
+    <header id="app_header" class="mui-bar mui-bar-nav">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		<h1 class="mui-title">首页</h1>
+	</header>
+    <div id="app_body" class="mui-content">
+        	<div id="tabbar" class="mui-control-content mui-active">
+				<ul class="mui-table-view mui-grid-view mui-grid-9">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#/jgd/pages/jgd-list">
+		                    <span class="mui-icon mui-icon-home"><span class="mui-badge">3</span></span>
+		                    <div class="mui-media-body">需求单</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="delivery-list.html">
+		                    <span class="mui-icon mui-icon-email"></span>
+		                    <div class="mui-media-body">送货单</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="pickup-list.html">
+		                    <span class="mui-icon mui-icon-chatbubble"></span>
+		                    <div class="mui-media-body">提货单</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="cost-list.html">
+		                    <span class="mui-icon mui-icon-location"></span>
+		                    <div class="mui-media-body">加工费</div></a></li>
+		        </ul> 
+			</div>
+			
+			<div id="tabbar-with-map" class="mui-control-content">
+                <div style="margin:10px;"></div>
+				    <ul class="mui-table-view">
+				    <li class="mui-table-view-cell">
+					    <a class="mui-navigate-right">
+						    公司信息
+					    </a>
+				    </li>
+				    <li class="mui-table-view-cell">
+					    <a class="mui-navigate-right">
+						    账号和密码
+					    </a>
+				    </li>
+				    <li class="mui-table-view-cell">
+					    <a class="mui-navigate-right">
+						    手机
+					    </a>
+				    </li>
+			    </ul>
+			    
+			    <ul class="mui-table-view" style="margin-top: 25px;">
+				    <li class="mui-table-view-cell">
+					    <a style="text-align: center;color: #FF3B30;">
+						    退出登录
+					    </a>
+				    </li>
+			    </ul>
+            </div>
+    </div>
+<nav class="mui-bar mui-bar-tab">
+	<a class="mui-tab-item mui-active" href="#tabbar">
+		<span class="mui-icon mui-icon-home"></span>
+		<span class="mui-tab-label">首页</span>
+	</a>
+
+
+	<a class="mui-tab-item" href="#tabbar-with-map">
+		<span class="mui-icon mui-icon-gear"></span>
+		<span class="mui-tab-label">设置</span>
+	</a>
+</nav>
+</body>
+    <script src="../js/mui.min.js"></script>
+    <script src="../js/mui.extends.js"></script>
+	<script>
+	    mui.init({
+	        swipeBack: true //启用右滑关闭功能
+	    });
+
+       
+	</script>
+    <script src="../js/main.js"></script>
+</html>

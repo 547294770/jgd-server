@@ -1,0 +1,20 @@
+﻿<title>绑定店铺</title>
+
+<div class="layui-card layadmin-header">
+    <div class="layui-breadcrumb" lay-filter="breadcrumb">
+        <a lay-href="">主页</a>
+        <a><cite>客户管理</cite></a>
+        <a><cite>绑定店铺</cite></a>
+    </div>
+</div>
+<div class="layui-fluid">
+    <div class="layui-card">
+        <div class="layui-card-header">绑定店铺</div>
+        <div class="layui-card-body">
+            <script id="lay-template" type="text/html" template lay-url="/handler/member/user/Info" lay-type="POST" lay-data="{'ID':123}">
+                <div>{{ d.data.Title }}</div>
+            </script>
+            <div id="lay-content"></div>
+        </div>
+    </div>
+</div>

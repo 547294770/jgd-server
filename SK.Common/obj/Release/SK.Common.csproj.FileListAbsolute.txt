@@ -1,0 +1,8 @@
+E:\src\web\vs2012\LXD\SK.Common\bin\Release\SK.Common.dll
+E:\src\web\vs2012\LXD\SK.Common\bin\Release\SK.Common.pdb
+E:\src\web\vs2012\LXD\SK.Common\bin\Release\SK.Entities.dll
+E:\src\web\vs2012\LXD\SK.Common\bin\Release\SK.Entities.pdb
+E:\src\web\vs2012\LXD\SK.Common\obj\Release\SK.Common.csprojResolveAssemblyReference.cache
+E:\src\web\vs2012\LXD\SK.Common\obj\Release\SK.Common.dll
+E:\src\web\vs2012\LXD\SK.Common\obj\Release\SK.Common.pdb
+E:\src\web\vs2012\LXD\SK.Common\bin\Release\SK.Common.dll.config

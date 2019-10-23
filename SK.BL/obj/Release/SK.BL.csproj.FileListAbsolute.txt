@@ -1,0 +1,9 @@
+E:\src\web\vs2012\LXD\SK.BL\bin\Release\SK.BL.dll
+E:\src\web\vs2012\LXD\SK.BL\bin\Release\SK.BL.pdb
+E:\src\web\vs2012\LXD\SK.BL\bin\Release\SK.Common.dll
+E:\src\web\vs2012\LXD\SK.BL\bin\Release\SK.Entities.dll
+E:\src\web\vs2012\LXD\SK.BL\bin\Release\SK.Common.pdb
+E:\src\web\vs2012\LXD\SK.BL\bin\Release\SK.Entities.pdb
+E:\src\web\vs2012\LXD\SK.BL\obj\Release\SK.BL.csprojResolveAssemblyReference.cache
+E:\src\web\vs2012\LXD\SK.BL\obj\Release\SK.BL.dll
+E:\src\web\vs2012\LXD\SK.BL\obj\Release\SK.BL.pdb

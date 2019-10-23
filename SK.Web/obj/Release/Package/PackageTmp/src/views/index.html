@@ -1,0 +1,72 @@
+﻿<title>控制台</title>
+<div class="layui-card layadmin-header">
+    <div class="layui-breadcrumb" lay-filter="breadcrumb">
+        <a lay-href="">主页</a>
+        <a><cite>控制台</cite></a>
+        <a><cite>控制台</cite></a>
+    </div>
+</div>
+<div class="layui-fluid">
+    <div class="layui-card">
+        <div class="layui-card-header">
+            待处理的加工单
+        </div>
+        <div class="layui-card-body">
+            <table id="admin-index-unprocessed" lay-filter="admin-index-unprocessed"></table>
+            <script type="text/html" id="admin-unprocessed-index-table-operate">
+                <div class="opetate">
+                    <button class="layui-btn layui-btn-xs" lay-event="detail">查看并处理</button>
+                </div>
+            </script>
+        </div>
+    </div>
+</div>
+<script>
+
+    layui.use(["admin", "form", "table", "laydate", "view"], function () {
+        var $ = layui.$
+        , admin = layui.admin
+        , table = layui.table
+        , laydate = layui.laydate
+        , form = layui.form
+        , view = layui.view;
+
+        admin.form.render();
+
+        table.render({
+            elem: "#admin-index-unprocessed",
+            url: "/handler/admin/processingorder/unprocessed",
+            skin: "auto",
+            size: "sm",
+            method: "post",
+            page: true,
+            cols: [[
+                { title: "加工单号", field: "OrderNo" },
+                { title: "加工内容", field: "Content" },
+                { title: "下单时间", field: "CreateAt" },
+                { title: "状态", templet: "<div>{{ htmlFunction.status(d.Status) }}</div>" },
+                { title: "操作", templet: "#admin-unprocessed-index-table-operate" }
+            ]]
+        });
+
+        table.on("tool(admin-index-unprocessed)", function (ele) {
+            switch (ele.event) {
+                case "detail":
+                    {
+                        admin.popup({
+                            id: "test111",
+                            area: ["800px", "600px"],
+                            success: function (a, b) {
+                                view(this.id).render("admin/processing/jgd-info", ele.data);
+                            }
+                        });
+                    }
+                    break;
+                default:
+                    break;
+
+            }
+        });
+
+    });
+</script>

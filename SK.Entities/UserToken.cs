@@ -11,7 +11,7 @@ namespace SK.Entities
     public partial class UserToken
     {
         [Column(Name = "UserID", IsPrimaryKey = true)]
-        public int UserID { get; set; }
+        public string UserID { get; set; }
 
         [Column(Name = "Token")]
         public string Token { get; set; }

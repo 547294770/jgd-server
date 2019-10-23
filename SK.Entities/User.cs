@@ -11,8 +11,8 @@ namespace SK.Entities
     [Table(Name = "User")]
     public partial class User
     {
-        [Column(Name = "UserID",IsPrimaryKey = true ,IsDbGenerated = true,IsVersion = true, AutoSync = AutoSync.OnInsert)]
-        public int ID { get; set; }
+        [Column(Name = "ID")]
+        public string ID { get; set; }
 
         [Column(Name = "UserName")]
         public string UserName { get; set; }
@@ -23,7 +23,16 @@ namespace SK.Entities
         [Column(Name = "CreateAt")]
         public DateTime CreateAt { get; set; }
 
-        [Column(Name = "UserType")]
-        public UserType Type { get; set; }
+        [Column(Name = "CompanyName")]
+        public string CompanyName { get; set; }
+
+        [Column(Name = "CompanyAddress")]
+        public string CompanyAddress { get; set; }
+
+        [Column(Name = "Tel")]
+        public string Tel { get; set; }
+
+        [Column(Name = "Contact")]
+        public string Contact { get; set; }
     }
 }

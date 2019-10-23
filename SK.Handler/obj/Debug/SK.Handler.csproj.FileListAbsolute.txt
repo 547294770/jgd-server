@@ -7,3 +7,8 @@ E:\src\web\vs2012\SK\SK.Handler\obj\Debug\SK.Handler.dll
 E:\src\web\vs2012\SK\SK.Handler\obj\Debug\SK.Handler.pdb
 E:\src\web\vs2012\SK\SK.Web\bin\SK.Handler.dll
 E:\src\web\vs2012\SK\SK.Web\bin\SK.Handler.pdb
+E:\src\web\vs2012\LXD\SK.Web\bin\SK.Handler.dll
+E:\src\web\vs2012\LXD\SK.Web\bin\SK.Handler.pdb
+E:\src\web\vs2012\LXD\SK.Handler\obj\Debug\SK.Handler.csprojResolveAssemblyReference.cache
+E:\src\web\vs2012\LXD\SK.Handler\obj\Debug\SK.Handler.dll
+E:\src\web\vs2012\LXD\SK.Handler\obj\Debug\SK.Handler.pdb

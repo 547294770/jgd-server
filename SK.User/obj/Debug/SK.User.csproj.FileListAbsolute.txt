@@ -13,3 +13,8 @@ E:\src\web\vs2012\SK\SK.User\obj\Debug\SK.User.dll
 E:\src\web\vs2012\SK\SK.User\obj\Debug\SK.User.pdb
 E:\src\web\vs2012\SK\SK.Web\bin\SK.User.dll
 E:\src\web\vs2012\SK\SK.Web\bin\SK.User.pdb
+E:\src\web\vs2012\LXD\SK.Web\bin\SK.User.dll
+E:\src\web\vs2012\LXD\SK.Web\bin\SK.User.pdb
+E:\src\web\vs2012\LXD\SK.User\obj\Debug\SK.User.csprojResolveAssemblyReference.cache
+E:\src\web\vs2012\LXD\SK.User\obj\Debug\SK.User.dll
+E:\src\web\vs2012\LXD\SK.User\obj\Debug\SK.User.pdb

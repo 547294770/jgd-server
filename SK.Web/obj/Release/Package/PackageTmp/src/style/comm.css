@@ -1,0 +1,66 @@
+﻿.w80
+{
+    width:80px !important;
+}
+.w100
+{
+    width:100px !important;
+}
+.w120
+{
+    width:120px !important;
+}
+.w160
+{
+    width:160px !important;
+}
+.w200
+{
+    width:200px !important;
+}
+.layui-form.layui-form-sm .layui-input, .layui-form.layui-form-sm .layui-select, .layui-form.layui-form-sm .layui-textarea {
+    line-height: 30px;
+    height: 30px;
+    font-size: 12px;
+}
+.layui-form.layui-form-sm .layui-input-inline {
+    max-width: 130px;
+    line-height: 30px;
+}
+.layui-form.layui-form-sm {
+    font-size: 12px;
+}
+.layui-form.layui-form-sm .layui-form-label {
+    padding: 4px 10px 4px 15px !important;
+    width: auto;
+    min-width: 40px;
+}
+.layui-form.layui-form-sm .layui-form-item .layui-input-inline.auto {
+    line-height: 30px;
+}
+.layui-table thead tr th {
+    text-shadow: 1px 1px 0px #fff;
+    color: #000;
+}
+.layui-table tr {
+    transition: none;
+    -webkit-transition: none;
+}
+.layui-table-view .layui-table[lay-skin=auto] .layui-table-cell {
+    height: auto;
+    text-align: center;
+}
+.layui-table-view {
+    box-shadow: 0px 0px 5px rgba(0,0,0,.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+.layui-table thead tr {
+    background-color: transparent;
+}
+.layui-table thead {
+    background: linear-gradient(to bottom, #fafafa 0%,#efefef 100%);
+}
+.layui-card-header {
+    padding: 5px 5px 5px 15px;
+}

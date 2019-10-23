@@ -14,7 +14,7 @@ namespace SK.Handler
 {
     public class BasePage
     {
-        protected DBContext DBC = SK.Common.DBC.Context;
+        //protected DBContext DBC = SK.Common.DBC.Context;
         
         protected HttpRequest Request { get; set; }
         protected HttpResponse Response { get; set; }
@@ -27,6 +27,7 @@ namespace SK.Handler
         {
             get
             {
+                
                 if (Context.Items[Consts.USER_INFO] != null)
                 {
                     return (User)Context.Items[Consts.USER_INFO];
@@ -62,11 +63,6 @@ namespace SK.Handler
 
         protected string QF(string name)
         {
-            if (!Request.Form.AllKeys.Contains(name))
-            {
-                return null;
-            }
-
             return Request.Form[name];
         }
 
@@ -81,6 +77,12 @@ namespace SK.Handler
             this.ShowResult(success, msg, null);
         }
 
+        protected bool FailMessage(string msg)
+        {
+            this.ShowResult(false, msg, null);
+            return false;
+        }
+
         protected void ShowResult(bool success, string msg, object info)
         {
             var returnObj = new
@@ -90,9 +92,8 @@ namespace SK.Handler
                 count = 1,
                 data = info
             };
-
             string json = JsonConvert.SerializeObject(returnObj);
-
+           
             Response.Write(json);
             Response.End();
         }

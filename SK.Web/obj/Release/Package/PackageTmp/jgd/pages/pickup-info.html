@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>利迅达加工系统微信端</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="../css/app.css"/>
+        <style>
+			h5 {
+				margin: 5px 7px;
+			}
+		</style>
+	</head>
+
+<body>
+    <header class="mui-bar mui-bar-nav">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		<h1 class="mui-title">提货单详情</h1>
+	</header>
+    <div class="mui-content">
+		<div class="mui-content-padded" style="margin: 5px;padding-top:10px;">
+            <h5>提货单号：</h5>
+            <div class="mui-input-row" style="margin: 10px 5px;">
+                <h4>T201908250001</h4>
+            </div>
+            <h5>加工单号：</h5>
+            <div class="mui-input-row" style="margin: 10px 5px;">
+                <h4>2019082500006</h4>
+            </div>
+            <h5>提货日期：</h5>
+            <div class="mui-input-row" style="margin: 10px 5px;">
+                <p>2019-08-25</p>
+			</div>
+            <h5>提货内容：</h5>
+            <div class="mui-input-row" style="margin: 10px 5px;">
+                <p>提货内容说明。</p>
+            </div>
+            <h5>车辆信息：</h5>
+            <div class="mui-input-row" style="margin: 10px 5px;">
+                <p>粤EUF643,张先生,13690909876。</p>
+            </div>
+		</div>
+    </div>
+</body>
+    <script src="../js/mui.min.js"></script>
+	<script>
+	    mui.init({
+	        swipeBack: true //启用右滑关闭功能
+	    });
+	</script>
+</html>

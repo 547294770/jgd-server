@@ -21,22 +21,22 @@ namespace SK.User.Controllers
         public void info()
         {
 
-            UserProduct product = new UserProduct();
+            //UserProduct product = new UserProduct();
 
-            var desc = product.PlatformType.GetDescription();
+            //var desc = product.PlatformType.GetDescription();
 
-            var returnObj = new
-            {
-                code = 0,
-                msg = "成功",
-                desc = desc,
-                count = 1,
-                data = UserInfo
-            };
+            //var returnObj = new
+            //{
+            //    code = 0,
+            //    msg = "成功",
+            //    desc = desc,
+            //    count = 1,
+            //    data = UserInfo
+            //};
 
-            string json = JsonConvert.SerializeObject(returnObj);
+            //string json = JsonConvert.SerializeObject(returnObj);
 
-            this.Response.Write(json);
+            //this.Response.Write(json);
         }
 
         public void login()
@@ -61,17 +61,17 @@ namespace SK.User.Controllers
 
         public void add()
         {
-            Entities.UserShop model = new Entities.UserShop();
-            model.CreateAt = DateTime.Now;
-            model.PlatformType = PlatformType.Alibaba;
-            model.ShopName = QF("ShopName");
-            model.Status = true;
-            model.UserID = 3;// UserInfo.ID;
-            model.WangWangAccount = string.Empty;
+            //Entities.UserShop model = new Entities.UserShop();
+            //model.CreateAt = DateTime.Now;
+            //model.PlatformType = PlatformType.Alibaba;
+            //model.ShopName = QF("ShopName");
+            //model.Status = true;
+            //model.UserID = 3;// UserInfo.ID;
+            //model.WangWangAccount = string.Empty;
 
-            model.Insert();
+            //model.Insert();
 
-            this.ShowResult(true, "添加成功");
+            //this.ShowResult(true, "添加成功");
 
         }
     }

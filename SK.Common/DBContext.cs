@@ -9,17 +9,20 @@ using SK.Entities;
 
 namespace SK.Common
 {
-    public class DBContext : DataContext
-    {
-        public DBContext(IDbConnection connection) : base(connection) {
-            var dd = "";
-        }
-        public DBContext(string connection) : base(connection) { }
+    //public class DBContext : DataContext
+    //{
+    //    public DBContext(IDbConnection connection) : base(connection) {
+            
+    //    }
+    //    public DBContext(string connection) : base(connection) { }
 
-        public Table<Admin> Admin;
-        public Table<User> User;
-        public Table<UserToken> UserToken;
-        public Table<UserShop> UserShop;
-        public Table<UserProduct> UserProduct;
-    }
+    //    public Table<Admin> Admin;
+    //    public Table<User> User;
+    //    public Table<UserToken> UserToken;
+    //    public Table<ProcessingOrder> ProcessingOrder;
+    //    public Table<ProcessingFee> ProcessingFee;
+    //    public Table<PickUpOrder> PickUpOrder;
+    //    public Table<DeliveryOrder> DeliveryOrder;
+    //    public Table<Attachment> Attachment;
+    //}
 }

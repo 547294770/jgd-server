@@ -1,0 +1,279 @@
+﻿
+<script type="text/javascript">
+
+    var jgd_detail_callback = function (res) {
+        delete jgd_detail_callback;
+
+        console.log(res);
+        layui.use(['upload','table','admin','form','view'], function () {
+            var upload = layui.upload,
+                table = layui.table,
+                admin = layui.admin,
+                view = layui.view,
+                form = layui.form,
+                $ = layui.$;
+
+            var data = [];
+
+            var loadData = function () {
+                admin.req({
+                    url: '/handler/admin/attachment/list',
+                    data: { "OrderID": document.getElementById('admin-processing-orderid').value },
+                    type: "post",
+                    success: function (res) {
+                        if (!res.code && res.data.length > 0) {
+                            for (var i = 0; i < res.data.length; i++) {
+                                data.push(res.data[i]);
+                            }
+                            table.reload("admin-processing-attachment-table", {
+                                data: data
+                            });
+                        }
+                    }
+                });
+            }
+            loadData();
+            
+
+            table.render({
+                elem: "#admin-processing-attachment-table",
+                data: data,
+                skin: "auto",
+                size: "sm",
+                page: false,
+                cols: [[
+                    { title: "文件原名", field: "Name" },
+                    { title: "文件大小", templet: "<div>{{ (d.FileSize / 1024).toFixed(2) }}KB</div>" },
+                    { title: "上传时间", field: "CreateAt" },
+                    { title: "更新时间", field: "UpdateAt" },
+                    { title: "操作", templet: "<div><a target=\"_blank\" class=\"layui-btn layui-btn-primary layui-btn-xs\" href=\"{{ d.FilePath }}\">查看</a> <button class=\"layui-btn layui-btn-danger layui-btn-xs\" lay-event=\"delete\">删除</button></div>" }
+                ]]
+            });
+
+            $("#admin-processing-attachment-save").on("click", function () {
+                var index = layer.load(2, { time: 3000 });
+                admin.req({
+                    url: '/handler/admin/attachment/save',
+                    data: {
+                        "data": JSON.stringify(table.cache["admin-processing-attachment-table"]),
+                        "OrderID": document.getElementById('admin-processing-orderid').value
+                    },
+                    type: "post",
+                    success: function (res) {
+                        layer.close(index);
+                        layer.alert(res.msg, { icon: res.code == 0 ? 1 : 2 }, function () {
+                            layer.closeAll();
+                        });
+                        
+                        //loadData();
+                    }
+                });
+                
+            })
+
+            form.on('radio(admin-processing-fee-billtype)', function (data) {
+                $('#admin-processing-fee-billtype').val(data.value);
+            })
+
+            admin.form.render();
+
+            table.on("tool(admin-processing-attachment-table)", function (ele) {
+                switch (ele.event) {
+                    case "delete":
+                        {
+                            $.each(data, function (index, item) {
+                                if (item.FileName == ele.data.FileName) {
+                                    data.splice(index, 1);
+                                    table.reload("admin-processing-attachment-table", {
+                                        data: data
+                                    });
+                                    return false;
+                                }
+                            });
+                        }
+                        break;
+                    default:
+                        break;
+
+                }
+            });
+
+            $("#admin-processing-attachment-inputdelivery").on("click", function () {
+                admin.popup({
+                    id: "deliveryinfo",
+                    area: ["600px", "600px"],
+                    success: function (a, b) {
+                        view(this.id).render("admin/delivery/delivery-info", { "ID": document.getElementById('admin-processing-orderid').value });
+                    }
+                });
+            });
+
+
+            //执行实例
+            var uploadInst = upload.render({
+                elem: '#test1' //绑定元素
+              , url: '/handler/admin/upload/upload' //上传接口
+              , done: function (res) {
+                  //上传完毕回调
+  
+                  data.push({
+                      "Name": res.data.name,
+                      "FileName": res.data.file,
+                      "FilePath": res.data.src,
+                      "FileSize": res.data.size,
+                      "CreateAt": res.data.createat,
+                      "UpdateAt": res.data.updateat,
+                  });
+
+                  table.reload("admin-processing-attachment-table", {
+                      data: data
+                  });
+              }
+              , error: function () {
+                  //请求异常回调
+              }
+            });
+
+            $("#admin-processing-save button").on("click", function () {
+
+                layer.confirm("提交后会改变加工单状态，确认要提交吗？", function () {
+                    var index = layer.load(2, { time: 3000 });
+                    admin.req({
+                        url: '/handler/admin/processingorder/save',
+                        data: {
+                            "OrderID": document.getElementById('admin-processing-orderid').value,
+                            "Delivery": { "DeliveryAt": $("#admin-delivery-deliveryat").val(), "Content": $("#admin-delivery-content").val(), "VehicleInfo": $("#admin-delivery-vehicleinfo").val() },
+                            "Fee": { "Type": $('#admin-processing-fee-billtype').val(),"Content": $("#admin-processing-fee-detail").val() }
+                        },
+                        type: "post",
+                        success: function (res) {
+                            layer.close(index);
+                            layer.alert(res.msg, { icon: res.code == 0 ? 1 : 2 }, function () {
+                                layer.closeAll();
+                            });
+                        }
+                    });
+                });
+            });
+        });
+    }
+
+
+</script>
+<script template type="text/html" lay-done="jgd_detail_callback(d);">
+<div class="layui-form" lay-filter="admin-processing-jgd-info-form">
+    <div class="layui-form-item">
+        <label class="layui-form-label">单号：</label>
+        <div class="layui-input-inline"><input type="hidden" id="admin-processing-orderid" value="{{ d.params.ID }}" /><div class="layui-form-mid layui-word-aux"><b>{{ d.params.OrderNo }}</b></div></div>
+        <label class="layui-form-label">状态：</label>
+        <div class="layui-input-inline"><div class="layui-form-mid layui-word-aux">{{ htmlFunction.status(d.params.Status) }}</div></div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">下单时间：</label>
+        <div class="layui-input-block"><div class="layui-form-mid layui-word-aux">{{ d.params.CreateAt }}</div></div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">加工内容：</label>
+        <div class="layui-form-mid layui-word-aux">{{ d.params.Content }}</div>
+    </div>
+    {{# if(d.params.Status == 'Processing'){ }}
+    <div class="layui-form-item">
+        <label class="layui-form-label">上传附件：</label>
+        <div class="layui-form-mid layui-word-aux"><button type="button" class="layui-btn layui-btn-xs" id="test1"><i class="layui-icon">&#xe67c;</i>上传加工单截图</button>  <button type="button" class="layui-btn layui-btn-xs" id="admin-processing-attachment-save"><i class="layui-icon">&#xe67c;</i>保存上传图片</button></div>
+    </div>
+     {{# } }}
+    <div class="layui-form-item">
+        <label class="layui-form-label">附件：</label>
+        <div id="admin-processing-jgd-info-attachment" class="layui-input-block">
+            <table id="admin-processing-attachment-table" lay-filter="admin-processing-attachment-table"></table>
+        </div>
+    </div>
+   
+    {{# if(d.params.Status == 'ConfirmDeliveryMethod'&& d.params.DelType == 'LXD'){ }}
+    <fieldset>
+        <legend>材料送货信息</legend>
+        <div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">日期：</label>
+                <div class="layui-input-inline">
+                    <input type="text" class="layui-input" name="DeliveryAt" placeholder="提材料日期" id="admin-delivery-deliveryat" datetype="date" placeholder="" autocomplete="off">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">材料内容：</label>
+                <div class="layui-input-block">
+                    <textarea id="admin-delivery-content" placeholder="请输入内容" class="layui-textarea"></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">车辆信息：</label>
+                <div class="layui-input-block">
+                    <textarea id="admin-delivery-vehicleinfo" placeholder="请输入内容" class="layui-textarea"></textarea>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+    {{# } }}
+
+    {{# if(d.params.Status == 'InputPickUpContact'){ }}
+    <fieldset>
+        <legend>加工费信息</legend>
+        <div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">结算类型</label>
+                <div class="layui-input-block">
+                  <input type="radio" name="sex" value="Month" lay-filter="admin-processing-fee-billtype" title="月结">
+                  <input type="radio" name="sex" value="Now" lay-filter="admin-processing-fee-billtype" title="现结" checked="">
+                  <input type="hidden" id="admin-processing-fee-billtype" value="Now" />
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">加工费明细</label>
+                <div class="layui-input-block">
+                    <textarea id="admin-processing-fee-detail" placeholder="请输入内容" class="layui-textarea"></textarea>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    {{# } }}
+
+    {{# if(d.params.Status == 'NoticeDelivery'){ }}
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        <div class="layui-form-mid layui-word-aux"><button type="button" class="layui-btn" id="Button1">录入送货信息</button></div>
+    </div>
+    {{# } }}
+    
+    <div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        <div id="admin-processing-save" class="layui-input-block">
+            {{# if(d.params.Status == 'Processing'){ }}
+            <button class="layui-btn layui-btn-normal">提交确认</button>
+            {{# } }}
+            {{# if(d.params.Status == 'InputDelivery'){ }}
+            <button id="Button2" class="layui-btn layui-btn-normal">确认材料已入库</button>
+            {{# } }}
+            {{# if(d.params.Status == 'ConfirmDeliveryMethod'&& d.params.DelType == 'LXD'){ }}
+            <button id="Button8" class="layui-btn layui-btn-normal">提交并确认材料提货信息</button>
+            {{# } }}
+            {{# if(d.params.Status == 'Warehousing'){ }}
+            <button id="Button3" class="layui-btn layui-btn-normal">确认已安排生产</button>
+            {{# } }}
+            {{# if(d.params.Status == 'Producing'){ }}
+            <button id="Button4" class="layui-btn layui-btn-normal">确认生产完已入库</button>
+            {{# } }}
+            {{# if(d.params.Status == 'Produced'){ }}
+            <button id="Button5" class="layui-btn layui-btn-normal">通知客户提货</button>
+            {{# } }}
+            {{# if(d.params.Status == 'InputPickUpContact'){ }}
+            <button id="Button6" class="layui-btn layui-btn-normal">确认已备货并提交加工费确认</button>
+            {{# } }}
+            {{# if(d.params.Status == 'ConfirmationFee'){ }}
+            <button id="Button7" class="layui-btn layui-btn-normal">确认已发货</button>
+            {{# } }}
+        </div>
+    </div>
+
+</div>
+</script>

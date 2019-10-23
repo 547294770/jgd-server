@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
@@ -40,16 +41,149 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin.cs" />
+    <Compile Include="Admin.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Admin.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Attachment.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Attachment.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DeliveryOrder.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DeliveryOrder.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Enums\CommonEnum.cs" />
+    <Compile Include="parts\DeliveryOrder.cs" />
+    <Compile Include="parts\ProcessingFee.cs" />
     <Compile Include="parts\User.cs" />
     <Compile Include="parts\UserShop.cs" />
+    <Compile Include="parts\ProcessingOrder.cs" />
+    <Compile Include="parts\PickUpOrder.cs" />
+    <Compile Include="PickUpOrder.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PickUpOrder.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessingFee.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProcessingFee.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessingOrder.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProcessingOrder.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User.cs" />
-    <Compile Include="UserProduct.cs" />
-    <Compile Include="UserToken.cs" />
-    <Compile Include="UserShop.cs" />
-    <Compile Include="ProductType.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="User.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>User.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="UserToken.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserToken.dbml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Admin.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Admin.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="app.config" />
+    <None Include="Attachment.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Attachment.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DeliveryOrder.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DeliveryOrder.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PickUpOrder.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>PickUpOrder.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProcessingFee.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>ProcessingFee.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProcessingOrder.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>ProcessingOrder.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="User.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>User.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UserToken.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>UserToken.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Admin.dbml.layout">
+      <DependentUpon>Admin.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Attachment.dbml.layout">
+      <DependentUpon>Attachment.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DeliveryOrder.dbml.layout">
+      <DependentUpon>DeliveryOrder.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PickUpOrder.dbml.layout">
+      <DependentUpon>PickUpOrder.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ProcessingFee.dbml.layout">
+      <DependentUpon>ProcessingFee.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ProcessingOrder.dbml.layout">
+      <DependentUpon>ProcessingOrder.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="User.dbml.layout">
+      <DependentUpon>User.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UserToken.dbml.layout">
+      <DependentUpon>UserToken.dbml</DependentUpon>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

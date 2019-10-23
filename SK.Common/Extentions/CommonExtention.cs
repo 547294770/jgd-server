@@ -12,10 +12,10 @@ namespace SK.Common.Extentions
 {
     public static class CommonExtention
     {
-        public static T Fill<T>(this NameValueCollection form) where T : new()
+        public static T Fill<T>(this NameValueCollection form,T model) where T : new()
         {
-            var obj = new T();
-            var type = obj.GetType();
+            var obj = model;
+            var type = model.GetType();
 
             var properties = type.GetProperties();
             foreach (var pro in properties)

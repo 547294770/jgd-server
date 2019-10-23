@@ -10,18 +10,18 @@ namespace SK.BL
 {
     public class BaseBL
     {
-        private static DBContext _dc;
-        protected DBContext DBC
-        {
-            get
-            {
-                if (_dc == null)
-                {
-                    _dc = new DBContext(DBConnection.DefaultConnecetion);
-                }
+        //private static DBContext _dc;
+        //protected DBContext DBC
+        //{
+        //    get
+        //    {
+        //        if (_dc == null)
+        //        {
+        //            _dc = new DBContext(DBConnection.DefaultConnecetion);
+        //        }
 
-                return _dc;
-            }
-        }
+        //        return _dc;
+        //    }
+        //}
     }
 }

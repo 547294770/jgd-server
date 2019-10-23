@@ -8,6 +8,6 @@ namespace SK.Common
 {
     public class DBC
     {
-        public static DBContext Context = new DBContext(DBConnection.DefaultConnecetion);
+        //public static DBContext Context = new DBContext(DBConnection.DefaultConnecetion);
     }
 }

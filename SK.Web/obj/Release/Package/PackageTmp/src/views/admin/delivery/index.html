@@ -1,0 +1,119 @@
+﻿<title>送货单</title>
+<div class="layui-card layadmin-header">
+    <div class="layui-breadcrumb" lay-filter="breadcrumb">
+        <a lay-href="">主页</a>
+        <a><cite>送货单</cite></a>
+        <a><cite>送货单</cite></a>
+    </div>
+</div>
+<div class="layui-fluid">
+    <div class="layui-card">
+        <div class="layui-card-header">
+            送货单
+        </div>
+        <div class="layui-card-body">
+            <form class="layui-form layui-form-sm" action="/handler/admin/deliveryorder/list" method="post" id="admin-delivery-form" lay-filter="admin-delivery-form">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">提货单号</label>
+                    <div class="layui-input-inline w100">
+                        <input type="text" name="OrderNo" placeholder="提货单号" class="layui-input" autocomplete="off" />
+                    </div>
+                    <label class="layui-form-label">加工单号</label>
+                    <div class="layui-input-inline w100">
+                        <input type="text" name="ProcessingNo" placeholder="加工单号" class="layui-input" autocomplete="off" />
+                    </div>
+                    <label class="layui-form-label">下单时间</label>
+                    <div class="layui-input-inline w120">
+                        <input type="text" class="layui-input" name="StartAt" id="StartAt" datetype="date" placeholder="" autocomplete="off">
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">-</div>
+                    <div class="layui-input-inline w120">
+                        <input type="text" class="layui-input" name="EndAt" id="EndAt" datetype="date"  placeholder="" autocomplete="off">
+                    </div>
+                    <div class="layui-input-inline auto">
+                        <button lay-submit lay-filter="admin-delivery-form-submit" class="layui-btn layui-btn-sm">查找</button><input type="reset" class="layui-btn layui-btn-primary layui-btn-sm" value="重置" />
+                    </div>
+                </div>
+            </form>
+            <table id="admin-delivery-index" lay-filter="admin-delivery-index"></table>
+            <script type="text/html" id="admin-delivery-index-table-operate">
+                <div class="opetate">
+                    <button class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</button>
+                    <button class="layui-btn layui-btn-xs" lay-event="edit">编辑</button>
+                    <button class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete">删除</button>
+                </div>
+            </script>
+        </div>
+    </div>
+</div>
+<script>
+    layui.use(["admin", "form","table", "laydate", "view"], function () {
+        var $ = layui.$
+        , admin = layui.admin
+        , table = layui.table
+        , laydate = layui.laydate
+        , form = layui.form
+        , view = layui.view;
+        console.log("444444444444....");
+
+        admin.form.render();
+
+        table.render({
+            elem: "#admin-delivery-index",
+            url: "/handler/admin/deliveryorder/list",
+            skin: "auto",
+            size:"sm",
+            method:"post",
+            page: true,
+            cols: [[
+                { title: "加工单号", field: "OrderNo" },
+                { title: "所属加工单", field: "ProcessingNo" },
+                { title: "类型", field: "TypeName" },
+                { title: "内容", field: "Content" },
+                { title: "车辆信息", field: "VehicleInfo" },
+                { title: "送货日期", field: "DeliveryAt" },
+                { title: "下单时间", field: "CreateAt" },
+                { title: "操作", templet: "#admin-delivery-index-table-operate" }
+            ]]
+        });
+
+        table.on("tool(admin-delivery-index)", function (ele) {
+            switch (ele.event) {
+                case "detail":
+                    {
+                        //view().render("admin/delivery/jgd-info")
+                        admin.popup({
+                            id:"test111",
+                            area: ["600px", "400px"],
+                            success: function (a, b) {
+                                view(this.id).render("admin/delivery/jgd-info", ele.data);
+                            }
+                        });
+                    }
+                    break;
+                default:
+                    break;
+
+            }
+        });
+
+        form.on('submit(admin-delivery-form-submit)', function (data) {
+            console.log(data.elem);
+            console.log(data.form);
+            console.log(data.field);
+            table.reload('admin-delivery-index', { where: data.field });
+            //admin.req(
+            //    {
+            //        "url": data.form.action,
+            //        "data": data.field,
+            //        "success": function (res) {
+            //            console.log(res);
+            //            table.render({ elem: "#admin-delivery-index", })
+            //        }
+            //    }
+            //    );
+
+            return false;
+        });
+    });
+</script>

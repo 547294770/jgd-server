@@ -20,7 +20,8 @@ namespace SK.BL
         /// <returns></returns>
         public User GetUserInfo(string userName, string passWord)
         {
-            var obj = DBC.User.FirstOrDefault(p => p.UserName == userName && p.PassWord == passWord);
+            UserDataContext dc = new UserDataContext();
+            var obj = dc.User.FirstOrDefault(p => p.UserName == userName && p.PassWord == passWord);
             return obj;
         }
 
@@ -29,12 +30,15 @@ namespace SK.BL
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public string GetUserToken(int userId)
+        public string GetUserToken(string userId)
         {
+            UserDataContext dc = new UserDataContext();
+            UserTokenDataContext UserTokenDc = new UserTokenDataContext();
+
             lock (lockObj)
             {
-                var obj = DBC.UserToken.FirstOrDefault(p => p.UserID == userId);
-                var userInfo = DBC.User.FirstOrDefault(p => p.ID == userId);
+                var obj = UserTokenDc.UserToken.FirstOrDefault(p => p.UserID == userId);
+                var userInfo = dc.User.FirstOrDefault(p => p.ID == userId);
                 var tokenString = Guid.NewGuid().ToString("N");
                 if (userInfo == null) return string.Empty;
 
@@ -46,8 +50,8 @@ namespace SK.BL
                         Token = tokenString
                     };
 
-                    DBC.UserToken.InsertOnSubmit(token);
-                    DBC.SubmitChanges();
+                    UserTokenDc.UserToken.InsertOnSubmit(token);
+                    UserTokenDc.SubmitChanges();
                 }
 
                 return obj.Token;
@@ -61,10 +65,13 @@ namespace SK.BL
         /// <returns></returns>
         public User GetUserInfo(string token)
         {
-            var obj = DBC.UserToken.FirstOrDefault(p => p.Token == token);
+            UserTokenDataContext UserTokenDc = new UserTokenDataContext();
+            UserDataContext dc = new UserDataContext();
+
+            var obj = UserTokenDc.UserToken.FirstOrDefault(p => p.Token == token);
             if (obj == null) return null;
 
-            return DBC.User.FirstOrDefault(p => p.ID == obj.UserID);
+            return dc.User.FirstOrDefault(p => p.ID == obj.UserID);
         }
 
         /// <summary>
@@ -75,10 +82,12 @@ namespace SK.BL
         /// <returns></returns>
         public User Login(string userName, string passWord)
         {
+            UserTokenDataContext UserTokenDc = new UserTokenDataContext();
+
             var user = GetUserInfo(userName, passWord);
             if (user != null) {
 
-                var tokenE = DBC.UserToken.FirstOrDefault(p => p.UserID == user.ID);
+                var tokenE = UserTokenDc.UserToken.FirstOrDefault(p => p.UserID == user.ID);
                 if (tokenE != null)
                 {
                     tokenE.Token = Guid.NewGuid().ToString("N");
@@ -91,10 +100,10 @@ namespace SK.BL
                         Token = Guid.NewGuid().ToString("N")
                     };
 
-                    DBC.UserToken.InsertOnSubmit(token);
+                    UserTokenDc.UserToken.InsertOnSubmit(token);
                 }
 
-                DBC.SubmitChanges();
+                UserTokenDc.SubmitChanges();
 
                 return user;
             }

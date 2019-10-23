@@ -15,5 +15,18 @@ namespace SK.Common.Extentions
         //    string[] names = Enum.GetNames(em.GetType());
         //    return new Dictionary<string, string>();
         //}
+
+        public static T ToEnum<T>(this string value)
+        {
+            try
+            {
+                return  (T) Enum.Parse(typeof(T), value);
+            }
+            catch 
+            {
+            }
+
+            return default(T);
+        }
     }
 }

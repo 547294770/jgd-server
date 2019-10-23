@@ -51,6 +51,7 @@
     <Compile Include="BasePage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserHandler.cs" />
+    <Compile Include="AdminHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SK.BL\SK.BL.csproj">

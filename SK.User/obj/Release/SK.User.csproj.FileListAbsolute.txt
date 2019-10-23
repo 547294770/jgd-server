@@ -1,0 +1,15 @@
+E:\src\web\vs2012\LXD\SK.User\bin\Release\SK.User.dll
+E:\src\web\vs2012\LXD\SK.User\bin\Release\SK.User.pdb
+E:\src\web\vs2012\LXD\SK.User\bin\Release\Newtonsoft.Json.dll
+E:\src\web\vs2012\LXD\SK.User\bin\Release\SK.BL.dll
+E:\src\web\vs2012\LXD\SK.User\bin\Release\SK.Common.dll
+E:\src\web\vs2012\LXD\SK.User\bin\Release\SK.Entities.dll
+E:\src\web\vs2012\LXD\SK.User\bin\Release\SK.Handler.dll
+E:\src\web\vs2012\LXD\SK.User\bin\Release\SK.BL.pdb
+E:\src\web\vs2012\LXD\SK.User\bin\Release\SK.Common.pdb
+E:\src\web\vs2012\LXD\SK.User\bin\Release\SK.Entities.pdb
+E:\src\web\vs2012\LXD\SK.User\bin\Release\SK.Handler.pdb
+E:\src\web\vs2012\LXD\SK.User\bin\Release\Newtonsoft.Json.xml
+E:\src\web\vs2012\LXD\SK.User\obj\Release\SK.User.csprojResolveAssemblyReference.cache
+E:\src\web\vs2012\LXD\SK.User\obj\Release\SK.User.dll
+E:\src\web\vs2012\LXD\SK.User\obj\Release\SK.User.pdb
