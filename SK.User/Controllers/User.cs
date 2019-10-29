@@ -12,14 +12,75 @@ using SK.Common.Extentions;
 using SK.Entities.Enums;
 using System.ComponentModel;
 using SK.Entities;
+using SK.Common.Caches;
 
 namespace SK.User.Controllers
 {
     public class User : BasePage
     {
+        public void init()
+        {
+            OnBeforeInit();
+        }
+
+        private void OnBeforeInit()
+        {
+            HttpContext context = this.Context;
+            context.Response.ContentType = "application/json";
+
+            var cookie = context.Request.Cookies[Consts.USER_INFO];
+            if (cookie != null)
+            {
+                string token = cookie.Value;
+                if (!string.IsNullOrEmpty(token))
+                {
+                    object obj = UserCache.GetUser(token);
+                    if (obj == null)
+                    {
+                        WXUserDataContext cxt = new WXUserDataContext();
+                        var userInfo = cxt.WXUser.FirstOrDefault(p => p.openid == token);
+                        if (userInfo != null)
+                        {
+                            UserCache.AddUser(token, userInfo);
+                            context.Items[Consts.USER_INFO] = userInfo;
+                            context.Response.Write(JsonConvert.SerializeObject(userInfo));
+                            context.Response.End();
+                        }
+                    }
+                    else
+                    {
+                        UserCache.AddUser(token, obj);
+                        context.Items[Consts.USER_INFO] = obj;
+                        context.Response.Write(JsonConvert.SerializeObject(obj));
+                        context.Response.End();
+                    }
+                }
+            }
+            else
+            {
+                var obj = new { 
+                    code = "2222",
+                    url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxcee2bf962b1ef8f3&redirect_uri=https%3A%2F%2Ftest.alry.cn%2Fhandler%2Fuser%2Foauth%2Fuserinfo&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect"
+                };
+
+                
+                context.Response.Write(JsonConvert.SerializeObject(obj));
+                context.Response.End();
+                //context.Response.Redirect("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxcee2bf962b1ef8f3&redirect_uri=https%3A%2F%2Ftest.alry.cn%2Fhandler%2Fuser%2Foauth%2Fuserinfo&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect");
+            }
+        }
+
         public void info()
         {
-            this.ShowResult(true, "ok", UserInfo);
+
+            if (UserInfo != null)
+            {
+                this.ShowResult(true, "成功", UserInfo);
+            }
+            else
+            {
+                this.ShowResult(false, "失败", null);
+            }
 
             //UserProduct product = new UserProduct();
 

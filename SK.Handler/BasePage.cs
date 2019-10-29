@@ -27,9 +27,16 @@ namespace SK.Handler
         {
             get
             {
-                if (Context.Items[Consts.USER_INFO] != null)
+                var cookie = Request.Cookies[Consts.USER_INFO];
+                if (cookie == null || string.IsNullOrWhiteSpace(cookie.Value))
                 {
-                    return (WXUser)Context.Items[Consts.USER_INFO];
+                    return null;
+                }
+
+                var obj =    UserCache.GetUser(cookie.Value);
+                if (obj != null)
+                {
+                    return (WXUser)obj;
                 }
 
                 return null;

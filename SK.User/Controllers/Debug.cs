@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using SK.Entities;
 using System.Net;
 using SK.BL;
+using SK.Common;
 
 namespace SK.User.Controllers
 {
@@ -147,6 +148,21 @@ namespace SK.User.Controllers
 //            var data = Encoding.UTF8.GetString(byteResult);
             //this.ShowResult(true, "成功", data);
         }
-       
+
+        public void cookie1()
+        {
+            var cookie = new System.Web.HttpCookie(Consts.USER_INFO);
+            cookie.Expires = DateTime.Now.AddHours(-1);
+            Context.Response.Cookies.Add(cookie);
+            Context.Response.Write("1111");
+        }
+
+        public void cookie2()
+        {
+            var cookie = Context.Request.Cookies[Consts.USER_INFO];
+
+            Context.Response.Write("cookie" + cookie);
+            Context.Response.End();
+        }
     }
 }
