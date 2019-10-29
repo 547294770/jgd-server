@@ -1,0 +1,35 @@
+﻿{
+	"touser":"{touser}",
+	"template_id":"{template_id}",
+	"url":"{url}",         
+		"data":{
+			"first": {
+				"value":"{first}",
+				"color":"#173177"
+			},
+				"tradeDateTime":{
+					"value":"{tradeDateTime}",
+					"color":"#173177"
+				},
+				"orderType": {
+					"value":"{orderType}",
+					"color":"#173177"
+				},
+				"customerInfo": {
+					"value":"{customerInfo}",
+					"color":"#173177"
+				},
+				"orderItemName":{
+					"value":"{orderItemName}",
+					"color":"#173177"
+				},
+				"orderItemData":{
+					"value":"{orderItemData}",
+					"color":"#173177"
+				},
+				"remark":{
+					"value":"{remark}",
+					"color":"#173177"
+				}
+		}
+}

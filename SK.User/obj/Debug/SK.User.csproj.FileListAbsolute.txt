@@ -18,3 +18,8 @@ E:\src\web\vs2012\LXD\SK.Web\bin\SK.User.pdb
 E:\src\web\vs2012\LXD\SK.User\obj\Debug\SK.User.csprojResolveAssemblyReference.cache
 E:\src\web\vs2012\LXD\SK.User\obj\Debug\SK.User.dll
 E:\src\web\vs2012\LXD\SK.User\obj\Debug\SK.User.pdb
+E:\work\vue\jgd\jgd-server\SK.Web\bin\SK.User.dll
+E:\work\vue\jgd\jgd-server\SK.Web\bin\SK.User.pdb
+E:\work\vue\jgd\jgd-server\SK.User\obj\Debug\SK.User.csprojResolveAssemblyReference.cache
+E:\work\vue\jgd\jgd-server\SK.User\obj\Debug\SK.User.dll
+E:\work\vue\jgd\jgd-server\SK.User\obj\Debug\SK.User.pdb

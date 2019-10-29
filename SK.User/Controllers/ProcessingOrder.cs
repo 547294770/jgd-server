@@ -8,6 +8,7 @@ using SK.Handler;
 using SK.Common.Extentions;
 using Newtonsoft.Json;
 using SK.Entities;
+using SK.BL;
 
 namespace SK.User.Controllers
 {
@@ -199,6 +200,7 @@ namespace SK.User.Controllers
             {
                 case SK.Entities.ProcessingOrder.OrderStatus.None://
                     order.Status = Entities.ProcessingOrder.OrderStatus.Processing;
+                    SendMessageForNewOrder(order);
                     break;
                 case SK.Entities.ProcessingOrder.OrderStatus.Uploaded://
                     DoAttachment(order);
@@ -260,7 +262,10 @@ namespace SK.User.Controllers
 
                 }
 
+                var all = attach.Attachment.AsEnumerable();
+                attach.Attachment.DeleteAllOnSubmit(all);
                 attach.Attachment.InsertAllOnSubmit(list);
+
                 attach.SubmitChanges();
             }
         }
@@ -375,6 +380,18 @@ namespace SK.User.Controllers
                 p.CreateAt
             }).ToList();
             this.ShowResult(true, "成功", list);
+        }
+
+        private void SendMessageForNewOrder(Entities.ProcessingOrder order)
+        { 
+            string tplPath = this.Context.Server.MapPath("/content/templates/新订单通知.json");
+            WXTemplateBL.SendMessageForNewOrder(tplPath,
+                "",
+                "新订单通知",
+                "test1",
+                "加工单",
+               order.OrderNo,
+               order.Content);
         }
     }
 }

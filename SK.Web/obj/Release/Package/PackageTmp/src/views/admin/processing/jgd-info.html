@@ -14,6 +14,7 @@
                 $ = layui.$;
 
             var data = [];
+            var dataFee = [];
 
             var loadData = function () {
                 admin.req({
@@ -32,8 +33,26 @@
                     }
                 });
             }
+            var loadFeeData = function () {
+                admin.req({
+                    url: '/handler/admin/processingfee/list',
+                    data: { "OrderID": document.getElementById('admin-processing-orderid').value },
+                    type: "post",
+                    success: function (res) {
+                        if (!res.code && res.data.length > 0) {
+                            for (var i = 0; i < res.data.length; i++) {
+                                dataFee.push(res.data[i]);
+                            }
+                            table.reload("admin-processing-fee", {
+                                data: dataFee
+                            });
+                        }
+                    }
+                });
+            }
+
             loadData();
-            
+            loadFeeData();
 
             table.render({
                 elem: "#admin-processing-attachment-table",
@@ -49,6 +68,20 @@
                     { title: "操作", templet: "<div><a target=\"_blank\" class=\"layui-btn layui-btn-primary layui-btn-xs\" href=\"{{ d.FilePath }}\">查看</a> <button class=\"layui-btn layui-btn-danger layui-btn-xs\" lay-event=\"delete\">删除</button></div>" }
                 ]]
             });
+
+            table.render({
+                elem: "#admin-processing-fee",
+                data: dataFee,
+                skin: "auto",
+                size: "sm",
+                page: false,
+                cols: [[
+                    { title: "编号", field: "FeeNo" },
+                    { title: "类型", templet: "<div>{{ d.TypeName }}</div>" },
+                    { title: "明细", templet: "<div>{{ d.Content }}</div>" }
+                ]]
+            });
+
 
             $("#admin-processing-attachment-save").on("click", function () {
                 var index = layer.load(2, { time: 3000 });
@@ -150,6 +183,7 @@
                             layer.close(index);
                             layer.alert(res.msg, { icon: res.code == 0 ? 1 : 2 }, function () {
                                 layer.closeAll();
+                                table.reload("admin-processing-index");
                             });
                         }
                     });
@@ -184,8 +218,14 @@
      {{# } }}
     <div class="layui-form-item">
         <label class="layui-form-label">附件：</label>
-        <div id="admin-processing-jgd-info-attachment" class="layui-input-block">
+        <div class="layui-input-block">
             <table id="admin-processing-attachment-table" lay-filter="admin-processing-attachment-table"></table>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">加工费：</label>
+        <div class="layui-input-block">
+            <table id="admin-processing-fee" lay-filter="admin-processing-fee"></table>
         </div>
     </div>
    
@@ -245,7 +285,7 @@
     </div>
     {{# } }}
     
-    <div class="layui-form-item">
+    <div class="layui-form-item" style="margin-top:20px;">
         <label class="layui-form-label"></label>
         <div id="admin-processing-save" class="layui-input-block">
             {{# if(d.params.Status == 'Processing'){ }}

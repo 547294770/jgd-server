@@ -11,3 +11,9 @@ E:\src\web\vs2012\LXD\SK.Common\obj\Debug\SK.Common.csprojResolveAssemblyReferen
 E:\src\web\vs2012\LXD\SK.Common\obj\Debug\SK.Common.dll
 E:\src\web\vs2012\LXD\SK.Common\obj\Debug\SK.Common.pdb
 E:\src\web\vs2012\LXD\SK.Web\bin\SK.Common.dll.config
+E:\work\vue\jgd\jgd-server\SK.Web\bin\SK.Common.dll.config
+E:\work\vue\jgd\jgd-server\SK.Web\bin\SK.Common.dll
+E:\work\vue\jgd\jgd-server\SK.Web\bin\SK.Common.pdb
+E:\work\vue\jgd\jgd-server\SK.Common\obj\Debug\SK.Common.csprojResolveAssemblyReference.cache
+E:\work\vue\jgd\jgd-server\SK.Common\obj\Debug\SK.Common.dll
+E:\work\vue\jgd\jgd-server\SK.Common\obj\Debug\SK.Common.pdb

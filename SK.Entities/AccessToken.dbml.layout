@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="AccessToken">
+  <DataContextMoniker Name="/AccessTokenDataContext" />
+  <nestedChildShapes>
+    <classShape Id="ef7785ee-f866-46af-a4a3-ba3930a85c6f" absoluteBounds="2.75, 2, 2, 1.1895064290364583">
+      <DataClassMoniker Name="/AccessTokenDataContext/AccessToken" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d31acce0-178a-46ed-a2bb-22bb2f9a27de" absoluteBounds="2.765, 2.46, 1.9700000000000002, 0.62950642903645826" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -22,29 +22,11 @@ namespace SK.Handler
         {
             context.BeginRequest += context_BeginRequest;
             context.EndRequest += context_EndRequest;
-           
         }
 
         void context_BeginRequest(object sender, EventArgs e)
         {
             HttpApplication context = (HttpApplication)sender;
-
-            var cookie = context.Context.Request.Cookies[Consts.USER_INFO];
-            if (cookie != null)
-            {
-                string token = cookie.Value;
-                if (!string.IsNullOrEmpty(token)) {
-
-                    object obj = UserCache.GetUser(token);
-                    if (obj == null)
-                    {
-                        var userInfo = UserBL.Instance.GetUserInfo(token);
-                        UserCache.AddUser(token, userInfo);
-                    }
-
-                    context.Context.Items[Consts.USER_INFO] = UserCache.GetUser(token);
-                }
-            }
         }
 
         void context_EndRequest(object sender, EventArgs e)

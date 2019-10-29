@@ -23,14 +23,13 @@ namespace SK.Handler
         /// <summary>
         /// 获取当前登录的用户信息
         /// </summary>
-        protected User UserInfo
+        protected WXUser UserInfo
         {
             get
             {
-                
                 if (Context.Items[Consts.USER_INFO] != null)
                 {
-                    return (User)Context.Items[Consts.USER_INFO];
+                    return (WXUser)Context.Items[Consts.USER_INFO];
                 }
 
                 return null;
@@ -98,13 +97,15 @@ namespace SK.Handler
             Response.End();
         }
 
-        protected bool Login(string userName,string passWord)
+        protected bool Login(string openid)
         {
-            var userInfo = UserBL.Instance.Login(userName, passWord);
+            WXUserDataContext cxt = new WXUserDataContext();
+            var userInfo = cxt.WXUser.FirstOrDefault(p => p.openid == openid);
+            //var userInfo = UserBL.Instance.Login(userName, passWord);
             if (userInfo != null)
             {
                 var cookie = new System.Web.HttpCookie(Consts.USER_INFO);
-                cookie.Value = UserBL.Instance.GetUserToken(userInfo.ID);
+                cookie.Value = userInfo.openid; //UserBL.Instance.GetUserToken(userInfo.openid);
                 UserCache.AddUser(cookie.Value, userInfo);
                 Response.Cookies.Add(cookie);
 
@@ -120,8 +121,8 @@ namespace SK.Handler
             {
                 HttpCookie cookie = new HttpCookie(Consts.USER_INFO);
                 cookie.Expires = DateTime.Now.AddDays(-1);
-                string token = UserBL.Instance.GetUserToken(UserInfo.ID);
-                UserCache.RemoveUser(token);
+
+                UserCache.RemoveUser(cookie.Value);
 
                 Response.Cookies.Add(cookie);
             }

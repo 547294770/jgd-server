@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="JGD" Class="AccessTokenDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\MSSQLSERVER2;Initial Catalog=JGD;User ID=sa;MultipleActiveResultSets=True" SettingsObjectName="SK.Entities.Properties.Settings" SettingsPropertyName="JGDConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AccessToken" Member="AccessToken">
+    <Type Name="AccessToken">
+      <Column Name="Token" Type="System.String" DbType="VarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Expired" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

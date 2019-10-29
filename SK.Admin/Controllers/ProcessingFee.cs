@@ -15,7 +15,7 @@ namespace SK.Admin.Controllers
         public void list()
         {
             ProcessingFeeDataContext dc = new ProcessingFeeDataContext();
-            var list = dc.ProcessingFee.AsQueryable();
+            var list = dc.ProcessingFee.Where(p=>p.SourceID == QF("OrderID"));
 
             if (!string.IsNullOrEmpty(QF("FeeNo"))) list = list.Where(p => p.FeeNo == QF("FeeNo"));
             if (!string.IsNullOrEmpty(QF("ProcessingNo"))) list = list.Where(p => p.ProcessingNo == QF("ProcessingNo"));

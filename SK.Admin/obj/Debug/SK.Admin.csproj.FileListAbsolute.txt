@@ -15,3 +15,8 @@ E:\src\web\vs2012\LXD\SK.Web\bin\SK.Admin.pdb
 E:\src\web\vs2012\LXD\SK.Admin\obj\Debug\SK.Admin.csprojResolveAssemblyReference.cache
 E:\src\web\vs2012\LXD\SK.Admin\obj\Debug\SK.Admin.dll
 E:\src\web\vs2012\LXD\SK.Admin\obj\Debug\SK.Admin.pdb
+E:\work\vue\jgd\jgd-server\SK.Web\bin\SK.Admin.dll
+E:\work\vue\jgd\jgd-server\SK.Web\bin\SK.Admin.pdb
+E:\work\vue\jgd\jgd-server\SK.Admin\obj\Debug\SK.Admin.csprojResolveAssemblyReference.cache
+E:\work\vue\jgd\jgd-server\SK.Admin\obj\Debug\SK.Admin.dll
+E:\work\vue\jgd\jgd-server\SK.Admin\obj\Debug\SK.Admin.pdb

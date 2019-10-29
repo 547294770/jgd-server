@@ -37,35 +37,35 @@ namespace SK.Admin.Controllers
             //this.Response.Write(json);
         }
 
-        public void login()
-        {
-            string userName = QF("UserName");
-            string passWord = QF("PassWord");
+        //public void login()
+        //{
+        //    string userName = QF("UserName");
+        //    string passWord = QF("PassWord");
 
-            var result = Login(userName, passWord);
-            if (result)
-            {
-                this.ShowResult(true, "登录成功");
-                return;
-            }
+        //    var result = Login(userName, passWord);
+        //    if (result)
+        //    {
+        //        this.ShowResult(true, "登录成功");
+        //        return;
+        //    }
 
-            this.ShowResult(false, "登录失败");
-        }
+        //    this.ShowResult(false, "登录失败");
+        //}
 
         public void logout()
         {
             Logout();
         }
 
-        public void add()
-        {
-            var userInfo = UserInfo;
-            var usrName = "";
-            if (userInfo != null) {
-                usrName = userInfo.UserName;
-            }
+        //public void add()
+        //{
+        //    var userInfo = UserInfo;
+        //    var usrName = "";
+        //    if (userInfo != null) {
+        //        usrName = userInfo.UserName;
+        //    }
             
-            this.ShowResult(false, usrName);
-        }
+        //    this.ShowResult(false, usrName);
+        //}
     }
 }

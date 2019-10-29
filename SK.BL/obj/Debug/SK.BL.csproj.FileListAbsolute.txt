@@ -16,3 +16,14 @@ E:\src\web\vs2012\LXD\SK.BL\bin\Debug\SK.Entities.pdb
 E:\src\web\vs2012\LXD\SK.BL\obj\Debug\SK.BL.csprojResolveAssemblyReference.cache
 E:\src\web\vs2012\LXD\SK.BL\obj\Debug\SK.BL.dll
 E:\src\web\vs2012\LXD\SK.BL\obj\Debug\SK.BL.pdb
+E:\work\vue\jgd\jgd-server\SK.BL\bin\Debug\SK.BL.dll
+E:\work\vue\jgd\jgd-server\SK.BL\bin\Debug\SK.BL.pdb
+E:\work\vue\jgd\jgd-server\SK.BL\bin\Debug\SK.Common.dll
+E:\work\vue\jgd\jgd-server\SK.BL\bin\Debug\SK.Entities.dll
+E:\work\vue\jgd\jgd-server\SK.BL\bin\Debug\SK.Common.pdb
+E:\work\vue\jgd\jgd-server\SK.BL\bin\Debug\SK.Entities.pdb
+E:\work\vue\jgd\jgd-server\SK.BL\obj\Debug\SK.BL.csprojResolveAssemblyReference.cache
+E:\work\vue\jgd\jgd-server\SK.BL\obj\Debug\SK.BL.dll
+E:\work\vue\jgd\jgd-server\SK.BL\obj\Debug\SK.BL.pdb
+E:\work\vue\jgd\jgd-server\SK.BL\bin\Debug\Newtonsoft.Json.dll
+E:\work\vue\jgd\jgd-server\SK.BL\bin\Debug\Newtonsoft.Json.xml

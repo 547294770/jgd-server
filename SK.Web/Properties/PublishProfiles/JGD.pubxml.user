@@ -14,25 +14,25 @@
       <publishTime>05/13/2019 22:28:42</publishTime>
     </File>
     <File Include="bin/SK.Admin.dll">
-      <publishTime>10/24/2019 07:20:52</publishTime>
+      <publishTime>10/29/2019 07:07:47</publishTime>
     </File>
     <File Include="bin/SK.BL.dll">
-      <publishTime>10/24/2019 07:08:45</publishTime>
+      <publishTime>10/28/2019 15:51:14</publishTime>
     </File>
     <File Include="bin/SK.Common.dll">
-      <publishTime>10/24/2019 07:08:44</publishTime>
+      <publishTime>10/28/2019 15:51:13</publishTime>
     </File>
     <File Include="bin/SK.Entities.dll">
-      <publishTime>10/24/2019 07:08:44</publishTime>
+      <publishTime>10/28/2019 15:51:13</publishTime>
     </File>
     <File Include="bin/SK.Handler.dll">
-      <publishTime>10/24/2019 07:08:45</publishTime>
+      <publishTime>10/29/2019 07:07:47</publishTime>
     </File>
     <File Include="bin/SK.User.dll">
-      <publishTime>10/24/2019 07:16:52</publishTime>
+      <publishTime>10/29/2019 07:07:47</publishTime>
     </File>
     <File Include="bin/SK.Web.dll">
-      <publishTime>10/24/2019 07:16:53</publishTime>
+      <publishTime>10/29/2019 07:07:48</publishTime>
     </File>
     <File Include="content/dist/config.js">
       <publishTime>05/26/2019 15:11:30</publishTime>
@@ -126,6 +126,21 @@
     </File>
     <File Include="content/layui/rc/layui.js">
       <publishTime>09/10/2019 08:16:31</publishTime>
+    </File>
+    <File Include="content/templates/出库提醒.json">
+      <publishTime>10/28/2019 04:36:48</publishTime>
+    </File>
+    <File Include="content/templates/商品入库通知.json">
+      <publishTime>10/28/2019 04:36:54</publishTime>
+    </File>
+    <File Include="content/templates/提货通知.json">
+      <publishTime>10/28/2019 04:37:09</publishTime>
+    </File>
+    <File Include="content/templates/新订单通知.json">
+      <publishTime>10/28/2019 04:37:14</publishTime>
+    </File>
+    <File Include="content/templates/送货通知.json">
+      <publishTime>10/28/2019 04:37:17</publishTime>
     </File>
     <File Include="index.html">
       <publishTime>09/18/2019 00:53:10</publishTime>
@@ -410,10 +425,10 @@
       <publishTime>09/17/2019 03:15:24</publishTime>
     </File>
     <File Include="src/views/admin/processing/index.html">
-      <publishTime>10/20/2019 17:35:22</publishTime>
+      <publishTime>10/26/2019 08:03:23</publishTime>
     </File>
     <File Include="src/views/admin/processing/jgd-info.html">
-      <publishTime>10/24/2019 07:33:29</publishTime>
+      <publishTime>10/26/2019 08:42:40</publishTime>
     </File>
     <File Include="src/views/clientManagement/myClient/index.html">
       <publishTime>09/14/2019 01:46:52</publishTime>
@@ -1790,7 +1805,7 @@
       <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/24/2019 07:33:43</publishTime>
+      <publishTime>10/29/2019 07:07:49</publishTime>
     </File>
   </ItemGroup>
 </Project>

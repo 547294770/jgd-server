@@ -51,6 +51,7 @@
     <Compile Include="Controllers\User.cs" />
     <Compile Include="Controllers\UserShop.cs" />
     <Compile Include="Controllers\Debug.cs" />
+    <Compile Include="Controllers\OAuth.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

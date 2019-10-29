@@ -8,6 +8,7 @@ using SK.Handler;
 using SK.Common.Extentions;
 using Newtonsoft.Json;
 using SK.Entities;
+using SK.BL;
 
 namespace SK.Admin.Controllers
 {
@@ -254,6 +255,7 @@ namespace SK.Admin.Controllers
             order.Status = Entities.ProcessingOrder.OrderStatus.NoticePickUp;
             dc.SubmitChanges();
 
+            //通知提货
             this.ShowResult(true, "保存成功");
         }
 
@@ -317,6 +319,21 @@ namespace SK.Admin.Controllers
 
 
             AttachmentDataContext dcAttachment = new AttachmentDataContext();
+        }
+
+
+        private void SendMessageForPickUp(Entities.ProcessingOrder order)
+        {
+            string tplPath = this.Context.Server.MapPath("/content/templates/提货通知.json");
+            WXTemplateBL.SendMessageForDelivery(tplPath,
+                "",
+                "您有一个提货信息",
+                "20191028001",
+                "邱先生",
+               "13987654321",
+               "粤B.394900",
+               "20191029",
+               "提货测试");
         }
     }
 }

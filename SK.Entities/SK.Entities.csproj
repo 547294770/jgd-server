@@ -41,6 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccessToken.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AccessToken.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Admin.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -84,6 +89,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="ToUsers.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ToUsers.dbml</DependentUpon>
+    </Compile>
     <Compile Include="User.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -94,8 +104,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UserToken.dbml</DependentUpon>
     </Compile>
+    <Compile Include="WXUser.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WXUser.dbml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="AccessToken.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>AccessToken.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Admin.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>Admin.designer.cs</LastGenOutput>
@@ -131,6 +151,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="ToUsers.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>ToUsers.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="User.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>User.designer.cs</LastGenOutput>
@@ -139,6 +164,11 @@
     <None Include="UserToken.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>UserToken.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="WXUser.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>WXUser.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -183,6 +213,21 @@
   <ItemGroup>
     <None Include="UserToken.dbml.layout">
       <DependentUpon>UserToken.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AccessToken.dbml.layout">
+      <DependentUpon>AccessToken.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="WXUser.dbml.layout">
+      <DependentUpon>WXUser.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ToUsers.dbml.layout">
+      <DependentUpon>ToUsers.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

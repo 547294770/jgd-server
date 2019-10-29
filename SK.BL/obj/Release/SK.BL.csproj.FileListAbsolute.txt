@@ -7,3 +7,14 @@ E:\src\web\vs2012\LXD\SK.BL\bin\Release\SK.Entities.pdb
 E:\src\web\vs2012\LXD\SK.BL\obj\Release\SK.BL.csprojResolveAssemblyReference.cache
 E:\src\web\vs2012\LXD\SK.BL\obj\Release\SK.BL.dll
 E:\src\web\vs2012\LXD\SK.BL\obj\Release\SK.BL.pdb
+E:\work\vue\jgd\jgd-server\SK.BL\bin\Release\SK.BL.dll
+E:\work\vue\jgd\jgd-server\SK.BL\bin\Release\SK.BL.pdb
+E:\work\vue\jgd\jgd-server\SK.BL\bin\Release\SK.Common.dll
+E:\work\vue\jgd\jgd-server\SK.BL\bin\Release\SK.Entities.dll
+E:\work\vue\jgd\jgd-server\SK.BL\bin\Release\SK.Common.pdb
+E:\work\vue\jgd\jgd-server\SK.BL\bin\Release\SK.Entities.pdb
+E:\work\vue\jgd\jgd-server\SK.BL\obj\Release\SK.BL.csprojResolveAssemblyReference.cache
+E:\work\vue\jgd\jgd-server\SK.BL\obj\Release\SK.BL.dll
+E:\work\vue\jgd\jgd-server\SK.BL\obj\Release\SK.BL.pdb
+E:\work\vue\jgd\jgd-server\SK.BL\bin\Release\Newtonsoft.Json.dll
+E:\work\vue\jgd\jgd-server\SK.BL\bin\Release\Newtonsoft.Json.xml

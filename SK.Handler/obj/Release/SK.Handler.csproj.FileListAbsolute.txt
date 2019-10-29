@@ -11,3 +11,16 @@ E:\src\web\vs2012\LXD\SK.Handler\bin\Release\Newtonsoft.Json.xml
 E:\src\web\vs2012\LXD\SK.Handler\obj\Release\SK.Handler.csprojResolveAssemblyReference.cache
 E:\src\web\vs2012\LXD\SK.Handler\obj\Release\SK.Handler.dll
 E:\src\web\vs2012\LXD\SK.Handler\obj\Release\SK.Handler.pdb
+E:\work\vue\jgd\jgd-server\SK.Handler\bin\Release\SK.Handler.dll
+E:\work\vue\jgd\jgd-server\SK.Handler\bin\Release\SK.Handler.pdb
+E:\work\vue\jgd\jgd-server\SK.Handler\bin\Release\SK.BL.dll
+E:\work\vue\jgd\jgd-server\SK.Handler\bin\Release\SK.Common.dll
+E:\work\vue\jgd\jgd-server\SK.Handler\bin\Release\SK.Entities.dll
+E:\work\vue\jgd\jgd-server\SK.Handler\bin\Release\SK.BL.pdb
+E:\work\vue\jgd\jgd-server\SK.Handler\bin\Release\SK.Common.pdb
+E:\work\vue\jgd\jgd-server\SK.Handler\bin\Release\SK.Entities.pdb
+E:\work\vue\jgd\jgd-server\SK.Handler\bin\Release\Newtonsoft.Json.xml
+E:\work\vue\jgd\jgd-server\SK.Handler\obj\Release\SK.Handler.csprojResolveAssemblyReference.cache
+E:\work\vue\jgd\jgd-server\SK.Handler\obj\Release\SK.Handler.dll
+E:\work\vue\jgd\jgd-server\SK.Handler\obj\Release\SK.Handler.pdb
+E:\work\vue\jgd\jgd-server\SK.Handler\bin\Release\Newtonsoft.Json.dll
