@@ -56,6 +56,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Attachment.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Company.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Company.dbml</DependentUpon>
+    </Compile>
     <Compile Include="DeliveryOrder.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -125,6 +130,11 @@
     <None Include="Attachment.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>Attachment.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Company.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Company.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="DeliveryOrder.dbml">
@@ -228,6 +238,11 @@
   <ItemGroup>
     <None Include="ToUsers.dbml.layout">
       <DependentUpon>ToUsers.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Company.dbml.layout">
+      <DependentUpon>Company.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

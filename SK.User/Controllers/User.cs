@@ -25,8 +25,13 @@ namespace SK.User.Controllers
 
         private void OnBeforeInit()
         {
+            
+
             HttpContext context = this.Context;
             context.Response.ContentType = "application/json";
+
+            string[] hosts = new string[] { "localhost", "127.0.0.1" };
+            if (hosts.Contains(context.Request.Url.Host)) return;
 
             var cookie = context.Request.Cookies[Consts.USER_INFO];
             if (cookie != null)
@@ -58,12 +63,13 @@ namespace SK.User.Controllers
             }
             else
             {
-                var obj = new { 
+                var obj = new
+                {
                     code = "2222",
                     url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxcee2bf962b1ef8f3&redirect_uri=https%3A%2F%2Ftest.alry.cn%2Fhandler%2Fuser%2Foauth%2Fuserinfo&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect"
                 };
 
-                
+
                 context.Response.Write(JsonConvert.SerializeObject(obj));
                 context.Response.End();
                 //context.Response.Redirect("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxcee2bf962b1ef8f3&redirect_uri=https%3A%2F%2Ftest.alry.cn%2Fhandler%2Fuser%2Foauth%2Fuserinfo&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect");
@@ -72,7 +78,6 @@ namespace SK.User.Controllers
 
         public void info()
         {
-
             if (UserInfo != null)
             {
                 this.ShowResult(true, "成功", UserInfo);
@@ -133,5 +138,49 @@ namespace SK.User.Controllers
 
             
         //}
+
+        public void companyinfo()
+        {
+            if (UserInfo == null) { this.FailMessage("未登录"); return; }
+
+            CompanyDataContext cxt = new CompanyDataContext();
+
+            var entity = cxt.Company.FirstOrDefault(p => p.UserID == UserInfo.openid);
+            this.ShowResult(true, "成功", entity);
+        }
+
+        public void updatecompany()
+        {
+
+            if (UserInfo == null) { this.FailMessage("未登录"); return; }
+
+            CompanyDataContext cxt = new CompanyDataContext();
+
+            var entity = cxt.Company.FirstOrDefault(p => p.UserID == UserInfo.openid);
+            if (entity == null)
+            {
+                entity = new Company();
+                entity.ID = Guid.NewGuid().ToString();
+
+                entity.UserID = UserInfo.openid;
+                entity.Address = QF("Address");
+                entity.CompanyName = QF("CompanyName");
+                entity.Contact = QF("Contact");
+                entity.Tel = QF("Tel");
+
+                cxt.Company.InsertOnSubmit(entity);
+            }
+            else {
+                entity.UserID = UserInfo.openid;
+                entity.Address = QF("Address");
+                entity.CompanyName = QF("CompanyName");
+                entity.Contact = QF("Contact");
+                entity.Tel = QF("Tel");
+            }
+
+            cxt.SubmitChanges();
+
+            this.ShowResult(true, "保存成功", entity);
+        }
     }
 }

@@ -27,6 +27,15 @@ namespace SK.Handler
         {
             get
             {
+                string[] hosts = new string[] { "localhost", "127.0.0.1"};
+                if (hosts.Contains(Request.Url.Host)) {
+                    var debugUser = new WXUser();
+                    debugUser.openid = "oNJEyuF1_rkeK9RWOpOu8pmIxRPw";
+                    debugUser.nickname = "小秋";
+                    debugUser.headimgurl = "http://thirdwx.qlogo.cn/mmopen/vi_32/02NyUgGH75DOvlUIaR7N74Q0MlqzFzgfbMq1FqwDyVYBl5at0Zc68jPafUibrrzywpuKGQ2qAALZvRLr4qaogPg/132";
+                    return debugUser;
+                }
+
                 var cookie = Request.Cookies[Consts.USER_INFO];
                 if (cookie == null || string.IsNullOrWhiteSpace(cookie.Value))
                 {

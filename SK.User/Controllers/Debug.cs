@@ -164,5 +164,12 @@ namespace SK.User.Controllers
             Context.Response.Write("cookie" + cookie);
             Context.Response.End();
         }
+
+        public void host()
+        {
+            Context.Response.Write("hostname:" + Request.Url.Host);
+            Context.Response.End();
+        }
+
     }
 }

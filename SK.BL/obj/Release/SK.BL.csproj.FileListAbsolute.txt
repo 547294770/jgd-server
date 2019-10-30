@@ -16,5 +16,3 @@ E:\work\vue\jgd\jgd-server\SK.BL\bin\Release\SK.Entities.pdb
 E:\work\vue\jgd\jgd-server\SK.BL\obj\Release\SK.BL.csprojResolveAssemblyReference.cache
 E:\work\vue\jgd\jgd-server\SK.BL\obj\Release\SK.BL.dll
 E:\work\vue\jgd\jgd-server\SK.BL\obj\Release\SK.BL.pdb
-E:\work\vue\jgd\jgd-server\SK.BL\bin\Release\Newtonsoft.Json.dll
-E:\work\vue\jgd\jgd-server\SK.BL\bin\Release\Newtonsoft.Json.xml

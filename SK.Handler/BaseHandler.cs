@@ -41,6 +41,8 @@ namespace SK.Handler
 
         protected virtual void OnInit(HttpContext context)
         {
+            string[] hosts = new string[] { "localhost", "127.0.0.1" };
+            if (hosts.Contains(context.Request.Url.Host)) return;
             CreateAccessToken();
         }
 
