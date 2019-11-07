@@ -38,8 +38,8 @@
             <table id="admin-pickup-index" lay-filter="admin-pickup-index"></table>
             <script type="text/html" id="admin-pickup-index-table-operate">
                 <div class="opetate">
-                    <button class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</button>
-                    <button class="layui-btn layui-btn-xs" lay-event="edit">编辑</button>
+                    <button class="layui-btn layui-btn-primary layui-btn-xs" lay-action="admin/pickup/info" lay-title="提货单信息" lay-event="detail">查看</button>
+                    <button class="layui-btn layui-btn-xs" lay-action="admin/pickup/edit" lay-title="编辑提货单" lay-event="edit">编辑</button>
                     <button class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete">删除</button>
                 </div>
             </script>
@@ -47,54 +47,31 @@
     </div>
 </div>
 <script>
-    layui.use(["admin", "form","table", "laydate", "view"], function () {
+    layui.use(["admin", "form", "table", "laydate", "view"], function () {
         var $ = layui.$
         , admin = layui.admin
         , table = layui.table
         , laydate = layui.laydate
         , form = layui.form
         , view = layui.view;
-        console.log("444444444444....");
-
-        admin.form.render();
 
         table.render({
             elem: "#admin-pickup-index",
             url: "/handler/admin/pickuporder/list",
             skin: "auto",
-            size:"sm",
-            method:"post",
+            size: "sm",
+            method: "post",
             page: true,
             cols: [[
-                { title: "加工单号", field: "OrderNo" },
+                { title: "提货单号", field: "OrderNo" },
                 { title: "所属加工单", field: "ProcessingNo" },
                 { title: "类型", field: "TypeName" },
                 { title: "内容", field: "Content" },
                 { title: "车辆信息", field: "VehicleInfo" },
-                { title: "送货日期", field: "PickUpAt" },
-                { title: "下单时间", field: "CreateAt" },
+                { title: "提货日期", field: "PickUpAt" },
+                { title: "创建时间", field: "CreateAt" },
                 { title: "操作", templet: "#admin-pickup-index-table-operate" }
             ]]
-        });
-
-        table.on("tool(admin-pickup-index)", function (ele) {
-            switch (ele.event) {
-                case "detail":
-                    {
-                        //view().render("admin/pickup/jgd-info")
-                        admin.popup({
-                            id:"test111",
-                            area: ["600px", "400px"],
-                            success: function (a, b) {
-                                view(this.id).render("admin/pickup/jgd-info", ele.data);
-                            }
-                        });
-                    }
-                    break;
-                default:
-                    break;
-
-            }
         });
 
         form.on('submit(admin-pickup-form-submit)', function (data) {
@@ -102,18 +79,12 @@
             console.log(data.form);
             console.log(data.field);
             table.reload('admin-pickup-index', { where: data.field });
-            //admin.req(
-            //    {
-            //        "url": data.form.action,
-            //        "data": data.field,
-            //        "success": function (res) {
-            //            console.log(res);
-            //            table.render({ elem: "#admin-pickup-index", })
-            //        }
-            //    }
-            //    );
+
 
             return false;
         });
+
+        admin.form.render();
+        table.tool('admin-pickup-index');
     });
 </script>

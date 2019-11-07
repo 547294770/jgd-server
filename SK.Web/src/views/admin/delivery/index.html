@@ -38,8 +38,8 @@
             <table id="admin-delivery-index" lay-filter="admin-delivery-index"></table>
             <script type="text/html" id="admin-delivery-index-table-operate">
                 <div class="opetate">
-                    <button class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</button>
-                    <button class="layui-btn layui-btn-xs" lay-event="edit">编辑</button>
+                    <button class="layui-btn layui-btn-primary layui-btn-xs" lay-action="admin/delivery/info" lay-title="送货单信息" lay-event="detail">查看</button>
+                    <button class="layui-btn layui-btn-xs" lay-action="admin/delivery/edit" lay-title="编辑送货单" lay-event="edit">编辑</button>
                     <button class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete">删除</button>
                 </div>
             </script>
@@ -54,9 +54,8 @@
         , laydate = layui.laydate
         , form = layui.form
         , view = layui.view;
-        console.log("444444444444....");
 
-        admin.form.render();
+        
 
         table.render({
             elem: "#admin-delivery-index",
@@ -66,35 +65,15 @@
             method:"post",
             page: true,
             cols: [[
-                { title: "加工单号", field: "OrderNo" },
+                { title: "送货单号", field: "OrderNo" },
                 { title: "所属加工单", field: "ProcessingNo" },
                 { title: "类型", field: "TypeName" },
                 { title: "内容", field: "Content" },
                 { title: "车辆信息", field: "VehicleInfo" },
                 { title: "送货日期", field: "DeliveryAt" },
-                { title: "下单时间", field: "CreateAt" },
+                { title: "创建时间", field: "CreateAt" },
                 { title: "操作", templet: "#admin-delivery-index-table-operate" }
             ]]
-        });
-
-        table.on("tool(admin-delivery-index)", function (ele) {
-            switch (ele.event) {
-                case "detail":
-                    {
-                        //view().render("admin/delivery/jgd-info")
-                        admin.popup({
-                            id:"test111",
-                            area: ["600px", "400px"],
-                            success: function (a, b) {
-                                view(this.id).render("admin/delivery/jgd-info", ele.data);
-                            }
-                        });
-                    }
-                    break;
-                default:
-                    break;
-
-            }
         });
 
         form.on('submit(admin-delivery-form-submit)', function (data) {
@@ -102,18 +81,12 @@
             console.log(data.form);
             console.log(data.field);
             table.reload('admin-delivery-index', { where: data.field });
-            //admin.req(
-            //    {
-            //        "url": data.form.action,
-            //        "data": data.field,
-            //        "success": function (res) {
-            //            console.log(res);
-            //            table.render({ elem: "#admin-delivery-index", })
-            //        }
-            //    }
-            //    );
+
 
             return false;
         });
+
+        admin.form.render();
+        table.tool('admin-delivery-index');
     });
 </script>

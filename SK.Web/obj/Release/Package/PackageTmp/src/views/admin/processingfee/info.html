@@ -1,0 +1,22 @@
+﻿<script template type="text/html" lay-url="/handler/admin/processingfee/info" lay-type="post" lay-data="{ ID:'{{ d.params.ID }}'}">
+    <div class="layui-form-item">
+        <label class="layui-form-label">费用单号：</label>
+        <div class="layui-input-block"><div class="layui-form-mid layui-word-aux">{{ d.data.FeeNo }}</div></div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">加工单号：</label>
+        <div class="layui-input-block"><div class="layui-form-mid layui-word-aux">{{ d.data.ProcessingNo }}</div></div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">结算类型：</label>
+        <div class="layui-input-block"><div class="layui-form-mid layui-word-aux">{{ d.data.TypeName }}</div></div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">创建时间：</label>
+        <div class="layui-input-block"><div class="layui-form-mid layui-word-aux">{{ d.data.CreateAt }}</div></div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">费用明细：</label>
+        <div class="layui-input-block"><div class="layui-form-mid layui-word-aux">{{ d.data.Content }}</div></div>
+    </div>
+</script>

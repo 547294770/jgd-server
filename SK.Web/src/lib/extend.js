@@ -1,10 +1,11 @@
 ﻿layui.extend({
     admin1: "lib/admin",
-}).define(["admin1", "form","laydate"], function (exports) {
+}).define(["admin1", "form","laydate","table"], function (exports) {
 
     var admin = layui.admin1,
         form = layui.form,
         laydate = layui.laydate,
+        table = layui.table,
         $ = layui.$;
 
     admin.form = {};
@@ -43,6 +44,42 @@
                 })
             })();
         })
-    }
+    };
     exports("admin", admin);
 })
+
+layui.define(["table","admin","view"], function (exports) {
+
+    var table = layui.table,
+        admin = layui.admin,
+        view = layui.view,
+        $ = layui.$;
+
+    table.tool = function (tableId) {
+        table.on("tool(" + tableId + ")", function (ele) {
+            var obj = ele.tr.find("[lay-event=" + ele.event + "]");
+            var action = obj.attr("lay-action");
+            var title = obj.attr("lay-title");
+            var attrarea = obj.attr("lay-area");
+            var area = attrarea ? JSON.parse(obj.attr("lay-area")) : ["600px", "400px"];
+            switch (ele.event) {
+                case "detail":
+                case "edit":
+                    {
+                        admin.popup({
+                            id: "LAY_info_" + Math.round(Math.random() * 10000),
+                            title: title? title : "信息",
+                            area: area,
+                            success: function (a, b) {
+                                view(this.id).render(action, ele.data);
+                            }
+                        });
+                    }
+                    break;
+                default:
+                    break;
+
+            }
+        });
+    };
+});

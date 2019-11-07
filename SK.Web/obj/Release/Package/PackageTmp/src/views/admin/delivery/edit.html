@@ -31,9 +31,9 @@
     }
     
 </script>
-<script template type="text/html" lay-url="/handler/admin/deliveryorder/info" lay-type="POST" lay-data="{ OrderID:'{{ d.params.ID }}'}" lay-done="admin_delivery_info(d);">
+<script template type="text/html" lay-url="/handler/admin/deliveryorder/info" lay-type="post" lay-data="{ ID:'{{ d.params.ID }}'}" lay-done="admin_delivery_info(d);">
 <form class="layui-form" action="/handler/admin/deliveryorder/save" method="post">
-    <input type="hidden" id="admin-delivery-info-orderid" name="OrderID" value="{{ d.params.ID }}" />
+    <input type="hidden" id="admin-delivery-info-orderid" name="ID" value="{{ d.params.ID }}" />
     <div class="layui-form-item">
         <label class="layui-form-label">类型：</label>
         <div class="layui-input-block">

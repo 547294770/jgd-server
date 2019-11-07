@@ -15,7 +15,7 @@
             <table id="admin-index-unprocessed" lay-filter="admin-index-unprocessed"></table>
             <script type="text/html" id="admin-unprocessed-index-table-operate">
                 <div class="opetate">
-                    <button class="layui-btn layui-btn-xs" lay-event="detail">查看并处理</button>
+                    <button class="layui-btn layui-btn-xs" lay-action="admin/processing/info" lay-area='["800px", "600px"]' lay-event="detail">查看并处理</button>
                 </div>
             </script>
         </div>
@@ -30,8 +30,6 @@
         , laydate = layui.laydate
         , form = layui.form
         , view = layui.view;
-
-        admin.form.render();
 
         table.render({
             elem: "#admin-index-unprocessed",
@@ -49,24 +47,7 @@
             ]]
         });
 
-        table.on("tool(admin-index-unprocessed)", function (ele) {
-            switch (ele.event) {
-                case "detail":
-                    {
-                        admin.popup({
-                            id: "test111",
-                            area: ["800px", "600px"],
-                            success: function (a, b) {
-                                view(this.id).render("admin/processing/jgd-info", ele.data);
-                            }
-                        });
-                    }
-                    break;
-                default:
-                    break;
-
-            }
-        });
-
+        admin.form.render();
+        table.tool('admin-index-unprocessed');
     });
 </script>

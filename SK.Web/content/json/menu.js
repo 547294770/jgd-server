@@ -23,7 +23,7 @@
             "name": "pickup",
             "title": "提货单"
         },{
-            "name": "processfee",
+            "name": "processingfee",
             "title": "加工费"
         }]
     }

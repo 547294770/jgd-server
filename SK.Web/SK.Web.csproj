@@ -39,6 +39,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\..\src\test\RenWu\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -175,14 +178,16 @@
     <Content Include="src\lib\view.js" />
     <Content Include="src\style\admin.css" />
     <Content Include="src\style\comm.css" />
+    <Content Include="src\views\admin\delivery\edit.html" />
+    <Content Include="src\views\admin\pickup\edit.html" />
     <Content Include="src\views\admin\pickup\index.html" />
-    <Content Include="src\views\admin\processfee\index.html" />
+    <Content Include="src\views\admin\pickup\info.html" />
+    <Content Include="src\views\admin\processingfee\index.html" />
     <Content Include="src\views\admin\processing\index.html" />
-    <Content Include="src\views\admin\processing\jgd-info.html" />
+    <Content Include="src\views\admin\processing\info.html" />
     <Content Include="src\views\admin\delivery\index.html" />
-    <Content Include="src\views\admin\delivery\delivery-info.html" />
-    <Content Include="src\views\admin\pickup\jgd-info.html" />
-    <Content Include="src\views\admin\processfee\jgd-info.html" />
+    <Content Include="src\views\admin\delivery\info.html" />
+    <Content Include="src\views\admin\processingfee\info.html" />
     <Content Include="src\views\clientManagement\myClient\index.html" />
     <Content Include="src\views\component\icon\index.html" />
     <Content Include="src\views\component\select\index.html" />

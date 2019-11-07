@@ -27,13 +27,15 @@ namespace SK.Admin.Controllers
             var data = list.OrderByDescending(p=>p.UpdateAt).Select(p => new
             {
                 p.Content,
+                p.Pic,
                 p.CreateAt,
                 p.ID,
                 p.OrderNo,
                 DelType = Enum.GetName(typeof(Entities.ProcessingOrder.DeliveryType), p.DelType),
                 PickType = Enum.GetName(typeof( Entities.ProcessingOrder.PickUpType), p.PickType),
                 Status = Enum.GetName(typeof(SK.Entities.ProcessingOrder.OrderStatus), p.Status),
-                p.UserID
+                p.UserID,
+                p.UserName
             }).ToList();
             this.ShowResult(true, "成功", data);
         }
@@ -179,6 +181,7 @@ namespace SK.Admin.Controllers
                 dcDeliveryOrder.SubmitChanges();
 
                 order.Status = Entities.ProcessingOrder.OrderStatus.InputDelivery;
+                dc.SubmitChanges();
 
                 this.ShowResult(true, "保存成功");
             }
@@ -253,6 +256,8 @@ namespace SK.Admin.Controllers
             }
 
             order.Status = Entities.ProcessingOrder.OrderStatus.NoticePickUp;
+            order.PickType = Entities.ProcessingOrder.PickUpType.Self;
+
             dc.SubmitChanges();
 
             //通知提货
@@ -278,6 +283,8 @@ namespace SK.Admin.Controllers
             entt.ID = Guid.NewGuid().ToString();
             entt.ProcessingNo = order.OrderNo;
             entt.SourceID = order.ID;
+            entt.UserID = order.UserID;
+            entt.UserName = order.UserName;
             entt.Type = QF("Fee[Type]").ToEnum<Entities.ProcessingFee.BillType>();
 
             ProcessingFeeDataContext dcProcessingFee = new ProcessingFeeDataContext();

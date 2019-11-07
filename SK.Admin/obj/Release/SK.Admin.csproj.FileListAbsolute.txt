@@ -27,3 +27,4 @@ E:\work\vue\jgd\jgd-server\SK.Admin\bin\Release\Newtonsoft.Json.xml
 E:\work\vue\jgd\jgd-server\SK.Admin\obj\Release\SK.Admin.csprojResolveAssemblyReference.cache
 E:\work\vue\jgd\jgd-server\SK.Admin\obj\Release\SK.Admin.dll
 E:\work\vue\jgd\jgd-server\SK.Admin\obj\Release\SK.Admin.pdb
+E:\work\vue\jgd\jgd-server\SK.Admin\bin\Release\Newtonsoft.Json.dll

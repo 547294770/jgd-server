@@ -83,8 +83,8 @@ namespace SK.Entities
 		private string _ID;
 		
 		private string _SourceID;
-
-        private OrderType _Type;
+		
+		private Entities.PickUpOrder.OrderType _Type;
 		
 		private string _Content;
 		
@@ -110,7 +110,7 @@ namespace SK.Entities
     partial void OnIDChanged();
     partial void OnSourceIDChanging(string value);
     partial void OnSourceIDChanged();
-    partial void OnTypeChanging(OrderType value);
+    partial void OnTypeChanging(Entities.PickUpOrder.OrderType value);
     partial void OnTypeChanged();
     partial void OnContentChanging(string value);
     partial void OnContentChanged();
@@ -175,8 +175,8 @@ namespace SK.Entities
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="TinyInt NOT NULL")]
-        public OrderType Type
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="TinyInt NOT NULL", CanBeNull=false)]
+		public Entities.PickUpOrder.OrderType Type
 		{
 			get
 			{

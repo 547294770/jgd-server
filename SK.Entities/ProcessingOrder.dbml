@@ -6,12 +6,13 @@
       <Column Name="OrderNo" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="Content" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
       <Column Name="CreateAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="OrderStatus" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="UserID" Type="System.String" DbType="VarChar(36) NOT NULL" CanBeNull="false" />
       <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="UpdateAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="DelType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="PickType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DelType" Type="DeliveryType" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PickType" Type="SK.Entities.ProcessingOrder.PickUpType" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Pic" Type="System.String" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

@@ -12,6 +12,9 @@ using SK.BL;
 
 namespace SK.User.Controllers
 {
+    /// <summary>
+    /// 加工单信息
+    /// </summary>
     public class ProcessingOrder : BasePage
     {
         public void list()
@@ -29,8 +32,8 @@ namespace SK.User.Controllers
             };
 
             ProcessingOrderDataContext dc = new ProcessingOrderDataContext();
-            var list = dc.ProcessingOrder.Where(p => p.UserID == "4A355901-3556-4B7D-9E54-9FE03C1B99F8");
-            list = list.Where(p =>status.Contains(p.Status) || p.Status == Entities.ProcessingOrder.OrderStatus.ConfirmDeliveryMethod && p.DelType == Entities.ProcessingOrder.DeliveryType.Self).OrderByDescending(p => p.UpdateAt);
+            var list = dc.ProcessingOrder.Where(p => p.UserID == UserInfo.openid);
+            list = list.Where(p =>status.Contains(p.Status) || (p.Status == Entities.ProcessingOrder.OrderStatus.ConfirmDeliveryMethod && p.DelType == Entities.ProcessingOrder.DeliveryType.Self)).OrderByDescending(p => p.UpdateAt);
             
             var data = list.OrderByDescending(p=>p.UpdateAt).Select(p => new
             {
@@ -40,7 +43,8 @@ namespace SK.User.Controllers
                 p.OrderNo,
                 Processing = status.Contains(p.Status),
                 Status = Enum.GetName(typeof(SK.Entities.ProcessingOrder.OrderStatus), p.Status),
-                p.UserID
+                p.UserID,
+                p.UserName
             }).ToList();
             this.ShowResult(true, "成功", data);
         }
@@ -73,11 +77,28 @@ namespace SK.User.Controllers
             this.ShowResult(true, "成功", data);
         }
 
+        public void delete()
+        {
+            ProcessingOrderDataContext dc = new ProcessingOrderDataContext();
+            var entity = dc.ProcessingOrder.FirstOrDefault(p => p.ID == QF("ID"));
+
+            if (entity == null)
+            {
+                this.ShowResult(false, "记录不存在");
+                return;
+            }
+         
+            dc.ProcessingOrder.DeleteOnSubmit(entity);
+            dc.SubmitChanges();
+
+            this.ShowResult(true, "删除成功");
+        }
+
         public void add()
         {
             ProcessingOrderDataContext dc = new ProcessingOrderDataContext();
 
-            var orderId = QF("OrderID");
+            var orderId = QF("ID");
             var order = dc.ProcessingOrder.FirstOrDefault(p => p.ID == orderId);
             if (order == null)
             {
@@ -86,13 +107,11 @@ namespace SK.User.Controllers
 
             order =  this.Request.Form.Fill<Entities.ProcessingOrder>(order);
 
-            if (string.IsNullOrWhiteSpace(order.Content))
+            if (string.IsNullOrWhiteSpace(order.Content) && string.IsNullOrWhiteSpace(order.Pic))
             {
-                this.ShowResult(false, "加工需求内容不能为空");
+                this.ShowResult(false, "加工内容、图片不能同时为空");
                 return;
             }
-
-            
 
             if (string.IsNullOrWhiteSpace(order.ID))
             {
@@ -100,14 +119,19 @@ namespace SK.User.Controllers
                 order.CreateAt = DateTime.Now;
                 order.UpdateAt = order.CreateAt;
                 order.Status = Entities.ProcessingOrder.OrderStatus.None;
-                order.UserID = "4A355901-3556-4B7D-9E54-9FE03C1B99F8";
-                order.UserName = "test2";
+                order.UserID = UserInfo.openid;
+                order.UserName = UserInfo.nickname;
                 order.OrderNo = string.Format("{0}", DateTime.Now.ToString("yyyyMMddHHmmss"));
 
                 dc.ProcessingOrder.InsertOnSubmit(order);
             }
             else {
                 order.UpdateAt = DateTime.Now;
+            }
+
+            if (QF("IsDraft", 0) == 0)
+            {
+                order.Status = Entities.ProcessingOrder.OrderStatus.Processing;
             }
 
             dc.SubmitChanges();
@@ -164,6 +188,13 @@ namespace SK.User.Controllers
 
             ProcessingOrderDataContext dc = new ProcessingOrderDataContext();
             var order = dc.ProcessingOrder.FirstOrDefault(p => p.ID == orderId);
+            if (order == null) {
+                this.ShowResult(false, "记录不存在");
+                return;
+            }
+
+            AttachmentDataContext adc = new AttachmentDataContext();
+            var attachments = adc.Attachment.Where(p => p.SourceID == order.ID).ToList();
 
             this.ShowResult(true, "成功",
                 new { 
@@ -176,7 +207,8 @@ namespace SK.User.Controllers
                 PickType = Enum.GetName(typeof(SK.Entities.ProcessingOrder.PickUpType), order.PickType),
                 order.UpdateAt,
                 order.UserID,
-                order.UserName
+                order.UserName,
+                order.Pic
                 });
         }
 
@@ -206,13 +238,25 @@ namespace SK.User.Controllers
                     DoAttachment(order);
                     break;
                 case SK.Entities.ProcessingOrder.OrderStatus.Print://
-                    order.DelType = QF("DelType").ToEnum<Entities.ProcessingOrder.DeliveryType>();
-                    order.Status = Entities.ProcessingOrder.OrderStatus.ConfirmDeliveryMethod;
+                    {
+                        order.DelType = QF("DelType").ToEnum<Entities.ProcessingOrder.DeliveryType>();
+                        order.Status = Entities.ProcessingOrder.OrderStatus.ConfirmDeliveryMethod;
+                        if (order.DelType == Entities.ProcessingOrder.DeliveryType.None) {
+                            this.FailMessage("请选择送货类型");
+                            return;
+                        }
+                    }
                     break;
                 case SK.Entities.ProcessingOrder.OrderStatus.ConfirmDeliveryMethod://
                     DoDelivery(order);
                     break;
                 case SK.Entities.ProcessingOrder.OrderStatus.NoticePickUp://
+                    order.PickType = QF("PickType").ToEnum<Entities.ProcessingOrder.PickUpType>();
+                    if (order.PickType == Entities.ProcessingOrder.PickUpType.None)
+                    {
+                        this.FailMessage("请选择提货类型");
+                        return;
+                    }
                     DoPickup(order);
                     break;
                 case SK.Entities.ProcessingOrder.OrderStatus.AlreadyGoods://
@@ -282,9 +326,8 @@ namespace SK.User.Controllers
             ent.OrderNo = string.Format("{0}", DateTime.Now.ToString("yyyyMMddHHmmss"));
             ent.ProcessingNo = order.OrderNo;
             ent.SourceID = order.ID;
-            ent.UserID =
-            ent.UserID = "4A355901-3556-4B7D-9E54-9FE03C1B99F8";
-            ent.UserName = "test2";
+            ent.UserID = UserInfo.openid;
+            ent.UserName = UserInfo.nickname;
             ent.VehicleInfo = QF("Delivery[VehicleInfo]");
 
             switch (order.DelType)
@@ -292,10 +335,10 @@ namespace SK.User.Controllers
                 case SK.Entities.ProcessingOrder.DeliveryType.None:
                     break;
                 case SK.Entities.ProcessingOrder.DeliveryType.Self:
-                    ent.Type = DeliveryOrder.OrderType.Self;
+                    ent.Type = Entities.DeliveryOrder.OrderType.Self;
                     break;
                 case SK.Entities.ProcessingOrder.DeliveryType.LXD:
-                    ent.Type = DeliveryOrder.OrderType.LXD;
+                    ent.Type = Entities.DeliveryOrder.OrderType.LXD;
                     break;
                 default:
                     break;
@@ -319,20 +362,19 @@ namespace SK.User.Controllers
             ent.OrderNo = string.Format("{0}", DateTime.Now.ToString("yyyyMMddHHmmss"));
             ent.ProcessingNo = order.OrderNo;
             ent.SourceID = order.ID;
-            ent.UserID =
-            ent.UserID = "4A355901-3556-4B7D-9E54-9FE03C1B99F8";
-            ent.UserName = "test2";
+            ent.UserID = UserInfo.openid;
+            ent.UserName = UserInfo.nickname;
             ent.VehicleInfo = QF("PickUp[VehicleInfo]");
 
-            switch (order.DelType)
+            switch (order.PickType)
             {
-                case SK.Entities.ProcessingOrder.DeliveryType.None:
+                case SK.Entities.ProcessingOrder.PickUpType.None:
                     break;
-                case SK.Entities.ProcessingOrder.DeliveryType.Self:
-                    ent.Type = PickUpOrder.OrderType.Self;
+                case SK.Entities.ProcessingOrder.PickUpType.Self:
+                    ent.Type = Entities.PickUpOrder.OrderType.Self;
                     break;
-                case SK.Entities.ProcessingOrder.DeliveryType.LXD:
-                    ent.Type = PickUpOrder.OrderType.LXD;
+                case SK.Entities.ProcessingOrder.PickUpType.LXD:
+                    ent.Type = Entities.PickUpOrder.OrderType.LXD;
                     break;
                 default:
                     break;

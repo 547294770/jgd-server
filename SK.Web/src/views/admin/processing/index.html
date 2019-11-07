@@ -38,9 +38,7 @@
             <table id="admin-processing-index" lay-filter="admin-processing-index"></table>
             <script type="text/html" id="admin-processing-index-table-operate">
                 <div class="opetate">
-                    <button class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</button>
-                    <button class="layui-btn layui-btn-xs" lay-event="edit">编辑</button>
-                    <button class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete">删除</button>
+                    <button class="layui-btn layui-btn-primary layui-btn-xs" lay-action="admin/processing/info" lay-area='["800px", "600px"]' lay-event="detail">查看</button>
                 </div>
             </script>
         </div>
@@ -54,9 +52,6 @@
         , laydate = layui.laydate
         , form = layui.form
         , view = layui.view;
-        console.log("444444444444....");
-
-        admin.form.render();
 
         table.render({
             elem: "#admin-processing-index",
@@ -67,32 +62,12 @@
             page: true,
             cols: [[
                 { title: "加工单号", field: "OrderNo" },
+                { title: "提交人", field: "UserName" },
                 { title: "加工内容", field: "Content" },
-                { title: "下单时间", field: "CreateAt" },
+                { title: "创建时间", field: "CreateAt" },
                 { title: "状态", templet: "<div>{{ htmlFunction.status(d.Status) }}</div>" },
                 { title: "操作", templet: "#admin-processing-index-table-operate" }
             ]]
-        });
-
-        table.on("tool(admin-processing-index)", function (ele) {
-            switch (ele.event) {
-                case "detail":
-                    {
-                        //view().render("admin/processing/jgd-info")
-                        admin.popup({
-                            id: "popup1111",
-                            area: ["800px", "800px"],
-                            success: function (a, b) {
-                                console.log("ele.data:" + ele.data);
-                                view(this.id).render("admin/processing/jgd-info", ele.data);
-                            }
-                        });
-                    }
-                    break;
-                default:
-                    break;
-
-            }
         });
 
         form.on('submit(admin-processing-form-submit)', function (data) {
@@ -100,18 +75,10 @@
             console.log(data.form);
             console.log(data.field);
             table.reload('admin-processing-index', { where: data.field });
-            //admin.req(
-            //    {
-            //        "url": data.form.action,
-            //        "data": data.field,
-            //        "success": function (res) {
-            //            console.log(res);
-            //            table.render({ elem: "#admin-processing-index", })
-            //        }
-            //    }
-            //    );
-
             return false;
         });
+
+        admin.form.render();
+        table.tool('admin-processing-index');
     });
 </script>

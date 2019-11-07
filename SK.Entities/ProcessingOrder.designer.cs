@@ -87,18 +87,20 @@ namespace SK.Entities
 		private string _Content;
 		
 		private System.DateTime _CreateAt;
-
-        private OrderStatus _Status;
+		
+		private OrderStatus _Status;
 		
 		private string _UserID;
 		
 		private string _UserName;
 		
 		private System.DateTime _UpdateAt;
-
-        private DeliveryType _DelType;
 		
-		private int _PickType;
+		private DeliveryType _DelType;
+		
+		private SK.Entities.ProcessingOrder.PickUpType _PickType;
+		
+		private string _Pic;
 		
     #region 可扩展性方法定义
     partial void OnLoaded();
@@ -122,8 +124,10 @@ namespace SK.Entities
     partial void OnUpdateAtChanged();
     partial void OnDelTypeChanging(DeliveryType value);
     partial void OnDelTypeChanged();
-    partial void OnPickTypeChanging(int value);
+    partial void OnPickTypeChanging(SK.Entities.ProcessingOrder.PickUpType value);
     partial void OnPickTypeChanged();
+    partial void OnPicChanging(string value);
+    partial void OnPicChanged();
     #endregion
 		
 		public ProcessingOrder()
@@ -211,8 +215,8 @@ namespace SK.Entities
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int NOT NULL")]
-        public OrderStatus Status
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int NOT NULL", CanBeNull=false)]
+		public OrderStatus Status
 		{
 			get
 			{
@@ -291,8 +295,8 @@ namespace SK.Entities
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DelType", DbType="Int NOT NULL")]
-        public DeliveryType DelType
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DelType", DbType="Int NOT NULL", CanBeNull=false)]
+		public DeliveryType DelType
 		{
 			get
 			{
@@ -311,8 +315,8 @@ namespace SK.Entities
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PickType", DbType="Int NOT NULL")]
-		public int PickType
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PickType", DbType="Int NOT NULL", CanBeNull=false)]
+		public SK.Entities.ProcessingOrder.PickUpType PickType
 		{
 			get
 			{
@@ -327,6 +331,26 @@ namespace SK.Entities
 					this._PickType = value;
 					this.SendPropertyChanged("PickType");
 					this.OnPickTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pic", CanBeNull=false)]
+		public string Pic
+		{
+			get
+			{
+				return this._Pic;
+			}
+			set
+			{
+				if ((this._Pic != value))
+				{
+					this.OnPicChanging(value);
+					this.SendPropertyChanging();
+					this._Pic = value;
+					this.SendPropertyChanged("Pic");
+					this.OnPicChanged();
 				}
 			}
 		}

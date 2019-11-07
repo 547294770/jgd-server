@@ -30,8 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\..\test\RenWu\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\src\test\RenWu\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -46,12 +47,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\Global.cs" />
+    <Compile Include="Controllers\ProcessingFee.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Controllers\ProcessingOrder.cs" />
     <Compile Include="Controllers\Upload.cs" />
     <Compile Include="Controllers\User.cs" />
     <Compile Include="Controllers\UserShop.cs" />
     <Compile Include="Controllers\Debug.cs" />
     <Compile Include="Controllers\OAuth.cs" />
+    <Compile Include="Controllers\DeliveryOrder.cs" />
+    <Compile Include="Controllers\PickUpOrder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

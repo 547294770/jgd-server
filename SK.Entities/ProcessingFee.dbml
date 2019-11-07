@@ -9,6 +9,8 @@
       <Column Name="Content" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
       <Column Name="CreateAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="ProcessingNo" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Member="UserID" Type="System.String" CanBeNull="false" />
+      <Column Member="UserName" Type="System.String" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

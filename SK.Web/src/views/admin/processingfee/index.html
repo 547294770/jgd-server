@@ -38,9 +38,7 @@
             <table id="admin-processingfee-index" lay-filter="admin-processingfee-index"></table>
             <script type="text/html" id="admin-processingfee-index-table-operate">
                 <div class="opetate">
-                    <button class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</button>
-                    <button class="layui-btn layui-btn-xs" lay-event="edit">编辑</button>
-                    <button class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete">删除</button>
+                    <button class="layui-btn layui-btn-primary layui-btn-xs" lay-action="admin/processingfee/info" lay-event="detail">查看</button>
                 </div>
             </script>
         </div>
@@ -54,9 +52,6 @@
         , laydate = layui.laydate
         , form = layui.form
         , view = layui.view;
-        console.log("444444444444....");
-
-        admin.form.render();
 
         table.render({
             elem: "#admin-processingfee-index",
@@ -69,30 +64,10 @@
                 { title: "加工费单号", field: "FeeNo" },
                 { title: "所属加工单", field: "ProcessingNo" },
                 { title: "类型", field: "TypeName" },
-                { title: "内容", field: "Content" },
-                { title: "下单时间", field: "CreateAt" },
+                { title: "明细", field: "Content" },
+                { title: "创建时间", field: "CreateAt" },
                 { title: "操作", templet: "#admin-processingfee-index-table-operate" }
             ]]
-        });
-
-        table.on("tool(admin-processingfee-index)", function (ele) {
-            switch (ele.event) {
-                case "detail":
-                    {
-                        //view().render("admin/processingfee/jgd-info")
-                        admin.popup({
-                            id:"test111",
-                            area: ["600px", "400px"],
-                            success: function (a, b) {
-                                view(this.id).render("admin/processingfee/jgd-info", ele.data);
-                            }
-                        });
-                    }
-                    break;
-                default:
-                    break;
-
-            }
         });
 
         form.on('submit(admin-processingfee-form-submit)', function (data) {
@@ -100,18 +75,10 @@
             console.log(data.form);
             console.log(data.field);
             table.reload('admin-processingfee-index', { where: data.field });
-            //admin.req(
-            //    {
-            //        "url": data.form.action,
-            //        "data": data.field,
-            //        "success": function (res) {
-            //            console.log(res);
-            //            table.render({ elem: "#admin-processingfee-index", })
-            //        }
-            //    }
-            //    );
-
             return false;
         });
+
+        admin.form.render();
+        table.tool('admin-processingfee-index');
     });
 </script>

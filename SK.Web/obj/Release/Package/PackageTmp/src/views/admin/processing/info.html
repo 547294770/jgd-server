@@ -15,44 +15,36 @@
 
             var data = [];
             var dataFee = [];
+            var dataDelivery = [];
+            var dataPickUp = [];
 
-            var loadData = function () {
+            var loadData = function (url, dataConntainer, tableId) {
+                console.log("url:" + url);
                 admin.req({
-                    url: '/handler/admin/attachment/list',
+                    url: url,
                     data: { "OrderID": document.getElementById('admin-processing-orderid').value },
                     type: "post",
                     success: function (res) {
+
                         if (!res.code && res.data.length > 0) {
+
+                            console.log("url:" + url);
+
                             for (var i = 0; i < res.data.length; i++) {
-                                data.push(res.data[i]);
+                                dataConntainer.push(res.data[i]);
                             }
-                            table.reload("admin-processing-attachment-table", {
-                                data: data
-                            });
-                        }
-                    }
-                });
-            }
-            var loadFeeData = function () {
-                admin.req({
-                    url: '/handler/admin/processingfee/list',
-                    data: { "OrderID": document.getElementById('admin-processing-orderid').value },
-                    type: "post",
-                    success: function (res) {
-                        if (!res.code && res.data.length > 0) {
-                            for (var i = 0; i < res.data.length; i++) {
-                                dataFee.push(res.data[i]);
-                            }
-                            table.reload("admin-processing-fee", {
-                                data: dataFee
+                            table.reload(tableId, {
+                                data: dataConntainer
                             });
                         }
                     }
                 });
             }
 
-            loadData();
-            loadFeeData();
+            loadData("/handler/admin/attachment/list", data, "admin-processing-attachment-table");
+            loadData("/handler/admin/processingfee/list2", dataFee, "admin-processing-fee");
+            loadData("/handler/admin/deliveryorder/list2", dataDelivery, "admin-delivery-list");
+            loadData("/handler/admin/pickuporder/list2", dataPickUp, "admin-pickup-list");
 
             table.render({
                 elem: "#admin-processing-attachment-table",
@@ -82,6 +74,39 @@
                 ]]
             });
 
+            table.render({
+                elem: "#admin-delivery-list",
+                data: dataDelivery,
+                skin: "auto",
+                size: "sm",
+                page: false,
+                cols: [[
+                    { title: "送货单号", field: "OrderNo" },
+                    { title: "类型", field: "TypeName" },
+                    { title: "内容", field: "Content" },
+                    { title: "车辆信息", field: "VehicleInfo" },
+                    { title: "送货日期", field: "DeliveryAt" },
+                    { title: "创建时间", field: "CreateAt" },
+                    { title: "操作", templet: "#admin-processing-info-delivery-template" }
+                ]]
+            });
+
+            table.render({
+                elem: "#admin-pickup-list",
+                data: dataPickUp,
+                skin: "auto",
+                size: "sm",
+                page: false,
+                cols: [[
+                    { title: "提货单号", field: "OrderNo" },
+                    { title: "类型", field: "TypeName" },
+                    { title: "内容", field: "Content" },
+                    { title: "车辆信息", field: "VehicleInfo" },
+                    { title: "送货日期", field: "PickUpAt" },
+                    { title: "创建时间", field: "CreateAt" },
+                    { title: "操作", templet: "#admin-processing-info-pickup-template" }
+                ]]
+            });
 
             $("#admin-processing-attachment-save").on("click", function () {
                 var index = layer.load(2, { time: 3000 });
@@ -108,8 +133,6 @@
                 $('#admin-processing-fee-billtype').val(data.value);
             })
 
-            admin.form.render();
-
             table.on("tool(admin-processing-attachment-table)", function (ele) {
                 switch (ele.event) {
                     case "delete":
@@ -130,17 +153,6 @@
 
                 }
             });
-
-            $("#admin-processing-attachment-inputdelivery").on("click", function () {
-                admin.popup({
-                    id: "deliveryinfo",
-                    area: ["600px", "600px"],
-                    success: function (a, b) {
-                        view(this.id).render("admin/delivery/delivery-info", { "ID": document.getElementById('admin-processing-orderid').value });
-                    }
-                });
-            });
-
 
             //执行实例
             var uploadInst = upload.render({
@@ -189,10 +201,23 @@
                     });
                 });
             });
+
+            admin.form.render();
+            table.tool('admin-delivery-list');
+            table.tool('admin-pickup-list');
         });
     }
 
-
+</script>
+<script type="text/html" id="admin-processing-info-delivery-template">
+    <div class="opetate">
+        <button class="layui-btn layui-btn-primary layui-btn-xs" lay-action="admin/delivery/info" lay-title="送货单信息" lay-event="detail">查看</button>
+    </div>
+</script>
+<script type="text/html" id="admin-processing-info-pickup-template">
+    <div class="opetate">
+        <button class="layui-btn layui-btn-primary layui-btn-xs" lay-action="admin/pickup/info" lay-title="提货单信息" lay-event="detail">查看</button>
+    </div>
 </script>
 <script template type="text/html" lay-done="jgd_detail_callback(d);">
 <div class="layui-form" lay-filter="admin-processing-jgd-info-form">
@@ -210,12 +235,19 @@
         <label class="layui-form-label">加工内容：</label>
         <div class="layui-form-mid layui-word-aux">{{ d.params.Content }}</div>
     </div>
+    {{# if(d.params.Pic){ }}
+    <div class="layui-form-item">
+        <label class="layui-form-label">图片：</label>
+        <div class="layui-form-mid layui-word-aux"><a href="{{ d.params.Pic }}" target="_blank">{{ d.params.Pic }}</a></div>
+    </div>
+    {{# } }}
     {{# if(d.params.Status == 'Processing'){ }}
     <div class="layui-form-item">
         <label class="layui-form-label">上传附件：</label>
         <div class="layui-form-mid layui-word-aux"><button type="button" class="layui-btn layui-btn-xs" id="test1"><i class="layui-icon">&#xe67c;</i>上传加工单截图</button>  <button type="button" class="layui-btn layui-btn-xs" id="admin-processing-attachment-save"><i class="layui-icon">&#xe67c;</i>保存上传图片</button></div>
     </div>
      {{# } }}
+
     <div class="layui-form-item">
         <label class="layui-form-label">附件：</label>
         <div class="layui-input-block">
@@ -226,6 +258,18 @@
         <label class="layui-form-label">加工费：</label>
         <div class="layui-input-block">
             <table id="admin-processing-fee" lay-filter="admin-processing-fee"></table>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">送货单：</label>
+        <div class="layui-input-block">
+            <table id="admin-delivery-list" lay-filter="admin-delivery-list"></table>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">提货单：</label>
+        <div class="layui-input-block">
+            <table id="admin-pickup-list" lay-filter="admin-pickup-list"></table>
         </div>
     </div>
    

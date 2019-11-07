@@ -41,45 +41,53 @@ namespace SK.Admin.Controllers
             this.ShowResult(true, "成功", data);
         }
 
+        public void list2()
+        {
+            DeliveryOrderDataContext dc = new DeliveryOrderDataContext();
+            var list = dc.DeliveryOrder.Where(p=>p.SourceID == QF("OrderID"));
+
+            var data = list.Select(a => new
+            {
+                a.ID,
+                a.SourceID,
+                a.OrderNo,
+                a.ProcessingNo,
+                a.VehicleInfo,
+                a.Content,
+                a.DeliveryAt,
+                a.CreateAt,
+                TypeName = Enum.GetName(typeof(SK.Entities.DeliveryOrder.OrderType), a.Type),
+                a.UserID
+            }).ToList();
+
+            this.ShowResult(true, "成功", data);
+        }
+
         public void info()
         {
-            ProcessingOrderDataContext dc = new ProcessingOrderDataContext();
-            DeliveryOrderDataContext dcDeliveryOrder = new DeliveryOrderDataContext();
-
-            var orderId = Request["OrderID"];
-            var order = dc.ProcessingOrder.FirstOrDefault(p => p.ID == orderId);
-            if (order == null)
-            {
-                this.FailMessage("订单不存在");
-                return;
-            }
-
-            var entity = dcDeliveryOrder.DeliveryOrder.FirstOrDefault(p => p.SourceID == orderId);
-            if (entity != null) {
-                this.ShowResult(true, "成功", entity);
-                return;
-            }
-            this.ShowResult(true, "成功", entity);
+            DeliveryOrderDataContext cxt = new DeliveryOrderDataContext();
+            var entity = cxt.DeliveryOrder.FirstOrDefault(p => p.ID == Request["ID"]);
+            this.ShowResult(true, "成功", new {
+                entity.ID,
+                entity.Content,
+                entity.CreateAt,
+                entity.DeliveryAt,
+                entity.OrderNo,
+                entity.ProcessingNo,
+                entity.SourceID,
+                entity.Type,
+                TypeName = entity.Type.GetDescription(),// Enum.GetName(typeof(SK.Entities.DeliveryOrder.OrderType), entity.Type),
+                entity.VehicleInfo
+            });
         }
 
         public void save()
         {
-            ProcessingOrderDataContext dc = new ProcessingOrderDataContext();
-            DeliveryOrderDataContext dcDeliveryOrder = new DeliveryOrderDataContext();
+            DeliveryOrderDataContext cxt = new DeliveryOrderDataContext();
 
-            var orderId = QF("OrderID");
-            var order = dc.ProcessingOrder.FirstOrDefault(p => p.ID == orderId);
-            if (order == null)
-            {
-                this.FailMessage("订单不存在");
-                return;
-            }
-
-            var entity = dcDeliveryOrder.DeliveryOrder.FirstOrDefault(p => p.SourceID == orderId);
+            var entity = cxt.DeliveryOrder.FirstOrDefault(p => p.ID == QF("ID"));
             if (entity != null)
             {
-                //this.FailMessage("车辆信息已录入");
-                //return;
                 entity = Request.Form.Fill(entity);
             }
             else {
@@ -89,15 +97,15 @@ namespace SK.Admin.Controllers
                 entity.ID = Guid.NewGuid().ToString();
                 entity.CreateAt = DateTime.Now;
                 entity.OrderNo = string.Format("yyyyMMddHHmmsss");
-                entity.ProcessingNo = order.OrderNo;
-                entity.SourceID = order.ID;
+                //entity.ProcessingNo = order.OrderNo;
+                //entity.SourceID = order.ID;
                 entity.UserID = "";
                 entity.UserName = "";
 
-                dcDeliveryOrder.DeliveryOrder.InsertOnSubmit(entity);
+                cxt.DeliveryOrder.InsertOnSubmit(entity);
             }
 
-            dcDeliveryOrder.SubmitChanges();
+            cxt.SubmitChanges();
 
             this.ShowResult(true, "成功");
         }

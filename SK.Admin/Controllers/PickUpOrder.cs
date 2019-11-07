@@ -35,11 +35,82 @@ namespace SK.Admin.Controllers
                 a.PickUpAt,
                 a.CreateAt,
                 TypeName = a.Type.GetDescription(),
-                //TypeName = Enum.GetName(typeof(SK.Entities.DeliveryOrder.OrderType), a.Type),
+                //TypeName = Enum.GetName(typeof(SK.Entities.PickUpOrder.OrderType), a.Type),
                 a.UserID
             }).ToList();
 
             this.ShowResult(true, "成功", data);
+        }
+
+        public void list2()
+        {
+            PickUpOrderDataContext dc = new PickUpOrderDataContext();
+            var list = dc.PickUpOrder.Where(p => p.SourceID == QF("OrderID"));
+
+            var data = list.Select(a => new
+            {
+                a.ID,
+                a.SourceID,
+                a.OrderNo,
+                a.ProcessingNo,
+                a.VehicleInfo,
+                a.Content,
+                a.PickUpAt,
+                a.CreateAt,
+                TypeName = Enum.GetName(typeof(SK.Entities.PickUpOrder.OrderType), a.Type),
+                a.UserID
+            }).ToList();
+
+            this.ShowResult(true, "成功", data);
+        }
+
+        public void info()
+        {
+            PickUpOrderDataContext cxt = new PickUpOrderDataContext();
+            var entity = cxt.PickUpOrder.FirstOrDefault(p => p.ID == Request["ID"]);
+            this.ShowResult(true, "成功", new
+            {
+                entity.ID,
+                entity.Content,
+                entity.CreateAt,
+                entity.PickUpAt,
+                entity.OrderNo,
+                entity.ProcessingNo,
+                entity.SourceID,
+                entity.Type,
+                TypeName = entity.Type.GetDescription(),// Enum.GetName(typeof(SK.Entities.PickUpOrder.OrderType), entity.Type),
+                entity.VehicleInfo
+            });
+        }
+
+        public void save()
+        {
+            PickUpOrderDataContext cxt = new PickUpOrderDataContext();
+
+            var entity = cxt.PickUpOrder.FirstOrDefault(p => p.ID == QF("ID"));
+            if (entity != null)
+            {
+                entity = Request.Form.Fill(entity);
+            }
+            else
+            {
+                entity = new Entities.PickUpOrder();
+                entity = Request.Form.Fill(entity);
+
+                entity.ID = Guid.NewGuid().ToString();
+                entity.CreateAt = DateTime.Now;
+                entity.OrderNo = string.Format("yyyyMMddHHmmsss");
+                //entity.ProcessingNo = order.OrderNo;
+                //entity.SourceID = order.ID;
+                entity.UserID = "";
+                entity.UserName = "";
+
+                cxt.PickUpOrder.InsertOnSubmit(entity);
+            }
+
+            cxt.SubmitChanges();
+
+            this.ShowResult(true, "成功");
         }
     }
 }
