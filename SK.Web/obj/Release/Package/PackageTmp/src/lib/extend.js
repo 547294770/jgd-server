@@ -42,6 +42,12 @@
                     var ctrlid = $(this)[0].id;
                     laydate.render({ elem: '#' + ctrlid, type: 'datetime' });
                 })
+
+                $("[datetype=timesection]").each(function () {
+                    var ctrlid = $(this)[0].id;
+                    console.log("datetype:" + ctrlid);
+                    laydate.render({ elem: '#' + ctrlid, type: 'time', range: true });
+                })
             })();
         })
     };

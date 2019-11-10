@@ -187,17 +187,33 @@
                         url: '/handler/admin/processingorder/save',
                         data: {
                             "OrderID": document.getElementById('admin-processing-orderid').value,
-                            "Delivery": { "DeliveryAt": $("#admin-delivery-deliveryat").val(), "Content": $("#admin-delivery-content").val(), "VehicleInfo": $("#admin-delivery-vehicleinfo").val() },
+                            "Delivery": {
+                                "DeliveryAt": $("#admin-delivery-deliveryat").val(),
+                                "Content": $("#admin-delivery-content").val(),
+                                "TimeSection": $("#admin-delivery-timesection").val(),
+                                "VehicleInfo": $("#admin-delivery-vehicleinfo").val()
+                            },
+                            "PickUp": {
+                                "PickUpAt": $("#admin-pickup-pickupat").val(),
+                                "Content": $("#admin-pickup-content").val(),
+                                "TimeSection": $("#admin-pickup-timesection").val(),
+                                "VehicleInfo": $("#admin-pickup-vehicleinfo").val()
+                            },
                             "Fee": { "Type": $('#admin-processing-fee-billtype').val(),"Content": $("#admin-processing-fee-detail").val() }
                         },
                         type: "post",
                         success: function (res) {
+                            console.log("res.code:"+res.code);
                             layer.close(index);
-                            layer.alert(res.msg, { icon: res.code == 0 ? 1 : 2 }, function () {
-                                layer.closeAll();
-                                table.reload("admin-index-unprocessed");//注意，是待办列表
-                                table.reload("admin-processing-index");
-                            });
+                            if (res.code == 0) {
+                                layer.alert(res.msg, { icon: 1 }, function () {
+                                    layer.closeAll();
+                                    table.reload("admin-index-unprocessed");//注意，是待办列表
+                                    table.reload("admin-processing-index");
+                                });
+                            } else {
+                                layer.alert(res.msg, { icon: 2 });
+                            }
                         }
                     });
                 });
@@ -226,7 +242,7 @@
         <label class="layui-form-label">单号：</label>
         <div class="layui-input-inline"><input type="hidden" id="admin-processing-orderid" value="{{ d.params.ID }}" /><div class="layui-form-mid layui-word-aux"><b>{{ d.params.OrderNo }}</b></div></div>
         <label class="layui-form-label">状态：</label>
-        <div class="layui-input-inline"><div class="layui-form-mid layui-word-aux">{{ htmlFunction.status(d.params.Status) }}</div></div>
+        <div class="layui-input-inline"><div class="layui-form-mid layui-word-aux">{{ htmlFunction.status(d.params.Status,d.params.DelType,d.params.PickType) }}</div></div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">下单时间：</label>
@@ -276,12 +292,18 @@
    
     {{# if(d.params.Status == 'ConfirmDeliveryMethod'&& d.params.DelType == 'LXD'){ }}
     <fieldset>
-        <legend>材料送货信息</legend>
+        <legend>录入提货信息</legend>
         <div>
             <div class="layui-form-item">
                 <label class="layui-form-label">日期：</label>
                 <div class="layui-input-inline">
-                    <input type="text" class="layui-input" name="DeliveryAt" placeholder="提材料日期" id="admin-delivery-deliveryat" datetype="date" placeholder="" autocomplete="off">
+                    <input type="text" id="admin-delivery-deliveryat" class="layui-input" name="DeliveryAt" placeholder="提材料日期"  datetype="date" placeholder="" autocomplete="off">
+                </div>
+                <div class="layui-inline">
+                  <label class="layui-form-label">时间段</label>
+                  <div class="layui-input-inline">
+                    <input type="text" id="admin-delivery-timesection" class="layui-input" name="TimeSection"  datetype="timesection" placeholder=" - ">
+                  </div>
                 </div>
             </div>
             <div class="layui-form-item">
@@ -294,6 +316,39 @@
                 <label class="layui-form-label">车辆信息：</label>
                 <div class="layui-input-block">
                     <textarea id="admin-delivery-vehicleinfo" placeholder="请输入内容" class="layui-textarea"></textarea>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+    {{# } }}
+
+    {{# if(d.params.Status == 'ConfirmPickUpMethod'&& d.params.PickType == 'LXD'){ }}
+    <fieldset>
+        <legend>录入送货信息</legend>
+        <div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">日期：</label>
+                <div class="layui-input-inline">
+                    <input type="text" id="admin-pickup-pickupat" class="layui-input" name="PickUpAt" placeholder="提材料日期" datetype="date" placeholder="" autocomplete="off">
+                </div>
+                <div class="layui-inline">
+                  <label class="layui-form-label">时间段</label>
+                  <div class="layui-input-inline">
+                    <input type="text" id="admin-pickup-timesection" class="layui-input" name="TimeSection" datetype="timesection" placeholder=" - ">
+                  </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">送货内容：</label>
+                <div class="layui-input-block">
+                    <textarea id="admin-pickup-content" placeholder="请输入内容" class="layui-textarea"></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">车辆信息：</label>
+                <div class="layui-input-block">
+                    <textarea id="admin-pickup-vehicleinfo" placeholder="请输入内容" class="layui-textarea"></textarea>
                 </div>
             </div>
         </div>
@@ -341,6 +396,9 @@
             {{# } }}
             {{# if(d.params.Status == 'ConfirmDeliveryMethod'&& d.params.DelType == 'LXD'){ }}
             <button id="Button8" class="layui-btn layui-btn-normal">提交并确认材料提货信息</button>
+            {{# } }}
+            {{# if(d.params.Status == 'ConfirmPickUpMethod'&& d.params.PickType == 'LXD'){ }}
+            <button id="Button9" class="layui-btn layui-btn-normal">提交并确认产品送货信息</button>
             {{# } }}
             {{# if(d.params.Status == 'Warehousing'){ }}
             <button id="Button3" class="layui-btn layui-btn-normal">确认已安排生产</button>

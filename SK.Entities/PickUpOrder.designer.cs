@@ -102,6 +102,8 @@ namespace SK.Entities
 		
 		private System.DateTime _CreateAt;
 		
+		private string _TimeSection;
+		
     #region 可扩展性方法定义
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -128,6 +130,8 @@ namespace SK.Entities
     partial void OnProcessingNoChanged();
     partial void OnCreateAtChanging(System.DateTime value);
     partial void OnCreateAtChanged();
+    partial void OnTimeSectionChanging(string value);
+    partial void OnTimeSectionChanged();
     #endregion
 		
 		public PickUpOrder()
@@ -351,6 +355,26 @@ namespace SK.Entities
 					this._CreateAt = value;
 					this.SendPropertyChanged("CreateAt");
 					this.OnCreateAtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeSection", CanBeNull=false)]
+		public string TimeSection
+		{
+			get
+			{
+				return this._TimeSection;
+			}
+			set
+			{
+				if ((this._TimeSection != value))
+				{
+					this.OnTimeSectionChanging(value);
+					this.SendPropertyChanging();
+					this._TimeSection = value;
+					this.SendPropertyChanged("TimeSection");
+					this.OnTimeSectionChanged();
 				}
 			}
 		}

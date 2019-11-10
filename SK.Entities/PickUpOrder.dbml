@@ -13,6 +13,7 @@
       <Column Name="OrderNo" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="ProcessingNo" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="CreateAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Member="TimeSection" Type="System.String" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

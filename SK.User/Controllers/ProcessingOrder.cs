@@ -33,7 +33,10 @@ namespace SK.User.Controllers
 
             ProcessingOrderDataContext dc = new ProcessingOrderDataContext();
             var list = dc.ProcessingOrder.Where(p => p.UserID == UserInfo.openid);
-            list = list.Where(p =>status.Contains(p.Status) || (p.Status == Entities.ProcessingOrder.OrderStatus.ConfirmDeliveryMethod && p.DelType == Entities.ProcessingOrder.DeliveryType.Self));
+            list = list.Where(p =>status.Contains(p.Status) || 
+                (p.Status == Entities.ProcessingOrder.OrderStatus.ConfirmDeliveryMethod && p.DelType == Entities.ProcessingOrder.DeliveryType.Self)
+                ||(p.Status == Entities.ProcessingOrder.OrderStatus.ConfirmPickUpMethod && p.PickType == Entities.ProcessingOrder.PickUpType.Self)
+                );
             
             var data = list.OrderByDescending(p=>p.UpdateAt).Select(p => new
             {
@@ -273,16 +276,50 @@ namespace SK.User.Controllers
                     }
                     break;
                 case SK.Entities.ProcessingOrder.OrderStatus.ConfirmDeliveryMethod://
-                    DoDelivery(order);
+                    {
+                        if (order.DelType != Entities.ProcessingOrder.DeliveryType.Self)
+                        {
+                            this.FailMessage("订单的送货类型不正确");
+                            return;
+                        }
+                        if (string.IsNullOrWhiteSpace(QF("Delivery[Content]"))
+                            || string.IsNullOrWhiteSpace(QF("Delivery[DeliveryAt]"))
+                            || string.IsNullOrWhiteSpace(QF("Delivery[TimeSection]"))
+                            || string.IsNullOrWhiteSpace(QF("Delivery[VehicleInfo]"))) {
+                                this.FailMessage("送货信息不能为空");
+                                return;
+                        }
+
+                        DoDelivery(order);
+                    }
                     break;
                 case SK.Entities.ProcessingOrder.OrderStatus.NoticePickUp://
                     order.PickType = QF("PickType").ToEnum<Entities.ProcessingOrder.PickUpType>();
+                    order.Status = Entities.ProcessingOrder.OrderStatus.ConfirmPickUpMethod;
                     if (order.PickType == Entities.ProcessingOrder.PickUpType.None)
                     {
                         this.FailMessage("请选择提货类型");
                         return;
                     }
-                    DoPickup(order);
+                    break;
+                case SK.Entities.ProcessingOrder.OrderStatus.ConfirmPickUpMethod://
+                    {
+                        if (order.PickType != Entities.ProcessingOrder.PickUpType.Self)
+                        {
+                            this.FailMessage("订单的提货类型不正确");
+                            return;
+                        }
+
+                        if (string.IsNullOrWhiteSpace(QF("PickUp[Content]"))
+                                || string.IsNullOrWhiteSpace(QF("PickUp[PickUpAt]"))
+                                || string.IsNullOrWhiteSpace(QF("PickUp[TimeSection]"))
+                                || string.IsNullOrWhiteSpace(QF("PickUp[VehicleInfo]")))
+                        {
+                            this.FailMessage("提货信息不能为空");
+                            return;
+                        }
+                        DoPickup(order);
+                    }
                     break;
                 case SK.Entities.ProcessingOrder.OrderStatus.AlreadyGoods://
                     order.Status = Entities.ProcessingOrder.OrderStatus.ConfirmationFee;
@@ -301,6 +338,7 @@ namespace SK.User.Controllers
                 order.ID,
                 Status = Enum.GetName(typeof(SK.Entities.ProcessingOrder.OrderStatus), order.Status),
                 DelType = Enum.GetName(typeof(SK.Entities.ProcessingOrder.DeliveryType), order.DelType),
+                PickType = Enum.GetName(typeof(SK.Entities.ProcessingOrder.PickUpType), order.PickType)
             };
 
             this.ShowResult(true, "操作成功", returnObj);
@@ -353,6 +391,7 @@ namespace SK.User.Controllers
             ent.Content = QF("Delivery[Content]");
             ent.CreateAt = DateTime.Now;
             ent.DeliveryAt = QF("Delivery[DeliveryAt]", DateTime.Now);
+            ent.TimeSection = QF("Delivery[TimeSection]");
             ent.ID = Guid.NewGuid().ToString();
             ent.OrderNo = string.Format("{0}", DateTime.Now.ToString("yyyyMMddHHmmss"));
             ent.ProcessingNo = order.OrderNo;
@@ -387,8 +426,10 @@ namespace SK.User.Controllers
 
             var ent = new Entities.PickUpOrder();
             ent.Content = QF("PickUp[Content]");
+            
             ent.CreateAt = DateTime.Now;
             ent.PickUpAt = QF("PickUp[PickUpAt]", DateTime.Now);
+            ent.TimeSection = QF("PickUp[TimeSection]");
             ent.ID = Guid.NewGuid().ToString();
             ent.OrderNo = string.Format("{0}", DateTime.Now.ToString("yyyyMMddHHmmss"));
             ent.ProcessingNo = order.OrderNo;

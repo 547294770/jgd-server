@@ -42,7 +42,7 @@
                 { title: "加工单号", field: "OrderNo" },
                 { title: "加工内容", field: "Content" },
                 { title: "下单时间", field: "CreateAt" },
-                { title: "状态", templet: "<div>{{ htmlFunction.status(d.Status,d.DelType) }}</div>" },
+                { title: "状态", templet: "<div>{{ htmlFunction.status(d.Status,d.DelType,d.PickType) }}</div>" },
                 { title: "操作", templet: "#admin-unprocessed-index-table-operate" }
             ]]
         });

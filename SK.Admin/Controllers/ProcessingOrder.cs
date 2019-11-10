@@ -54,7 +54,9 @@ namespace SK.Admin.Controllers
 
             ProcessingOrderDataContext dc = new ProcessingOrderDataContext();
 
-            var list = dc.ProcessingOrder.Where(p => status.Contains(p.Status) || (p.Status == Entities.ProcessingOrder.OrderStatus.ConfirmDeliveryMethod && p.DelType == Entities.ProcessingOrder.DeliveryType.LXD));
+            var list = dc.ProcessingOrder.Where(p => status.Contains(p.Status) 
+                || (p.Status == Entities.ProcessingOrder.OrderStatus.ConfirmDeliveryMethod && p.DelType == Entities.ProcessingOrder.DeliveryType.LXD)
+                || (p.Status == Entities.ProcessingOrder.OrderStatus.ConfirmPickUpMethod && p.PickType == Entities.ProcessingOrder.PickUpType.LXD));
             var data = list.OrderByDescending(p=>p.UpdateAt).Select(p => new
             {
                 p.Content,
@@ -110,7 +112,15 @@ namespace SK.Admin.Controllers
                     DoProduced(order,dc);//生产完已入库
                     break;
                 case SK.Entities.ProcessingOrder.OrderStatus.Produced:
-                    DoNoticeDelivery(order,dc);//已通知客户提货
+                    DoNoticePickUp(order,dc);//已通知客户提货
+                    break;
+                case SK.Entities.ProcessingOrder.OrderStatus.ConfirmPickUpMethod:
+                    {
+                        if (order.PickType == Entities.ProcessingOrder.PickUpType.LXD)
+                        {
+                            DoInputPickUp(order, dc);//确认录入送货资料（利迅达方录入资料）
+                        }
+                    }
                     break;
                 //case SK.Entities.ProcessingOrder.OrderStatus.NoticeDelivery:
                 //    break;
@@ -151,17 +161,32 @@ namespace SK.Admin.Controllers
         {
             if (order.Status == Entities.ProcessingOrder.OrderStatus.ConfirmDeliveryMethod && order.DelType == Entities.ProcessingOrder.DeliveryType.LXD)
             {
+                var Delivery_Content = QF("Delivery[Content]");
+                var Delivery_DeliveryAt = QF("Delivery[DeliveryAt]");
+                var Delivery_TimeSection = QF("Delivery[TimeSection]");
+                var Delivery_VehicleInfo = QF("Delivery[VehicleInfo]");
+
+                if (string.IsNullOrEmpty(Delivery_Content)
+                    || string.IsNullOrEmpty(Delivery_DeliveryAt)
+                    || string.IsNullOrEmpty(Delivery_TimeSection)
+                    || string.IsNullOrEmpty(Delivery_VehicleInfo))
+                {
+                    this.ShowResult(false, "提货信息不能为空");
+                    return;
+                }
+
                 var ent = new Entities.DeliveryOrder();
-                ent.Content = QF("Delivery[Content]");
+                ent.Content = Delivery_Content;
                 ent.CreateAt = DateTime.Now;
                 ent.DeliveryAt = QF("Delivery[DeliveryAt]", DateTime.Now);
+                ent.TimeSection = Delivery_TimeSection;
                 ent.ID = Guid.NewGuid().ToString();
                 ent.OrderNo = string.Format("{0}", DateTime.Now.ToString("yyyyMMddHHmmss"));
                 ent.ProcessingNo = order.OrderNo;
                 ent.SourceID = order.ID;
-                ent.UserID = "4A355901-3556-4B7D-9E54-9FE03C1B99F8";
-                ent.UserName = "test2";
-                ent.VehicleInfo = QF("Delivery[VehicleInfo]");
+                ent.UserID = order.UserID;
+                ent.UserName = order.UserName;
+                ent.VehicleInfo = Delivery_VehicleInfo;
 
                 switch (order.DelType)
                 {
@@ -188,9 +213,70 @@ namespace SK.Admin.Controllers
             }
             else
             {
-                this.FailMessage("状态错误");
+                this.ShowResult(false, "状态错误");
             }
         }
+
+        private void DoInputPickUp(SK.Entities.ProcessingOrder order, ProcessingOrderDataContext dc)
+        {
+            if (order.Status == Entities.ProcessingOrder.OrderStatus.ConfirmPickUpMethod && order.PickType == Entities.ProcessingOrder.PickUpType.LXD)
+            {
+                var PickUp_Content = QF("PickUp[Content]");
+                var PickUp_PickUpAt = QF("PickUp[PickUpAt]");
+                var PickUp_TimeSection = QF("PickUp[TimeSection]");
+                var PickUp_VehicleInfo = QF("PickUp[VehicleInfo]");
+
+                if (string.IsNullOrEmpty(PickUp_Content)
+                    || string.IsNullOrEmpty(PickUp_PickUpAt)
+                    || string.IsNullOrEmpty(PickUp_TimeSection)
+                    || string.IsNullOrEmpty(PickUp_VehicleInfo))
+                {
+                    this.ShowResult(false, "送货信息不能为空");
+                    return;
+                }
+
+                var ent = new Entities.PickUpOrder();
+                ent.Content = PickUp_Content;
+                ent.CreateAt = DateTime.Now;
+                ent.PickUpAt = QF("PickUp[PickUpAt]", DateTime.Now);
+                ent.TimeSection = PickUp_TimeSection;
+                ent.ID = Guid.NewGuid().ToString();
+                ent.OrderNo = string.Format("{0}", DateTime.Now.ToString("yyyyMMddHHmmss"));
+                ent.ProcessingNo = order.OrderNo;
+                ent.SourceID = order.ID;
+                ent.UserID = order.UserID;
+                ent.UserName = order.UserName;
+                ent.VehicleInfo = PickUp_VehicleInfo;
+
+                switch (order.PickType)
+                {
+                    case SK.Entities.ProcessingOrder.PickUpType.None:
+                        break;
+                    case SK.Entities.ProcessingOrder.PickUpType.Self:
+                        ent.Type = Entities.PickUpOrder.OrderType.Self;
+                        break;
+                    case SK.Entities.ProcessingOrder.PickUpType.LXD:
+                        ent.Type = Entities.PickUpOrder.OrderType.LXD;
+                        break;
+                    default:
+                        break;
+                }
+
+                PickUpOrderDataContext dcPickUpOrder = new PickUpOrderDataContext();
+                dcPickUpOrder.PickUpOrder.InsertOnSubmit(ent);
+                dcPickUpOrder.SubmitChanges();
+
+                order.Status = Entities.ProcessingOrder.OrderStatus.InputPickUpContact;
+                dc.SubmitChanges();
+
+                this.ShowResult(true, "保存成功");
+            }
+            else
+            {
+                this.ShowResult(false, "状态错误");
+            }
+        }
+
 
         /// <summary>
         /// 确认材料已入库
@@ -248,7 +334,7 @@ namespace SK.Admin.Controllers
         /// 已通知客户提货
         /// </summary>
         /// <param name="order"></param>
-        private void DoNoticeDelivery(SK.Entities.ProcessingOrder order, ProcessingOrderDataContext dc)
+        private void DoNoticePickUp(SK.Entities.ProcessingOrder order, ProcessingOrderDataContext dc)
         {
             if (order.Status != Entities.ProcessingOrder.OrderStatus.Produced)
             {
@@ -257,7 +343,7 @@ namespace SK.Admin.Controllers
             }
 
             order.Status = Entities.ProcessingOrder.OrderStatus.NoticePickUp;
-            order.PickType = Entities.ProcessingOrder.PickUpType.Self;
+            order.PickType = Entities.ProcessingOrder.PickUpType.None;
 
             dc.SubmitChanges();
 

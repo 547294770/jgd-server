@@ -83,8 +83,8 @@ namespace SK.Entities
 		private string _ID;
 		
 		private string _SourceID;
-
-        private OrderType _Type;
+		
+		private OrderType _Type;
 		
 		private string _Content;
 		
@@ -101,6 +101,8 @@ namespace SK.Entities
 		private string _OrderNo;
 		
 		private string _ProcessingNo;
+		
+		private string _TimeSection;
 		
     #region 可扩展性方法定义
     partial void OnLoaded();
@@ -128,6 +130,8 @@ namespace SK.Entities
     partial void OnOrderNoChanged();
     partial void OnProcessingNoChanging(string value);
     partial void OnProcessingNoChanged();
+    partial void OnTimeSectionChanging(string value);
+    partial void OnTimeSectionChanged();
     #endregion
 		
 		public DeliveryOrder()
@@ -175,8 +179,8 @@ namespace SK.Entities
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="TinyInt NOT NULL")]
-        public OrderType Type
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="TinyInt NOT NULL", CanBeNull=false)]
+		public OrderType Type
 		{
 			get
 			{
@@ -351,6 +355,26 @@ namespace SK.Entities
 					this._ProcessingNo = value;
 					this.SendPropertyChanged("ProcessingNo");
 					this.OnProcessingNoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeSection", CanBeNull=false)]
+		public string TimeSection
+		{
+			get
+			{
+				return this._TimeSection;
+			}
+			set
+			{
+				if ((this._TimeSection != value))
+				{
+					this.OnTimeSectionChanging(value);
+					this.SendPropertyChanging();
+					this._TimeSection = value;
+					this.SendPropertyChanged("TimeSection");
+					this.OnTimeSectionChanged();
 				}
 			}
 		}

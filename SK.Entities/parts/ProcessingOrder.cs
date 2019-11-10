@@ -15,33 +15,35 @@ namespace SK.Entities
             [Description("未提交")]
             None = 0,
             [Description("已提交待处理")]
-            Processing = 1,
+            Processing = 10,
             [Description("已上传加工单截图")]
-            Uploaded = 2,
+            Uploaded = 20,
             [Description("已确认加工内容")]
-            Print = 3,
-            [Description("已确认提货方式")]
-            ConfirmDeliveryMethod = 4,
+            Print = 30,
+            [Description("已确认送货方式")]
+            ConfirmDeliveryMethod = 40,
             [Description("已录入送货资料")]
-            InputDelivery = 5,
+            InputDelivery = 50,
             [Description("材料已入库")]
-            Warehousing = 6,
+            Warehousing = 60,
             [Description("已安排生产")]
-            Producing = 7,
+            Producing = 70,
             [Description("生产完已入库")]
-            Produced = 8,
+            Produced = 80,
             [Description("已通知客户提货")]
-            NoticePickUp = 9,
+            NoticePickUp = 90,
+            [Description("已确认提货方式")]
+            ConfirmPickUpMethod = 91,
             [Description("已录入提货资料")]
-            InputPickUpContact = 10,
+            InputPickUpContact = 100,
             [Description("已备货")]
-            AlreadyGoods = 11,
+            AlreadyGoods = 110,
             [Description("已确认加工费")]
-            ConfirmationFee = 12,
+            ConfirmationFee = 120,
             [Description("已发货")]
-            Shipped = 13,
+            Shipped = 130,
             [Description("已完成")]
-            Finished = 14
+            Finished = 140
         }
 
         public enum DeliveryType
@@ -73,12 +75,12 @@ namespace SK.Entities
             /// <summary>
             /// 客户自送
             /// </summary>
-            [Description("客户自送")]
+            [Description("客户自提")]
             Self = 1,
             /// <summary>
-            /// 利迅达提货
+            /// 利迅达送货
             /// </summary>
-            [Description("利迅达提货")]
+            [Description("利迅达送货")]
             LXD = 2
         }
         
