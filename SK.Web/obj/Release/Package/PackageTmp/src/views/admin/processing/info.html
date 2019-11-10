@@ -195,6 +195,7 @@
                             layer.close(index);
                             layer.alert(res.msg, { icon: res.code == 0 ? 1 : 2 }, function () {
                                 layer.closeAll();
+                                table.reload("admin-index-unprocessed");//注意，是待办列表
                                 table.reload("admin-processing-index");
                             });
                         }

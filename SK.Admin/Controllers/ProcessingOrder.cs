@@ -86,8 +86,6 @@ namespace SK.Admin.Controllers
 
             switch (order.Status)
             {
-                case SK.Entities.ProcessingOrder.OrderStatus.None:
-                    break;
                 case SK.Entities.ProcessingOrder.OrderStatus.Processing:
                     DoUploaded(order, dc);
                     break;
@@ -129,7 +127,10 @@ namespace SK.Admin.Controllers
                 //case SK.Entities.ProcessingOrder.OrderStatus.Finished:
                 //    break;
                 default:
-                    break;
+                    {
+                        this.ShowResult(true, "订单状态不允许操作");
+                        return;
+                    }
             }
         }
 

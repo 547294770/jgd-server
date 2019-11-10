@@ -88,11 +88,23 @@ namespace SK.User.Controllers
         {
             ProcessingOrderDataContext dc = new ProcessingOrderDataContext();
 
+            SK.Entities.ProcessingOrder.OrderStatus[] status = new SK.Entities.ProcessingOrder.OrderStatus[] { 
+                SK.Entities.ProcessingOrder.OrderStatus.None,
+                SK.Entities.ProcessingOrder.OrderStatus.Processing
+            };
+
             var orderId = QF("ID");
             var order = dc.ProcessingOrder.FirstOrDefault(p => p.ID == orderId);
             if (order == null)
             {
                 order = new Entities.ProcessingOrder();
+            }
+            else {
+                if (!status.Contains(order.Status))
+                {
+                    this.ShowResult(false, "该加工状态不允许修改");
+                    return;
+                }
             }
 
             order =  this.Request.Form.Fill<Entities.ProcessingOrder>(order);
@@ -209,8 +221,11 @@ namespace SK.User.Controllers
                 order.ID,
                 order.OrderNo,
                 Status = Enum.GetName(typeof(SK.Entities.ProcessingOrder.OrderStatus), order.Status),
+                StatusName = order.Status.GetDescription(),
                 DelType = Enum.GetName(typeof(SK.Entities.ProcessingOrder.DeliveryType), order.DelType),
+                DelTypeName = order.DelType.GetDescription(),
                 PickType = Enum.GetName(typeof(SK.Entities.ProcessingOrder.PickUpType), order.PickType),
+                PickTypeName = order.PickType.GetDescription(),
                 AttachmentList = attachments,
                 DeliveryList = deliverylist,
                 PickUpList = pickuplist,
@@ -282,7 +297,13 @@ namespace SK.User.Controllers
             order.UpdateAt = DateTime.Now;
             dc.SubmitChanges();
 
-            this.ShowResult(true, "操作成功");
+            var returnObj = new { 
+                order.ID,
+                Status = Enum.GetName(typeof(SK.Entities.ProcessingOrder.OrderStatus), order.Status),
+                DelType = Enum.GetName(typeof(SK.Entities.ProcessingOrder.DeliveryType), order.DelType),
+            };
+
+            this.ShowResult(true, "操作成功", returnObj);
         }
 
         private void DoAttachment(Entities.ProcessingOrder order)
