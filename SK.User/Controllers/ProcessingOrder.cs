@@ -17,7 +17,7 @@ namespace SK.User.Controllers
     /// </summary>
     public class ProcessingOrder : BasePage
     {
-        public void list()
+        public void todolist()
         {
             //AttachmentDataContext dd = new AttachmentDataContext();
             //dd.Attachment.InsertOnSubmit(
@@ -33,7 +33,7 @@ namespace SK.User.Controllers
 
             ProcessingOrderDataContext dc = new ProcessingOrderDataContext();
             var list = dc.ProcessingOrder.Where(p => p.UserID == UserInfo.openid);
-            list = list.Where(p =>status.Contains(p.Status) || (p.Status == Entities.ProcessingOrder.OrderStatus.ConfirmDeliveryMethod && p.DelType == Entities.ProcessingOrder.DeliveryType.Self)).OrderByDescending(p => p.UpdateAt);
+            list = list.Where(p =>status.Contains(p.Status) || (p.Status == Entities.ProcessingOrder.OrderStatus.ConfirmDeliveryMethod && p.DelType == Entities.ProcessingOrder.DeliveryType.Self));
             
             var data = list.OrderByDescending(p=>p.UpdateAt).Select(p => new
             {
@@ -49,30 +49,20 @@ namespace SK.User.Controllers
             this.ShowResult(true, "成功", data);
         }
 
-        public void unprocessed()
+        public void list()
         {
-            //SK.Entities.ProcessingOrder.OrderStatus[] status = new SK.Entities.ProcessingOrder.OrderStatus[] { 
-            //    SK.Entities.ProcessingOrder.OrderStatus.Processing,
-            //    SK.Entities.ProcessingOrder.OrderStatus.InputDelivery,
-            //    SK.Entities.ProcessingOrder.OrderStatus.Warehousing,
-            //    SK.Entities.ProcessingOrder.OrderStatus.Producing,
-            //    SK.Entities.ProcessingOrder.OrderStatus.Produced,
-            //    SK.Entities.ProcessingOrder.OrderStatus.InputPickUpContact,
-            //    SK.Entities.ProcessingOrder.OrderStatus.ConfirmationFee,
-            //    SK.Entities.ProcessingOrder.OrderStatus.Shipped
-            //};
-
             ProcessingOrderDataContext dc = new ProcessingOrderDataContext();
-        
-            var list = dc.ProcessingOrder.AsQueryable(); //.Where(p => status.Contains(p.Status));
-            var data = list.OrderByDescending(p=>p.UpdateAt).Select(p => new
+            var list = dc.ProcessingOrder.Where(p => p.UserID == UserInfo.openid);
+            var data = list.OrderByDescending(p => p.UpdateAt).Select(p => new
             {
                 p.Content,
                 p.CreateAt,
                 p.ID,
                 p.OrderNo,
                 Status = Enum.GetName(typeof(SK.Entities.ProcessingOrder.OrderStatus), p.Status),
-                p.UserID
+                StatusName = p.Status.GetDescription(),
+                p.UserID,
+                p.UserName
             }).ToList();
             this.ShowResult(true, "成功", data);
         }
@@ -196,6 +186,22 @@ namespace SK.User.Controllers
             AttachmentDataContext adc = new AttachmentDataContext();
             var attachments = adc.Attachment.Where(p => p.SourceID == order.ID).ToList();
 
+            DeliveryOrderDataContext delcxt = new DeliveryOrderDataContext();
+            var deliverylist = delcxt.DeliveryOrder.Where(p => p.SourceID == order.ID).ToList();
+
+            PickUpOrderDataContext pickcxt = new PickUpOrderDataContext();
+            var pickuplist = pickcxt.PickUpOrder.Where(p => p.SourceID == order.ID).ToList();
+
+            ProcessingFeeDataContext feecxt = new ProcessingFeeDataContext();
+            var feelist = feecxt.ProcessingFee.Where(p => p.SourceID == order.ID).Select(p=>new {
+                TypeName = p.Type.GetDescription(),
+                p.ProcessingNo,
+                p.Content,
+                p.FeeNo,
+                p.ID,
+                p.CreateAt
+            }).ToList();
+
             this.ShowResult(true, "成功",
                 new { 
                 order.Content,
@@ -205,6 +211,10 @@ namespace SK.User.Controllers
                 Status = Enum.GetName(typeof(SK.Entities.ProcessingOrder.OrderStatus), order.Status),
                 DelType = Enum.GetName(typeof(SK.Entities.ProcessingOrder.DeliveryType), order.DelType),
                 PickType = Enum.GetName(typeof(SK.Entities.ProcessingOrder.PickUpType), order.PickType),
+                AttachmentList = attachments,
+                DeliveryList = deliverylist,
+                PickUpList = pickuplist,
+                FeeList = feelist,
                 order.UpdateAt,
                 order.UserID,
                 order.UserName,
