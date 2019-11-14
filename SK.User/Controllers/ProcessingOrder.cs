@@ -17,12 +17,7 @@ namespace SK.User.Controllers
     /// </summary>
     public class ProcessingOrder : BasePage
     {
-        public void todolist()
-        {
-            //AttachmentDataContext dd = new AttachmentDataContext();
-            //dd.Attachment.InsertOnSubmit(
-           
-            SK.Entities.ProcessingOrder.OrderStatus[] status = new SK.Entities.ProcessingOrder.OrderStatus[] { 
+        SK.Entities.ProcessingOrder.OrderStatus[] status = new SK.Entities.ProcessingOrder.OrderStatus[] { 
                 SK.Entities.ProcessingOrder.OrderStatus.Uploaded,
                 SK.Entities.ProcessingOrder.OrderStatus.Print,
                 SK.Entities.ProcessingOrder.OrderStatus.NoticePickUp,
@@ -31,43 +26,120 @@ namespace SK.User.Controllers
                 SK.Entities.ProcessingOrder.OrderStatus.None
             };
 
+        public void todocount()
+        {
+            ProcessingOrderDataContext dc = new ProcessingOrderDataContext();
+            var list = dc.ProcessingOrder.Where(p => p.UserID == UserInfo.openid);
+
+            list = list.Where(p => status.Contains(p.Status) ||
+                (p.Status == Entities.ProcessingOrder.OrderStatus.ConfirmDeliveryMethod && p.DelType == Entities.ProcessingOrder.DeliveryType.Self)
+                || (p.Status == Entities.ProcessingOrder.OrderStatus.ConfirmPickUpMethod && p.PickType == Entities.ProcessingOrder.PickUpType.Self)
+                );
+
+            var returnObj = new
+            {
+                ProcessingOrderCount = list.Count()
+            };
+
+            this.ShowResult(true, "成功", returnObj);
+        }
+
+        public void todolist()
+        {
             ProcessingOrderDataContext dc = new ProcessingOrderDataContext();
             var list = dc.ProcessingOrder.Where(p => p.UserID == UserInfo.openid);
             list = list.Where(p =>status.Contains(p.Status) || 
                 (p.Status == Entities.ProcessingOrder.OrderStatus.ConfirmDeliveryMethod && p.DelType == Entities.ProcessingOrder.DeliveryType.Self)
                 ||(p.Status == Entities.ProcessingOrder.OrderStatus.ConfirmPickUpMethod && p.PickType == Entities.ProcessingOrder.PickUpType.Self)
                 );
-            
-            var data = list.OrderByDescending(p=>p.UpdateAt).Select(p => new
+
+            var page = 1;
+            var pageSize = 10;
+
+            int.TryParse(Request["page"], out page);
+            int.TryParse(Request["size"], out pageSize);
+
+            if (page < 1) page = 1;
+            if (pageSize < 10) pageSize = 10;
+
+            int count = list.Count();
+            int skip = (page - 1) * pageSize;
+            int pageCount = 0;
+            var lastPage = false;
+            if (count % pageSize > 0) pageCount = count / pageSize + 1;
+            else pageCount = count / pageSize;
+
+            if (page >= pageCount) lastPage = true;
+            else lastPage = false;
+
+            list = list.Skip(skip).Take(pageSize);
+
+            var data = list.OrderByDescending(p => p.UpdateAt).Select(p =>
+                 new
+                 {
+                     p.Content,
+                     p.CreateAt,
+                     p.ID,
+                     p.OrderNo,
+                     Processing = status.Contains(p.Status),
+                     Status = Enum.GetName(typeof(SK.Entities.ProcessingOrder.OrderStatus), p.Status),
+                     StatusName = p.Status.GetDescription(),
+                     p.UserID,
+                     p.UserName
+                 }
+            ).ToList();
+
+            this.ShowResult(true, "成功", new
             {
-                p.Content,
-                p.CreateAt,
-                p.ID,
-                p.OrderNo,
-                Processing = status.Contains(p.Status),
-                Status = Enum.GetName(typeof(SK.Entities.ProcessingOrder.OrderStatus), p.Status),
-                p.UserID,
-                p.UserName
-            }).ToList();
-            this.ShowResult(true, "成功", data);
+                lastPage = lastPage,
+                data = data
+            });
         }
 
         public void list()
         {
             ProcessingOrderDataContext dc = new ProcessingOrderDataContext();
             var list = dc.ProcessingOrder.Where(p => p.UserID == UserInfo.openid);
-            var data = list.OrderByDescending(p => p.UpdateAt).Select(p => new
-            {
-                p.Content,
-                p.CreateAt,
-                p.ID,
-                p.OrderNo,
-                Status = Enum.GetName(typeof(SK.Entities.ProcessingOrder.OrderStatus), p.Status),
-                StatusName = p.Status.GetDescription(),
-                p.UserID,
-                p.UserName
-            }).ToList();
-            this.ShowResult(true, "成功", data);
+
+            var page = 1;
+            var pageSize = 10;
+
+            int.TryParse(Request["page"], out page);
+            int.TryParse(Request["size"], out pageSize);
+
+            if (page < 1) page = 1;
+            if (pageSize < 10) pageSize = 10;
+
+            int count = list.Count();
+            int skip = (page - 1) * pageSize;
+            int pageCount = 0;
+            var lastPage = false;
+            if (count % pageSize > 0) pageCount = count / pageSize + 1;
+            else pageCount = count / pageSize;
+
+            if (page >= pageCount) lastPage = true;
+            else lastPage = false;
+
+            list = list.Skip(skip).Take(pageSize);
+            var data = list.OrderByDescending(p => p.UpdateAt).Select(p =>
+                 new
+                 {
+                     p.Content,
+                     p.CreateAt,
+                     p.ID,
+                     p.OrderNo,
+                     Status = Enum.GetName(typeof(SK.Entities.ProcessingOrder.OrderStatus), p.Status),
+                     StatusName = p.Status.GetDescription(),
+                     p.UserID,
+                     p.UserName
+                 }
+            ).ToList();
+
+            this.ShowResult(true, "成功", new
+                 {
+                     lastPage = lastPage,
+                     data = data
+                 });
         }
 
         public void delete()
