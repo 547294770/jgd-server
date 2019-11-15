@@ -4,3 +4,9 @@ E:\src\web\vs2012\SK\CreateTableTool\bin\Debug\CreateTableTool.pdb
 E:\src\web\vs2012\SK\CreateTableTool\obj\Debug\CreateTableTool.exe
 E:\src\web\vs2012\SK\CreateTableTool\obj\Debug\CreateTableTool.pdb
 E:\src\web\vs2012\SK\CreateTableTool\obj\Debug\CreateTableTool.csprojResolveAssemblyReference.cache
+E:\work\vue\jgd\jgd-server\CreateTableTool\bin\Debug\CreateTableTool.exe.config
+E:\work\vue\jgd\jgd-server\CreateTableTool\bin\Debug\CreateTableTool.exe
+E:\work\vue\jgd\jgd-server\CreateTableTool\bin\Debug\CreateTableTool.pdb
+E:\work\vue\jgd\jgd-server\CreateTableTool\obj\Debug\CreateTableTool.csprojResolveAssemblyReference.cache
+E:\work\vue\jgd\jgd-server\CreateTableTool\obj\Debug\CreateTableTool.exe
+E:\work\vue\jgd\jgd-server\CreateTableTool\obj\Debug\CreateTableTool.pdb

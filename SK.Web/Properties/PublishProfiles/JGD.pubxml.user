@@ -14,25 +14,25 @@
       <publishTime>05/13/2019 22:28:42</publishTime>
     </File>
     <File Include="bin/SK.Admin.dll">
-      <publishTime>11/11/2019 04:47:46</publishTime>
+      <publishTime>11/16/2019 01:17:47</publishTime>
     </File>
     <File Include="bin/SK.BL.dll">
-      <publishTime>11/11/2019 03:35:33</publishTime>
+      <publishTime>11/16/2019 01:17:46</publishTime>
     </File>
     <File Include="bin/SK.Common.dll">
-      <publishTime>11/11/2019 03:35:33</publishTime>
+      <publishTime>11/16/2019 01:17:45</publishTime>
     </File>
     <File Include="bin/SK.Entities.dll">
       <publishTime>11/11/2019 03:35:32</publishTime>
     </File>
     <File Include="bin/SK.Handler.dll">
-      <publishTime>11/11/2019 03:35:33</publishTime>
+      <publishTime>11/16/2019 01:17:46</publishTime>
     </File>
     <File Include="bin/SK.User.dll">
-      <publishTime>11/15/2019 01:18:51</publishTime>
+      <publishTime>11/16/2019 01:17:47</publishTime>
     </File>
     <File Include="bin/SK.Web.dll">
-      <publishTime>11/15/2019 01:18:54</publishTime>
+      <publishTime>11/16/2019 01:17:48</publishTime>
     </File>
     <File Include="content/dist/config.js">
       <publishTime>05/26/2019 15:11:30</publishTime>
@@ -41,7 +41,7 @@
       <publishTime>05/26/2019 15:11:30</publishTime>
     </File>
     <File Include="content/dist/controller/common.js">
-      <publishTime>05/26/2019 15:11:30</publishTime>
+      <publishTime>11/16/2019 01:06:35</publishTime>
     </File>
     <File Include="content/dist/index.js">
       <publishTime>05/26/2019 15:11:30</publishTime>
@@ -143,7 +143,7 @@
       <publishTime>10/28/2019 04:37:17</publishTime>
     </File>
     <File Include="index.html">
-      <publishTime>09/18/2019 00:53:10</publishTime>
+      <publishTime>11/16/2019 01:16:42</publishTime>
     </File>
     <File Include="jgd/css/app.css">
       <publishTime>08/25/2019 20:34:40</publishTime>
@@ -368,13 +368,13 @@
       <publishTime>06/18/2019 23:38:21</publishTime>
     </File>
     <File Include="src/config.js">
-      <publishTime>11/11/2019 03:08:23</publishTime>
+      <publishTime>11/16/2019 00:21:34</publishTime>
     </File>
     <File Include="src/controller/cityselect.js">
       <publishTime>05/26/2019 15:11:30</publishTime>
     </File>
     <File Include="src/controller/common.js">
-      <publishTime>06/03/2019 23:17:43</publishTime>
+      <publishTime>11/16/2019 01:13:36</publishTime>
     </File>
     <File Include="src/controller/test.js">
       <publishTime>06/03/2019 23:50:22</publishTime>
@@ -406,6 +406,9 @@
     <File Include="src/style/comm.css">
       <publishTime>09/17/2019 02:59:59</publishTime>
     </File>
+    <File Include="src/style/login.css">
+      <publishTime>11/16/2019 00:16:58</publishTime>
+    </File>
     <File Include="src/views/admin/delivery/delivery-info.html">
       <publishTime>09/22/2019 21:23:59</publishTime>
     </File>
@@ -417,6 +420,9 @@
     </File>
     <File Include="src/views/admin/delivery/info.html">
       <publishTime>11/11/2019 03:13:28</publishTime>
+    </File>
+    <File Include="src/views/admin/login.html">
+      <publishTime>11/16/2019 00:38:00</publishTime>
     </File>
     <File Include="src/views/admin/pickup/edit.html">
       <publishTime>11/03/2019 18:00:27</publishTime>
@@ -467,7 +473,7 @@
       <publishTime>11/11/2019 04:25:51</publishTime>
     </File>
     <File Include="src/views/layout.html">
-      <publishTime>09/22/2019 21:32:14</publishTime>
+      <publishTime>11/16/2019 01:10:27</publishTime>
     </File>
     <File Include="src/views/test/test/index.html">
       <publishTime>05/26/2019 15:39:51</publishTime>
@@ -1829,7 +1835,7 @@
       <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/15/2019 01:19:21</publishTime>
+      <publishTime>11/16/2019 01:17:52</publishTime>
     </File>
   </ItemGroup>
 </Project>

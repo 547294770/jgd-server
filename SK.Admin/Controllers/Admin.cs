@@ -17,44 +17,79 @@ namespace SK.Admin.Controllers
 {
     public class Admin : BasePage
     {
-        public void info()
+        public void init()
         {
+            if (AdminInfo == null)
+            {
+                this.ShowResult(false, "未登陆", null);
+                return;
+            }
 
-            //UserProduct product = new UserProduct();
-            //var desc = product.PlatformType.GetDescription();
-
-            //var returnObj = new
-            //{
-            //    code = 0,
-            //    msg = "成功",
-            //    desc = desc,
-            //    count = 1,
-            //    data = UserInfo
-            //};
-
-            //string json = JsonConvert.SerializeObject(returnObj);
-
-            //this.Response.Write(json);
+            this.ShowResult(true, "成功", AdminInfo);
         }
 
-        //public void login()
-        //{
-        //    string userName = QF("UserName");
-        //    string passWord = QF("PassWord");
+        public void info()
+        {
+            this.ShowResult(true, "获取信息",AdminInfo);
+            return;
+        }
 
-        //    var result = Login(userName, passWord);
-        //    if (result)
-        //    {
-        //        this.ShowResult(true, "登录成功");
-        //        return;
-        //    }
+        public void login()
+        {
+            string userName = Request["UserName"];
+            string passWord = Request["PassWord"];
 
-        //    this.ShowResult(false, "登录失败");
-        //}
+            if (string.IsNullOrWhiteSpace(userName) || string.IsNullOrWhiteSpace(passWord))
+            {
+                this.ShowResult(false, "账号或密码不能为空");
+                return;
+            }
+
+            var result = AdminLogin(userName, passWord);
+            if (result)
+            {
+                this.ShowResult(true, "登录成功");
+                return;
+            }
+
+            this.ShowResult(false, "账号或密码错误");
+        }
+
+        public void create1()
+        {
+            if (AdminInfo == null)
+            {
+                this.ShowResult(false, "未登陆");
+                return;
+            }
+
+            string userName = Request["UserName"];
+            string passWord = Request["PassWord"];
+
+            if (string.IsNullOrWhiteSpace(userName) || string.IsNullOrWhiteSpace(passWord))
+            {
+                this.ShowResult(false, "账号或密码不能为空");
+                return;
+            }
+
+            AdminDataContext cxt = new AdminDataContext();
+
+            var entity = new Entities.Admin();
+            entity.ID = Guid.NewGuid().ToString();
+            entity.CreateAt = DateTime.Now;
+            entity.Name = userName;
+            entity.NickName = userName;
+            entity.PassWord = SK.Common.Security.MD5Encrypt(passWord,true);
+
+            cxt.Admin.InsertOnSubmit(entity);
+            cxt.SubmitChanges();
+
+            this.ShowResult(true, "创建成功");
+        }
 
         public void logout()
         {
-            Logout();
+            AdminLogout();
         }
 
         //public void add()

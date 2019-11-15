@@ -3,7 +3,7 @@
     var i = (layui.$, layui.layer, layui.laytpl, layui.setter, layui.view, layui.admin);
     i.events.logout = function () {
         i.req({
-            url: "./content/json/user/logout.js", type: "get", data: {}, done: function (e) {
+            url: "/handler/admin/admin/logout", type: "post", data: {}, done: function (e) {
                 i.exit()
             }
         })

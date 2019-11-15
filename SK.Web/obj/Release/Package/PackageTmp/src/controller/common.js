@@ -4,8 +4,11 @@
     var i = (layui.$, layui.layer, layui.laytpl, layui.setter, layui.view, layui.admin);
     i.events.logout = function () {
         i.req({
-            url: "./content/json/user/logout.js", type: "get", data: {}, done: function (e) {
-                i.exit()
+            url: "/handler/admin/admin/logout", type: "post", data: {}, success: function (res) {
+                //i.exit()
+                if (res.code == 0) {
+                    location.hash = "/admin/login";
+                }
             }
         })
     }, e("common", {})

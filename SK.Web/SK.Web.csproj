@@ -178,7 +178,9 @@
     <Content Include="src\lib\view.js" />
     <Content Include="src\style\admin.css" />
     <Content Include="src\style\comm.css" />
+    <Content Include="src\style\login.css" />
     <Content Include="src\views\admin\delivery\edit.html" />
+    <Content Include="src\views\admin\login.html" />
     <Content Include="src\views\admin\pickup\edit.html" />
     <Content Include="src\views\admin\pickup\index.html" />
     <Content Include="src\views\admin\pickup\info.html" />

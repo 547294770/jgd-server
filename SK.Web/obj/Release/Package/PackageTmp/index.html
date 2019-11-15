@@ -14,8 +14,6 @@
 <body>
     <div id="LAY_app"></div>
     <script src="./content/layui/rc/layui.js?t=201800202-1"></script>
-    
-
     <script>
         var GlobalSettings = {};
         layui.config({
@@ -38,7 +36,23 @@
                     }
                 })
             })();
-            
+
+            // 检查登陆
+            var logout = function () {
+                $.post({
+                    "url": "/handler/admin/admin/init",
+                    "async": true,
+                    "success": function (data) {
+                        if (data.code == 1) {
+                            setTimeout(function () {
+                                location.hash = '/admin/login';
+                            }, 1);
+                        }
+                    }
+                })
+            }
+            setInterval(logout, 60000);
+            logout();
 
             //layer.ready(function () {
             //    admin.popup({
@@ -50,9 +64,7 @@
             //});
         });
     </script>
-    <script>
-        console.log(9999);
-    </script>
+    
 
 </body>
 </html>

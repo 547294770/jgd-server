@@ -106,6 +106,8 @@ namespace SK.User.Controllers
             //this.Response.Write(json);
         }
 
+
+
         //public void login()
         //{
         //    string userName = QF("UserName");
@@ -121,10 +123,6 @@ namespace SK.User.Controllers
         //    this.ShowResult(false, "登录失败");
         //}
 
-        public void logout()
-        {
-            Logout();
-        }
 
         //public void add()
         //{

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
@@ -59,8 +60,16 @@ namespace SK.Handler
         {
             get
             {
-                if (Context.Items[Consts.ADMIN_INFO] != null) {
-                    return (Admin)Context.Items[Consts.ADMIN_INFO];
+                var cookie = Request.Cookies[Consts.ADMIN_INFO];
+                if (cookie == null || string.IsNullOrWhiteSpace(cookie.Value))
+                {
+                    return null;
+                }
+
+                var obj = AdminCache.GetAdmin(cookie.Value);
+                if (obj != null)
+                {
+                    return (Admin)obj;
                 }
 
                 return null;
@@ -113,33 +122,33 @@ namespace SK.Handler
             Response.End();
         }
 
-        protected bool Login(string openid)
+        protected bool AdminLogin(string userName, string passWord)
         {
-            WXUserDataContext cxt = new WXUserDataContext();
-            var userInfo = cxt.WXUser.FirstOrDefault(p => p.openid == openid);
-            //var userInfo = UserBL.Instance.Login(userName, passWord);
-            if (userInfo != null)
-            {
-                var cookie = new System.Web.HttpCookie(Consts.USER_INFO);
-                cookie.Value = userInfo.openid; //UserBL.Instance.GetUserToken(userInfo.openid);
-                UserCache.AddUser(cookie.Value, userInfo);
-                Response.Cookies.Add(cookie);
+            AdminDataContext cxt = new AdminDataContext();
 
+            passWord = SK.Common.Security.MD5Encrypt(passWord, true);
+            var admin =  cxt.Admin.Where(p => p.Name == userName && p.PassWord == passWord).FirstOrDefault();
+            if (admin != null)
+            {
+                var cookie = new System.Web.HttpCookie(Consts.ADMIN_INFO);
+                cookie.Value = admin.ID; //UserBL.Instance.GetUserToken(userInfo.openid);
+                cookie.HttpOnly = false;
+                AdminCache.AddAdmin(cookie.Value, admin);
+                Response.Cookies.Add(cookie);
                 return true;
             }
 
             return false;
         }
 
-        protected void Logout()
+        protected void AdminLogout()
         {
-            if (UserInfo != null)
+            if (AdminInfo != null)
             {
-                HttpCookie cookie = new HttpCookie(Consts.USER_INFO);
+                HttpCookie cookie = new HttpCookie(Consts.ADMIN_INFO);
                 cookie.Expires = DateTime.Now.AddDays(-1);
 
-                UserCache.RemoveUser(cookie.Value);
-
+                AdminCache.RemoveAdmin(cookie.Value);
                 Response.Cookies.Add(cookie);
             }
 

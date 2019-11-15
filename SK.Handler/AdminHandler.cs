@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using SK.Common;
 
 namespace SK.Handler
 {
@@ -16,12 +17,13 @@ namespace SK.Handler
             try
             {
                 Assembly ass = Assembly.Load("SK.Admin");
-
                 var type = ass.GetType("SK.Admin.Controllers." + this.Controller, true, true);
                 var obj = Activator.CreateInstance(type);
                 MethodInfo method = type.GetMethod(this.Action, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance | BindingFlags.GetProperty);
 
                 method.Invoke(obj, null);
+
+                
             }
             catch (TypeLoadException ex)
             {
