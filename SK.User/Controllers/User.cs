@@ -149,8 +149,12 @@ namespace SK.User.Controllers
 
         public void updatecompany()
         {
-
             if (UserInfo == null) { this.FailMessage("未登录"); return; }
+
+            if (string.IsNullOrWhiteSpace(QF("CompanyName"))) { this.FailMessage("公司名称不能为空"); return; }
+            if (string.IsNullOrWhiteSpace(QF("Address"))) { this.FailMessage("地址不能为空"); return; }
+            if (string.IsNullOrWhiteSpace(QF("Contact"))) { this.FailMessage("联系人不能为空"); return; }
+            if (string.IsNullOrWhiteSpace(QF("Tel"))) { this.FailMessage("电话不能为空"); return; }
 
             CompanyDataContext cxt = new CompanyDataContext();
 

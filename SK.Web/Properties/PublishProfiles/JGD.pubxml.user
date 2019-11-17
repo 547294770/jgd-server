@@ -14,25 +14,25 @@
       <publishTime>05/13/2019 22:28:42</publishTime>
     </File>
     <File Include="bin/SK.Admin.dll">
-      <publishTime>11/16/2019 01:17:47</publishTime>
+      <publishTime>11/17/2019 11:57:24</publishTime>
     </File>
     <File Include="bin/SK.BL.dll">
-      <publishTime>11/16/2019 01:17:46</publishTime>
+      <publishTime>11/17/2019 11:57:21</publishTime>
     </File>
     <File Include="bin/SK.Common.dll">
-      <publishTime>11/16/2019 01:17:45</publishTime>
+      <publishTime>11/17/2019 11:57:21</publishTime>
     </File>
     <File Include="bin/SK.Entities.dll">
-      <publishTime>11/11/2019 03:35:32</publishTime>
+      <publishTime>11/17/2019 11:57:20</publishTime>
     </File>
     <File Include="bin/SK.Handler.dll">
-      <publishTime>11/16/2019 01:17:46</publishTime>
+      <publishTime>11/17/2019 11:57:22</publishTime>
     </File>
     <File Include="bin/SK.User.dll">
-      <publishTime>11/16/2019 01:17:47</publishTime>
+      <publishTime>11/17/2019 11:57:23</publishTime>
     </File>
     <File Include="bin/SK.Web.dll">
-      <publishTime>11/16/2019 01:17:48</publishTime>
+      <publishTime>11/17/2019 11:57:25</publishTime>
     </File>
     <File Include="content/dist/config.js">
       <publishTime>05/26/2019 15:11:30</publishTime>
@@ -1835,7 +1835,7 @@
       <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/16/2019 01:17:52</publishTime>
+      <publishTime>11/17/2019 11:57:31</publishTime>
     </File>
   </ItemGroup>
 </Project>

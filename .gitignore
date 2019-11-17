@@ -1,0 +1,7 @@
+##----------.net----------
+bin/
+*.dll
+*.pdb
+*.cache
+obj/
+upload/

@@ -96,6 +96,10 @@ namespace SK.Entities
 		
 		private System.DateTime _UpdateAt;
 		
+		private int _Width;
+		
+		private int _Height;
+		
     #region 可扩展性方法定义
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -116,6 +120,10 @@ namespace SK.Entities
     partial void OnFileSizeChanged();
     partial void OnUpdateAtChanging(System.DateTime value);
     partial void OnUpdateAtChanged();
+    partial void OnWidthChanging(int value);
+    partial void OnWidthChanged();
+    partial void OnHeightChanging(int value);
+    partial void OnHeightChanged();
     #endregion
 		
 		public Attachment()
@@ -279,6 +287,46 @@ namespace SK.Entities
 					this._UpdateAt = value;
 					this.SendPropertyChanged("UpdateAt");
 					this.OnUpdateAtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Width")]
+		public int Width
+		{
+			get
+			{
+				return this._Width;
+			}
+			set
+			{
+				if ((this._Width != value))
+				{
+					this.OnWidthChanging(value);
+					this.SendPropertyChanging();
+					this._Width = value;
+					this.SendPropertyChanged("Width");
+					this.OnWidthChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Height")]
+		public int Height
+		{
+			get
+			{
+				return this._Height;
+			}
+			set
+			{
+				if ((this._Height != value))
+				{
+					this.OnHeightChanging(value);
+					this.SendPropertyChanging();
+					this._Height = value;
+					this.SendPropertyChanged("Height");
+					this.OnHeightChanged();
 				}
 			}
 		}

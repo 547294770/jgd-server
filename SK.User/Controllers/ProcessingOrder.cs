@@ -161,6 +161,10 @@ namespace SK.User.Controllers
 
         public void add()
         {
+            CompanyDataContext cxtCompany = new CompanyDataContext();
+            var entity = cxtCompany.Company.FirstOrDefault(p => p.UserID == UserInfo.openid);
+            if (entity == null) { this.FailMessage("请在【设置】->【公司信息】完善公司资料再操作。"); return; }
+
             ProcessingOrderDataContext dc = new ProcessingOrderDataContext();
 
             SK.Entities.ProcessingOrder.OrderStatus[] status = new SK.Entities.ProcessingOrder.OrderStatus[] { 
@@ -271,7 +275,16 @@ namespace SK.User.Controllers
             }
 
             AttachmentDataContext adc = new AttachmentDataContext();
-            var attachments = adc.Attachment.Where(p => p.SourceID == order.ID).ToList();
+            var attachments = adc.Attachment.Where(p => p.SourceID == order.ID).Select(p => new { 
+                p.CreateAt,
+                p.FileName,
+                p.FilePath,
+                p.FileSize,
+                p.ID,
+                p.Name,
+                p.SourceID,
+                p.UpdateAt
+            }).ToList();
 
             DeliveryOrderDataContext delcxt = new DeliveryOrderDataContext();
             var deliverylist = delcxt.DeliveryOrder.Where(p => p.SourceID == order.ID).ToList();
@@ -280,14 +293,7 @@ namespace SK.User.Controllers
             var pickuplist = pickcxt.PickUpOrder.Where(p => p.SourceID == order.ID).ToList();
 
             ProcessingFeeDataContext feecxt = new ProcessingFeeDataContext();
-            var feelist = feecxt.ProcessingFee.Where(p => p.SourceID == order.ID).Select(p=>new {
-                TypeName = p.Type.GetDescription(),
-                p.ProcessingNo,
-                p.Content,
-                p.FeeNo,
-                p.ID,
-                p.CreateAt
-            }).ToList();
+            var feelist = feecxt.ProcessingFee.Where(p => p.SourceID == order.ID).ToList();
 
             this.ShowResult(true, "成功",
                 new { 

@@ -10,6 +10,8 @@
       <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="FileSize" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="UpdateAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Member="Width" Type="System.Int32" CanBeNull="false" />
+      <Column Member="Height" Type="System.Int32" CanBeNull="false" />
     </Type>
   </Table>
 </Database>
