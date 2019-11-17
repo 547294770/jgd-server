@@ -9,6 +9,7 @@ using SK.Common.Extentions;
 using Newtonsoft.Json;
 using SK.Entities;
 using SK.BL;
+using SK.Common;
 
 namespace SK.Admin.Controllers
 {
@@ -66,7 +67,8 @@ namespace SK.Admin.Controllers
                 DelType = Enum.GetName(typeof(Entities.ProcessingOrder.DeliveryType), p.DelType),
                 PickType = Enum.GetName(typeof(Entities.ProcessingOrder.PickUpType), p.PickType),
                 Status = Enum.GetName(typeof(SK.Entities.ProcessingOrder.OrderStatus), p.Status),
-                p.UserID
+                p.UserID,
+                p.UserName
             }).ToList();
             this.ShowResult(true, "成功", data);
         }
@@ -292,6 +294,9 @@ namespace SK.Admin.Controllers
             order.Status = Entities.ProcessingOrder.OrderStatus.Warehousing;
             dc.SubmitChanges();
 
+            //材料已入库
+            SendMessageForInLib(order, 1);
+
             this.ShowResult(true, "保存成功");
         }
         /// <summary>
@@ -327,6 +332,9 @@ namespace SK.Admin.Controllers
             order.Status = Entities.ProcessingOrder.OrderStatus.Produced;
             dc.SubmitChanges();
 
+            //产品已入库
+            SendMessageForInLib(order, 1);
+
             this.ShowResult(true, "保存成功");
         }
 
@@ -344,10 +352,16 @@ namespace SK.Admin.Controllers
 
             order.Status = Entities.ProcessingOrder.OrderStatus.NoticePickUp;
             order.PickType = Entities.ProcessingOrder.PickUpType.None;
-
             dc.SubmitChanges();
 
             //通知提货
+            PickUpOrderDataContext cxtPick = new PickUpOrderDataContext();
+            var pickUpOrder = cxtPick.PickUpOrder.Where(p => p.SourceID == order.ID).FirstOrDefault();
+            if (pickUpOrder != null)
+            {
+                SendMessageForPickUp(pickUpOrder);
+            }
+            
             this.ShowResult(true, "保存成功");
         }
 
@@ -380,6 +394,9 @@ namespace SK.Admin.Controllers
 
             order.Status = Entities.ProcessingOrder.OrderStatus.AlreadyGoods;
             dc.SubmitChanges();
+
+            //出库提醒
+            SendMessageForOutLib(order);
 
             this.ShowResult(true, "保存成功");
         }
@@ -415,19 +432,68 @@ namespace SK.Admin.Controllers
             AttachmentDataContext dcAttachment = new AttachmentDataContext();
         }
 
-
-        private void SendMessageForPickUp(Entities.ProcessingOrder order)
+        /// <summary>
+        /// 提货通知
+        /// </summary>
+        /// <param name="order"></param>
+        private void SendMessageForPickUp(Entities.PickUpOrder order)
         {
+            string title = string.Format("{0}，您有一个提货信息", order.UserName);
             string tplPath = this.Context.Server.MapPath("/content/templates/提货通知.json");
-            WXTemplateBL.SendMessageForDelivery(tplPath,
+            WXTemplateBL.SendMessageForPickUp(
+                order.UserID,
+                tplPath,
+                Config.Setting.WXWebHost + "/dist/#/Pages/ThdInfo?ID=" + order.ID,
+                title,
+                order.OrderNo,
                 "",
-                "您有一个提货信息",
-                "20191028001",
-                "邱先生",
-               "13987654321",
-               "粤B.394900",
-               "20191029",
-               "提货测试");
+               "",
+               "",
+               "",
+               order.VehicleInfo);
+        }
+
+        /// <summary>
+        /// 出库提醒
+        /// </summary>
+        /// <param name="order"></param>
+        private void SendMessageForOutLib(Entities.ProcessingOrder order)
+        {
+            string title = string.Format("{0}，您有产品已出库", order.UserName);
+            string tplPath = this.Context.Server.MapPath("/content/templates/提货通知.json");
+            WXTemplateBL.SendMessageForOutLib(
+                order.UserID,
+                tplPath,
+                "",
+                title,
+                order.OrderNo,
+                DateTime.Now.ToString("yyyy-MM-dd"),
+               order.UserName,
+               "",
+               order.Content);
+        }
+
+        /// <summary>
+        /// 材料入库通知
+        /// </summary>
+        /// <param name="order"></param>
+        /// <param name="type">1:材料，2：产品</param>
+        private void SendMessageForInLib(Entities.ProcessingOrder order,int type)
+        {
+            string title = string.Format("{0}，您的材料已入库", order.UserName);
+            if (type == 2) {
+                title = string.Format("{0}，您的产品加工完已入库", order.UserName);
+            }
+            string tplPath = this.Context.Server.MapPath("/content/templates/商品入库通知.json");
+            WXTemplateBL.SendMessageForInLib(
+                order.UserID,
+                tplPath,
+                Config.Setting.WXWebHost + "/dist/#/Pages/JgdDetail?ID=" + order.ID,
+                title,
+                order.OrderNo,
+                "0",
+               DateTime.Now.ToString("yyyy-MM-dd"),
+               order.Content);
         }
     }
 }

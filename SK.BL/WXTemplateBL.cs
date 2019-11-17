@@ -101,6 +101,7 @@ namespace SK.BL
         /// <summary>
         /// 提货通知
         /// </summary>
+        /// <param name="touser"></param>
         /// <param name="tplPath"></param>
         /// <param name="url"></param>
         /// <param name="first"></param>
@@ -110,7 +111,7 @@ namespace SK.BL
         /// <param name="keyword4"></param>
         /// <param name="keyword5"></param>
         /// <param name="remark"></param>
-        public static void SendMessageForPickUp(string tplPath,
+        public static void SendMessageForPickUp(string touser,string tplPath,
             string url,
             string first,
             string keyword1,
@@ -137,7 +138,7 @@ namespace SK.BL
 
             Dictionary<string, string> dict = new Dictionary<string, string>();
 
-            dict.Add("touser", "");
+            dict.Add("touser", touser);
             dict.Add("template_id", TempIDPickUp);
             dict.Add("url", url);
             dict.Add("first", first);
@@ -148,12 +149,12 @@ namespace SK.BL
             dict.Add("keyword5", keyword5);
             dict.Add("remark", remark);
 
-            foreach (var item in cxt.ToUsers.Where(p => p.TemplateID == TempIDPickUp))
-            {
-                dict["touser"] = item.OpenID;
-                WXTemplateBL.SendMessage(tplPath, dict);
-                Thread.Sleep(100);
-            }
+            //foreach (var item in cxt.ToUsers.Where(p => p.TemplateID == TempIDPickUp))
+            //{
+            //    dict["touser"] = item.OpenID;
+            //    WXTemplateBL.SendMessage(tplPath, dict);
+            //    Thread.Sleep(100);
+            //}
         }
 
         /// <summary>
@@ -213,6 +214,7 @@ namespace SK.BL
         /// <summary>
         /// 入库通知
         /// </summary>
+        /// <param name="touser"></param>
         /// <param name="tplPath"></param>
         /// <param name="url"></param>
         /// <param name="first"></param>
@@ -220,7 +222,7 @@ namespace SK.BL
         /// <param name="keyword2"></param>
         /// <param name="keyword3"></param>
         /// <param name="remark"></param>
-        public static void SendMessageForInLib(string tplPath,
+        public static void SendMessageForInLib(string touser,string tplPath,
             string url,
             string first,
             string keyword1,
@@ -241,7 +243,7 @@ namespace SK.BL
 
             Dictionary<string, string> dict = new Dictionary<string, string>();
 
-            dict.Add("touser", "");
+            dict.Add("touser", touser);
             dict.Add("template_id", TempIDInLib);
             dict.Add("url", url);
             dict.Add("first", first);
@@ -250,25 +252,27 @@ namespace SK.BL
             dict.Add("keyword3", keyword3);
             dict.Add("remark", remark);
 
-            foreach (var item in cxt.ToUsers.Where(p => p.TemplateID == TempIDInLib))
-            {
-                dict["touser"] = item.OpenID;
-                WXTemplateBL.SendMessage(tplPath, dict);
-                Thread.Sleep(100);
-            }
+            //foreach (var item in cxt.ToUsers.Where(p => p.TemplateID == TempIDInLib))
+            //{
+            //    dict["touser"] = item.OpenID;
+            //    WXTemplateBL.SendMessage(tplPath, dict);
+            //    Thread.Sleep(100);
+            //}
         }
 
         /// <summary>
         /// 出库通知
         /// </summary>
+        /// <param name="touser"></param>
         /// <param name="tplPath"></param>
         /// <param name="url"></param>
         /// <param name="first"></param>
-        /// <param name="keyword1"></param>
-        /// <param name="keyword2"></param>
-        /// <param name="keyword3"></param>
-        /// <param name="remark"></param>
-        public static void SendMessageForOutLib(string tplPath,
+        /// <param name="keyword1">出库单号</param>
+        /// <param name="keyword2">出库日期</param>
+        /// <param name="keyword3">客户名称</param>
+        /// <param name="keyword4">发货仓库</param>
+        /// <param name="remark">备注信息</param>
+        public static void SendMessageForOutLib(string touser,string tplPath,
             string url,
             string first,
             string keyword1,
@@ -292,7 +296,7 @@ namespace SK.BL
 
             Dictionary<string, string> dict = new Dictionary<string, string>();
 
-            dict.Add("touser", "");
+            dict.Add("touser", touser);
             dict.Add("template_id", TempIDOutLib);
             dict.Add("url", url);
             dict.Add("first", first);
@@ -302,12 +306,12 @@ namespace SK.BL
             dict.Add("keyword4", keyword4);
             dict.Add("remark", remark);
 
-            foreach (var item in cxt.ToUsers.Where(p => p.TemplateID == TempIDOutLib))
-            {
-                dict["touser"] = item.OpenID;
-                WXTemplateBL.SendMessage(tplPath, dict);
-                Thread.Sleep(100);
-            }
+            //foreach (var item in cxt.ToUsers.Where(p => p.TemplateID == TempIDOutLib))
+            //{
+            //    dict["touser"] = item.OpenID;
+            //    WXTemplateBL.SendMessage(tplPath, dict);
+            //    Thread.Sleep(100);
+            //}
         }
     }
 }

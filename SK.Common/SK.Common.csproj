@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Caches\UserCache.cs" />
     <Compile Include="Caches\AdminCache.cs" />
+    <Compile Include="Config.cs" />
     <Compile Include="Consts.cs" />
     <Compile Include="DBConnection.cs" />
     <Compile Include="DBC.cs" />

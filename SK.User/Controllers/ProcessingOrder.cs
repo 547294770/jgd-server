@@ -9,6 +9,7 @@ using SK.Common.Extentions;
 using Newtonsoft.Json;
 using SK.Entities;
 using SK.BL;
+using SK.Common;
 
 namespace SK.User.Controllers
 {
@@ -210,12 +211,21 @@ namespace SK.User.Controllers
                 order.UpdateAt = DateTime.Now;
             }
 
+            //1：草稿，0：直接提交
             if (QF("IsDraft", 0) == 0)
             {
                 order.Status = Entities.ProcessingOrder.OrderStatus.Processing;
+                
             }
 
             dc.SubmitChanges();
+
+            //1：草稿，0：直接提交
+            if (QF("IsDraft", 0) == 0)
+            {
+                //直接提交，就是新订单，推送通知
+                SendMessageForNewOrder(order);
+            }
 
             this.ShowResult(true, "保存成功");
 
@@ -296,25 +306,27 @@ namespace SK.User.Controllers
             var feelist = feecxt.ProcessingFee.Where(p => p.SourceID == order.ID).ToList();
 
             this.ShowResult(true, "成功",
-                new { 
-                order.Content,
-                CreateAt = order.CreateAt.ToString("yyyy-MM-dd HH:mm:ss"),
-                order.ID,
-                order.OrderNo,
-                Status = Enum.GetName(typeof(SK.Entities.ProcessingOrder.OrderStatus), order.Status),
-                StatusName = order.Status.GetDescription(),
-                DelType = Enum.GetName(typeof(SK.Entities.ProcessingOrder.DeliveryType), order.DelType),
-                DelTypeName = order.DelType.GetDescription(),
-                PickType = Enum.GetName(typeof(SK.Entities.ProcessingOrder.PickUpType), order.PickType),
-                PickTypeName = order.PickType.GetDescription(),
-                AttachmentList = attachments,
-                DeliveryList = deliverylist,
-                PickUpList = pickuplist,
-                FeeList = feelist,
-                order.UpdateAt,
-                order.UserID,
-                order.UserName,
-                order.Pic
+                new
+                {
+                    order.Content,
+                    CreateAt = order.CreateAt.ToString("yyyy-MM-dd HH:mm:ss"),
+                    order.ID,
+                    order.OrderNo,
+                    Status = Enum.GetName(typeof(SK.Entities.ProcessingOrder.OrderStatus), order.Status),
+                    StatusName = order.Status.GetDescription(),
+                    DelType = Enum.GetName(typeof(SK.Entities.ProcessingOrder.DeliveryType), order.DelType),
+                    DelTypeName = order.DelType.GetDescription(),
+                    PickType = Enum.GetName(typeof(SK.Entities.ProcessingOrder.PickUpType), order.PickType),
+                    PickTypeName = order.PickType.GetDescription(),
+                    AttachmentList = attachments,
+                    DeliveryList = deliverylist,
+                    PickUpList = pickuplist,
+                    FeeList = feelist,
+                    order.UpdateAt,
+                    order.UserID,
+                    order.UserName,
+                    order.Pic,
+                    IsSelf = UserInfo != null ? order.UserID == UserInfo.openid : false
                 });
         }
 
@@ -578,9 +590,9 @@ namespace SK.User.Controllers
         { 
             string tplPath = this.Context.Server.MapPath("/content/templates/新订单通知.json");
             WXTemplateBL.SendMessageForNewOrder(tplPath,
-                "",
+                Config.Setting.WXWebHost + "/dist/#/Pages/JgdDetail?ID=" + order.ID,
                 "新订单通知",
-                "test1",
+                order.UserName,
                 "加工单",
                order.OrderNo,
                order.Content);

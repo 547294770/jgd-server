@@ -43,7 +43,7 @@ namespace SK.User.Controllers
                     entity.SourceID,
                     entity.ProcessingNo,
                     entity.Type,
-                    TypeName = Enum.GetName(typeof(Entities.ProcessingFee.BillType), entity.Type)
+                    TypeName = entity.Type.GetDescription()
                 });
         }
     }

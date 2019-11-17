@@ -98,6 +98,8 @@ namespace SK.Entities
 		
 		private string _unionid;
 		
+		private System.DateTime _createtime;
+		
     #region 可扩展性方法定义
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -120,6 +122,8 @@ namespace SK.Entities
     partial void OnprivilegeChanged();
     partial void OnunionidChanging(string value);
     partial void OnunionidChanged();
+    partial void OncreatetimeChanging(System.DateTime value);
+    partial void OncreatetimeChanged();
     #endregion
 		
 		public WXUser()
@@ -303,6 +307,26 @@ namespace SK.Entities
 					this._unionid = value;
 					this.SendPropertyChanged("unionid");
 					this.OnunionidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_createtime")]
+		public System.DateTime createtime
+		{
+			get
+			{
+				return this._createtime;
+			}
+			set
+			{
+				if ((this._createtime != value))
+				{
+					this.OncreatetimeChanging(value);
+					this.SendPropertyChanging();
+					this._createtime = value;
+					this.SendPropertyChanged("createtime");
+					this.OncreatetimeChanged();
 				}
 			}
 		}

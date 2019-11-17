@@ -14,25 +14,25 @@
       <publishTime>05/13/2019 22:28:42</publishTime>
     </File>
     <File Include="bin/SK.Admin.dll">
-      <publishTime>11/17/2019 11:57:24</publishTime>
+      <publishTime>11/17/2019 18:26:53</publishTime>
     </File>
     <File Include="bin/SK.BL.dll">
-      <publishTime>11/17/2019 11:57:21</publishTime>
+      <publishTime>11/17/2019 16:48:17</publishTime>
     </File>
     <File Include="bin/SK.Common.dll">
-      <publishTime>11/17/2019 11:57:21</publishTime>
+      <publishTime>11/17/2019 16:48:16</publishTime>
     </File>
     <File Include="bin/SK.Entities.dll">
-      <publishTime>11/17/2019 11:57:20</publishTime>
+      <publishTime>11/17/2019 16:48:16</publishTime>
     </File>
     <File Include="bin/SK.Handler.dll">
-      <publishTime>11/17/2019 11:57:22</publishTime>
+      <publishTime>11/17/2019 16:48:17</publishTime>
     </File>
     <File Include="bin/SK.User.dll">
-      <publishTime>11/17/2019 11:57:23</publishTime>
+      <publishTime>11/17/2019 18:09:58</publishTime>
     </File>
     <File Include="bin/SK.Web.dll">
-      <publishTime>11/17/2019 11:57:25</publishTime>
+      <publishTime>11/17/2019 18:26:54</publishTime>
     </File>
     <File Include="content/dist/config.js">
       <publishTime>05/26/2019 15:11:30</publishTime>
@@ -470,7 +470,7 @@
       <publishTime>05/26/2019 15:11:30</publishTime>
     </File>
     <File Include="src/views/index.html">
-      <publishTime>11/11/2019 04:25:51</publishTime>
+      <publishTime>11/17/2019 16:39:46</publishTime>
     </File>
     <File Include="src/views/layout.html">
       <publishTime>11/16/2019 01:10:27</publishTime>
@@ -1835,7 +1835,7 @@
       <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/17/2019 13:46:58</publishTime>
+      <publishTime>11/17/2019 18:26:55</publishTime>
     </File>
   </ItemGroup>
 </Project>

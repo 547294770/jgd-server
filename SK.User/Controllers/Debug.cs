@@ -94,14 +94,14 @@ namespace SK.User.Controllers
 
             string tplPath = this.Context.Server.MapPath("/content/templates/出库提醒.json");
 
-            WXTemplateBL.SendMessageForOutLib(tplPath,
-                "",
-                "出库提醒",
-                "20191028001",
-                "邱先生",
-               "13987654321",
-               "13987654321",
-               "出库提醒测试");
+            //WXTemplateBL.SendMessageForOutLib(tplPath,
+            //    "",
+            //    "出库提醒",
+            //    "20191028001",
+            //    "邱先生",
+            //   "13987654321",
+            //   "13987654321",
+            //   "出库提醒测试");
 
 
             this.ShowResult(true, "成功", "ok");
@@ -169,6 +169,28 @@ namespace SK.User.Controllers
         {
             Context.Response.Write("hostname:" + Request.Url.Host);
             Context.Response.End();
+        }
+
+        public void neworder()
+        {
+            ProcessingOrderDataContext cxt = new ProcessingOrderDataContext();
+
+            var order =  cxt.ProcessingOrder.FirstOrDefault(p => p.ID == "c2e7d720-9775-4b88-9dc2-c00cb52dd639");
+            if (order == null) {
+                this.FailMessage("订单为空");
+                return;
+            }
+            
+
+            string tplPath = this.Context.Server.MapPath("/content/templates/新订单通知.json");
+            WXTemplateBL.SendMessageForNewOrder(tplPath,
+                Config.Setting.WXWebHost + "/dist/#/Pages/JgdInfo?ID=" + order.ID,
+                "新订单通知",
+                order.UserName,
+                "加工单",
+               order.OrderNo,
+               order.Content);
+
         }
 
     }
