@@ -158,9 +158,10 @@
             var uploadInst = upload.render({
                 elem: '#test1' //绑定元素
               , url: '/handler/admin/upload/upload' //上传接口
+              , before: function (obj) { layer.load(); }
               , done: function (res) {
                   //上传完毕回调
-  
+                  layer.closeAll('loading'); //关闭loading
                   data.push({
                       "Name": res.data.name,
                       "FileName": res.data.file,
@@ -173,9 +174,11 @@
                   table.reload("admin-processing-attachment-table", {
                       data: data
                   });
+
               }
               , error: function () {
                   //请求异常回调
+                  layer.closeAll('loading'); //关闭loading
               }
             });
 
