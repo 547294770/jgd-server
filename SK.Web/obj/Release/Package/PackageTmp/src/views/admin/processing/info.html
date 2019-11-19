@@ -119,11 +119,7 @@
                     type: "post",
                     success: function (res) {
                         layer.close(index);
-                        layer.alert(res.msg, { icon: res.code == 0 ? 1 : 2 }, function () {
-                            layer.closeAll();
-                        });
-                        
-                        //loadData();
+                        layer.alert(res.msg, { icon: res.code == 0 ? 1 : 2 });
                     }
                 });
                 

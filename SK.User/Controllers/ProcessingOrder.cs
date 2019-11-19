@@ -297,13 +297,37 @@ namespace SK.User.Controllers
             }).ToList();
 
             DeliveryOrderDataContext delcxt = new DeliveryOrderDataContext();
-            var deliverylist = delcxt.DeliveryOrder.Where(p => p.SourceID == order.ID).ToList();
+            var deliverylist = delcxt.DeliveryOrder.Where(p => p.SourceID == order.ID).Select(p => new {
+                p.Content,
+                p.CreateAt,
+                p.OrderNo,
+                p.DeliveryAt,
+                p.ProcessingNo,
+                p.SourceID,
+                p.TimeSection,
+                TypeName = p.Type.GetDescription(),
+                p.VehicleInfo
+            }).ToList();
 
             PickUpOrderDataContext pickcxt = new PickUpOrderDataContext();
-            var pickuplist = pickcxt.PickUpOrder.Where(p => p.SourceID == order.ID).ToList();
+            var pickuplist = pickcxt.PickUpOrder.Where(p => p.SourceID == order.ID).Select(p => new { 
+                p.Content,
+                p.CreateAt,
+                p.OrderNo,
+                p.PickUpAt,
+                p.ProcessingNo,
+                p.SourceID,
+                p.TimeSection,
+                TypeName = p.Type.GetDescription(),
+                p.VehicleInfo
+            }).ToList();
 
             ProcessingFeeDataContext feecxt = new ProcessingFeeDataContext();
-            var feelist = feecxt.ProcessingFee.Where(p => p.SourceID == order.ID).ToList();
+            var feelist = feecxt.ProcessingFee.Where(p => p.SourceID == order.ID).Select(p => new {
+                TypeName = p.Type.GetDescription(),
+                p.FeeNo,
+                p.Content
+            }).ToList();
 
             this.ShowResult(true, "成功",
                 new

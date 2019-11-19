@@ -1,0 +1,17 @@
+.my-gallery{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.my-gallery figure{
+    width:33.3%;
+    padding:10px;
+    margin: 0;
+    text-align: center;
+    box-shadow:0 0 .100px #ccc;
+}
+.my-gallery figure img{
+    width:100%;
+    height:80px;
+}
