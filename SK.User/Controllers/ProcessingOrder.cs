@@ -121,7 +121,7 @@ namespace SK.User.Controllers
             if (page >= pageCount) lastPage = true;
             else lastPage = false;
 
-            list = list.Skip(skip).Take(pageSize);
+            list = list.OrderByDescending(p=>p.UpdateAt).Skip(skip).Take(pageSize);
             var data = list.OrderByDescending(p => p.UpdateAt).Select(p =>
                  new
                  {

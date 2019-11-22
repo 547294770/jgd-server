@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using SK.Entities;
 using SK.BL;
 using SK.Common;
+using System.Configuration;
 
 namespace SK.Admin.Controllers
 {
@@ -61,6 +62,7 @@ namespace SK.Admin.Controllers
             var data = list.OrderByDescending(p=>p.UpdateAt).Select(p => new
             {
                 p.Content,
+                p.Pic,
                 p.CreateAt,
                 p.ID,
                 p.OrderNo,
@@ -144,6 +146,123 @@ namespace SK.Admin.Controllers
                         return;
                     }
             }
+        }
+
+        public void uploadpic()
+        {
+            try
+            {
+                if (Request.Files.Count < 1)
+                {
+                    ShowResult(false, "请选择上传文件");
+                    return;
+                }
+
+                var orderId = Request["orderid"];
+                var fileUploaded = Request.Files[0];
+                string[] allows = new string[] { ".gif", ".jpg", ".jpeg", ".png", ".bmp" };
+                string path = ConfigurationManager.AppSettings["UploadPath"];
+                string extend = System.IO.Path.GetExtension(fileUploaded.FileName);
+                string fileName = string.Format("{0}{1}", Guid.NewGuid().ToString("N"), extend);
+                string file = System.IO.Path.Combine(path, fileName);
+                var size = fileUploaded.ContentLength / (1024 * 1024);
+                if (!allows.Contains(extend.ToLower()))
+                {
+                    ShowResult(false, "上传文件格式不正确");
+                    return;
+                }
+
+                if (size > 2)
+                {
+                    ShowResult(false, "上传文件不能超过2M");
+                    return;
+                }
+
+                fileUploaded.SaveAs(file);
+
+                //保存成功后
+                if (string.IsNullOrWhiteSpace(orderId))
+                {
+                    this.FailMessage("订单为空");
+                    return;
+                }
+
+                ProcessingOrderDataContext dc = new ProcessingOrderDataContext();
+                AttachmentDataContext dcAttachment = new AttachmentDataContext();
+
+                var order = dc.ProcessingOrder.FirstOrDefault(p => p.ID == orderId);
+                if (order == null)
+                {
+                    this.FailMessage("订单不存在");
+                    return;
+                }
+
+                var objReturn = new
+                {
+                    src = "/upload/" + fileName,
+                    size = fileUploaded.ContentLength,
+                    name = fileUploaded.FileName,
+                    file = fileName,
+                    createat = DateTime.Now,
+                    updateat = DateTime.Now
+                };
+                       
+                var ent = new Entities.Attachment();
+                ent.ID = Guid.NewGuid().ToString("N");
+                ent.CreateAt = DateTime.Now;
+                ent.FileName = objReturn.file;
+                ent.FilePath = objReturn.src;
+                ent.FileSize = objReturn.size;
+                ent.Name = objReturn.name;
+                ent.SourceID = orderId;
+                ent.UpdateAt = DateTime.Now;
+
+                dcAttachment.Attachment.InsertOnSubmit(ent);
+                dcAttachment.SubmitChanges();
+
+                var returnObj = new
+                {
+                    code = 0,
+                    msg = "成功",
+                    data = new
+                    {
+                        src = "/upload/" + fileName,
+                        size = fileUploaded.ContentLength,
+                        name = fileUploaded.FileName,
+                        file = fileName,
+                        createat = DateTime.Now,
+                        updateat = DateTime.Now
+                    }
+                };
+
+                string json = JsonConvert.SerializeObject(returnObj);
+                this.Response.Write(json);
+            }
+            catch (Exception ex)
+            {
+                ShowResult(false, ex.Message);
+            }
+        }
+
+        public void deletepic()
+        {
+            //try
+            //{
+                var fileName = Request["FileName"];
+                AttachmentDataContext dcAttachment = new AttachmentDataContext();
+                var entity = dcAttachment.Attachment.Where(p => p.FileName == fileName).FirstOrDefault();
+                if (entity != null)
+                {
+                    dcAttachment.Attachment.DeleteOnSubmit(entity);
+                    dcAttachment.SubmitChanges();
+                }
+
+                ShowResult(true, "成功");
+            //}
+            //catch (Exception ex)
+            //{
+            //    ShowResult(false, ex.Message);
+            //}
         }
 
         private void DoUploaded(SK.Entities.ProcessingOrder order, ProcessingOrderDataContext dc)
@@ -279,7 +398,6 @@ namespace SK.Admin.Controllers
             }
         }
 
-
         /// <summary>
         /// 确认材料已入库
         /// </summary>
@@ -355,12 +473,7 @@ namespace SK.Admin.Controllers
             dc.SubmitChanges();
 
             //通知提货
-            PickUpOrderDataContext cxtPick = new PickUpOrderDataContext();
-            var pickUpOrder = cxtPick.PickUpOrder.Where(p => p.SourceID == order.ID).FirstOrDefault();
-            if (pickUpOrder != null)
-            {
-                SendMessageForPickUp(pickUpOrder);
-            }
+            SendMessageForPickUp(order);
             
             this.ShowResult(true, "保存成功");
         }
@@ -418,7 +531,6 @@ namespace SK.Admin.Controllers
 
             this.ShowResult(true, "保存成功");
         }
-
         
         public void attachment()
         {
@@ -436,21 +548,21 @@ namespace SK.Admin.Controllers
         /// 提货通知
         /// </summary>
         /// <param name="order"></param>
-        private void SendMessageForPickUp(Entities.PickUpOrder order)
+        private void SendMessageForPickUp(Entities.ProcessingOrder order)
         {
             string title = string.Format("{0}，您有一个提货信息", order.UserName);
             string tplPath = this.Context.Server.MapPath("/content/templates/提货通知.json");
             WXTemplateBL.SendMessageForPickUp(
                 order.UserID,
                 tplPath,
-                Config.Setting.WXWebHost + "/dist/#/Pages/ThdInfo?ID=" + order.ID,
+                Config.Setting.WXWebHost + "/dist/#/Pages/JgdDetail?ID=" + order.ID,
                 title,
-                order.OrderNo,
+                "",
                 "",
                "",
                "",
                "",
-               order.VehicleInfo);
+               string.Format("加工单：{0}已加工完毕，请贵司安排提货。", order.OrderNo, order.Content));
         }
 
         /// <summary>
@@ -495,5 +607,7 @@ namespace SK.Admin.Controllers
                DateTime.Now.ToString("yyyy-MM-dd"),
                order.Content);
         }
+
+
     }
 }

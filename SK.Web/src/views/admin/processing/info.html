@@ -133,14 +133,28 @@
                 switch (ele.event) {
                     case "delete":
                         {
-                            $.each(data, function (index, item) {
-                                if (item.FileName == ele.data.FileName) {
-                                    data.splice(index, 1);
-                                    table.reload("admin-processing-attachment-table", {
-                                        data: data
-                                    });
-                                    return false;
-                                }
+                            layer.confirm('确认要删除吗？', function (idx) {
+                                admin.req({
+                                    url: '/handler/admin/processingorder/deletepic',
+                                    data: ele.data,
+                                    type: "post",
+                                    success: function (res) {
+                                        layer.close(idx);
+                                        layer.alert(res.msg, { icon: res.code == 0 ? 1 : 2 });
+                                        if (res.code == 0) {
+                                            //删除成功后
+                                            $.each(data, function (index, item) {
+                                                if (item.FileName == ele.data.FileName) {
+                                                    data.splice(index, 1);
+                                                    table.reload("admin-processing-attachment-table", {
+                                                        data: data
+                                                    });
+                                                    return false;
+                                                }
+                                            });
+                                        }
+                                    }
+                                });
                             });
                         }
                         break;
@@ -153,7 +167,8 @@
             //执行实例
             var uploadInst = upload.render({
                 elem: '#test1' //绑定元素
-              , url: '/handler/admin/upload/upload' //上传接口
+              , url: '/handler/admin/processingorder/uploadpic' //上传接口
+              , data: { "orderid": document.getElementById('admin-processing-orderid').value  }
               , before: function (obj) { layer.load(); }
               , done: function (res) {
                   //上传完毕回调
@@ -260,7 +275,7 @@
     {{# if(d.params.Status == 'Processing'){ }}
     <div class="layui-form-item">
         <label class="layui-form-label">上传附件：</label>
-        <div class="layui-form-mid layui-word-aux"><button type="button" class="layui-btn layui-btn-xs" id="test1"><i class="layui-icon">&#xe67c;</i>上传加工单截图</button>  <button type="button" class="layui-btn layui-btn-xs" id="admin-processing-attachment-save"><i class="layui-icon">&#xe67c;</i>保存上传图片</button></div>
+        <div class="layui-form-mid layui-word-aux"><button type="button" class="layui-btn layui-btn-xs" id="test1"><i class="layui-icon">&#xe67c;</i>上传加工单截图</button></div>
     </div>
      {{# } }}
 
