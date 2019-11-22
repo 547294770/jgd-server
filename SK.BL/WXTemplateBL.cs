@@ -149,6 +149,8 @@ namespace SK.BL
             dict.Add("keyword5", keyword5);
             dict.Add("remark", remark);
 
+            WXTemplateBL.SendMessage(tplPath, dict);
+
             //foreach (var item in cxt.ToUsers.Where(p => p.TemplateID == TempIDPickUp))
             //{
             //    dict["touser"] = item.OpenID;
@@ -252,6 +254,8 @@ namespace SK.BL
             dict.Add("keyword3", keyword3);
             dict.Add("remark", remark);
 
+            WXTemplateBL.SendMessage(tplPath, dict);
+
             //foreach (var item in cxt.ToUsers.Where(p => p.TemplateID == TempIDInLib))
             //{
             //    dict["touser"] = item.OpenID;
@@ -305,6 +309,8 @@ namespace SK.BL
             dict.Add("keyword3", keyword3);
             dict.Add("keyword4", keyword4);
             dict.Add("remark", remark);
+
+            WXTemplateBL.SendMessage(tplPath, dict);
 
             //foreach (var item in cxt.ToUsers.Where(p => p.TemplateID == TempIDOutLib))
             //{

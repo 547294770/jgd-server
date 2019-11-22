@@ -25,6 +25,23 @@ namespace SK.User.Controllers
             this.ShowResult(true, "成功", data);
         }
 
+        public void message1()
+        {
+            string title = string.Format("{0}，您有一个提货信息", "小秋");
+            string tplPath = this.Context.Server.MapPath("/content/templates/提货通知.json");
+            WXTemplateBL.SendMessageForPickUp(
+                "oNJEyuF1_rkeK9RWOpOu8pmIxRPw",
+                tplPath,
+                Config.Setting.WXWebHost + "/dist/#/Pages/JgdDetail?ID=eeceeb19-b76f-4731-a339-00c8d10cd0dc",
+                title,
+                "",
+                "",
+               "",
+               "",
+               "",
+               string.Format("加工单：{0}已加工完毕，请贵司安排提货。", "20191123014311"));
+        }
+
         public void message()
         {
             //string path = this.Context.Server.MapPath("/content/templates/新订单通知.json");

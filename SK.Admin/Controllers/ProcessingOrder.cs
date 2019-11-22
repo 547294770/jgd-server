@@ -562,7 +562,7 @@ namespace SK.Admin.Controllers
                "",
                "",
                "",
-               string.Format("加工单：{0}已加工完毕，请贵司安排提货。", order.OrderNo, order.Content));
+               string.Format("加工单：{0}已加工完毕，请贵司安排提货。", order.OrderNo));
         }
 
         /// <summary>
