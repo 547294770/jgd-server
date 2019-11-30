@@ -110,5 +110,17 @@ namespace SK.BL
 
             return null;
         }
+
+        /// <summary>
+        /// 根据用户ID获取公司信息
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public Company GetCompany(string userId)
+        {
+            CompanyDataContext cxt = new CompanyDataContext();
+            var entity =  cxt.Company.FirstOrDefault(p => p.UserID == userId);
+            return entity;
+        }
     }
 }

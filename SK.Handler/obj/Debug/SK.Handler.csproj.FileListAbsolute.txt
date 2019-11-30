@@ -17,3 +17,9 @@ E:\work\vue\jgd\jgd-server\SK.Web\bin\SK.Handler.pdb
 E:\work\vue\jgd\jgd-server\SK.Handler\obj\Debug\SK.Handler.csprojResolveAssemblyReference.cache
 E:\work\vue\jgd\jgd-server\SK.Handler\obj\Debug\SK.Handler.dll
 E:\work\vue\jgd\jgd-server\SK.Handler\obj\Debug\SK.Handler.pdb
+E:\aabbot\my\jgd\jgd-server\SK.Web\bin\SK.Handler.dll
+E:\aabbot\my\jgd\jgd-server\SK.Web\bin\SK.Handler.pdb
+E:\aabbot\my\jgd\jgd-server\SK.Handler\obj\Debug\SK.Handler.csprojAssemblyReference.cache
+E:\aabbot\my\jgd\jgd-server\SK.Handler\obj\Debug\SK.Handler.csproj.CopyComplete
+E:\aabbot\my\jgd\jgd-server\SK.Handler\obj\Debug\SK.Handler.dll
+E:\aabbot\my\jgd\jgd-server\SK.Handler\obj\Debug\SK.Handler.pdb

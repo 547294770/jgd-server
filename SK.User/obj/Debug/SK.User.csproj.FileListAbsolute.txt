@@ -23,3 +23,9 @@ E:\work\vue\jgd\jgd-server\SK.Web\bin\SK.User.pdb
 E:\work\vue\jgd\jgd-server\SK.User\obj\Debug\SK.User.csprojResolveAssemblyReference.cache
 E:\work\vue\jgd\jgd-server\SK.User\obj\Debug\SK.User.dll
 E:\work\vue\jgd\jgd-server\SK.User\obj\Debug\SK.User.pdb
+E:\aabbot\my\jgd\jgd-server\SK.Web\bin\SK.User.dll
+E:\aabbot\my\jgd\jgd-server\SK.Web\bin\SK.User.pdb
+E:\aabbot\my\jgd\jgd-server\SK.User\obj\Debug\SK.User.csprojAssemblyReference.cache
+E:\aabbot\my\jgd\jgd-server\SK.User\obj\Debug\SK.User.csproj.CopyComplete
+E:\aabbot\my\jgd\jgd-server\SK.User\obj\Debug\SK.User.dll
+E:\aabbot\my\jgd\jgd-server\SK.User\obj\Debug\SK.User.pdb

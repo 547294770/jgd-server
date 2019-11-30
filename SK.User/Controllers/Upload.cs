@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using SK.BL;
 using SK.Handler;
 
 namespace SK.User.Controllers
@@ -22,6 +24,7 @@ namespace SK.User.Controllers
                     return;
                 }
 
+                var waterFlag = Request["waterflag"];
                 var fileUploaded = Request.Files[0];
                 string[] allows = new string[] { ".gif", ".jpg", ".jpeg", ".png", ".bmp" };
                 string path = ConfigurationManager.AppSettings["UploadPath"];
@@ -41,7 +44,23 @@ namespace SK.User.Controllers
                     return;
                 }
 
-                fileUploaded.SaveAs(file);
+                Image image = Image.FromStream(fileUploaded.InputStream);
+
+                if (waterFlag == "1") {
+
+                    var company =   UserBL.Instance.GetCompany(UserInfo.openid);
+                    var companyName = company?.CompanyName;
+
+                    if (!string.IsNullOrEmpty(UserInfo.nickname) && !string.IsNullOrEmpty(companyName))
+                    {
+                        var emSize = Convert.ToInt32( (image.Width  / companyName.Length) / 1.8);
+                        image = AddText(image, UserInfo.nickname, new Point(image.Width / 2, image.Height / 2 - 3 * emSize ), new Font("黑体", emSize), Color.FromArgb(60, 255, 255, 255), 30);
+                        image = AddText(image, companyName, new Point(image.Width / 2, image.Height / 2 ), new Font("黑体", emSize), Color.FromArgb(60, 255, 255, 255), 30);
+                        image = AddText(image, "已确认", new Point(image.Width / 2, image.Height / 2), new Font("黑体", 2*emSize), Color.FromArgb(60, 255, 255, 255), 30);
+                    }
+                }
+                
+                image.Save(file);
 
                 var returnObj = new
                 {
@@ -64,6 +83,26 @@ namespace SK.User.Controllers
             {
                 ShowResult(false, ex.Message);
             }
+        }
+
+        private Image AddText(System.Drawing.Image image, string text, Point p, Font font, Color fontColor, int angle)
+        {
+            using (Graphics g = Graphics.FromImage(image))
+            {
+                using (var brush = new SolidBrush(fontColor))
+                {
+                    g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.High;
+                    g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+
+                    var sizeF = g.MeasureString(text, font);
+                    g.ResetTransform();
+                    g.TranslateTransform(p.X, p.Y);
+                    g.RotateTransform(angle);
+                    g.DrawString(text, font, brush, new PointF(-sizeF.Width / 2, -sizeF.Height / 2));
+                }
+            }
+
+            return image;
         }
     }
 }

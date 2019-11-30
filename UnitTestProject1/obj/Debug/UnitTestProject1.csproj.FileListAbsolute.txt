@@ -5,3 +5,14 @@ E:\src\web\vs2012\SK\UnitTestProject1\bin\Debug\SK.Common.pdb
 E:\src\web\vs2012\SK\UnitTestProject1\obj\Debug\UnitTestProject1.csprojResolveAssemblyReference.cache
 E:\src\web\vs2012\SK\UnitTestProject1\obj\Debug\UnitTestProject1.dll
 E:\src\web\vs2012\SK\UnitTestProject1\obj\Debug\UnitTestProject1.pdb
+E:\aabbot\my\jgd\jgd-server\UnitTestProject1\bin\Debug\UnitTestProject1.dll
+E:\aabbot\my\jgd\jgd-server\UnitTestProject1\bin\Debug\UnitTestProject1.pdb
+E:\aabbot\my\jgd\jgd-server\UnitTestProject1\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+E:\aabbot\my\jgd\jgd-server\UnitTestProject1\bin\Debug\SK.Common.dll
+E:\aabbot\my\jgd\jgd-server\UnitTestProject1\bin\Debug\SK.Common.pdb
+E:\aabbot\my\jgd\jgd-server\UnitTestProject1\bin\Debug\SK.Common.dll.config
+E:\aabbot\my\jgd\jgd-server\UnitTestProject1\bin\Debug\zh-Hans\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+E:\aabbot\my\jgd\jgd-server\UnitTestProject1\obj\Debug\UnitTestProject1.csprojAssemblyReference.cache
+E:\aabbot\my\jgd\jgd-server\UnitTestProject1\obj\Debug\UnitTestProject1.csproj.CopyComplete
+E:\aabbot\my\jgd\jgd-server\UnitTestProject1\obj\Debug\UnitTestProject1.dll
+E:\aabbot\my\jgd\jgd-server\UnitTestProject1\obj\Debug\UnitTestProject1.pdb

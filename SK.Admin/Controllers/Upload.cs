@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,7 +41,14 @@ namespace SK.Admin.Controllers
                     return;
                 }
 
-                fileUploaded.SaveAs(file);
+                //fileUploaded.SaveAs(file);
+                //Image image = Image.FromStream(fileUploaded.InputStream);
+                //image.Save(file);
+                
+              
+
+                //添加水印
+
 
                 var returnObj = new
                 {
@@ -63,6 +71,26 @@ namespace SK.Admin.Controllers
             {
                 ShowResult(false, ex.Message);
             }
+        }
+
+        private Image AddText(System.Drawing.Image image, string text, Point p, Font font, Color fontColor, int angle)
+        {
+            using (Graphics g = Graphics.FromImage(image))
+            {
+                using (var brush = new SolidBrush(fontColor))
+                {
+                    g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.High;
+                    g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+
+                    var sizeF = g.MeasureString(text, font);
+                    g.ResetTransform();
+                    g.TranslateTransform(p.X, p.Y);
+                    g.RotateTransform(angle);
+                    g.DrawString(text, font, brush, new PointF(-sizeF.Width / 2, -sizeF.Height / 2));
+                }
+            }
+
+            return image;
         }
     }
 }

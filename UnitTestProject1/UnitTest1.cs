@@ -229,5 +229,11 @@ and T.name = '" + tableName + @"'";
             }
 
         }
+
+        [TestMethod]
+        public void PasTest()
+        {
+            string val = SK.Common.Security.MD5Encrypt("admin", true);
+        }
     }
 }

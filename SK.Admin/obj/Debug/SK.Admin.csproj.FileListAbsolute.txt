@@ -20,3 +20,9 @@ E:\work\vue\jgd\jgd-server\SK.Web\bin\SK.Admin.pdb
 E:\work\vue\jgd\jgd-server\SK.Admin\obj\Debug\SK.Admin.csprojResolveAssemblyReference.cache
 E:\work\vue\jgd\jgd-server\SK.Admin\obj\Debug\SK.Admin.dll
 E:\work\vue\jgd\jgd-server\SK.Admin\obj\Debug\SK.Admin.pdb
+E:\aabbot\my\jgd\jgd-server\SK.Web\bin\SK.Admin.dll
+E:\aabbot\my\jgd\jgd-server\SK.Web\bin\SK.Admin.pdb
+E:\aabbot\my\jgd\jgd-server\SK.Admin\obj\Debug\SK.Admin.csprojAssemblyReference.cache
+E:\aabbot\my\jgd\jgd-server\SK.Admin\obj\Debug\SK.Admin.csproj.CopyComplete
+E:\aabbot\my\jgd\jgd-server\SK.Admin\obj\Debug\SK.Admin.dll
+E:\aabbot\my\jgd\jgd-server\SK.Admin\obj\Debug\SK.Admin.pdb

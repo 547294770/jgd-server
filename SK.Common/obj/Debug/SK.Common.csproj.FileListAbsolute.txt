@@ -17,3 +17,10 @@ E:\work\vue\jgd\jgd-server\SK.Web\bin\SK.Common.pdb
 E:\work\vue\jgd\jgd-server\SK.Common\obj\Debug\SK.Common.csprojResolveAssemblyReference.cache
 E:\work\vue\jgd\jgd-server\SK.Common\obj\Debug\SK.Common.dll
 E:\work\vue\jgd\jgd-server\SK.Common\obj\Debug\SK.Common.pdb
+E:\aabbot\my\jgd\jgd-server\SK.Web\bin\SK.Common.dll.config
+E:\aabbot\my\jgd\jgd-server\SK.Web\bin\SK.Common.dll
+E:\aabbot\my\jgd\jgd-server\SK.Web\bin\SK.Common.pdb
+E:\aabbot\my\jgd\jgd-server\SK.Common\obj\Debug\SK.Common.csprojAssemblyReference.cache
+E:\aabbot\my\jgd\jgd-server\SK.Common\obj\Debug\SK.Common.csproj.CopyComplete
+E:\aabbot\my\jgd\jgd-server\SK.Common\obj\Debug\SK.Common.dll
+E:\aabbot\my\jgd\jgd-server\SK.Common\obj\Debug\SK.Common.pdb
