@@ -37,7 +37,9 @@ namespace SK.Admin.Controllers
                 PickType = Enum.GetName(typeof( Entities.ProcessingOrder.PickUpType), p.PickType),
                 Status = Enum.GetName(typeof(SK.Entities.ProcessingOrder.OrderStatus), p.Status),
                 p.UserID,
-                p.UserName
+                p.UserName,
+                p.IsReject,
+                p.StatusID
             }).ToList();
             this.ShowResult(true, "成功", data);
         }
@@ -70,7 +72,9 @@ namespace SK.Admin.Controllers
                 PickType = Enum.GetName(typeof(Entities.ProcessingOrder.PickUpType), p.PickType),
                 Status = Enum.GetName(typeof(SK.Entities.ProcessingOrder.OrderStatus), p.Status),
                 p.UserID,
-                p.UserName
+                p.UserName,
+                p.IsReject,
+                p.StatusID
             }).ToList();
             this.ShowResult(true, "成功", data);
         }
@@ -89,6 +93,7 @@ namespace SK.Admin.Controllers
 
             //更新时间
             order.UpdateAt = DateTime.Now;
+            order.IsReject = false;
 
             switch (order.Status)
             {
@@ -267,6 +272,8 @@ namespace SK.Admin.Controllers
 
         private void DoUploaded(SK.Entities.ProcessingOrder order, ProcessingOrderDataContext dc)
         {
+            //
+            SaveStatusLog(order, order.StatusID, order.Status, Entities.ProcessingOrder.OrderStatus.Uploaded);
 
             order.Status = Entities.ProcessingOrder.OrderStatus.Uploaded;
             dc.SubmitChanges();
@@ -327,8 +334,14 @@ namespace SK.Admin.Controllers
                 dcDeliveryOrder.DeliveryOrder.InsertOnSubmit(ent);
                 dcDeliveryOrder.SubmitChanges();
 
+                //
+                SaveStatusLog(order, order.StatusID, order.Status, Entities.ProcessingOrder.OrderStatus.InputDelivery);
+
                 order.Status = Entities.ProcessingOrder.OrderStatus.InputDelivery;
                 dc.SubmitChanges();
+
+                //利迅达到客户那边提材料
+                SendMessageForPickUp2(ent);//
 
                 this.ShowResult(true, "保存成功");
             }
@@ -387,6 +400,10 @@ namespace SK.Admin.Controllers
                 dcPickUpOrder.PickUpOrder.InsertOnSubmit(ent);
                 dcPickUpOrder.SubmitChanges();
 
+                //
+                SaveStatusLog(order, order.StatusID, order.Status, Entities.ProcessingOrder.OrderStatus.InputPickUpContact);
+
+
                 order.Status = Entities.ProcessingOrder.OrderStatus.InputPickUpContact;
                 dc.SubmitChanges();
 
@@ -409,6 +426,9 @@ namespace SK.Admin.Controllers
                 this.FailMessage("状态错误");
                 return;
             }
+            //
+            SaveStatusLog(order, order.StatusID, order.Status, Entities.ProcessingOrder.OrderStatus.Warehousing);
+
             order.Status = Entities.ProcessingOrder.OrderStatus.Warehousing;
             dc.SubmitChanges();
 
@@ -429,6 +449,10 @@ namespace SK.Admin.Controllers
                 return;
             }
 
+            //
+            SaveStatusLog(order, order.StatusID, order.Status, Entities.ProcessingOrder.OrderStatus.Producing);
+
+
             order.Status = Entities.ProcessingOrder.OrderStatus.Producing;
             dc.SubmitChanges();
 
@@ -446,6 +470,10 @@ namespace SK.Admin.Controllers
                 this.FailMessage("状态错误");
                 return;
             }
+
+            //
+            SaveStatusLog(order, order.StatusID, order.Status, Entities.ProcessingOrder.OrderStatus.Produced);
+
 
             order.Status = Entities.ProcessingOrder.OrderStatus.Produced;
             dc.SubmitChanges();
@@ -467,6 +495,10 @@ namespace SK.Admin.Controllers
                 this.FailMessage("状态错误");
                 return;
             }
+
+            //
+            SaveStatusLog(order, order.StatusID, order.Status, Entities.ProcessingOrder.OrderStatus.NoticePickUp);
+
 
             order.Status = Entities.ProcessingOrder.OrderStatus.NoticePickUp;
             order.PickType = Entities.ProcessingOrder.PickUpType.None;
@@ -505,6 +537,10 @@ namespace SK.Admin.Controllers
             dcProcessingFee.ProcessingFee.InsertOnSubmit(entt);
             dcProcessingFee.SubmitChanges();
 
+            //
+            SaveStatusLog(order, order.StatusID, order.Status, Entities.ProcessingOrder.OrderStatus.AlreadyGoods);
+
+
             order.Status = Entities.ProcessingOrder.OrderStatus.AlreadyGoods;
             dc.SubmitChanges();
 
@@ -525,6 +561,9 @@ namespace SK.Admin.Controllers
                 this.FailMessage("状态错误");
                 return;
             }
+
+            //
+            SaveStatusLog(order, order.StatusID, order.Status, Entities.ProcessingOrder.OrderStatus.Shipped);
 
             order.Status = Entities.ProcessingOrder.OrderStatus.Shipped;
             dc.SubmitChanges();
@@ -563,6 +602,27 @@ namespace SK.Admin.Controllers
                "",
                "",
                string.Format("加工单：{0}已加工完毕，请贵司安排提货。", order.OrderNo));
+        }
+
+        /// <summary>
+        /// 利迅达到客户那里提材料，需要提前通知
+        /// </summary>
+        /// <param name="order"></param>
+        private void SendMessageForPickUp2(Entities.DeliveryOrder order)
+        {
+            string title = string.Format("{0}，您有一个提货通知", order.UserName);
+            string tplPath = this.Context.Server.MapPath("/content/templates/提货通知.json");
+            WXTemplateBL.SendMessageForPickUp(
+                order.UserID,
+                tplPath,
+                Config.Setting.WXWebHost + "/dist/#/Pages/JgdDetail?ID=" + order.ID,
+                title,
+                "",
+                "",
+               "",
+               "",
+               "",
+               string.Format("我司将会到贵司提货，请贵司提前准备材料，预计时间：{0}，{1}", order.TimeSection,order.VehicleInfo));
         }
 
         /// <summary>
@@ -608,6 +668,30 @@ namespace SK.Admin.Controllers
                order.Content);
         }
 
+        private void SaveStatusLog(SK.Entities.ProcessingOrder order,
+            string oldStatusID,
+            SK.Entities.ProcessingOrder.OrderStatus oldStatus, 
+            SK.Entities.ProcessingOrder.OrderStatus newStatus)
+        {
+            var statusId = Guid.NewGuid().ToString();
 
+            //如果状态有变化则新增状态
+            if (oldStatus != newStatus)
+            {
+                StatusLogDataContext statusCxt = new StatusLogDataContext();
+
+                StatusLog log = new StatusLog();
+                log.ID = statusId;
+                log.Status = order.Status;
+                log.CreateAt = DateTime.Now;
+                log.PreID = oldStatusID;
+                log.OrderID = order.ID;
+                
+                statusCxt.StatusLog.InsertOnSubmit(log);
+                statusCxt.SubmitChanges();
+            }
+
+            order.StatusID = statusId;
+        }
     }
 }

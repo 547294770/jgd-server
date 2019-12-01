@@ -61,6 +61,13 @@
       <Project>{58dc046a-dfea-4b77-8470-40e47aaf019b}</Project>
       <Name>SK.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SK.Entities\SK.Entities.csproj">
+      <Project>{c3c9d6fc-800a-497d-be1e-b19903225276}</Project>
+      <Name>SK.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

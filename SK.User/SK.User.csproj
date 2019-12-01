@@ -59,6 +59,7 @@
     <Compile Include="Controllers\OAuth.cs" />
     <Compile Include="Controllers\DeliveryOrder.cs" />
     <Compile Include="Controllers\PickUpOrder.cs" />
+    <Compile Include="Controllers\Rejection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

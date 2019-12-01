@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Rejection">
+  <DataContextMoniker Name="/RejectionDataContext" />
+  <nestedChildShapes>
+    <classShape Id="c8589a08-4958-46cf-9fa4-185ea711ba44" absoluteBounds="4.75, 1.625, 2, 1.9535852050781251">
+      <DataClassMoniker Name="/RejectionDataContext/Rejection" />
+      <nestedChildShapes>
+        <elementListCompartment Id="076f5368-e1c7-41b4-b59a-461ae81c1eda" absoluteBounds="4.765, 2.085, 1.9700000000000002, 1.393585205078125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Company.cs" />
     <Compile Include="Controllers\Global.cs" />
     <Compile Include="Controllers\ProcessingOrder.cs" />
     <Compile Include="Controllers\Admin.cs" />
@@ -54,6 +55,9 @@
     <Compile Include="Controllers\PickUpOrder.cs" />
     <Compile Include="Controllers\ProcessingFee.cs" />
     <Compile Include="Controllers\Attachment.cs" />
+    <Compile Include="Controllers\Rejection.cs" />
+    <Compile Include="Controllers\Task.cs" />
+    <Compile Include="Controllers\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

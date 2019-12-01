@@ -92,6 +92,16 @@ namespace SK.Entities
 		
 		private string _Address;
 		
+		private string _Mobile;
+		
+		private string _Password;
+		
+		private bool _IsPass;
+		
+		private System.DateTime _CreateAt;
+		
+		private System.DateTime _UpdateAt;
+		
     #region 可扩展性方法定义
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -108,6 +118,16 @@ namespace SK.Entities
     partial void OnTelChanged();
     partial void OnAddressChanging(string value);
     partial void OnAddressChanged();
+    partial void OnMobileChanging(string value);
+    partial void OnMobileChanged();
+    partial void OnPasswordChanging(string value);
+    partial void OnPasswordChanged();
+    partial void OnIsPassChanging(bool value);
+    partial void OnIsPassChanged();
+    partial void OnCreateAtChanging(System.DateTime value);
+    partial void OnCreateAtChanged();
+    partial void OnUpdateAtChanging(System.DateTime value);
+    partial void OnUpdateAtChanged();
     #endregion
 		
 		public Company()
@@ -231,6 +251,106 @@ namespace SK.Entities
 					this._Address = value;
 					this.SendPropertyChanged("Address");
 					this.OnAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", CanBeNull=false)]
+		public string Mobile
+		{
+			get
+			{
+				return this._Mobile;
+			}
+			set
+			{
+				if ((this._Mobile != value))
+				{
+					this.OnMobileChanging(value);
+					this.SendPropertyChanging();
+					this._Mobile = value;
+					this.SendPropertyChanged("Mobile");
+					this.OnMobileChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", CanBeNull=false)]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this.OnPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Password = value;
+					this.SendPropertyChanged("Password");
+					this.OnPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsPass")]
+		public bool IsPass
+		{
+			get
+			{
+				return this._IsPass;
+			}
+			set
+			{
+				if ((this._IsPass != value))
+				{
+					this.OnIsPassChanging(value);
+					this.SendPropertyChanging();
+					this._IsPass = value;
+					this.SendPropertyChanged("IsPass");
+					this.OnIsPassChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateAt")]
+		public System.DateTime CreateAt
+		{
+			get
+			{
+				return this._CreateAt;
+			}
+			set
+			{
+				if ((this._CreateAt != value))
+				{
+					this.OnCreateAtChanging(value);
+					this.SendPropertyChanging();
+					this._CreateAt = value;
+					this.SendPropertyChanged("CreateAt");
+					this.OnCreateAtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateAt")]
+		public System.DateTime UpdateAt
+		{
+			get
+			{
+				return this._UpdateAt;
+			}
+			set
+			{
+				if ((this._UpdateAt != value))
+				{
+					this.OnUpdateAtChanging(value);
+					this.SendPropertyChanging();
+					this._UpdateAt = value;
+					this.SendPropertyChanged("UpdateAt");
+					this.OnUpdateAtChanged();
 				}
 			}
 		}

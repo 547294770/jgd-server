@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="JGD" Class="StatusLogDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\MSSQLSERVER2;Initial Catalog=JGD;User ID=sa;MultipleActiveResultSets=True" SettingsObjectName="SK.Entities.Properties.Settings" SettingsPropertyName="JGDConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.StatusLog" Member="StatusLog">
+    <Type Name="StatusLog">
+      <Column Name="ID" Type="System.String" DbType="VarChar(36) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Status" Type="SK.Entities.ProcessingOrder.OrderStatus" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PreID" Type="System.String" DbType="VarChar(36) NOT NULL" CanBeNull="false" />
+      <Column Member="CreateAt" Type="System.DateTime" CanBeNull="false" />
+      <Column Member="OrderID" Type="System.String" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

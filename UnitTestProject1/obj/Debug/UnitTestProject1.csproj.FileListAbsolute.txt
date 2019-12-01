@@ -16,3 +16,13 @@ E:\aabbot\my\jgd\jgd-server\UnitTestProject1\obj\Debug\UnitTestProject1.csprojAs
 E:\aabbot\my\jgd\jgd-server\UnitTestProject1\obj\Debug\UnitTestProject1.csproj.CopyComplete
 E:\aabbot\my\jgd\jgd-server\UnitTestProject1\obj\Debug\UnitTestProject1.dll
 E:\aabbot\my\jgd\jgd-server\UnitTestProject1\obj\Debug\UnitTestProject1.pdb
+E:\work\vue\jgd\jgd-server\UnitTestProject1\bin\Debug\UnitTestProject1.dll.config
+E:\work\vue\jgd\jgd-server\UnitTestProject1\bin\Debug\UnitTestProject1.dll
+E:\work\vue\jgd\jgd-server\UnitTestProject1\bin\Debug\UnitTestProject1.pdb
+E:\work\vue\jgd\jgd-server\UnitTestProject1\bin\Debug\SK.Common.dll
+E:\work\vue\jgd\jgd-server\UnitTestProject1\bin\Debug\SK.Entities.dll
+E:\work\vue\jgd\jgd-server\UnitTestProject1\bin\Debug\SK.Common.pdb
+E:\work\vue\jgd\jgd-server\UnitTestProject1\bin\Debug\SK.Entities.pdb
+E:\work\vue\jgd\jgd-server\UnitTestProject1\obj\Debug\UnitTestProject1.csprojResolveAssemblyReference.cache
+E:\work\vue\jgd\jgd-server\UnitTestProject1\obj\Debug\UnitTestProject1.dll
+E:\work\vue\jgd\jgd-server\UnitTestProject1\obj\Debug\UnitTestProject1.pdb

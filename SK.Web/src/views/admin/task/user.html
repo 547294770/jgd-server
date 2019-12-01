@@ -1,0 +1,57 @@
+﻿<title>待审核用户</title>
+<div class="layui-card layadmin-header">
+    <div class="layui-breadcrumb" lay-filter="breadcrumb">
+        <a lay-href="">主页</a>
+        <a><cite>待审核用户</cite></a>
+        <a><cite>待审核用户</cite></a>
+    </div>
+</div>
+<div class="layui-fluid">
+    <div class="layui-card">
+        <div class="layui-card-header">
+            待审核用户
+        </div>
+        <div class="layui-card-body">
+            <table id="admin-user-index" lay-filter="admin-user-index"></table>
+            <script type="text/html" id="admin-user-index-table-operate">
+                <div class="opetate">
+                    {{# if(!d.ispass){ }}
+                    <button class="layui-btn layui-btn-primary layui-btn-xs" lay-action="/handler/admin/user/check" lay-data='{"ID":"{{d.openid}}"}' lay-event="check">通过</button>
+                    {{# } }}
+                </div>
+            </script>
+        </div>
+    </div>
+</div>
+<script>
+    layui.use(["admin", "form","table", "laydate", "view"], function () {
+        var $ = layui.$
+        , admin = layui.admin
+        , table = layui.table
+        , laydate = layui.laydate
+        , form = layui.form
+        , view = layui.view;
+
+        table.render({
+            elem: "#admin-user-index",
+            url: "/handler/admin/user/tasklist",
+            skin: "auto",
+            size:"sm",
+            method:"post",
+            page: true,
+            cols: [[
+                { title: "openid", field: "openid" },
+                { title: "昵称", field: "nickname" },
+                { title: "国家", field: "country" },
+                { title: "省份", field: "province" },
+                { title: "市", field: "city" },
+                { title: "状态", templet: "<div>{{ d.ispass ? '<span class='layui-text-green'>通过</span>':'<span class='layui-text-red'>待审核</span>'}}</div>" },
+                { title: "创建时间", field: "createtime" },
+                { title: "操作", templet: "#admin-user-index-table-operate" }
+            ]]
+        });
+
+        admin.form.render();
+        table.tool('admin-user-index');
+    });
+</script>

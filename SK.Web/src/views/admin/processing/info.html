@@ -4,7 +4,7 @@
     var jgd_detail_callback = function (res) {
         delete jgd_detail_callback;
 
-        console.log(res);
+        console.log("res========"+res);
         layui.use(['upload','table','admin','form','view'], function () {
             var upload = layui.upload,
                 table = layui.table,
@@ -124,6 +124,18 @@
                 });
                 
             })
+
+            $("#admin-rejection-view").on("click", function () {
+                var orderId = document.getElementById('admin-processing-orderid').value;
+                admin.popup({
+                    id: "LAY_info_" + Math.round(Math.random() * 10000),
+                    title: "信息",
+                    area: ["600px","600px"],
+                    success: function (a, b) {
+                        view(this.id).render("admin/processing/rejection", { "OrderID": orderId });
+                    }
+                });
+            });
 
             form.on('radio(admin-processing-fee-billtype)', function (data) {
                 $('#admin-processing-fee-billtype').val(data.value);
@@ -260,7 +272,15 @@
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">下单时间：</label>
-        <div class="layui-input-block"><div class="layui-form-mid layui-word-aux">{{ d.params.CreateAt }}</div></div>
+        <div class="layui-input-inline"><div class="layui-form-mid layui-word-aux">{{ d.params.CreateAt }}</div></div>
+        <label class="layui-form-label">错误驳回：</label>
+        <div class="layui-input-inline">
+            <div class="layui-form-mid layui-word-aux">
+            {{# if(d.params.IsReject){ }}
+            <button id="admin-rejection-view" class="layui-btn layui-btn-danger layui-btn-xs">查看驳回理由</button>
+            {{# } }}
+            </div>
+        </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">加工内容：</label>

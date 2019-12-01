@@ -7,6 +7,7 @@ using System.Data;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.IO;
+using SK.Entities;
 
 
 namespace UnitTestProject1
@@ -233,7 +234,17 @@ and T.name = '" + tableName + @"'";
         [TestMethod]
         public void PasTest()
         {
-            string val = SK.Common.Security.MD5Encrypt("admin", true);
+            StatusLog log = new StatusLog();
+
+            log.ID = Guid.NewGuid().ToString();
+            log.PreID = string.Empty;
+            log.Status = ProcessingOrder.OrderStatus.AlreadyGoods;
+            log.CreateAt = DateTime.Now;
+
+            StatusLogDataContext statusCxt = new StatusLogDataContext();
+            statusCxt.StatusLog.InsertOnSubmit(log);
+            statusCxt.SubmitChanges();
+            
         }
     }
 }

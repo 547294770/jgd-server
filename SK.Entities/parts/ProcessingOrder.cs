@@ -62,7 +62,12 @@ namespace SK.Entities
             /// 利迅达提货
             /// </summary>
             [Description("利迅达提货")]
-            LXD = 2
+            LXD = 2,
+            /// <summary>
+            /// 
+            /// </summary>
+            [Description("材料在仓库")]
+            IsWareHouse = 3
         }
 
         public enum PickUpType

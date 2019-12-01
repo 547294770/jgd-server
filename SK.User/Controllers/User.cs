@@ -151,38 +151,89 @@ namespace SK.User.Controllers
         {
             if (UserInfo == null) { this.FailMessage("未登录"); return; }
 
+            CompanyTaskDataContext cxt = new CompanyTaskDataContext();
+
+            var entity = cxt.CompanyTask.FirstOrDefault(p => p.UserID == UserInfo.openid && !p.IsPass);
+            if (entity == null)
+            {
+                entity = new CompanyTask();
+                entity.ID = Guid.NewGuid().ToString();
+                entity.CreateAt = DateTime.Now;
+                entity.UpdateAt = entity.CreateAt;
+            }
+            else
+            {
+                this.FailMessage("公司信息审核中，不能再次修改。");
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(QF("CompanyName"))) { this.FailMessage("公司名称不能为空"); return; }
             if (string.IsNullOrWhiteSpace(QF("Address"))) { this.FailMessage("地址不能为空"); return; }
             if (string.IsNullOrWhiteSpace(QF("Contact"))) { this.FailMessage("联系人不能为空"); return; }
-            if (string.IsNullOrWhiteSpace(QF("Tel"))) { this.FailMessage("电话不能为空"); return; }
+            if (string.IsNullOrWhiteSpace(QF("Tel"))) { this.FailMessage("固定电话不能为空"); return; }
+            if (string.IsNullOrWhiteSpace(QF("Mobile"))) { this.FailMessage("联系手机不能为空"); return; }
+
+            entity.IsPass = false;
+            entity.UserID = UserInfo.openid;
+            entity.Address = QF("Address");
+            entity.CompanyName = QF("CompanyName");
+            entity.Contact = QF("Contact");
+            entity.Tel = QF("Tel");
+            entity.Mobile = QF("Mobile");
+            entity.Password = "";
+           
+            cxt.CompanyTask.InsertOnSubmit(entity);
+            cxt.SubmitChanges();
+
+            this.ShowResult(true, "保存成功", entity);
+        }
+
+        public void updatepassword()
+        {
+            if (UserInfo == null) { this.FailMessage("未登录"); return; }
 
             CompanyDataContext cxt = new CompanyDataContext();
 
             var entity = cxt.Company.FirstOrDefault(p => p.UserID == UserInfo.openid);
             if (entity == null)
             {
-                entity = new Company();
-                entity.ID = Guid.NewGuid().ToString();
-
-                entity.UserID = UserInfo.openid;
-                entity.Address = QF("Address");
-                entity.CompanyName = QF("CompanyName");
-                entity.Contact = QF("Contact");
-                entity.Tel = QF("Tel");
-
-                cxt.Company.InsertOnSubmit(entity);
+                this.FailMessage("请先完善公司信息"); 
+                return;
             }
-            else {
-                entity.UserID = UserInfo.openid;
-                entity.Address = QF("Address");
-                entity.CompanyName = QF("CompanyName");
-                entity.Contact = QF("Contact");
-                entity.Tel = QF("Tel");
+
+            if (string.IsNullOrEmpty(entity.Password))
+            {
+                //新设置
+                var password = QF("Password");
+                var password2 = QF("Password2");
+
+                if (string.IsNullOrWhiteSpace(password)) { this.FailMessage("密码不能为空"); return; }
+                if (password.Length < 6 || password.Length > 20) { this.FailMessage("密码长度为6-20位"); return; }
+                if (password != password2) { this.FailMessage("两次密码不一致"); return; }
+                
+
+                entity.Password = password;
+            }
+            else
+            {
+                var password = QF("Password");
+                var password2 = QF("Password2");
+                var passwordOld = QF("PasswordOld");
+
+                if (string.IsNullOrWhiteSpace(passwordOld)) { this.FailMessage("密码不能为空"); return; }
+                if (passwordOld.Length < 6 || passwordOld.Length > 20) { this.FailMessage("密码长度为6-20位"); return; }
+                if (passwordOld != entity.Password) { this.FailMessage("原密码不正确"); return; }
+
+                if (string.IsNullOrWhiteSpace(password)) { this.FailMessage("新密码不能为空"); return; }
+                if (password.Length < 6 || password.Length > 20) { this.FailMessage("新密码长度为6-20位"); return; }
+                if (password != password2) { this.FailMessage("两次密码不一致"); return; }
+
+                entity.Password = password2;
             }
 
             cxt.SubmitChanges();
 
-            this.ShowResult(true, "保存成功", entity);
+            this.ShowResult(true, "设置成功", entity);
         }
     }
 }

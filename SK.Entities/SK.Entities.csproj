@@ -61,6 +61,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Company.dbml</DependentUpon>
     </Compile>
+    <Compile Include="CompanyTask.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CompanyTask.dbml</DependentUpon>
+    </Compile>
     <Compile Include="DeliveryOrder.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -93,6 +98,16 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Rejection.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rejection.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="StatusLog.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StatusLog.dbml</DependentUpon>
     </Compile>
     <Compile Include="ToUsers.designer.cs">
       <AutoGen>True</AutoGen>
@@ -137,6 +152,11 @@
       <LastGenOutput>Company.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <None Include="CompanyTask.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>CompanyTask.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="DeliveryOrder.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>DeliveryOrder.designer.cs</LastGenOutput>
@@ -160,6 +180,16 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Rejection.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Rejection.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StatusLog.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>StatusLog.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
     <None Include="ToUsers.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
@@ -243,6 +273,21 @@
   <ItemGroup>
     <None Include="Company.dbml.layout">
       <DependentUpon>Company.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Rejection.dbml.layout">
+      <DependentUpon>Rejection.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StatusLog.dbml.layout">
+      <DependentUpon>StatusLog.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CompanyTask.dbml.layout">
+      <DependentUpon>CompanyTask.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

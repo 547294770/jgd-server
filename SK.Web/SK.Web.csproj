@@ -190,6 +190,10 @@
     <Content Include="src\views\admin\delivery\index.html" />
     <Content Include="src\views\admin\delivery\info.html" />
     <Content Include="src\views\admin\processingfee\info.html" />
+    <Content Include="src\views\admin\processing\rejection.html" />
+    <Content Include="src\views\admin\task\unprocessed.html" />
+    <Content Include="src\views\admin\task\company.html" />
+    <Content Include="src\views\admin\task\user.html" />
     <Content Include="src\views\clientManagement\myClient\index.html" />
     <Content Include="src\views\component\icon\index.html" />
     <Content Include="src\views\component\select\index.html" />

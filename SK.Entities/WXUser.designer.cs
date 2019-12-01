@@ -100,6 +100,8 @@ namespace SK.Entities
 		
 		private System.DateTime _createtime;
 		
+		private bool _ispass;
+		
     #region 可扩展性方法定义
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -124,6 +126,8 @@ namespace SK.Entities
     partial void OnunionidChanged();
     partial void OncreatetimeChanging(System.DateTime value);
     partial void OncreatetimeChanged();
+    partial void OnispassChanging(bool value);
+    partial void OnispassChanged();
     #endregion
 		
 		public WXUser()
@@ -327,6 +331,26 @@ namespace SK.Entities
 					this._createtime = value;
 					this.SendPropertyChanged("createtime");
 					this.OncreatetimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ispass")]
+		public bool ispass
+		{
+			get
+			{
+				return this._ispass;
+			}
+			set
+			{
+				if ((this._ispass != value))
+				{
+					this.OnispassChanging(value);
+					this.SendPropertyChanging();
+					this._ispass = value;
+					this.SendPropertyChanged("ispass");
+					this.OnispassChanged();
 				}
 			}
 		}

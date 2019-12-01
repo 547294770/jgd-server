@@ -49,7 +49,7 @@ namespace SK.User.Controllers
                 if (waterFlag == "1") {
 
                     var company =   UserBL.Instance.GetCompany(UserInfo.openid);
-                    var companyName = company?.CompanyName;
+                    var companyName = company == null ?"":company.CompanyName;
 
                     if (!string.IsNullOrEmpty(UserInfo.nickname) && !string.IsNullOrEmpty(companyName))
                     {

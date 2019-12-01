@@ -132,6 +132,7 @@ namespace SK.User.Controllers
                      Status = Enum.GetName(typeof(SK.Entities.ProcessingOrder.OrderStatus), p.Status),
                      StatusName = p.Status.GetDescription(),
                      p.UserID,
+                     p.IsReject,
                      p.UserName
                  }
             ).ToList();
@@ -174,12 +175,15 @@ namespace SK.User.Controllers
             };
 
             var orderId = QF("ID");
+            var isUpdate = false;
+
             var order = dc.ProcessingOrder.FirstOrDefault(p => p.ID == orderId);
             if (order == null)
             {
                 order = new Entities.ProcessingOrder();
             }
             else {
+                isUpdate = true;
                 if (!status.Contains(order.Status))
                 {
                     this.ShowResult(false, "该加工状态不允许修改");
@@ -211,12 +215,45 @@ namespace SK.User.Controllers
                 order.UpdateAt = DateTime.Now;
             }
 
+            StatusLogDataContext statusCxt = new StatusLogDataContext();
+            StatusLog log = new StatusLog();
+            var statusid = Guid.NewGuid().ToString();
+            if (isUpdate) {
+                statusid = order.StatusID;
+            }
+
+            log.CreateAt = DateTime.Now;
+            log.ID = statusid;
+            log.OrderID = order.ID;
+            log.PreID = statusid;
+            log.Status = order.Status;
+
+            order.StatusID = log.ID;
+
+            if (!isUpdate)
+            {
+                statusCxt.StatusLog.InsertOnSubmit(log);
+            }
+
             //1：草稿，0：直接提交
             if (QF("IsDraft", 0) == 0)
             {
+                var newStatusId = Guid.NewGuid().ToString();
                 order.Status = Entities.ProcessingOrder.OrderStatus.Processing;
-                
+                order.StatusID = newStatusId;
+
+                StatusLog log2 = new StatusLog();
+
+                log2.CreateAt = DateTime.Now;
+                log2.ID = newStatusId;
+                log2.OrderID = order.ID;
+                log2.PreID = statusid;
+                log2.Status = order.Status;
+
+                statusCxt.StatusLog.InsertOnSubmit(log2);
             }
+
+            statusCxt.SubmitChanges();
 
             dc.SubmitChanges();
 
@@ -349,6 +386,7 @@ namespace SK.User.Controllers
                     order.UpdateAt,
                     order.UserID,
                     order.UserName,
+                    order.IsReject,
                     order.Pic,
                     IsSelf = UserInfo != null ? order.UserID == UserInfo.openid : false
                 });
@@ -370,6 +408,9 @@ namespace SK.User.Controllers
                 return;
             }
 
+            var oldStatus = order.Status;
+            var oldStatusID = order.StatusID;
+
             switch (order.Status)
             {
                 case SK.Entities.ProcessingOrder.OrderStatus.None://
@@ -383,6 +424,11 @@ namespace SK.User.Controllers
                     {
                         order.DelType = QF("DelType").ToEnum<Entities.ProcessingOrder.DeliveryType>();
                         order.Status = Entities.ProcessingOrder.OrderStatus.ConfirmDeliveryMethod;
+
+                        if (order.DelType == Entities.ProcessingOrder.DeliveryType.IsWareHouse)
+                        {
+                            order.Status = Entities.ProcessingOrder.OrderStatus.Warehousing;
+                        }
                         if (order.DelType == Entities.ProcessingOrder.DeliveryType.None) {
                             this.FailMessage("请选择送货类型");
                             return;
@@ -445,6 +491,25 @@ namespace SK.User.Controllers
                     break;
             }
 
+            var statusId = Guid.NewGuid().ToString();
+
+            //如果状态有变化则新增状态
+            if (oldStatus != order.Status)
+            {
+                StatusLogDataContext statusCxt = new StatusLogDataContext();
+
+                StatusLog log = new StatusLog();
+                log.ID = statusId;
+                log.Status = order.Status;
+                log.CreateAt = DateTime.Now;
+                log.PreID = oldStatusID;
+                log.OrderID = order.ID;
+
+                statusCxt.StatusLog.InsertOnSubmit(log);
+                statusCxt.SubmitChanges();
+            }
+
+            order.StatusID = statusId;
             order.UpdateAt = DateTime.Now;
             dc.SubmitChanges();
 

@@ -123,7 +123,8 @@ namespace SK.User.Controllers
                 province = province,
                 sex = sex,
                 unionid = unionid,
-                createtime = DateTime.Now
+                createtime = DateTime.Now,
+                ispass = false
             };
 
             cxt.WXUser.InsertOnSubmit(uEnity);

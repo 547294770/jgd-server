@@ -8,6 +8,11 @@
       <Column Name="Contact" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Tel" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Address" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Member="Mobile" Type="System.String" CanBeNull="false" />
+      <Column Member="Password" Type="System.String" CanBeNull="false" />
+      <Column Member="IsPass" Type="System.Boolean" CanBeNull="false" />
+      <Column Member="CreateAt" Type="System.DateTime" CanBeNull="false" />
+      <Column Member="UpdateAt" Type="System.DateTime" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

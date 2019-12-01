@@ -1,0 +1,57 @@
+﻿<title>待审核公司信息</title>
+<div class="layui-card layadmin-header">
+    <div class="layui-breadcrumb" lay-filter="breadcrumb">
+        <a lay-href="">主页</a>
+        <a><cite>待审核公司信息</cite></a>
+        <a><cite>待审核公司信息</cite></a>
+    </div>
+</div>
+<div class="layui-fluid">
+    <div class="layui-card">
+        <div class="layui-card-header">
+            待审核公司信息
+        </div>
+        <div class="layui-card-body">
+            <table id="admin-company-index" lay-filter="admin-company-index"></table>
+            <script type="text/html" id="admin-company-index-table-operate">
+                <div class="opetate">
+                    {{# if(!d.IsPass){ }}
+                    <button class="layui-btn layui-btn-primary layui-btn-xs" lay-action="/handler/admin/company/check" lay-data='{"ID":"{{d.ID}}"}' lay-event="check">通过</button>
+                    {{# } }}
+                </div>
+            </script>
+        </div>
+    </div>
+</div>
+<script>
+    layui.use(["admin", "form","table", "laydate", "view"], function () {
+        var $ = layui.$
+        , admin = layui.admin
+        , table = layui.table
+        , laydate = layui.laydate
+        , form = layui.form
+        , view = layui.view;
+
+        table.render({
+            elem: "#admin-company-index",
+            url: "/handler/admin/company/tasklist",
+            skin: "auto",
+            size:"sm",
+            method:"post",
+            page: true,
+            cols: [[
+                { title: "公司名称", field: "CompanyName" },
+                { title: "联系人", field: "Contact" },
+                { title: "座机", field: "Tel" },
+                { title: "手机", field: "Mobile" },
+                { title: "地址", field: "Address" },
+                { title: "状态", templet: "<div>{{ d.IsPass ? '<span class='layui-text-green'>通过</span>':'<span class='layui-text-red'>待审核</span>'}}</div>" },
+                { title: "创建时间", field: "CreateAt" },
+                { title: "操作", templet: "#admin-company-index-table-operate" }
+            ]]
+        });
+
+        admin.form.render();
+        table.tool('admin-company-index');
+    });
+</script>

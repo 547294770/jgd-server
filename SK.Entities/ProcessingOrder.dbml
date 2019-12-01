@@ -13,6 +13,8 @@
       <Column Name="DelType" Type="DeliveryType" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="PickType" Type="SK.Entities.ProcessingOrder.PickUpType" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Pic" Type="System.String" CanBeNull="false" />
+      <Column Member="IsReject" Type="System.Boolean" CanBeNull="false" />
+      <Column Member="StatusID" Type="System.String" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

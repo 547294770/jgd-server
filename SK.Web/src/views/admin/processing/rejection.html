@@ -1,0 +1,37 @@
+﻿
+<script type="text/javascript">
+
+    var rejection_list_callback = function (res) {
+        delete rejection_list_callback;
+
+        console.log("rejection_list_callback========" + res);
+        layui.use(['table','admin','form','view'], function () {
+            var table = layui.table,
+                admin = layui.admin,
+                view = layui.view,
+                form = layui.form,
+                $ = layui.$;
+
+            table.render({
+                elem: "#admin-rejection-table",
+                data: res.data.data,
+                skin: "auto",
+                size: "sm",
+                page: false,
+                cols: [[
+                    { title: "驳回原因", field: "Reason" },
+                    { title: "提交时间", field: "CreateAt" },
+                ]]
+            });
+
+            admin.form.render();
+        });
+    }
+
+</script>
+
+<script template type="text/html" lay-url="/handler/admin/rejection/list" lay-data='{"OrderID":"{{ d.params.OrderID }}"}' lay-done="rejection_list_callback(d);">
+<div class="layui-form" lay-filter="admin-rejection-info-form">
+    <table id="admin-rejection-table" lay-filter="admin-rejection-table"></table>
+</div>
+</script>

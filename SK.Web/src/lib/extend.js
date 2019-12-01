@@ -65,6 +65,7 @@ layui.define(["table","admin","view"], function (exports) {
         table.on("tool(" + tableId + ")", function (ele) {
             var obj = ele.tr.find("[lay-event=" + ele.event + "]");
             var action = obj.attr("lay-action");
+            var data = obj.attr("lay-data") ? JSON.parse(obj.attr("lay-data")) : {};
             var title = obj.attr("lay-title");
             var attrarea = obj.attr("lay-area");
             var area = attrarea ? JSON.parse(obj.attr("lay-area")) : ["600px", "400px"];
@@ -78,6 +79,22 @@ layui.define(["table","admin","view"], function (exports) {
                             area: area,
                             success: function (a, b) {
                                 view(this.id).render(action, ele.data);
+                            }
+                        });
+                    }
+                    break;
+                case "delete":
+                case "check":
+                    {
+                        admin.req({
+                            url: action,
+                            data: data,
+                            type:'post',
+                            success: function (res) {
+                                layer.alert(res.msg, { icon: res.code == 0 ? 1 : 2 });
+                                if (res.code == 0) {
+                                    table.reload(tableId);
+                                } 
                             }
                         });
                     }

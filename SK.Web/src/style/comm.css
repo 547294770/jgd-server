@@ -64,3 +64,10 @@
 .layui-card-header {
     padding: 5px 5px 5px 15px;
 }
+
+.layui-text-red {
+    color:#ff6a00;
+}
+.layui-text-green {
+    color:#00ff21;
+}

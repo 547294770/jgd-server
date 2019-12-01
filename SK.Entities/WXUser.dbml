@@ -11,7 +11,8 @@
       <Column Name="headimgurl" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="privilege" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="unionid" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Member="createtime" Type="System.DateTime" CanBeNull="false" />
+      <Column Name="createtime" Type="System.DateTime" CanBeNull="false" />
+      <Column Member="ispass" Type="System.Boolean" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

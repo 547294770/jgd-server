@@ -30,7 +30,18 @@ namespace SK.Entities.Properties {
             "eActiveResultSets=True")]
         public string JGDConnectionString {
             get {
-                return System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+                return ((string)(this["JGDConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\MSSQLSERVER2;Initial Catalog=JGD;User ID=sa;MultipleActiveResultSet" +
+            "s=True")]
+        public string JGDConnectionString1 {
+            get {
+                return ((string)(this["JGDConnectionString1"]));
             }
         }
     }

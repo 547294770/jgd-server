@@ -102,6 +102,10 @@ namespace SK.Entities
 		
 		private string _Pic;
 		
+		private bool _IsReject;
+		
+		private string _StatusID;
+		
     #region 可扩展性方法定义
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -128,6 +132,10 @@ namespace SK.Entities
     partial void OnPickTypeChanged();
     partial void OnPicChanging(string value);
     partial void OnPicChanged();
+    partial void OnIsRejectChanging(bool value);
+    partial void OnIsRejectChanged();
+    partial void OnStatusIDChanging(string value);
+    partial void OnStatusIDChanged();
     #endregion
 		
 		public ProcessingOrder()
@@ -351,6 +359,46 @@ namespace SK.Entities
 					this._Pic = value;
 					this.SendPropertyChanged("Pic");
 					this.OnPicChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsReject")]
+		public bool IsReject
+		{
+			get
+			{
+				return this._IsReject;
+			}
+			set
+			{
+				if ((this._IsReject != value))
+				{
+					this.OnIsRejectChanging(value);
+					this.SendPropertyChanging();
+					this._IsReject = value;
+					this.SendPropertyChanged("IsReject");
+					this.OnIsRejectChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatusID", CanBeNull=false)]
+		public string StatusID
+		{
+			get
+			{
+				return this._StatusID;
+			}
+			set
+			{
+				if ((this._StatusID != value))
+				{
+					this.OnStatusIDChanging(value);
+					this.SendPropertyChanging();
+					this._StatusID = value;
+					this.SendPropertyChanged("StatusID");
+					this.OnStatusIDChanged();
 				}
 			}
 		}
