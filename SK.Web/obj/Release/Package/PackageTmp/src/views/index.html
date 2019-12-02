@@ -7,48 +7,59 @@
     </div>
 </div>
 <div class="layui-fluid">
-    <div class="layui-card">
-        <div class="layui-card-header">
-            待处理的加工单
-        </div>
+  <div class="layui-row layui-col-space15">
+    <div class="layui-col-md6">
+        <div class="layui-card">
+        <div class="layui-card-header">待办事项</div>
         <div class="layui-card-body">
-            <table id="admin-index-unprocessed" lay-filter="admin-index-unprocessed"></table>
-            <script type="text/html" id="admin-unprocessed-index-table-operate">
-                <div class="opetate">
-                    <button class="layui-btn layui-btn-xs" lay-action="admin/processing/info" lay-area='["800px", "600px"]' lay-event="detail">查看并处理</button>
-                </div>
-            </script>
+            <div class="layui-carousel layadmin-carousel layadmin-backlog" lay-anim="" lay-indicator="inside" lay-arrow="none" style="width: 100%; height: 280px;">
+            <div carousel-item="">
+                <ul class="layui-row layui-col-space10 layui-this">
+                <li class="layui-col-xs6">
+                    <a lay-href="admin/task/unprocessed" class="layadmin-backlog-body">
+                    <h3>待处理加工单</h3>
+                    <p><cite id="index-order-count">0</cite></p>
+                    </a>
+                </li>
+                <li class="layui-col-xs6">
+                    <a lay-href="admin/task/company" class="layadmin-backlog-body">
+                    <h3>待审公司信息</h3>
+                    <p><cite id="index-company-count">0</cite></p>
+                    </a>
+                </li>
+                <li class="layui-col-xs6">
+                    <a lay-href="admin/task/user" class="layadmin-backlog-body">
+                    <h3>待审会员</h3>
+                    <p><cite id="index-user-count">0</cite></p>
+                    </a>
+                </li>
+                </ul>
+            </div>
+        </div>
+        </div>
         </div>
     </div>
+  </div>
 </div>
-<script>
 
+<script type="text/javascript">
     layui.use(["admin", "form", "table", "laydate", "view"], function () {
         var $ = layui.$
         , admin = layui.admin
-        , table = layui.table
-        , laydate = layui.laydate
-        , form = layui.form
-        , view = layui.view;
+        , $ = layui.$;
 
-        table.render({
-            elem: "#admin-index-unprocessed",
-            url: "/handler/admin/processingorder/unprocessed",
-            skin: "auto",
-            size: "sm",
-            method: "post",
-            page: true,
-            cols: [[
-                { title: "加工单号", field: "OrderNo" },
-                { title: "加工内容", field: "Content" },
-                { title: "下单时间", field: "CreateAt" },
-                { title: "提交人", field: "UserName" },
-                { title: "状态", templet: "<div>{{ htmlFunction.status(d.Status,d.DelType,d.PickType) }}</div>" },
-                { title: "操作", templet: "#admin-unprocessed-index-table-operate" }
-            ]]
+        admin.req({
+            url: "/handler/admin/task/list",
+            data: {},
+            type: 'post',
+            success: function (res) {
+                if (res.code == 0) {
+                    $("#index-order-count").html(res.data.OrderCount);
+                    $("#index-company-count").html(res.data.CompanyCount);
+                    $("#index-user-count").html(res.data.UserCount);
+                }
+            }
         });
-
-        admin.form.render();
-        table.tool('admin-index-unprocessed');
     });
+
 </script>

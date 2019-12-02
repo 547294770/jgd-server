@@ -2,10 +2,10 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="PickUpOrder">
   <DataContextMoniker Name="/PickUpOrderDataContext" />
   <nestedChildShapes>
-    <classShape Id="160bba11-58af-4be2-b4f0-a90c743072f6" absoluteBounds="2.375, 1.75, 2, 3.0997033691406246">
+    <classShape Id="160bba11-58af-4be2-b4f0-a90c743072f6" absoluteBounds="2.375, 1.75, 2, 3.4817427571614576">
       <DataClassMoniker Name="/PickUpOrderDataContext/PickUpOrder" />
       <nestedChildShapes>
-        <elementListCompartment Id="88818f34-10ce-424e-9015-7568e511230d" absoluteBounds="2.39, 2.21, 1.9700000000000002, 2.539703369140625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="88818f34-10ce-424e-9015-7568e511230d" absoluteBounds="2.39, 2.21, 1.9700000000000002, 2.921742757161458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

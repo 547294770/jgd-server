@@ -13,7 +13,9 @@
       <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="OrderNo" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="ProcessingNo" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Member="TimeSection" Type="System.String" CanBeNull="false" />
+      <Column Name="TimeSection" Type="System.String" CanBeNull="false" />
+      <Column Member="Time1" Type="System.String" CanBeNull="false" />
+      <Column Member="Time2" Type="System.String" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

@@ -5,12 +5,13 @@
       <Column Name="ID" Type="System.String" DbType="VarChar(36) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="FeeNo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="SourceID" Type="System.String" DbType="VarChar(36) NOT NULL" CanBeNull="false" />
-      <Column Name="Type" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="BillType" DbType="TinyInt NOT NULL" CanBeNull="false" />
       <Column Name="Content" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
       <Column Name="CreateAt" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="ProcessingNo" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Member="UserID" Type="System.String" CanBeNull="false" />
-      <Column Member="UserName" Type="System.String" CanBeNull="false" />
+      <Column Name="UserID" Type="System.String" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" CanBeNull="false" />
+      <Column Member="Pic" Type="System.String" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

@@ -33,6 +33,7 @@ namespace SK.Admin.Controllers
                 a.ProcessingNo,
                 a.Content,
                 a.CreateAt,
+                a.Pic,
                 TypeName =a.Type.GetDescription()
             }).ToList();
 
@@ -52,6 +53,7 @@ namespace SK.Admin.Controllers
                 a.ProcessingNo,
                 a.Content,
                 a.CreateAt,
+                a.Pic,
                 TypeName = a.Type.GetDescription()
             }).ToList();
 
@@ -71,6 +73,7 @@ namespace SK.Admin.Controllers
                 entity.ProcessingNo,
                 entity.SourceID,
                 entity.Type,
+                entity.Pic,
                 TypeName = entity.Type.GetDescription()
             });
         }

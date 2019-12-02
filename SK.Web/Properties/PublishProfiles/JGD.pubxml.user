@@ -14,25 +14,25 @@
       <publishTime>05/13/2019 22:28:42</publishTime>
     </File>
     <File Include="bin/SK.Admin.dll">
-      <publishTime>11/23/2019 01:59:28</publishTime>
+      <publishTime>12/03/2019 02:15:50</publishTime>
     </File>
     <File Include="bin/SK.BL.dll">
-      <publishTime>11/23/2019 01:59:27</publishTime>
+      <publishTime>12/03/2019 02:15:48</publishTime>
     </File>
     <File Include="bin/SK.Common.dll">
-      <publishTime>11/17/2019 16:48:16</publishTime>
+      <publishTime>12/03/2019 02:15:47</publishTime>
     </File>
     <File Include="bin/SK.Entities.dll">
-      <publishTime>11/17/2019 16:48:16</publishTime>
+      <publishTime>12/03/2019 02:15:47</publishTime>
     </File>
     <File Include="bin/SK.Handler.dll">
-      <publishTime>11/23/2019 01:59:28</publishTime>
+      <publishTime>12/03/2019 02:15:48</publishTime>
     </File>
     <File Include="bin/SK.User.dll">
-      <publishTime>11/23/2019 01:59:28</publishTime>
+      <publishTime>12/03/2019 02:15:49</publishTime>
     </File>
     <File Include="bin/SK.Web.dll">
-      <publishTime>11/23/2019 01:59:29</publishTime>
+      <publishTime>12/03/2019 02:15:51</publishTime>
     </File>
     <File Include="content/dist/config.js">
       <publishTime>05/26/2019 15:11:30</publishTime>
@@ -395,7 +395,7 @@
       <publishTime>06/05/2019 00:19:19</publishTime>
     </File>
     <File Include="src/lib/extend.js">
-      <publishTime>11/11/2019 02:21:50</publishTime>
+      <publishTime>12/02/2019 01:31:03</publishTime>
     </File>
     <File Include="src/lib/view.js">
       <publishTime>11/11/2019 03:09:58</publishTime>
@@ -404,7 +404,7 @@
       <publishTime>09/17/2019 03:05:36</publishTime>
     </File>
     <File Include="src/style/comm.css">
-      <publishTime>09/17/2019 02:59:59</publishTime>
+      <publishTime>12/02/2019 00:39:56</publishTime>
     </File>
     <File Include="src/style/login.css">
       <publishTime>11/16/2019 00:16:58</publishTime>
@@ -431,7 +431,7 @@
       <publishTime>11/03/2019 19:46:37</publishTime>
     </File>
     <File Include="src/views/admin/pickup/info.html">
-      <publishTime>11/03/2019 18:00:42</publishTime>
+      <publishTime>12/03/2019 00:35:24</publishTime>
     </File>
     <File Include="src/views/admin/pickup/jgd-info.html">
       <publishTime>09/17/2019 03:15:13</publishTime>
@@ -449,16 +449,28 @@
       <publishTime>11/11/2019 04:25:42</publishTime>
     </File>
     <File Include="src/views/admin/processing/info.html">
-      <publishTime>11/23/2019 00:12:57</publishTime>
+      <publishTime>12/03/2019 01:10:34</publishTime>
     </File>
     <File Include="src/views/admin/processing/jgd-info.html">
       <publishTime>10/26/2019 08:42:40</publishTime>
+    </File>
+    <File Include="src/views/admin/processing/rejection.html">
+      <publishTime>12/01/2019 12:46:39</publishTime>
     </File>
     <File Include="src/views/admin/processingfee/index.html">
       <publishTime>11/05/2019 02:16:05</publishTime>
     </File>
     <File Include="src/views/admin/processingfee/info.html">
       <publishTime>11/03/2019 19:51:37</publishTime>
+    </File>
+    <File Include="src/views/admin/task/company.html">
+      <publishTime>12/02/2019 01:22:44</publishTime>
+    </File>
+    <File Include="src/views/admin/task/unprocessed.html">
+      <publishTime>12/02/2019 01:40:06</publishTime>
+    </File>
+    <File Include="src/views/admin/task/user.html">
+      <publishTime>12/02/2019 02:23:28</publishTime>
     </File>
     <File Include="src/views/clientManagement/myClient/index.html">
       <publishTime>09/14/2019 01:46:52</publishTime>
@@ -470,7 +482,7 @@
       <publishTime>05/26/2019 15:11:30</publishTime>
     </File>
     <File Include="src/views/index.html">
-      <publishTime>11/17/2019 16:39:46</publishTime>
+      <publishTime>12/02/2019 02:27:55</publishTime>
     </File>
     <File Include="src/views/layout.html">
       <publishTime>11/16/2019 01:10:27</publishTime>
@@ -1835,7 +1847,7 @@
       <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/23/2019 01:59:30</publishTime>
+      <publishTime>12/03/2019 02:15:53</publishTime>
     </File>
   </ItemGroup>
 </Project>

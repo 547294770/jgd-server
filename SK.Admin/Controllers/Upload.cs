@@ -41,14 +41,7 @@ namespace SK.Admin.Controllers
                     return;
                 }
 
-                //fileUploaded.SaveAs(file);
-                //Image image = Image.FromStream(fileUploaded.InputStream);
-                //image.Save(file);
-                
-              
-
-                //添加水印
-
+                fileUploaded.SaveAs(file);
 
                 var returnObj = new
                 {

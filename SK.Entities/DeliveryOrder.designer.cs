@@ -104,6 +104,10 @@ namespace SK.Entities
 		
 		private string _TimeSection;
 		
+		private string _Time1;
+		
+		private string _Time2;
+		
     #region 可扩展性方法定义
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -132,6 +136,10 @@ namespace SK.Entities
     partial void OnProcessingNoChanged();
     partial void OnTimeSectionChanging(string value);
     partial void OnTimeSectionChanged();
+    partial void OnTime1Changing(string value);
+    partial void OnTime1Changed();
+    partial void OnTime2Changing(string value);
+    partial void OnTime2Changed();
     #endregion
 		
 		public DeliveryOrder()
@@ -375,6 +383,46 @@ namespace SK.Entities
 					this._TimeSection = value;
 					this.SendPropertyChanged("TimeSection");
 					this.OnTimeSectionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Time1", CanBeNull=false)]
+		public string Time1
+		{
+			get
+			{
+				return this._Time1;
+			}
+			set
+			{
+				if ((this._Time1 != value))
+				{
+					this.OnTime1Changing(value);
+					this.SendPropertyChanging();
+					this._Time1 = value;
+					this.SendPropertyChanged("Time1");
+					this.OnTime1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Time2", CanBeNull=false)]
+		public string Time2
+		{
+			get
+			{
+				return this._Time2;
+			}
+			set
+			{
+				if ((this._Time2 != value))
+				{
+					this.OnTime2Changing(value);
+					this.SendPropertyChanging();
+					this._Time2 = value;
+					this.SendPropertyChanged("Time2");
+					this.OnTime2Changed();
 				}
 			}
 		}

@@ -163,6 +163,9 @@ namespace SK.User.Controllers
 
         public void add()
         {
+            if (UserInfo == null) { this.FailMessage("未登录"); return; }
+            if (!UserInfo.ispass) { this.FailMessage("您账户未通过审核"); return; }
+
             CompanyDataContext cxtCompany = new CompanyDataContext();
             var entity = cxtCompany.Company.FirstOrDefault(p => p.UserID == UserInfo.openid);
             if (entity == null) { this.FailMessage("请在【设置】->【公司信息】完善公司资料再操作。"); return; }
@@ -341,20 +344,23 @@ namespace SK.User.Controllers
                 p.DeliveryAt,
                 p.ProcessingNo,
                 p.SourceID,
-                p.TimeSection,
+                p.Time1,
+                p.Time2,
                 TypeName = p.Type.GetDescription(),
                 p.VehicleInfo
             }).ToList();
 
             PickUpOrderDataContext pickcxt = new PickUpOrderDataContext();
-            var pickuplist = pickcxt.PickUpOrder.Where(p => p.SourceID == order.ID).Select(p => new { 
+            var pickuplist = pickcxt.PickUpOrder.Where(p => p.SourceID == order.ID).Select(p => new
+            {
                 p.Content,
                 p.CreateAt,
                 p.OrderNo,
                 p.PickUpAt,
                 p.ProcessingNo,
                 p.SourceID,
-                p.TimeSection,
+                p.Time1,
+                p.Time2,
                 TypeName = p.Type.GetDescription(),
                 p.VehicleInfo
             }).ToList();
@@ -363,6 +369,7 @@ namespace SK.User.Controllers
             var feelist = feecxt.ProcessingFee.Where(p => p.SourceID == order.ID).Select(p => new {
                 TypeName = p.Type.GetDescription(),
                 p.FeeNo,
+                p.Pic,
                 p.Content
             }).ToList();
 
@@ -397,6 +404,9 @@ namespace SK.User.Controllers
         /// </summary>
         public void exeorder()
         {
+            if (UserInfo == null) { this.FailMessage("未登录"); return; }
+            if (!UserInfo.ispass) { this.FailMessage("您账户未通过审核"); return; }
+
             string orderId = QF("OrderID");
 
             ProcessingOrderDataContext dc = new ProcessingOrderDataContext();
@@ -444,7 +454,8 @@ namespace SK.User.Controllers
                         }
                         if (string.IsNullOrWhiteSpace(QF("Delivery[Content]"))
                             || string.IsNullOrWhiteSpace(QF("Delivery[DeliveryAt]"))
-                            || string.IsNullOrWhiteSpace(QF("Delivery[TimeSection]"))
+                            || string.IsNullOrWhiteSpace(QF("Delivery[Time1]"))
+                            || string.IsNullOrWhiteSpace(QF("Delivery[Time2]"))
                             || string.IsNullOrWhiteSpace(QF("Delivery[VehicleInfo]"))) {
                                 this.FailMessage("送货信息不能为空");
                                 return;
@@ -472,7 +483,8 @@ namespace SK.User.Controllers
 
                         if (string.IsNullOrWhiteSpace(QF("PickUp[Content]"))
                                 || string.IsNullOrWhiteSpace(QF("PickUp[PickUpAt]"))
-                                || string.IsNullOrWhiteSpace(QF("PickUp[TimeSection]"))
+                                || string.IsNullOrWhiteSpace(QF("PickUp[Time1]"))
+                                || string.IsNullOrWhiteSpace(QF("PickUp[Time2]"))
                                 || string.IsNullOrWhiteSpace(QF("PickUp[VehicleInfo]")))
                         {
                             this.FailMessage("提货信息不能为空");
@@ -570,7 +582,9 @@ namespace SK.User.Controllers
             ent.Content = QF("Delivery[Content]");
             ent.CreateAt = DateTime.Now;
             ent.DeliveryAt = QF("Delivery[DeliveryAt]", DateTime.Now);
-            ent.TimeSection = QF("Delivery[TimeSection]");
+            ent.Time1 = QF("Delivery[Time1]");
+            ent.Time2 = QF("Delivery[Time2]");
+            ent.TimeSection = string.Format("{0}-{1}", ent.Time1, ent.Time2);
             ent.ID = Guid.NewGuid().ToString();
             ent.OrderNo = string.Format("{0}", DateTime.Now.ToString("yyyyMMddHHmmss"));
             ent.ProcessingNo = order.OrderNo;
@@ -608,7 +622,9 @@ namespace SK.User.Controllers
             
             ent.CreateAt = DateTime.Now;
             ent.PickUpAt = QF("PickUp[PickUpAt]", DateTime.Now);
-            ent.TimeSection = QF("PickUp[TimeSection]");
+            ent.Time1 = QF("PickUp[Time1]");
+            ent.Time2 = QF("PickUp[Time2]");
+            ent.TimeSection = string.Format("{0}-{1}", ent.Time1, ent.Time2);
             ent.ID = Guid.NewGuid().ToString();
             ent.OrderNo = string.Format("{0}", DateTime.Now.ToString("yyyyMMddHHmmss"));
             ent.ProcessingNo = order.OrderNo;

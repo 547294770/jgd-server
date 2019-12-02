@@ -85,8 +85,8 @@ namespace SK.Entities
 		private string _FeeNo;
 		
 		private string _SourceID;
-
-        private BillType _Type;
+		
+		private BillType _Type;
 		
 		private string _Content;
 		
@@ -97,6 +97,8 @@ namespace SK.Entities
 		private string _UserID;
 		
 		private string _UserName;
+		
+		private string _Pic;
 		
     #region 可扩展性方法定义
     partial void OnLoaded();
@@ -120,6 +122,8 @@ namespace SK.Entities
     partial void OnUserIDChanged();
     partial void OnUserNameChanging(string value);
     partial void OnUserNameChanged();
+    partial void OnPicChanging(string value);
+    partial void OnPicChanged();
     #endregion
 		
 		public ProcessingFee()
@@ -187,8 +191,8 @@ namespace SK.Entities
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="TinyInt NOT NULL")]
-        public BillType Type
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="TinyInt NOT NULL", CanBeNull=false)]
+		public BillType Type
 		{
 			get
 			{
@@ -303,6 +307,26 @@ namespace SK.Entities
 					this._UserName = value;
 					this.SendPropertyChanged("UserName");
 					this.OnUserNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pic", CanBeNull=false)]
+		public string Pic
+		{
+			get
+			{
+				return this._Pic;
+			}
+			set
+			{
+				if ((this._Pic != value))
+				{
+					this.OnPicChanging(value);
+					this.SendPropertyChanging();
+					this._Pic = value;
+					this.SendPropertyChanged("Pic");
+					this.OnPicChanged();
 				}
 			}
 		}

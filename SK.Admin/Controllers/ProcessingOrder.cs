@@ -291,12 +291,14 @@ namespace SK.Admin.Controllers
             {
                 var Delivery_Content = QF("Delivery[Content]");
                 var Delivery_DeliveryAt = QF("Delivery[DeliveryAt]");
-                var Delivery_TimeSection = QF("Delivery[TimeSection]");
+                var Delivery_Time1 = QF("Delivery[Time1]");
+                var Delivery_Time2 = QF("Delivery[Time2]");
                 var Delivery_VehicleInfo = QF("Delivery[VehicleInfo]");
 
                 if (string.IsNullOrEmpty(Delivery_Content)
                     || string.IsNullOrEmpty(Delivery_DeliveryAt)
-                    || string.IsNullOrEmpty(Delivery_TimeSection)
+                    || string.IsNullOrEmpty(Delivery_Time1)
+                    || string.IsNullOrEmpty(Delivery_Time2)
                     || string.IsNullOrEmpty(Delivery_VehicleInfo))
                 {
                     this.ShowResult(false, "提货信息不能为空");
@@ -307,7 +309,9 @@ namespace SK.Admin.Controllers
                 ent.Content = Delivery_Content;
                 ent.CreateAt = DateTime.Now;
                 ent.DeliveryAt = QF("Delivery[DeliveryAt]", DateTime.Now);
-                ent.TimeSection = Delivery_TimeSection;
+                ent.Time1 = Delivery_Time1;
+                ent.Time2 = Delivery_Time2;
+                ent.TimeSection = string.Format("{0}-{1}", ent.Time1, ent.Time2);
                 ent.ID = Guid.NewGuid().ToString();
                 ent.OrderNo = string.Format("{0}", DateTime.Now.ToString("yyyyMMddHHmmss"));
                 ent.ProcessingNo = order.OrderNo;
@@ -358,6 +362,8 @@ namespace SK.Admin.Controllers
                 var PickUp_Content = QF("PickUp[Content]");
                 var PickUp_PickUpAt = QF("PickUp[PickUpAt]");
                 var PickUp_TimeSection = QF("PickUp[TimeSection]");
+                var PickUp_Time1 = QF("Delivery[Time1]");
+                var PickUp_Time2 = QF("Delivery[Time2]");
                 var PickUp_VehicleInfo = QF("PickUp[VehicleInfo]");
 
                 if (string.IsNullOrEmpty(PickUp_Content)
@@ -373,7 +379,9 @@ namespace SK.Admin.Controllers
                 ent.Content = PickUp_Content;
                 ent.CreateAt = DateTime.Now;
                 ent.PickUpAt = QF("PickUp[PickUpAt]", DateTime.Now);
-                ent.TimeSection = PickUp_TimeSection;
+                ent.Time1 = PickUp_Time1;
+                ent.Time2 = PickUp_Time2;
+                ent.TimeSection = string.Format("{0}-{1}", ent.Time1, ent.Time2);
                 ent.ID = Guid.NewGuid().ToString();
                 ent.OrderNo = string.Format("{0}", DateTime.Now.ToString("yyyyMMddHHmmss"));
                 ent.ProcessingNo = order.OrderNo;
@@ -479,7 +487,7 @@ namespace SK.Admin.Controllers
             dc.SubmitChanges();
 
             //产品已入库
-            SendMessageForInLib(order, 1);
+            SendMessageForInLib(order, 2);
 
             this.ShowResult(true, "保存成功");
         }
@@ -531,6 +539,7 @@ namespace SK.Admin.Controllers
             entt.SourceID = order.ID;
             entt.UserID = order.UserID;
             entt.UserName = order.UserName;
+            entt.Pic = QF("Fee[Pic]");
             entt.Type = QF("Fee[Type]").ToEnum<Entities.ProcessingFee.BillType>();
 
             ProcessingFeeDataContext dcProcessingFee = new ProcessingFeeDataContext();
@@ -594,7 +603,7 @@ namespace SK.Admin.Controllers
             WXTemplateBL.SendMessageForPickUp(
                 order.UserID,
                 tplPath,
-                Config.Setting.WXWebHost + "/dist/#/Pages/JgdDetail?ID=" + order.ID,
+                Config.Setting.WXWebHost + "/dist/#/Pages/JgdInfo?ID=" + order.ID,
                 title,
                 "",
                 "",
@@ -631,7 +640,7 @@ namespace SK.Admin.Controllers
         /// <param name="order"></param>
         private void SendMessageForOutLib(Entities.ProcessingOrder order)
         {
-            string title = string.Format("{0}，您有产品已出库", order.UserName);
+            string title = string.Format("{0}，您有产品可提货", order.UserName);
             string tplPath = this.Context.Server.MapPath("/content/templates/提货通知.json");
             WXTemplateBL.SendMessageForOutLib(
                 order.UserID,

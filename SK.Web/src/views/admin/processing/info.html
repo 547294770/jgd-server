@@ -70,6 +70,7 @@
                 cols: [[
                     { title: "编号", field: "FeeNo" },
                     { title: "类型", templet: "<div>{{ d.TypeName }}</div>" },
+                    { title: "图片", templet: "<div><img src=\"{{ d.Pic }}\" style=\"width:80px\" /></div>" },
                     { title: "明细", templet: "<div>{{ d.Content }}</div>" }
                 ]]
             });
@@ -102,7 +103,7 @@
                     { title: "类型", field: "TypeName" },
                     { title: "内容", field: "Content" },
                     { title: "车辆信息", field: "VehicleInfo" },
-                    { title: "送货日期", field: "PickUpAt" },
+                    { title: "提货日期", field: "PickUpAt" },
                     { title: "创建时间", field: "CreateAt" },
                     { title: "操作", templet: "#admin-processing-info-pickup-template" }
                 ]]
@@ -178,7 +179,7 @@
 
             //执行实例
             var uploadInst = upload.render({
-                elem: '#test1' //绑定元素
+                elem: '#admin-processing-pic' //绑定元素
               , url: '/handler/admin/processingorder/uploadpic' //上传接口
               , data: { "orderid": document.getElementById('admin-processing-orderid').value  }
               , before: function (obj) { layer.load(); }
@@ -197,7 +198,23 @@
                   table.reload("admin-processing-attachment-table", {
                       data: data
                   });
+              }
+              , error: function () {
+                  //请求异常回调
+                  layer.closeAll('loading'); //关闭loading
+              }
+            });
 
+            //加工费图片
+            var uploadInst = upload.render({
+                elem: '#admin-processing-fee-upload' //绑定元素
+              , url: '/handler/admin/upload/upload' //上传接口
+              , data: { }
+              , before: function (obj) { layer.load(); }
+              , done: function (res) {
+                  //上传完毕回调
+                  layer.closeAll('loading'); //关闭loading
+                  $("#admin-processing-fee-pic").attr("src", res.data.src);
               }
               , error: function () {
                   //请求异常回调
@@ -216,16 +233,22 @@
                             "Delivery": {
                                 "DeliveryAt": $("#admin-delivery-deliveryat").val(),
                                 "Content": $("#admin-delivery-content").val(),
-                                "TimeSection": $("#admin-delivery-timesection").val(),
+                                "Time1": $("#admin-delivery-time1").val(),
+                                "Time2": $("#admin-delivery-time2").val(),
                                 "VehicleInfo": $("#admin-delivery-vehicleinfo").val()
                             },
                             "PickUp": {
                                 "PickUpAt": $("#admin-pickup-pickupat").val(),
                                 "Content": $("#admin-pickup-content").val(),
-                                "TimeSection": $("#admin-pickup-timesection").val(),
+                                "Time1": $("#admin-pickup-time1").val(),
+                                "Time2": $("#admin-pickup-time2").val(),
                                 "VehicleInfo": $("#admin-pickup-vehicleinfo").val()
                             },
-                            "Fee": { "Type": $('#admin-processing-fee-billtype').val(),"Content": $("#admin-processing-fee-detail").val() }
+                            "Fee": {
+                                "Type": $('#admin-processing-fee-billtype').val(),
+                                "Pic": $("#admin-processing-fee-pic").attr("src"),
+                                "Content": $("#admin-processing-fee-detail").val()
+                            }
                         },
                         type: "post",
                         success: function (res) {
@@ -295,7 +318,7 @@
     {{# if(d.params.Status == 'Processing'){ }}
     <div class="layui-form-item">
         <label class="layui-form-label">上传附件：</label>
-        <div class="layui-form-mid layui-word-aux"><button type="button" class="layui-btn layui-btn-xs" id="test1"><i class="layui-icon">&#xe67c;</i>上传加工单截图</button></div>
+        <div class="layui-form-mid layui-word-aux"><button type="button" class="layui-btn layui-btn-xs" id="admin-processing-pic"><i class="layui-icon">&#xe67c;</i>上传加工单截图</button></div>
     </div>
      {{# } }}
 
@@ -336,7 +359,8 @@
                 <div class="layui-inline">
                   <label class="layui-form-label">时间段</label>
                   <div class="layui-input-inline">
-                    <input type="text" id="admin-delivery-timesection" class="layui-input" name="TimeSection"  datetype="timesection" placeholder=" - ">
+                    <input type="time" id="admin-delivery-time1" class="layui-input" name="Time1">-
+                    <input type="time" id="admin-delivery-time2" class="layui-input" name="Time2">
                   </div>
                 </div>
             </div>
@@ -369,7 +393,8 @@
                 <div class="layui-inline">
                   <label class="layui-form-label">时间段</label>
                   <div class="layui-input-inline">
-                    <input type="text" id="admin-pickup-timesection" class="layui-input" name="TimeSection" datetype="timesection" placeholder=" - ">
+                    <input type="time" id="admin-pickup-time1" class="layui-input" name="Time1">-
+                    <input type="time" id="admin-pickup-time2" class="layui-input" name="Time2">
                   </div>
                 </div>
             </div>
@@ -401,6 +426,10 @@
                   <input type="radio" name="sex" value="Now" lay-filter="admin-processing-fee-billtype" title="现结" checked="">
                   <input type="hidden" id="admin-processing-fee-billtype" value="Now" />
                 </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">附件图片：</label>
+                <div class="layui-form-mid layui-word-aux"><img id="admin-processing-fee-pic" src="" style="width:80px" /><button type="button" class="layui-btn layui-btn-xs" id="admin-processing-fee-upload"><i class="layui-icon">&#xe67c;</i>上传图片</button></div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">加工费明细</label>
