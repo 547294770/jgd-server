@@ -22,3 +22,17 @@ E:\work\vue\jgd\jgd-server\SK.Handler\bin\Release\SK.Entities.pdb
 E:\work\vue\jgd\jgd-server\SK.Handler\obj\Release\SK.Handler.csprojResolveAssemblyReference.cache
 E:\work\vue\jgd\jgd-server\SK.Handler\obj\Release\SK.Handler.dll
 E:\work\vue\jgd\jgd-server\SK.Handler\obj\Release\SK.Handler.pdb
+E:\aabbot\my\jgd\jgd-server\SK.Handler\bin\Release\SK.Handler.dll
+E:\aabbot\my\jgd\jgd-server\SK.Handler\bin\Release\SK.Handler.pdb
+E:\aabbot\my\jgd\jgd-server\SK.Handler\bin\Release\SK.BL.dll
+E:\aabbot\my\jgd\jgd-server\SK.Handler\bin\Release\SK.Common.dll
+E:\aabbot\my\jgd\jgd-server\SK.Handler\bin\Release\SK.Entities.dll
+E:\aabbot\my\jgd\jgd-server\SK.Handler\bin\Release\SK.BL.pdb
+E:\aabbot\my\jgd\jgd-server\SK.Handler\bin\Release\SK.Common.pdb
+E:\aabbot\my\jgd\jgd-server\SK.Handler\bin\Release\SK.Common.dll.config
+E:\aabbot\my\jgd\jgd-server\SK.Handler\bin\Release\SK.Entities.pdb
+E:\aabbot\my\jgd\jgd-server\SK.Handler\bin\Release\SK.Entities.dll.config
+E:\aabbot\my\jgd\jgd-server\SK.Handler\obj\Release\SK.Handler.csprojAssemblyReference.cache
+E:\aabbot\my\jgd\jgd-server\SK.Handler\obj\Release\SK.Handler.csproj.CopyComplete
+E:\aabbot\my\jgd\jgd-server\SK.Handler\obj\Release\SK.Handler.dll
+E:\aabbot\my\jgd\jgd-server\SK.Handler\obj\Release\SK.Handler.pdb

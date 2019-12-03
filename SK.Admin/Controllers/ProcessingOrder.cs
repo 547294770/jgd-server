@@ -361,14 +361,14 @@ namespace SK.Admin.Controllers
             {
                 var PickUp_Content = QF("PickUp[Content]");
                 var PickUp_PickUpAt = QF("PickUp[PickUpAt]");
-                var PickUp_TimeSection = QF("PickUp[TimeSection]");
                 var PickUp_Time1 = QF("Delivery[Time1]");
                 var PickUp_Time2 = QF("Delivery[Time2]");
                 var PickUp_VehicleInfo = QF("PickUp[VehicleInfo]");
 
                 if (string.IsNullOrEmpty(PickUp_Content)
                     || string.IsNullOrEmpty(PickUp_PickUpAt)
-                    || string.IsNullOrEmpty(PickUp_TimeSection)
+                    || string.IsNullOrEmpty(PickUp_Time1)
+                    || string.IsNullOrEmpty(PickUp_Time2)
                     || string.IsNullOrEmpty(PickUp_VehicleInfo))
                 {
                     this.ShowResult(false, "送货信息不能为空");

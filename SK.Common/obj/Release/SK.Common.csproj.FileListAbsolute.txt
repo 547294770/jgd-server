@@ -14,3 +14,13 @@ E:\work\vue\jgd\jgd-server\SK.Common\bin\Release\SK.Entities.pdb
 E:\work\vue\jgd\jgd-server\SK.Common\obj\Release\SK.Common.csprojResolveAssemblyReference.cache
 E:\work\vue\jgd\jgd-server\SK.Common\obj\Release\SK.Common.dll
 E:\work\vue\jgd\jgd-server\SK.Common\obj\Release\SK.Common.pdb
+E:\aabbot\my\jgd\jgd-server\SK.Common\bin\Release\SK.Common.dll.config
+E:\aabbot\my\jgd\jgd-server\SK.Common\bin\Release\SK.Common.dll
+E:\aabbot\my\jgd\jgd-server\SK.Common\bin\Release\SK.Common.pdb
+E:\aabbot\my\jgd\jgd-server\SK.Common\bin\Release\SK.Entities.dll
+E:\aabbot\my\jgd\jgd-server\SK.Common\bin\Release\SK.Entities.pdb
+E:\aabbot\my\jgd\jgd-server\SK.Common\bin\Release\SK.Entities.dll.config
+E:\aabbot\my\jgd\jgd-server\SK.Common\obj\Release\SK.Common.csprojAssemblyReference.cache
+E:\aabbot\my\jgd\jgd-server\SK.Common\obj\Release\SK.Common.csproj.CopyComplete
+E:\aabbot\my\jgd\jgd-server\SK.Common\obj\Release\SK.Common.dll
+E:\aabbot\my\jgd\jgd-server\SK.Common\obj\Release\SK.Common.pdb
