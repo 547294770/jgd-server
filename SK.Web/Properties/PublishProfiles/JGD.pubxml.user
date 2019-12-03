@@ -12,22 +12,22 @@
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>01/28/2016 14:22:24</publishTime>
+      <publishTime>05/13/2019 22:28:42</publishTime>
     </File>
     <File Include="bin/SK.Admin.dll">
-      <publishTime>12/03/2019 14:37:19</publishTime>
+      <publishTime>12/04/2019 02:43:42</publishTime>
     </File>
     <File Include="bin/SK.Admin.pdb">
       <publishTime>12/03/2019 14:37:19</publishTime>
     </File>
     <File Include="bin/SK.BL.dll">
-      <publishTime>12/03/2019 11:15:02</publishTime>
+      <publishTime>12/04/2019 02:43:41</publishTime>
     </File>
     <File Include="bin/SK.BL.pdb">
       <publishTime>12/03/2019 11:15:02</publishTime>
     </File>
     <File Include="bin/SK.Common.dll">
-      <publishTime>12/03/2019 11:15:01</publishTime>
+      <publishTime>12/04/2019 02:43:40</publishTime>
     </File>
     <File Include="bin/SK.Common.dll.config">
       <publishTime>11/27/2019 14:10:05</publishTime>
@@ -36,7 +36,7 @@
       <publishTime>12/03/2019 11:15:01</publishTime>
     </File>
     <File Include="bin/SK.Entities.dll">
-      <publishTime>12/03/2019 11:15:01</publishTime>
+      <publishTime>12/04/2019 02:43:39</publishTime>
     </File>
     <File Include="bin/SK.Entities.dll.config">
       <publishTime>12/03/2019 11:03:18</publishTime>
@@ -45,421 +45,424 @@
       <publishTime>12/03/2019 11:15:01</publishTime>
     </File>
     <File Include="bin/SK.Handler.dll">
-      <publishTime>12/03/2019 11:15:02</publishTime>
+      <publishTime>12/04/2019 02:43:41</publishTime>
     </File>
     <File Include="bin/SK.Handler.pdb">
       <publishTime>12/03/2019 11:15:02</publishTime>
     </File>
     <File Include="bin/SK.User.dll">
-      <publishTime>12/03/2019 11:15:02</publishTime>
+      <publishTime>12/04/2019 02:43:41</publishTime>
     </File>
     <File Include="bin/SK.User.pdb">
       <publishTime>12/03/2019 11:15:02</publishTime>
     </File>
     <File Include="bin/SK.Web.dll">
-      <publishTime>12/03/2019 14:37:19</publishTime>
+      <publishTime>12/04/2019 02:43:42</publishTime>
     </File>
     <File Include="bin/SK.Web.pdb">
       <publishTime>12/03/2019 14:37:19</publishTime>
     </File>
     <File Include="content/dist/config.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>05/26/2019 15:11:30</publishTime>
     </File>
     <File Include="content/dist/controller/cityselect.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>05/26/2019 15:11:30</publishTime>
     </File>
     <File Include="content/dist/controller/common.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>11/16/2019 01:06:35</publishTime>
     </File>
     <File Include="content/dist/index.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>05/26/2019 15:11:30</publishTime>
     </File>
     <File Include="content/dist/lib/admin.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>05/26/2019 15:11:30</publishTime>
     </File>
     <File Include="content/dist/lib/view.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>05/26/2019 15:11:30</publishTime>
     </File>
     <File Include="content/dist/style/admin.css">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>05/26/2019 15:11:30</publishTime>
     </File>
     <File Include="content/dist/views/clientManagement/myClient/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>05/26/2019 15:11:30</publishTime>
     </File>
     <File Include="content/dist/views/component/icon/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>05/26/2019 15:11:30</publishTime>
     </File>
     <File Include="content/dist/views/component/select/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>05/26/2019 15:11:30</publishTime>
     </File>
     <File Include="content/dist/views/layout.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>05/26/2019 15:11:30</publishTime>
     </File>
     <File Include="content/json/clientManage/client.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>05/26/2019 15:11:30</publishTime>
     </File>
     <File Include="content/json/menu.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>11/03/2019 19:40:45</publishTime>
     </File>
     <File Include="content/json/message/new.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>05/26/2019 15:11:30</publishTime>
     </File>
     <File Include="content/json/select/address.json">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>05/26/2019 15:11:30</publishTime>
     </File>
     <File Include="content/json/user/session.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>05/26/2019 15:11:30</publishTime>
     </File>
     <File Include="content/layui/rc/css/layui.css">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>09/10/2019 08:16:32</publishTime>
     </File>
     <File Include="content/layui/rc/css/layui.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>05/26/2019 15:11:30</publishTime>
     </File>
     <File Include="content/layui/rc/css/modules/laydate/default/laydate.css">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>09/10/2019 08:16:32</publishTime>
     </File>
     <File Include="content/layui/rc/css/modules/layer/default/layer.css">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>09/10/2019 08:16:32</publishTime>
     </File>
     <File Include="content/layui/rc/font/iconfont.woff">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>09/10/2019 08:16:33</publishTime>
     </File>
     <File Include="content/layui/rc/lay/modules/element.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>09/10/2019 08:16:32</publishTime>
     </File>
     <File Include="content/layui/rc/lay/modules/form.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>09/10/2019 08:16:33</publishTime>
     </File>
     <File Include="content/layui/rc/lay/modules/jquery.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>09/10/2019 08:16:34</publishTime>
     </File>
     <File Include="content/layui/rc/lay/modules/laydate.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>09/10/2019 08:16:34</publishTime>
     </File>
     <File Include="content/layui/rc/lay/modules/layer.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>09/10/2019 08:16:35</publishTime>
     </File>
     <File Include="content/layui/rc/lay/modules/laypage.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>09/10/2019 08:16:35</publishTime>
     </File>
     <File Include="content/layui/rc/lay/modules/laytpl.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>09/10/2019 08:16:35</publishTime>
     </File>
     <File Include="content/layui/rc/lay/modules/table.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>09/10/2019 08:16:35</publishTime>
     </File>
     <File Include="content/layui/rc/lay/modules/util.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>09/10/2019 08:16:35</publishTime>
     </File>
     <File Include="content/layui/rc/layui.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>09/10/2019 08:16:31</publishTime>
     </File>
     <File Include="content/templates/出库提醒.json">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/28/2019 04:36:48</publishTime>
+    </File>
+    <File Include="content/templates/加工费生成通知.json">
+      <publishTime>12/04/2019 02:22:29</publishTime>
     </File>
     <File Include="content/templates/商品入库通知.json">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>12/04/2019 02:22:26</publishTime>
     </File>
     <File Include="content/templates/提货通知.json">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/28/2019 04:37:09</publishTime>
     </File>
     <File Include="content/templates/新订单通知.json">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/28/2019 04:37:14</publishTime>
     </File>
     <File Include="content/templates/送货通知.json">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/28/2019 04:37:17</publishTime>
     </File>
     <File Include="index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>11/16/2019 01:16:42</publishTime>
     </File>
     <File Include="jgd/css/app.css">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:40</publishTime>
     </File>
     <File Include="jgd/css/feedback.css">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:40</publishTime>
     </File>
     <File Include="jgd/css/icons-extra.css">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:40</publishTime>
     </File>
     <File Include="jgd/css/mui.dtpicker.css">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:40</publishTime>
     </File>
     <File Include="jgd/css/mui.imageviewer.css">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:40</publishTime>
     </File>
     <File Include="jgd/css/mui.indexedlist.css">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:40</publishTime>
     </File>
     <File Include="jgd/css/mui.listpicker.css">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:40</publishTime>
     </File>
     <File Include="jgd/css/mui.min.css">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:40</publishTime>
     </File>
     <File Include="jgd/css/mui.picker.all.css">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:40</publishTime>
     </File>
     <File Include="jgd/css/mui.picker.css">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:40</publishTime>
     </File>
     <File Include="jgd/css/mui.picker.min.css">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:40</publishTime>
     </File>
     <File Include="jgd/css/mui.poppicker.css">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:40</publishTime>
     </File>
     <File Include="jgd/fonts/mui-icons-extra.ttf">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:40</publishTime>
     </File>
     <File Include="jgd/fonts/mui.ttf">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:40</publishTime>
     </File>
     <File Include="jgd/images/60x60.gif">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:40</publishTime>
     </File>
     <File Include="jgd/images/cbd.jpg">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:40</publishTime>
     </File>
     <File Include="jgd/images/login-1.png">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:40</publishTime>
     </File>
     <File Include="jgd/images/logo.png">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:40</publishTime>
     </File>
     <File Include="jgd/images/muwu.jpg">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:40</publishTime>
     </File>
     <File Include="jgd/images/qrcode.png">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:40</publishTime>
     </File>
     <File Include="jgd/images/shuijiao.jpg">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:40</publishTime>
     </File>
     <File Include="jgd/images/yuantiao.jpg">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:40</publishTime>
     </File>
     <File Include="jgd/js/95516.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:41</publishTime>
     </File>
     <File Include="jgd/js/arttmpl.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:41</publishTime>
     </File>
     <File Include="jgd/js/beecloud.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:41</publishTime>
     </File>
     <File Include="jgd/js/city.data-3.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:41</publishTime>
     </File>
     <File Include="jgd/js/city.data.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:41</publishTime>
     </File>
     <File Include="jgd/js/feedback.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:41</publishTime>
     </File>
     <File Include="jgd/js/jgd.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>09/26/2019 00:23:46</publishTime>
     </File>
     <File Include="jgd/js/mui.dtpicker.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:41</publishTime>
     </File>
     <File Include="jgd/js/mui.imageViewer.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:41</publishTime>
     </File>
     <File Include="jgd/js/mui.indexedlist.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:41</publishTime>
     </File>
     <File Include="jgd/js/mui.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:41</publishTime>
     </File>
     <File Include="jgd/js/mui.lazyload.img.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:41</publishTime>
     </File>
     <File Include="jgd/js/mui.lazyload.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:41</publishTime>
     </File>
     <File Include="jgd/js/mui.listpicker.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:41</publishTime>
     </File>
     <File Include="jgd/js/mui.locker.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:41</publishTime>
     </File>
     <File Include="jgd/js/mui.min.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:41</publishTime>
     </File>
     <File Include="jgd/js/mui.picker.all.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:41</publishTime>
     </File>
     <File Include="jgd/js/mui.picker.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:41</publishTime>
     </File>
     <File Include="jgd/js/mui.picker.min.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:41</publishTime>
     </File>
     <File Include="jgd/js/mui.poppicker.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:41</publishTime>
     </File>
     <File Include="jgd/js/mui.previewimage.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:41</publishTime>
     </File>
     <File Include="jgd/js/mui.pullToRefresh.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:41</publishTime>
     </File>
     <File Include="jgd/js/mui.pullToRefresh.material.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:41</publishTime>
     </File>
     <File Include="jgd/js/mui.view.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:41</publishTime>
     </File>
     <File Include="jgd/js/mui.zoom.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:41</publishTime>
     </File>
     <File Include="jgd/js/template-web.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>09/27/2019 00:14:31</publishTime>
     </File>
     <File Include="jgd/js/update.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:41</publishTime>
     </File>
     <File Include="jgd/js/webviewGroup.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:41</publishTime>
     </File>
     <File Include="jgd/libs/echarts-all.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/25/2019 20:34:40</publishTime>
     </File>
     <File Include="jgd/pages/cost-info.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/26/2019 00:51:20</publishTime>
     </File>
     <File Include="jgd/pages/cost-list.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/26/2019 00:54:10</publishTime>
     </File>
     <File Include="jgd/pages/delivery-add.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/26/2019 00:41:27</publishTime>
     </File>
     <File Include="jgd/pages/delivery-info.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/26/2019 00:41:15</publishTime>
     </File>
     <File Include="jgd/pages/delivery-list.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/26/2019 00:40:46</publishTime>
     </File>
     <File Include="jgd/pages/jgd-add.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>09/26/2019 00:34:23</publishTime>
     </File>
     <File Include="jgd/pages/jgd-edit.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>09/29/2019 13:32:27</publishTime>
     </File>
     <File Include="jgd/pages/jgd-info.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/26/2019 00:50:38</publishTime>
     </File>
     <File Include="jgd/pages/jgd-list.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>09/30/2019 00:25:37</publishTime>
     </File>
     <File Include="jgd/pages/main.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/11/2019 00:38:14</publishTime>
     </File>
     <File Include="jgd/pages/pickup-add.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/26/2019 00:36:07</publishTime>
     </File>
     <File Include="jgd/pages/pickup-info.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/26/2019 00:40:20</publishTime>
     </File>
     <File Include="jgd/pages/pickup-list.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>08/26/2019 00:40:33</publishTime>
     </File>
     <File Include="jgd/pages/test.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>09/29/2019 16:23:11</publishTime>
     </File>
     <File Include="jgd/test.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/07/2019 00:26:53</publishTime>
     </File>
     <File Include="pay/css/pay1.css">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>06/18/2019 23:17:17</publishTime>
     </File>
     <File Include="pay/images/logo_weixin.jpg">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>06/18/2019 23:20:06</publishTime>
     </File>
     <File Include="pay/images/logo_weixin.png">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>06/18/2019 23:19:56</publishTime>
     </File>
     <File Include="pay/images/qrcode_timeout.png">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>06/18/2019 23:27:38</publishTime>
     </File>
     <File Include="pay/images/wave.png">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>06/18/2019 23:20:18</publishTime>
     </File>
     <File Include="pay/images/wechat-pay.png">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>06/18/2019 23:20:30</publishTime>
     </File>
     <File Include="pay/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>06/18/2019 23:23:15</publishTime>
     </File>
     <File Include="pay/pay2.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>06/18/2019 23:38:21</publishTime>
     </File>
     <File Include="src/config.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>11/16/2019 00:21:34</publishTime>
     </File>
     <File Include="src/controller/cityselect.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>05/26/2019 15:11:30</publishTime>
     </File>
     <File Include="src/controller/common.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>11/16/2019 01:13:36</publishTime>
     </File>
     <File Include="src/controller/test.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>06/03/2019 23:50:22</publishTime>
     </File>
     <File Include="src/global.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>09/15/2019 17:36:38</publishTime>
     </File>
     <File Include="src/index.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>06/05/2019 00:23:49</publishTime>
     </File>
     <File Include="src/js/admin.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>11/11/2019 02:20:51</publishTime>
     </File>
     <File Include="src/js/common.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>11/11/2019 04:26:29</publishTime>
     </File>
     <File Include="src/lib/admin.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>06/05/2019 00:19:19</publishTime>
     </File>
     <File Include="src/lib/extend.js">
-      <publishTime>12/03/2019 11:03:18</publishTime>
+      <publishTime>12/02/2019 01:31:03</publishTime>
     </File>
     <File Include="src/lib/view.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>11/11/2019 03:09:58</publishTime>
     </File>
     <File Include="src/style/admin.css">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>09/17/2019 03:05:36</publishTime>
     </File>
     <File Include="src/style/comm.css">
-      <publishTime>12/03/2019 11:03:18</publishTime>
+      <publishTime>12/02/2019 00:39:56</publishTime>
     </File>
     <File Include="src/style/login.css">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>11/16/2019 00:16:58</publishTime>
     </File>
     <File Include="src/views/admin/delivery/delivery-info.html">
       <publishTime>09/22/2019 21:23:59</publishTime>
     </File>
     <File Include="src/views/admin/delivery/edit.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>11/03/2019 12:43:59</publishTime>
     </File>
     <File Include="src/views/admin/delivery/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>11/03/2019 19:47:02</publishTime>
     </File>
     <File Include="src/views/admin/delivery/info.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>11/11/2019 03:13:28</publishTime>
     </File>
     <File Include="src/views/admin/login.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>11/20/2019 00:33:56</publishTime>
     </File>
     <File Include="src/views/admin/pickup/edit.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>11/03/2019 18:00:27</publishTime>
     </File>
     <File Include="src/views/admin/pickup/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>11/03/2019 19:46:37</publishTime>
     </File>
     <File Include="src/views/admin/pickup/info.html">
-      <publishTime>12/03/2019 11:03:18</publishTime>
+      <publishTime>12/03/2019 00:35:24</publishTime>
     </File>
     <File Include="src/views/admin/pickup/jgd-info.html">
       <publishTime>09/17/2019 03:15:13</publishTime>
@@ -474,1408 +477,1408 @@
       <publishTime>09/17/2019 03:15:24</publishTime>
     </File>
     <File Include="src/views/admin/processing/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>11/11/2019 04:25:42</publishTime>
     </File>
     <File Include="src/views/admin/processing/info.html">
-      <publishTime>12/03/2019 11:03:18</publishTime>
+      <publishTime>12/04/2019 02:17:28</publishTime>
     </File>
     <File Include="src/views/admin/processing/jgd-info.html">
       <publishTime>10/26/2019 08:42:40</publishTime>
     </File>
     <File Include="src/views/admin/processing/rejection.html">
-      <publishTime>12/03/2019 11:03:18</publishTime>
+      <publishTime>12/01/2019 12:46:39</publishTime>
     </File>
     <File Include="src/views/admin/processingfee/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>11/05/2019 02:16:05</publishTime>
     </File>
     <File Include="src/views/admin/processingfee/info.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>11/03/2019 19:51:37</publishTime>
     </File>
     <File Include="src/views/admin/task/company.html">
-      <publishTime>12/03/2019 11:03:18</publishTime>
+      <publishTime>12/02/2019 01:22:44</publishTime>
     </File>
     <File Include="src/views/admin/task/unprocessed.html">
-      <publishTime>12/03/2019 11:03:18</publishTime>
+      <publishTime>12/02/2019 01:40:06</publishTime>
     </File>
     <File Include="src/views/admin/task/user.html">
-      <publishTime>12/03/2019 11:03:18</publishTime>
+      <publishTime>12/02/2019 02:23:28</publishTime>
     </File>
     <File Include="src/views/clientManagement/myClient/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>09/14/2019 01:46:52</publishTime>
     </File>
     <File Include="src/views/component/icon/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>05/26/2019 15:11:30</publishTime>
     </File>
     <File Include="src/views/component/select/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>05/26/2019 15:11:30</publishTime>
     </File>
     <File Include="src/views/index.html">
-      <publishTime>12/03/2019 11:03:18</publishTime>
+      <publishTime>12/02/2019 02:27:55</publishTime>
     </File>
     <File Include="src/views/layout.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>11/16/2019 01:10:27</publishTime>
     </File>
     <File Include="src/views/test/test/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>05/26/2019 15:39:51</publishTime>
     </File>
     <File Include="src/views/try/shop/add.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>06/11/2019 01:32:57</publishTime>
     </File>
     <File Include="src/views/try/shop/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>06/04/2019 22:33:48</publishTime>
     </File>
     <File Include="vue-2.0-simple-routing-example-master/.babelrc">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 10:45:45</publishTime>
     </File>
     <File Include="vue-2.0-simple-routing-example-master/.gitignore">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 10:45:45</publishTime>
     </File>
     <File Include="vue-2.0-simple-routing-example-master/404.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 10:45:45</publishTime>
     </File>
     <File Include="vue-2.0-simple-routing-example-master/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 10:45:45</publishTime>
     </File>
     <File Include="vue-2.0-simple-routing-example-master/package.json">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 10:45:45</publishTime>
     </File>
     <File Include="vue-2.0-simple-routing-example-master/README.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 10:45:45</publishTime>
     </File>
     <File Include="vue-2.0-simple-routing-example-master/src/components/VLink.vue">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 10:45:45</publishTime>
     </File>
     <File Include="vue-2.0-simple-routing-example-master/src/layouts/Main.vue">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 10:45:45</publishTime>
     </File>
     <File Include="vue-2.0-simple-routing-example-master/src/main.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 10:45:45</publishTime>
     </File>
     <File Include="vue-2.0-simple-routing-example-master/src/pages/404.vue">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 10:45:45</publishTime>
     </File>
     <File Include="vue-2.0-simple-routing-example-master/src/pages/About.vue">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 10:45:45</publishTime>
     </File>
     <File Include="vue-2.0-simple-routing-example-master/src/pages/Home.vue">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 10:45:45</publishTime>
     </File>
     <File Include="vue-2.0-simple-routing-example-master/src/routes.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 10:45:45</publishTime>
     </File>
     <File Include="vue-2.0-simple-routing-example-master/webpack.config.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 10:45:45</publishTime>
     </File>
     <File Include="vue-2.0-simple-routing-example-master/yarn.lock">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 10:45:45</publishTime>
     </File>
     <File Include="vue-2.0-simple-routing-example-pagejs/.babelrc">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 10:53:01</publishTime>
     </File>
     <File Include="vue-2.0-simple-routing-example-pagejs/.gitignore">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 10:53:01</publishTime>
     </File>
     <File Include="vue-2.0-simple-routing-example-pagejs/404.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 10:53:01</publishTime>
     </File>
     <File Include="vue-2.0-simple-routing-example-pagejs/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 10:53:01</publishTime>
     </File>
     <File Include="vue-2.0-simple-routing-example-pagejs/package.json">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 10:53:01</publishTime>
     </File>
     <File Include="vue-2.0-simple-routing-example-pagejs/README.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 10:53:01</publishTime>
     </File>
     <File Include="vue-2.0-simple-routing-example-pagejs/src/components/VLink.vue">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 10:53:01</publishTime>
     </File>
     <File Include="vue-2.0-simple-routing-example-pagejs/src/layouts/Main.vue">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 10:53:01</publishTime>
     </File>
     <File Include="vue-2.0-simple-routing-example-pagejs/src/main.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 10:53:01</publishTime>
     </File>
     <File Include="vue-2.0-simple-routing-example-pagejs/src/pages/404.vue">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 10:53:01</publishTime>
     </File>
     <File Include="vue-2.0-simple-routing-example-pagejs/src/pages/About.vue">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 10:53:01</publishTime>
     </File>
     <File Include="vue-2.0-simple-routing-example-pagejs/src/pages/Home.vue">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 10:53:01</publishTime>
     </File>
     <File Include="vue-2.0-simple-routing-example-pagejs/src/routes.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 10:53:01</publishTime>
     </File>
     <File Include="vue-2.0-simple-routing-example-pagejs/webpack.config.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 10:53:01</publishTime>
     </File>
     <File Include="vue-router-dev/.babelrc">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/.circleci/config.yml">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/.eslintignore">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/.eslintrc">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/.flowconfig">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/.github/funding.yml">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/.github/ISSUE_TEMPLATE.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/.github/PULL_REQUEST_TEMPLATE.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/.gitignore">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/.prettierrc">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/assets/browserstack-logo-600x315.png">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/build/build.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/build/configs.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/build/rollup.dev.config.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/CHANGELOG.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/dist/vue-router.common.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/dist/vue-router.esm.browser.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/dist/vue-router.esm.browser.min.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/dist/vue-router.esm.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/dist/vue-router.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/dist/vue-router.min.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/assets/circle.yml">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/assets/CNAME">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/book.json">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/de/advanced/data-fetching.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/de/advanced/lazy-loading.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/de/advanced/meta.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/de/advanced/navigation-guards.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/de/advanced/scroll-behavior.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/de/advanced/transitions.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/de/api/component-injections.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/de/api/options.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/de/api/route-object.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/de/api/router-instance.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/de/api/router-link.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/de/api/router-view.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/de/essentials/dynamic-matching.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/de/essentials/getting-started.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/de/essentials/history-mode.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/de/essentials/named-routes.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/de/essentials/named-views.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/de/essentials/navigation.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/de/essentials/nested-routes.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/de/essentials/redirect-and-alias.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/de/installation.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/de/README.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/de/SUMMARY.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/es/advanced/data-fetching.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/es/advanced/lazy-loading.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/es/advanced/meta.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/es/advanced/navigation-guards.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/es/advanced/scroll-behavior.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/es/advanced/transitions.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/es/api/component-injections.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/es/api/options.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/es/api/route-object.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/es/api/router-instance.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/es/api/router-link.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/es/api/router-view.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/es/essentials/dynamic-matching.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/es/essentials/getting-started.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/es/essentials/history-mode.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/es/essentials/named-routes.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/es/essentials/named-views.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/es/essentials/navigation.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/es/essentials/nested-routes.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/es/essentials/passing-props.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/es/essentials/redirect-and-alias.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/es/installation.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/es/README.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/es/SUMMARY.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/fr/advanced/data-fetching.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/fr/advanced/lazy-loading.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/fr/advanced/meta.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/fr/advanced/navigation-guards.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/fr/advanced/scroll-behavior.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/fr/advanced/transitions.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/fr/api/component-injections.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/fr/api/options.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/fr/api/route-object.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/fr/api/router-instance.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/fr/api/router-link.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/fr/api/router-view.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/fr/essentials/dynamic-matching.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/fr/essentials/getting-started.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/fr/essentials/history-mode.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/fr/essentials/named-routes.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/fr/essentials/named-views.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/fr/essentials/navigation.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/fr/essentials/nested-routes.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/fr/essentials/passing-props.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/fr/essentials/redirect-and-alias.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/fr/installation.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/fr/README.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/fr/SUMMARY.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/gitbook/images/favicon.ico">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ja/advanced/data-fetching.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ja/advanced/lazy-loading.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ja/advanced/meta.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ja/advanced/navigation-guards.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ja/advanced/scroll-behavior.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ja/advanced/transitions.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ja/api/component-injections.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ja/api/options.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ja/api/route-object.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ja/api/router-instance.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ja/api/router-link.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ja/api/router-view.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ja/essentials/dynamic-matching.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ja/essentials/getting-started.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ja/essentials/history-mode.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ja/essentials/named-routes.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ja/essentials/named-views.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ja/essentials/navigation.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ja/essentials/nested-routes.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ja/essentials/passing-props.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ja/essentials/redirect-and-alias.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ja/installation.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ja/README.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ja/SUMMARY.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/kr/advanced/data-fetching.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/kr/advanced/lazy-loading.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/kr/advanced/meta.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/kr/advanced/navigation-guards.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/kr/advanced/scroll-behavior.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/kr/advanced/transitions.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/kr/api/component-injections.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/kr/api/options.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/kr/api/route-object.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/kr/api/router-instance.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/kr/api/router-link.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/kr/api/router-view.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/kr/essentials/dynamic-matching.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/kr/essentials/getting-started.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/kr/essentials/history-mode.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/kr/essentials/named-routes.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/kr/essentials/named-views.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/kr/essentials/navigation.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/kr/essentials/nested-routes.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/kr/essentials/passing-props.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/kr/essentials/redirect-and-alias.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/kr/installation.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/kr/README.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/kr/SUMMARY.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/LANGS.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/old/README.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/old/SUMMARY.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ru/advanced/data-fetching.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ru/advanced/lazy-loading.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ru/advanced/meta.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ru/advanced/navigation-guards.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ru/advanced/scroll-behavior.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ru/advanced/transitions.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ru/api/component-injections.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ru/api/options.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ru/api/route-object.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ru/api/router-instance.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ru/api/router-link.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ru/api/router-view.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ru/essentials/dynamic-matching.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ru/essentials/getting-started.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ru/essentials/history-mode.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ru/essentials/named-routes.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ru/essentials/named-views.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ru/essentials/navigation.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ru/essentials/nested-routes.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ru/essentials/passing-props.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ru/essentials/redirect-and-alias.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ru/installation.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ru/README.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs-gitbook/ru/SUMMARY.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/.vuepress/config.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/docs/.vuepress/public/bit-wide.png">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/docs/.vuepress/public/_redirects">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/docs/.vuepress/style.styl">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/docs/api/README.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/docs/fr/api/README.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/docs/fr/guide/advanced/data-fetching.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/docs/fr/guide/advanced/lazy-loading.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/docs/fr/guide/advanced/meta.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/docs/fr/guide/advanced/navigation-guards.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/docs/fr/guide/advanced/scroll-behavior.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/docs/fr/guide/advanced/transitions.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:12</publishTime>
     </File>
     <File Include="vue-router-dev/docs/fr/guide/essentials/dynamic-matching.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/fr/guide/essentials/history-mode.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/fr/guide/essentials/named-routes.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/fr/guide/essentials/named-views.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/fr/guide/essentials/navigation.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/fr/guide/essentials/nested-routes.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/fr/guide/essentials/passing-props.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/fr/guide/essentials/redirect-and-alias.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/fr/guide/README.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/fr/installation.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/fr/README.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/guide/advanced/data-fetching.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/guide/advanced/lazy-loading.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/guide/advanced/meta.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/guide/advanced/navigation-guards.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/guide/advanced/scroll-behavior.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/guide/advanced/transitions.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/guide/essentials/dynamic-matching.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/guide/essentials/history-mode.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/guide/essentials/named-routes.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/guide/essentials/named-views.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/guide/essentials/navigation.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/guide/essentials/nested-routes.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/guide/essentials/passing-props.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/guide/essentials/redirect-and-alias.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/guide/README.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/installation.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ja/api/README.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ja/guide/advanced/data-fetching.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ja/guide/advanced/lazy-loading.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ja/guide/advanced/meta.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ja/guide/advanced/navigation-guards.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ja/guide/advanced/scroll-behavior.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ja/guide/advanced/transitions.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ja/guide/essentials/dynamic-matching.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ja/guide/essentials/history-mode.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ja/guide/essentials/named-routes.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ja/guide/essentials/named-views.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ja/guide/essentials/navigation.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ja/guide/essentials/nested-routes.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ja/guide/essentials/passing-props.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ja/guide/essentials/redirect-and-alias.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ja/guide/README.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ja/installation.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ja/README.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/kr/api/README.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/kr/guide/advanced/data-fetching.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/kr/guide/advanced/lazy-loading.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/kr/guide/advanced/meta.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/kr/guide/advanced/navigation-guards.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/kr/guide/advanced/scroll-behavior.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/kr/guide/advanced/transitions.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/kr/guide/essentials/dynamic-matching.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/kr/guide/essentials/getting-started.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/kr/guide/essentials/history-mode.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/kr/guide/essentials/named-routes.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/kr/guide/essentials/named-views.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/kr/guide/essentials/navigation.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/kr/guide/essentials/nested-routes.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/kr/guide/essentials/passing-props.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/kr/guide/essentials/redirect-and-alias.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/kr/guide/README.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/kr/installation.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/kr/README.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/README.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ru/api/README.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ru/guide/advanced/data-fetching.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ru/guide/advanced/lazy-loading.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ru/guide/advanced/meta.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ru/guide/advanced/navigation-guards.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ru/guide/advanced/scroll-behavior.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ru/guide/advanced/transitions.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ru/guide/essentials/dynamic-matching.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ru/guide/essentials/history-mode.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ru/guide/essentials/named-routes.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ru/guide/essentials/named-views.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ru/guide/essentials/navigation.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ru/guide/essentials/nested-routes.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ru/guide/essentials/passing-props.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ru/guide/essentials/redirect-and-alias.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ru/guide/README.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ru/installation.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/ru/README.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/zh/api/README.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/zh/guide/advanced/data-fetching.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/zh/guide/advanced/lazy-loading.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/zh/guide/advanced/meta.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/zh/guide/advanced/navigation-guards.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/zh/guide/advanced/scroll-behavior.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/zh/guide/advanced/transitions.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/zh/guide/essentials/dynamic-matching.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/zh/guide/essentials/history-mode.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/zh/guide/essentials/named-routes.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/zh/guide/essentials/named-views.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/zh/guide/essentials/navigation.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/zh/guide/essentials/nested-routes.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/zh/guide/essentials/passing-props.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/zh/guide/essentials/redirect-and-alias.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/zh/guide/README.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/zh/installation.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/docs/zh/README.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/examples/active-links/app.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/examples/active-links/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/examples/auth-flow/app.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/examples/auth-flow/auth.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/examples/auth-flow/components/About.vue">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/examples/auth-flow/components/App.vue">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/examples/auth-flow/components/Dashboard.vue">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/examples/auth-flow/components/Login.vue">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:13</publishTime>
     </File>
     <File Include="vue-router-dev/examples/auth-flow/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/basic/app.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/basic/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/data-fetching/api.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/data-fetching/app.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/data-fetching/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/data-fetching/Post.vue">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/discrete-components/app.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/discrete-components/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/global.css">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/hash-mode/app.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/hash-mode/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/hash-scroll-behavior/app.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/hash-scroll-behavior/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/keepalive-view/app.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/keepalive-view/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/lazy-loading-before-mount/app.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/lazy-loading-before-mount/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/lazy-loading/app.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/lazy-loading/Bar.vue">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/lazy-loading/Baz.vue">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/lazy-loading/Foo.vue">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/lazy-loading/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/named-routes/app.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/named-routes/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/named-views/app.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/named-views/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/navigation-guards/app.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/navigation-guards/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/nested-router/app.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/nested-router/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/nested-routes/app.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/nested-routes/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/redirect/app.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/redirect/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/route-alias/app.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/route-alias/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/route-matching/app.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/route-matching/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/route-params/app.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/route-params/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/route-props/app.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/route-props/Hello.vue">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/route-props/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/scroll-behavior/app.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/scroll-behavior/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/server.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/transitions/app.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/transitions/index.html">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/examples/webpack.config.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/flow/declarations.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/LICENSE">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/package.json">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/README.md">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/scripts/release.sh">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/scripts/verifyCommitMsg.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/src/components/link.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/src/components/view.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/src/create-matcher.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/src/create-route-map.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/src/history/abstract.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/src/history/base.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/src/history/errors.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/src/history/hash.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/src/history/html5.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/src/index.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/src/install.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/src/util/async.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/src/util/dom.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/src/util/location.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/src/util/misc.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/src/util/params.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/src/util/path.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/src/util/push-state.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/src/util/query.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/src/util/resolve-components.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/src/util/route.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/src/util/scroll.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/src/util/state-key.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/src/util/warn.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/.eslintrc">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/e2e/.eslintrc">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/e2e/browserstack-send-status.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/e2e/nightwatch.browserstack.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/e2e/nightwatch.config.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/e2e/runner.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/e2e/specs/.prettierrc">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/e2e/specs/active-links.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/e2e/specs/auth-flow.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/e2e/specs/basic.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/e2e/specs/data-fetching.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/e2e/specs/hash-mode.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/e2e/specs/hash-scroll-behavior.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/e2e/specs/keepalive-view.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/e2e/specs/lazy-loading-before-mount.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/e2e/specs/lazy-loading.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/e2e/specs/named-routes.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/e2e/specs/named-views.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/e2e/specs/navigation-guards.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/e2e/specs/nested-router.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/e2e/specs/nested-routes.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/e2e/specs/redirect.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/e2e/specs/route-alias.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/e2e/specs/route-matching.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/e2e/specs/route-params.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/e2e/specs/route-props.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/e2e/specs/scroll-behavior.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/e2e/specs/transitions.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/unit/.eslintrc">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/unit/jasmine.json">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/unit/specs/api.spec.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/unit/specs/async.spec.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/unit/specs/create-map.spec.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/unit/specs/create-matcher.spec.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/unit/specs/custom-query.spec.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/unit/specs/discrete-components.spec.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/unit/specs/error-handling.spec.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/unit/specs/location.spec.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/unit/specs/node.spec.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/unit/specs/path.spec.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/unit/specs/query.spec.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/test/unit/specs/route.spec.js">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/types/index.d.ts">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/types/router.d.ts">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/types/test/index.ts">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/types/test/tsconfig.json">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/types/vue.d.ts">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="vue-router-dev/yarn.lock">
-      <publishTime>11/27/2019 14:10:06</publishTime>
+      <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/03/2019 11:15:03</publishTime>
+      <publishTime>12/04/2019 02:43:43</publishTime>
     </File>
   </ItemGroup>
 </Project>

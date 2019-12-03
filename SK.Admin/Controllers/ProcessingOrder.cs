@@ -361,8 +361,8 @@ namespace SK.Admin.Controllers
             {
                 var PickUp_Content = QF("PickUp[Content]");
                 var PickUp_PickUpAt = QF("PickUp[PickUpAt]");
-                var PickUp_Time1 = QF("Delivery[Time1]");
-                var PickUp_Time2 = QF("Delivery[Time2]");
+                var PickUp_Time1 = QF("PickUp[Time1]");
+                var PickUp_Time2 = QF("PickUp[Time2]");
                 var PickUp_VehicleInfo = QF("PickUp[VehicleInfo]");
 
                 if (string.IsNullOrEmpty(PickUp_Content)
@@ -556,6 +556,9 @@ namespace SK.Admin.Controllers
             //出库提醒
             SendMessageForOutLib(order);
 
+            //加工费生成通知
+            SendMessageForFee(entt);
+
             this.ShowResult(true, "保存成功");
         }
 
@@ -672,8 +675,28 @@ namespace SK.Admin.Controllers
                 Config.Setting.WXWebHost + "/dist/#/Pages/JgdDetail?ID=" + order.ID,
                 title,
                 order.OrderNo,
-                "0",
+                "详细见单",
                DateTime.Now.ToString("yyyy-MM-dd"),
+               order.Content);
+        }
+
+        /// <summary>
+        /// 加工费生成通知
+        /// </summary>
+        /// <param name="order"></param>
+        private void SendMessageForFee(Entities.ProcessingFee order)
+        {
+            string title = string.Format("{0}，您的加工费已生成，请查看", order.UserName);
+
+            string tplPath = this.Context.Server.MapPath("/content/templates/加工费生成通知.json");
+            WXTemplateBL.SendMessageForFee(
+                order.UserID,
+                tplPath,
+                Config.Setting.WXWebHost + "/dist/#/Pages/FeeInfo?ID=" + order.ID,
+                title,
+                order.FeeNo,
+                DateTime.Now.ToString("yyyy-MM-dd"),
+               "见明细",
                order.Content);
         }
 

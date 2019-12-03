@@ -57,7 +57,7 @@
                     { title: "文件大小", templet: "<div>{{ (d.FileSize / 1024).toFixed(2) }}KB</div>" },
                     { title: "上传时间", field: "CreateAt" },
                     { title: "更新时间", field: "UpdateAt" },
-                    { title: "操作", templet: "<div><a target=\"_blank\" class=\"layui-btn layui-btn-primary layui-btn-xs\" href=\"{{ d.FilePath }}\">查看</a> <button class=\"layui-btn layui-btn-danger layui-btn-xs\" lay-event=\"delete\">删除</button></div>" }
+                    { title: "操作", templet: "<div><a target=\"_blank\" class=\"layui-btn layui-btn-primary layui-btn-xs\" href=\"{{ d.FilePath }}\">查看</a>{{ d.IsNew ? '<button class=\"layui-btn layui-btn-danger layui-btn-xs\" lay-event=\"delete\">删除</button>': ''}} </div>" }
                 ]]
             });
 
@@ -193,6 +193,7 @@
                       "FileSize": res.data.size,
                       "CreateAt": res.data.createat,
                       "UpdateAt": res.data.updateat,
+                      "IsNew": 1
                   });
 
                   table.reload("admin-processing-attachment-table", {
@@ -315,7 +316,7 @@
         <div class="layui-form-mid layui-word-aux"><a href="{{ d.params.Pic }}" target="_blank">{{ d.params.Pic }}</a></div>
     </div>
     {{# } }}
-    {{# if(d.params.Status == 'Processing'){ }}
+    {{# if(d.params.Status == 'Processing'||d.params.Status == 'Producing'||d.params.Status == 'InputDelivery'){ }}
     <div class="layui-form-item">
         <label class="layui-form-label">上传附件：</label>
         <div class="layui-form-mid layui-word-aux"><button type="button" class="layui-btn layui-btn-xs" id="admin-processing-pic"><i class="layui-icon">&#xe67c;</i>上传加工单截图</button></div>

@@ -4,7 +4,6 @@ E:\src\web\vs2012\LXD\SK.Entities\obj\Release\SK.Entities.csprojResolveAssemblyR
 E:\src\web\vs2012\LXD\SK.Entities\obj\Release\SK.Entities.dll
 E:\src\web\vs2012\LXD\SK.Entities\obj\Release\SK.Entities.pdb
 E:\src\web\vs2012\LXD\SK.Entities\bin\Release\SK.Entities.dll.config
-E:\work\vue\jgd\jgd-server\SK.Entities\bin\Release\SK.Entities.dll.config
 E:\work\vue\jgd\jgd-server\SK.Entities\bin\Release\SK.Entities.dll
 E:\work\vue\jgd\jgd-server\SK.Entities\bin\Release\SK.Entities.pdb
 E:\work\vue\jgd\jgd-server\SK.Entities\obj\Release\SK.Entities.csprojResolveAssemblyReference.cache

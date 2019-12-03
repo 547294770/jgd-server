@@ -30,9 +30,8 @@ namespace SK.Entities.Properties {
             "eActiveResultSets=True")]
         public string JGDConnectionString {
             get {
-
-                string connection = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-                return connection;
+                return System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+                //return ((string)(this["JGDConnectionString"]));
             }
         }
     }

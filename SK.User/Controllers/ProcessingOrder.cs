@@ -73,9 +73,9 @@ namespace SK.User.Controllers
             if (page >= pageCount) lastPage = true;
             else lastPage = false;
 
-            list = list.Skip(skip).Take(pageSize);
+            list = list.OrderByDescending(p => p.UpdateAt).Skip(skip).Take(pageSize);
 
-            var data = list.OrderByDescending(p => p.UpdateAt).Select(p =>
+            var data = list.Select(p =>
                  new
                  {
                      p.Content,
@@ -344,6 +344,7 @@ namespace SK.User.Controllers
                 p.DeliveryAt,
                 p.ProcessingNo,
                 p.SourceID,
+                p.TimeSection,
                 p.Time1,
                 p.Time2,
                 TypeName = p.Type.GetDescription(),
@@ -359,6 +360,7 @@ namespace SK.User.Controllers
                 p.PickUpAt,
                 p.ProcessingNo,
                 p.SourceID,
+                p.TimeSection,
                 p.Time1,
                 p.Time2,
                 TypeName = p.Type.GetDescription(),

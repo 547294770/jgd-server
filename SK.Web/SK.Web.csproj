@@ -342,7 +342,9 @@
     <Content Include="vue-router-dev\types\router.d.ts" />
     <Content Include="vue-router-dev\types\test\index.ts" />
     <Content Include="vue-router-dev\types\vue.d.ts" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -354,6 +356,7 @@
     <Content Include="jgd\fonts\mui.ttf" />
     <Content Include="content\templates\出库提醒.json" />
     <Content Include="content\templates\新订单通知.json" />
+    <Content Include="content\templates\加工费生成通知.json" />
     <None Include="Properties\PublishProfiles\JGD.pubxml" />
     <Content Include="vue-2.0-simple-routing-example-master\.babelrc" />
     <Content Include="vue-2.0-simple-routing-example-master\.gitignore" />

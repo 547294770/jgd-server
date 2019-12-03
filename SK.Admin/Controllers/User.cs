@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
+using SK.Common.Caches;
 using SK.Entities;
 using SK.Handler;
 
@@ -39,6 +41,15 @@ namespace SK.Admin.Controllers
             }
 
             entity.ispass = true;
+            //UserCache.AddUser(entity.openid, entity);
+            var userinfo =  UserCache.GetUser(entity.openid);
+            if (userinfo != null) {
+                var wxuser = (WXUser)userinfo;
+                wxuser.ispass = true;
+            }
+
+            var count = HttpRuntime.Cache.Count;
+           
             cxt.SubmitChanges();
            
             this.ShowResult(true, "成功");
