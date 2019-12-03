@@ -19,3 +19,4 @@ E:\aabbot\my\jgd\jgd-server\SK.Web\bin\SK.Entities.dll
 E:\aabbot\my\jgd\jgd-server\SK.Web\bin\SK.Entities.pdb
 E:\aabbot\my\jgd\jgd-server\SK.Entities\obj\Debug\SK.Entities.dll
 E:\aabbot\my\jgd\jgd-server\SK.Entities\obj\Debug\SK.Entities.pdb
+E:\aabbot\my\jgd\jgd-server\SK.Entities\obj\Debug\SK.Entities.csprojAssemblyReference.cache
