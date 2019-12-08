@@ -15,19 +15,19 @@
       <publishTime>05/13/2019 22:28:42</publishTime>
     </File>
     <File Include="bin/SK.Admin.dll">
-      <publishTime>12/04/2019 04:10:02</publishTime>
+      <publishTime>12/09/2019 02:20:45</publishTime>
     </File>
     <File Include="bin/SK.Admin.pdb">
       <publishTime>12/03/2019 14:37:19</publishTime>
     </File>
     <File Include="bin/SK.BL.dll">
-      <publishTime>12/04/2019 04:05:44</publishTime>
+      <publishTime>12/09/2019 02:20:43</publishTime>
     </File>
     <File Include="bin/SK.BL.pdb">
       <publishTime>12/03/2019 11:15:02</publishTime>
     </File>
     <File Include="bin/SK.Common.dll">
-      <publishTime>12/04/2019 02:43:40</publishTime>
+      <publishTime>12/09/2019 02:20:43</publishTime>
     </File>
     <File Include="bin/SK.Common.dll.config">
       <publishTime>11/27/2019 14:10:05</publishTime>
@@ -36,7 +36,7 @@
       <publishTime>12/03/2019 11:15:01</publishTime>
     </File>
     <File Include="bin/SK.Entities.dll">
-      <publishTime>12/04/2019 02:43:39</publishTime>
+      <publishTime>12/09/2019 02:20:43</publishTime>
     </File>
     <File Include="bin/SK.Entities.dll.config">
       <publishTime>12/03/2019 11:03:18</publishTime>
@@ -45,19 +45,19 @@
       <publishTime>12/03/2019 11:15:01</publishTime>
     </File>
     <File Include="bin/SK.Handler.dll">
-      <publishTime>12/04/2019 04:05:45</publishTime>
+      <publishTime>12/09/2019 02:20:44</publishTime>
     </File>
     <File Include="bin/SK.Handler.pdb">
       <publishTime>12/03/2019 11:15:02</publishTime>
     </File>
     <File Include="bin/SK.User.dll">
-      <publishTime>12/04/2019 04:05:45</publishTime>
+      <publishTime>12/09/2019 02:20:45</publishTime>
     </File>
     <File Include="bin/SK.User.pdb">
       <publishTime>12/03/2019 11:15:02</publishTime>
     </File>
     <File Include="bin/SK.Web.dll">
-      <publishTime>12/04/2019 04:10:03</publishTime>
+      <publishTime>12/09/2019 02:20:47</publishTime>
     </File>
     <File Include="bin/SK.Web.pdb">
       <publishTime>12/03/2019 14:37:19</publishTime>
@@ -1881,7 +1881,7 @@
       <publishTime>10/06/2019 23:40:14</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/04/2019 04:10:03</publishTime>
+      <publishTime>12/09/2019 02:20:52</publishTime>
     </File>
   </ItemGroup>
 </Project>

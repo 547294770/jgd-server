@@ -10,6 +10,9 @@ using Newtonsoft.Json;
 using SK.Entities;
 using SK.BL;
 using SK.Common;
+using System.Drawing;
+using System.IO;
+using System.Drawing.Imaging;
 
 namespace SK.User.Controllers
 {
@@ -338,6 +341,7 @@ namespace SK.User.Controllers
 
             DeliveryOrderDataContext delcxt = new DeliveryOrderDataContext();
             var deliverylist = delcxt.DeliveryOrder.Where(p => p.SourceID == order.ID).Select(p => new {
+                p.ID,
                 p.Content,
                 p.CreateAt,
                 p.OrderNo,
@@ -354,6 +358,7 @@ namespace SK.User.Controllers
             PickUpOrderDataContext pickcxt = new PickUpOrderDataContext();
             var pickuplist = pickcxt.PickUpOrder.Where(p => p.SourceID == order.ID).Select(p => new
             {
+                p.ID,
                 p.Content,
                 p.CreateAt,
                 p.OrderNo,
@@ -410,6 +415,7 @@ namespace SK.User.Controllers
             if (!UserInfo.ispass) { this.FailMessage("您账户未通过审核"); return; }
 
             string orderId = QF("OrderID");
+            string password = QF("PassWord");
 
             ProcessingOrderDataContext dc = new ProcessingOrderDataContext();
             var order = dc.ProcessingOrder.FirstOrDefault(p => p.ID == orderId);
@@ -422,6 +428,32 @@ namespace SK.User.Controllers
 
             var oldStatus = order.Status;
             var oldStatusID = order.StatusID;
+
+            switch (order.Status)
+            {
+                    /*
+                     * 加工确认，加工费确认，提货确认需求输入密码
+                     * */
+                case SK.Entities.ProcessingOrder.OrderStatus.Uploaded:
+                case SK.Entities.ProcessingOrder.OrderStatus.AlreadyGoods:
+                case SK.Entities.ProcessingOrder.OrderStatus.NoticePickUp:
+                    {
+                        if (string.IsNullOrWhiteSpace(password)) { this.FailMessage("请输入密码"); return; }
+                        CompanyDataContext cxt = new CompanyDataContext();
+                        var companyInfo = cxt.Company.FirstOrDefault(p => p.UserID == UserInfo.openid);
+                        if (companyInfo != null) {
+                            if (string.IsNullOrWhiteSpace(companyInfo.Password)) {
+                                this.FailMessage("未设置密码");
+                                return;
+                            }
+                        }
+
+                        if (password != companyInfo.Password) { this.FailMessage("输入的密码不正确"); return; }
+                    }
+                    break;
+                default:
+                    break;
+            }
 
             switch (order.Status)
             {
@@ -540,40 +572,94 @@ namespace SK.User.Controllers
         private void DoAttachment(Entities.ProcessingOrder order)
         {
             order.Status = Entities.ProcessingOrder.OrderStatus.Print;
-            var form = this.Context.Request.Form;
-            var attachLength = QF("AttachmentLength", 0);
-            if (attachLength > 0)
+
+            var company = UserBL.Instance.GetCompany(UserInfo.openid);
+            var companyName = company == null ? "" : company.CompanyName;
+
+            if (!string.IsNullOrEmpty(UserInfo.nickname) && !string.IsNullOrEmpty(companyName))
             {
                 AttachmentDataContext attach = new AttachmentDataContext();
-                List<Attachment> list = new List<Attachment>();
-
-                for (int i = 0; i < attachLength; i++)
+                var list = attach.Attachment.Where(p => p.SourceID == order.ID).ToList();
+                foreach (var item in list)
                 {
-                    var Name = QF(string.Format("Attachment[{0}][Name]", i));
-                    var FilePath = QF(string.Format("Attachment[{0}][FilePath]", i));
-                    var FileName = QF(string.Format("Attachment[{0}][FileName]", i));
-                    var FileSize = QF(string.Format("Attachment[{0}][FileSize]", i), 0);
+                    try
+                    {
+                        var path = Context.Server.MapPath(item.FilePath);
+                        Image image = Image.FromFile(path);
+                        string extend = System.IO.Path.GetExtension(item.FilePath);
+                        string fileName = string.Format("{0}{1}", Guid.NewGuid().ToString("N"), extend);
 
-                    var ent = new Entities.Attachment();
-                    ent.ID = Guid.NewGuid().ToString("N");
-                    ent.CreateAt = DateTime.Now;
-                    ent.FileName = FileName;
-                    ent.FilePath = FilePath;
-                    ent.FileSize = FileSize;
-                    ent.Name = Name;
-                    ent.SourceID = order.ID;
-                    ent.UpdateAt = DateTime.Now;
+                        item.FileName = fileName;
+                        item.FilePath = "/upload/" + fileName;
+                        item.UpdateAt = DateTime.Now;
 
-                    list.Add(ent);
 
+                        var emSize = Convert.ToInt32((image.Width / companyName.Length) / 1.8);
+                        image = AddText(image, UserInfo.nickname, new Point(image.Width / 2, image.Height / 2 - 3 * emSize), new Font("黑体", emSize), Color.FromArgb(160, 135, 135, 135), 30);
+                        image = AddText(image, companyName, new Point(image.Width / 2, image.Height / 2), new Font("黑体", emSize), Color.FromArgb(160, 135, 135, 135), 30);
+                        image = AddText(image, "已确认", new Point(image.Width / 2, image.Height / 2), new Font("黑体", 2 * emSize), Color.FromArgb(160, 255, 0, 0), 30);
+
+                        var newPath = Context.Server.MapPath(item.FilePath);
+
+                        image.Save(newPath);
+                        image.Dispose();
+
+                        File.Delete(path);
+                    }
+                    catch 
+                    {
+                      
+                    }
+                    
                 }
-
-                var all = attach.Attachment.AsEnumerable();
-                attach.Attachment.DeleteAllOnSubmit(all);
-                attach.Attachment.InsertAllOnSubmit(list);
 
                 attach.SubmitChanges();
             }
+
+            //if (!string.IsNullOrEmpty(UserInfo.nickname) && !string.IsNullOrEmpty(companyName))
+            //{
+            //    var emSize = Convert.ToInt32((image.Width / companyName.Length) / 1.8);
+            //    image = AddText(image, UserInfo.nickname, new Point(image.Width / 2, image.Height / 2 - 3 * emSize), new Font("黑体", emSize), Color.FromArgb(60, 255, 255, 255), 30);
+            //    image = AddText(image, companyName, new Point(image.Width / 2, image.Height / 2), new Font("黑体", emSize), Color.FromArgb(60, 255, 255, 255), 30);
+            //    image = AddText(image, "已确认", new Point(image.Width / 2, image.Height / 2), new Font("黑体", 2 * emSize), Color.FromArgb(60, 255, 255, 255), 30);
+            //}
+
+
+            /*==暂时不用==*/
+            //var form = this.Context.Request.Form;
+            //var attachLength = QF("AttachmentLength", 0);
+            //if (attachLength > 0)
+            //{
+            //    AttachmentDataContext attach = new AttachmentDataContext();
+            //    List<Attachment> list = new List<Attachment>();
+
+            //    for (int i = 0; i < attachLength; i++)
+            //    {
+            //        var Name = QF(string.Format("Attachment[{0}][Name]", i));
+            //        var FilePath = QF(string.Format("Attachment[{0}][FilePath]", i));
+            //        var FileName = QF(string.Format("Attachment[{0}][FileName]", i));
+            //        var FileSize = QF(string.Format("Attachment[{0}][FileSize]", i), 0);
+
+            //        var ent = new Entities.Attachment();
+            //        ent.ID = Guid.NewGuid().ToString("N");
+            //        ent.CreateAt = DateTime.Now;
+            //        ent.FileName = FileName;
+            //        ent.FilePath = FilePath;
+            //        ent.FileSize = FileSize;
+            //        ent.Name = Name;
+            //        ent.SourceID = order.ID;
+            //        ent.UpdateAt = DateTime.Now;
+
+            //        list.Add(ent);
+
+            //    }
+
+            //    var all = attach.Attachment.AsEnumerable();
+            //    attach.Attachment.DeleteAllOnSubmit(all);
+            //    attach.Attachment.InsertAllOnSubmit(list);
+
+            //    attach.SubmitChanges();
+            //}
         }
 
         private void DoDelivery(Entities.ProcessingOrder order)
@@ -703,6 +789,26 @@ namespace SK.User.Controllers
                 "加工单",
                order.OrderNo,
                order.Content);
+        }
+
+        private Image AddText(System.Drawing.Image image, string text, Point p, Font font, Color fontColor, int angle)
+        {
+            using (Graphics g = Graphics.FromImage(image))
+            {
+                using (var brush = new SolidBrush(fontColor))
+                {
+                    g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.High;
+                    g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+
+                    var sizeF = g.MeasureString(text, font);
+                    g.ResetTransform();
+                    g.TranslateTransform(p.X, p.Y);
+                    g.RotateTransform(angle);
+                    g.DrawString(text, font, brush, new PointF(-sizeF.Width / 2, -sizeF.Height / 2));
+                }
+            }
+
+            return image;
         }
     }
 }

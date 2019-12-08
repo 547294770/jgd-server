@@ -14,7 +14,7 @@ namespace SK.Entities
         {
             [Description("未提交")]
             None = 0,
-            [Description("已提交待处理")]
+            [Description("新增加工单待处理")]
             Processing = 10,
             [Description("已上传加工单截图")]
             Uploaded = 20,
