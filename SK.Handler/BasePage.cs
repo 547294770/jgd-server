@@ -30,11 +30,23 @@ namespace SK.Handler
             {
                 string[] hosts = new string[] { "localhost", "127.0.0.1"};
                 if (hosts.Contains(Request.Url.Host)) {
-                    var debugUser = new WXUser();
-                    debugUser.openid = "oNJEyuF1_rkeK9RWOpOu8pmIxRPw";
-                    debugUser.nickname = "小秋";
-                    debugUser.headimgurl = "http://thirdwx.qlogo.cn/mmopen/vi_32/02NyUgGH75DOvlUIaR7N74Q0MlqzFzgfbMq1FqwDyVYBl5at0Zc68jPafUibrrzywpuKGQ2qAALZvRLr4qaogPg/132";
-                    return debugUser;
+
+                    var openId = "oNJEyuF1_rkeK9RWOpOu8pmIxRPw";
+                    var user = UserCache.GetUser(openId);
+                    if (user != null)
+                    {
+                        return (WXUser)user;
+                    }
+                    else
+                    {
+                        var debugUser = new WXUser();
+                        debugUser.openid = openId;
+                        debugUser.nickname = "小秋";
+                        debugUser.ispass = true;
+                        debugUser.headimgurl = "http://thirdwx.qlogo.cn/mmopen/vi_32/02NyUgGH75DOvlUIaR7N74Q0MlqzFzgfbMq1FqwDyVYBl5at0Zc68jPafUibrrzywpuKGQ2qAALZvRLr4qaogPg/132";
+                        UserCache.AddUser(debugUser.openid, debugUser);
+                        return debugUser;
+                    }
                 }
 
                 var cookie = Request.Cookies[Consts.USER_INFO];

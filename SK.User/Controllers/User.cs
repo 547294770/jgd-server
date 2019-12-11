@@ -152,7 +152,9 @@ namespace SK.User.Controllers
             if (UserInfo == null) { this.FailMessage("未登录"); return; }
 
             CompanyTaskDataContext cxt = new CompanyTaskDataContext();
+            CompanyDataContext cxtCompany = new CompanyDataContext();
 
+            var companyInfo = cxtCompany.Company.FirstOrDefault(p => p.UserID == UserInfo.openid);
             var entity = cxt.CompanyTask.FirstOrDefault(p => p.UserID == UserInfo.openid && !p.IsPass);
             if (entity == null)
             {
@@ -184,6 +186,13 @@ namespace SK.User.Controllers
            
             cxt.CompanyTask.InsertOnSubmit(entity);
             cxt.SubmitChanges();
+
+            if (companyInfo != null)
+            {
+                companyInfo.IsPass = false;
+            }
+
+            cxtCompany.SubmitChanges();
 
             this.ShowResult(true, "保存成功", entity);
         }

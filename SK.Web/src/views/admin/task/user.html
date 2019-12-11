@@ -34,7 +34,7 @@
 
         table.render({
             elem: "#admin-user-index",
-            url: "/handler/admin/user/tasklist",
+            url: "/handler/admin/user/list",
             skin: "auto",
             size:"sm",
             method:"post",
@@ -45,6 +45,11 @@
                 { title: "国家", field: "country" },
                 { title: "省份", field: "province" },
                 { title: "市", field: "city" },
+                { title: "公司", field: "CompanyName" },
+                { title: "地址", field: "Address" },
+                { title: "联系人", field: "Contact" },
+                { title: "手机", field: "Mobile" },
+                { title: "座机", field: "Tel" },
                 { title: "状态", templet: "<div>{{ d.ispass ? '<span class='layui-text-green'>通过</span>':'<span class='layui-text-red'>待审核</span>'}}</div>" },
                 { title: "创建时间", field: "createtime" },
                 { title: "操作", templet: "#admin-user-index-table-operate" }

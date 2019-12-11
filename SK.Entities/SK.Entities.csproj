@@ -141,7 +141,6 @@
       <LastGenOutput>Admin.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="app.config" />
     <None Include="Attachment.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>Attachment.designer.cs</LastGenOutput>

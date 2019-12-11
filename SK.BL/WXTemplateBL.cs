@@ -19,7 +19,9 @@ namespace SK.BL
         private const string TempIDDelivery = "YSqd7L_p60EI8TOEJ6cSXFnMF-Pdz144mWlElee2cQ0";
         private const string TempIDInLib = "wNdKApbYP0HksQVFwo9UxSw2bedCC9WQjDVzG2Rmxmk";
         private const string TempIDOutLib = "5ylDWkRVhP37rIW0zjxDBb_Msh2SPEj9US_TbsNtV60";
-        
+        private const string TempIDFee = "BRfsFcw6UKmxeu7_XsQBPnjK7wW7C3ksWBKad7vhou4";
+        private const string TempIDCheckUser = "Ack8HKUnFP-7tUK0RO5PfRLzbhhmI_CYAiM5EntkvzQ";
+
 
         public static bool SendMessage(string tplPath, Dictionary<string, string> dict)
         {
@@ -318,6 +320,99 @@ namespace SK.BL
             //    WXTemplateBL.SendMessage(tplPath, dict);
             //    Thread.Sleep(100);
             //}
+        }
+
+        /// <summary>
+        /// 加工费生成通知
+        /// </summary>
+        /// <param name="touser"></param>
+        /// <param name="tplPath"></param>
+        /// <param name="url"></param>
+        /// <param name="first"></param>
+        /// <param name="keyword1">单号</param>
+        /// <param name="keyword2">生成日期</param>
+        /// <param name="keyword3">加工费用</param>
+        /// <param name="remark">备注信息</param>
+        public static void SendMessageForFee(string touser, string tplPath,
+            string url,
+            string first,
+            string keyword1,
+            string keyword2,
+            string keyword3,
+            string remark)
+        {
+            /*
+             * 
+             * 
+             * {{first.DATA}}
+单号：{{keyword1.DATA}}
+生成日期：{{keyword2.DATA}}
+加工费用：{{keyword3.DATA}}
+{{remark.DATA}} */
+
+
+            ToUsersDataContext cxt = new ToUsersDataContext();
+
+            Dictionary<string, string> dict = new Dictionary<string, string>();
+
+            dict.Add("touser", touser);
+            dict.Add("template_id", TempIDFee);
+            dict.Add("url", url);
+            dict.Add("first", first);
+            dict.Add("keyword1", keyword1);
+            dict.Add("keyword2", keyword2);
+            dict.Add("keyword3", keyword3);
+            dict.Add("remark", remark);
+
+            WXTemplateBL.SendMessage(tplPath, dict);
+
+            //foreach (var item in cxt.ToUsers.Where(p => p.TemplateID == TempIDOutLib))
+            //{
+            //    dict["touser"] = item.OpenID;
+            //    WXTemplateBL.SendMessage(tplPath, dict);
+            //    Thread.Sleep(100);
+            //}
+        }
+
+        /// <summary>
+        /// 用户审核结果通知
+        /// </summary>
+        /// <param name="touser"></param>
+        /// <param name="tplPath"></param>
+        /// <param name="url"></param>
+        /// <param name="first"></param>
+        /// <param name="keyword1"></param>
+        /// <param name="keyword2"></param>
+        /// <param name="remark"></param>
+        public static void SendMessageForCheckUser(string touser, string tplPath,
+            string url,
+            string first,
+            string keyword1,
+            string keyword2,
+            string remark)
+        {
+            /*
+             * 
+             * 
+             * {{first.DATA}}
+用户类型：{{keyword1.DATA}}
+用户账号：{{keyword2.DATA}}
+{{remark.DATA}} */
+
+
+            ToUsersDataContext cxt = new ToUsersDataContext();
+
+            Dictionary<string, string> dict = new Dictionary<string, string>();
+
+            dict.Add("touser", touser);
+            dict.Add("template_id", TempIDCheckUser);
+            dict.Add("url", url);
+            dict.Add("first", first);
+            dict.Add("keyword1", keyword1);
+            dict.Add("keyword2", keyword2);
+            dict.Add("remark", remark);
+
+            WXTemplateBL.SendMessage(tplPath, dict);
         }
     }
 }
