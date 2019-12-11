@@ -1,7 +1,5 @@
 ##----------.net----------
 bin/
-*.dll
-*.pdb
-*.cache
+debug/
 obj/
 upload/

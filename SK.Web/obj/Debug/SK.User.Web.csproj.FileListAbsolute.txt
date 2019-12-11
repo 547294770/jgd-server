@@ -1,5 +1,0 @@
-E:\src\web\vs2012\SK\SK.User.Web\bin\SK.User.Web.dll
-E:\src\web\vs2012\SK\SK.User.Web\bin\SK.User.Web.pdb
-E:\src\web\vs2012\SK\SK.User.Web\obj\Debug\SK.User.Web.csprojResolveAssemblyReference.cache
-E:\src\web\vs2012\SK\SK.User.Web\obj\Debug\SK.User.Web.dll
-E:\src\web\vs2012\SK\SK.User.Web\obj\Debug\SK.User.Web.pdb
