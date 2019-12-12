@@ -18,10 +18,8 @@ namespace SK.Admin.Controllers
         {
             WXUserDataContext cxt = new WXUserDataContext();
             CompanyDataContext cp = new CompanyDataContext();
-
             var userlist = cxt.WXUser.AsEnumerable();
             var comylist = cp.Company.AsEnumerable();
-
             var alllist = from a in userlist
                        join b in comylist
                        on a.openid equals b.UserID into c
@@ -38,9 +36,14 @@ namespace SK.Admin.Controllers
                            Address = b == null ? "" : b.Address,
                            Contact = b == null ? "" : b.Contact,
                            Mobile = b == null ? "" : b.Mobile,
-                           Tel = b == null ? "" : b.Tel
+                           Tel = b == null ? "" : b.Tel,
+                           Pic = b == null ? "" :b.Pic
                        };
 
+            if (!string.IsNullOrEmpty(QF("OpenID"))) alllist = alllist.Where(p => p.openid == QF("OpenID"));
+            if (!string.IsNullOrEmpty(QF("StartAt"))) alllist = alllist.Where(p => p.createtime >= QF("StartAt", DateTime.Now.Date));
+            if (!string.IsNullOrEmpty(QF("EndAt"))) alllist = alllist.Where(p => p.createtime <= QF("EndAt", DateTime.Now.Date.AddDays(1)).AddDays(1));
+            if (!string.IsNullOrEmpty(QF("NickName"))) alllist = alllist.Where(p => p.nickname.Contains(QF("NickName")));
 
             var data = alllist.OrderByDescending(p => p.createtime).Select(a => a).ToList();
             this.ShowResult(true, "成功", data);
@@ -49,8 +52,35 @@ namespace SK.Admin.Controllers
         public void tasklist()
         {
             WXUserDataContext cxt = new WXUserDataContext();
-            var list = cxt.WXUser.Where(p => !p.ispass);
-            var data = list.OrderByDescending(p => p.createtime).Select(a => a).ToList();
+            CompanyDataContext cp = new CompanyDataContext();
+
+            var userlist = cxt.WXUser.AsEnumerable();
+            var comylist = cp.Company.AsEnumerable();
+
+            var alllist = from a in userlist
+                          join b in comylist
+                          on a.openid equals b.UserID into c
+                          from b in c.DefaultIfEmpty()
+                          select new
+                          {
+                              a.nickname,
+                              a.openid,
+                              a.ispass,
+                              a.province,
+                              a.city,
+                              a.country,
+                              a.createtime,
+                              CompanyName = b == null ? "" : b.CompanyName,
+                              Address = b == null ? "" : b.Address,
+                              Contact = b == null ? "" : b.Contact,
+                              Mobile = b == null ? "" : b.Mobile,
+                              Tel = b == null ? "" : b.Tel,
+                              Pic = b == null ? "" : b.Pic
+                          };
+
+            alllist = alllist.Where(p => !p.ispass);
+
+            var data = alllist.OrderByDescending(p => p.createtime).Select(a => a).ToList();
             this.ShowResult(true, "成功", data);
         }
 

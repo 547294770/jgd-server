@@ -183,7 +183,8 @@ namespace SK.User.Controllers
             entity.Tel = QF("Tel");
             entity.Mobile = QF("Mobile");
             entity.Password = "";
-           
+            entity.Pic = QF("Pic");
+
             cxt.CompanyTask.InsertOnSubmit(entity);
             cxt.SubmitChanges();
 

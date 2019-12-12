@@ -61,6 +61,7 @@ namespace SK.Admin.Controllers
             oldCompany.Mobile = entity.Mobile;
             oldCompany.Password = entity.Password;
             oldCompany.UpdateAt = DateTime.Now;
+            oldCompany.Pic = entity.Pic;
 
             if (isNew) {
                 cxt.Company.InsertOnSubmit(oldCompany);

@@ -95,8 +95,9 @@ namespace SK.Entities
 		private string _Mobile;
 		
 		private string _Password;
-		
-		private bool _IsPass;
+        private string _Pic;
+
+        private bool _IsPass;
 		
 		private System.DateTime _CreateAt;
 		
@@ -294,8 +295,28 @@ namespace SK.Entities
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsPass", DbType="Bit NOT NULL")]
+
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Pic", CanBeNull = false)]
+        public string Pic
+        {
+            get
+            {
+                return this._Pic;
+            }
+            set
+            {
+                if ((this._Pic != value))
+                {
+                    this.OnPasswordChanging(value);
+                    this.SendPropertyChanging();
+                    this._Pic = value;
+                    this.SendPropertyChanged("Pic");
+                    this.OnPasswordChanged();
+                }
+            }
+        }
+
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsPass", DbType="Bit NOT NULL")]
 		public bool IsPass
 		{
 			get

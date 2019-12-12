@@ -1,0 +1,87 @@
+﻿<title>所有用户</title>
+<div class="layui-card layadmin-header">
+    <div class="layui-breadcrumb" lay-filter="breadcrumb">
+        <a lay-href="">主页</a>
+        <a><cite>所有用户</cite></a>
+        <a><cite>所有用户</cite></a>
+    </div>
+</div>
+<div class="layui-fluid">
+    <div class="layui-card">
+        <div class="layui-card-header">
+            所有用户
+        </div>
+        <div class="layui-card-body">
+            <form class="layui-form layui-form-sm" action="/handler/admin/user/list" method="post" id="admin-users-form" lay-filter="admin-users-form">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">OpenID</label>
+                    <div class="layui-input-inline w100">
+                        <input type="text" name="OpenID" placeholder="请输入单号" class="layui-input" autocomplete="off" />
+                    </div>
+                    <label class="layui-form-label">昵称</label>
+                    <div class="layui-input-inline w160">
+                        <input type="text" name="NickName" placeholder="请输昵称" class="layui-input" autocomplete="off" />
+                    </div>
+                    <label class="layui-form-label">创建时间</label>
+                    <div class="layui-input-inline w120">
+                        <input type="text" class="layui-input" name="StartAt" id="StartAt" datetype="date" placeholder="" autocomplete="off">
+                    </div>
+                    <div class="layui-form-mid layui-word-aux">-</div>
+                    <div class="layui-input-inline w120">
+                        <input type="text" class="layui-input" name="EndAt" id="EndAt" datetype="date" placeholder="" autocomplete="off">
+                    </div>
+                    <div class="layui-input-inline auto">
+                        <button lay-submit lay-filter="admin-users-form-submit" class="layui-btn layui-btn-sm">查找</button><input type="reset" class="layui-btn layui-btn-primary layui-btn-sm" value="重置" />
+                    </div>
+                </div>
+            </form>
+            <table id="admin-user-index" lay-filter="admin-user-index"></table>
+        </div>
+    </div>
+</div>
+<script>
+    layui.use(["admin", "form","table", "laydate", "view"], function () {
+        var $ = layui.$
+        , admin = layui.admin
+        , table = layui.table
+        , laydate = layui.laydate
+        , form = layui.form
+        , view = layui.view;
+
+        table.render({
+            elem: "#admin-user-index",
+            url: "/handler/admin/user/list",
+            skin: "auto",
+            size:"sm",
+            method:"post",
+            page: true,
+            cols: [[
+                { title: "openid", field: "openid" },
+                { title: "昵称", field: "nickname" },
+                { title: "国家", field: "country" },
+                { title: "省份", field: "province" },
+                { title: "市", field: "city" },
+                { title: "公司", field: "CompanyName" },
+                { title: "地址", field: "Address" },
+                { title: "联系人", field: "Contact" },
+                { title: "手机", field: "Mobile" },
+                { title: "座机", field: "Tel" },
+                { title: "名片", templet: "<div>{{# if(d.Pic){ }}<a href=\"{{d.Pic}}\" target=\"_blank\">{{d.Pic}}</a>{{# } }} </div>" },
+                { title: "状态", templet: "<div>{{ d.ispass ? '<span class='layui-text-green'>通过</span>':'<span class='layui-text-red'>所有</span>'}}</div>" },
+                { title: "创建时间", field: "createtime" }
+            ]]
+        });
+
+        form.on('submit(admin-users-form-submit)', function (data) {
+            console.log(data.elem);
+            console.log(data.form);
+            console.log(data.field);
+            table.reload('admin-user-index', { where: data.field });
+            return false;
+        });
+
+        console.log("666......");
+        admin.form.render();
+        table.tool('admin-user-index');
+    });
+</script>
