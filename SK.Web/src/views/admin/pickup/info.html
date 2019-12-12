@@ -20,5 +20,12 @@
         <label class="layui-form-label">车辆信息：</label>
         <div class="layui-input-block"><div class="layui-form-mid layui-word-aux">{{ d.data.VehicleInfo }}</div></div>
     </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">图片：</label>
+        <div class="layui-input-block"><div class="layui-form-mid layui-word-aux">
+            {{# if(d.data.Pic){ }}
+            <a target="_blank" href="{{ d.data.Pic }}">查看</a>
+            {{# } }}</div></div>
+    </div>
 </form>
 </script>

@@ -21,6 +21,7 @@ namespace SK.BL
         private const string TempIDOutLib = "5ylDWkRVhP37rIW0zjxDBb_Msh2SPEj9US_TbsNtV60";
         private const string TempIDFee = "BRfsFcw6UKmxeu7_XsQBPnjK7wW7C3ksWBKad7vhou4";
         private const string TempIDCheckUser = "Ack8HKUnFP-7tUK0RO5PfRLzbhhmI_CYAiM5EntkvzQ";
+        private const string TempIDUploadOrder = "Szmb-RYKIngWUOlx-AlTCH6pTE_RQYRYVj3ikROY7-Y";
 
 
         public static bool SendMessage(string tplPath, Dictionary<string, string> dict)
@@ -397,6 +398,47 @@ namespace SK.BL
              * {{first.DATA}}
 用户类型：{{keyword1.DATA}}
 用户账号：{{keyword2.DATA}}
+{{remark.DATA}} */
+
+
+            ToUsersDataContext cxt = new ToUsersDataContext();
+
+            Dictionary<string, string> dict = new Dictionary<string, string>();
+
+            dict.Add("touser", touser);
+            dict.Add("template_id", TempIDCheckUser);
+            dict.Add("url", url);
+            dict.Add("first", first);
+            dict.Add("keyword1", keyword1);
+            dict.Add("keyword2", keyword2);
+            dict.Add("remark", remark);
+
+            WXTemplateBL.SendMessage(tplPath, dict);
+        }
+
+        /// <summary>
+        /// 加工单已上传提醒
+        /// </summary>
+        /// <param name="touser"></param>
+        /// <param name="tplPath"></param>
+        /// <param name="url"></param>
+        /// <param name="first"></param>
+        /// <param name="keyword1"></param>
+        /// <param name="keyword2"></param>
+        /// <param name="remark"></param>
+        public static void SendMessageForUploadOrder(string touser, string tplPath,
+            string url,
+            string first,
+            string keyword1,
+            string keyword2,
+            string remark)
+        {
+            /*
+             * 
+             * 
+             {{first.DATA}}
+单号：{{keyword1.DATA}}
+下单日期：{{keyword2.DATA}}
 {{remark.DATA}} */
 
 

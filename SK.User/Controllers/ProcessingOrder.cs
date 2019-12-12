@@ -368,6 +368,7 @@ namespace SK.User.Controllers
                 p.TimeSection,
                 p.Time1,
                 p.Time2,
+                p.Pic,
                 TypeName = p.Type.GetDescription(),
                 p.VehicleInfo
             }).ToList();
@@ -720,6 +721,7 @@ namespace SK.User.Controllers
             ent.UserID = UserInfo.openid;
             ent.UserName = UserInfo.nickname;
             ent.VehicleInfo = QF("PickUp[VehicleInfo]");
+            ent.Pic = QF("PickUp[Pic]");
 
             switch (order.PickType)
             {

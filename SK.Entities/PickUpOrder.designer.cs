@@ -108,6 +108,8 @@ namespace SK.Entities
 		
 		private string _Time2;
 		
+		private string _Pic;
+		
     #region 可扩展性方法定义
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -140,6 +142,8 @@ namespace SK.Entities
     partial void OnTime1Changed();
     partial void OnTime2Changing(string value);
     partial void OnTime2Changed();
+    partial void OnPicChanging(string value);
+    partial void OnPicChanged();
     #endregion
 		
 		public PickUpOrder()
@@ -423,6 +427,26 @@ namespace SK.Entities
 					this._Time2 = value;
 					this.SendPropertyChanged("Time2");
 					this.OnTime2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pic", CanBeNull=false)]
+		public string Pic
+		{
+			get
+			{
+				return this._Pic;
+			}
+			set
+			{
+				if ((this._Pic != value))
+				{
+					this.OnPicChanging(value);
+					this.SendPropertyChanging();
+					this._Pic = value;
+					this.SendPropertyChanged("Pic");
+					this.OnPicChanged();
 				}
 			}
 		}

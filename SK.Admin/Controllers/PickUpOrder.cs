@@ -34,6 +34,7 @@ namespace SK.Admin.Controllers
                 a.Content,
                 a.PickUpAt,
                 a.CreateAt,
+                a.Pic,
                 TypeName = a.Type.GetDescription(),
                 //TypeName = Enum.GetName(typeof(SK.Entities.PickUpOrder.OrderType), a.Type),
                 a.UserID
@@ -60,6 +61,7 @@ namespace SK.Admin.Controllers
                 a.TimeSection,
                 a.Time1,
                 a.Time2,
+                a.Pic,
                 TypeName = Enum.GetName(typeof(SK.Entities.PickUpOrder.OrderType), a.Type),
                 a.UserID
             }).ToList();
@@ -84,6 +86,7 @@ namespace SK.Admin.Controllers
                 entity.TimeSection,
                 entity.Time1,
                 entity.Time2,
+                entity.Pic,
                 TypeName = entity.Type.GetDescription(),// Enum.GetName(typeof(SK.Entities.PickUpOrder.OrderType), entity.Type),
                 entity.VehicleInfo
             });

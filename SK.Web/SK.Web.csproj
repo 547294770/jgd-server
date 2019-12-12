@@ -361,6 +361,7 @@
     <Content Include="content\templates\新订单通知.json" />
     <Content Include="content\templates\加工费生成通知.json" />
     <Content Include="content\templates\用户审核结果通知.json" />
+    <Content Include="content\templates\加工单已上传提醒.json" />
     <None Include="Properties\PublishProfiles\JGD.pubxml" />
     <Content Include="vue-2.0-simple-routing-example-master\.babelrc" />
     <Content Include="vue-2.0-simple-routing-example-master\.gitignore" />

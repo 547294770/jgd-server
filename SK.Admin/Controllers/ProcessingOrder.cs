@@ -278,6 +278,9 @@ namespace SK.Admin.Controllers
             order.Status = Entities.ProcessingOrder.OrderStatus.Uploaded;
             dc.SubmitChanges();
 
+            //加工单已上传提醒
+            SendMessageForUploadOrder(order);//
+
             this.ShowResult(true, "保存成功");
         }
 
@@ -697,6 +700,25 @@ namespace SK.Admin.Controllers
                 order.FeeNo,
                 DateTime.Now.ToString("yyyy-MM-dd"),
                "见明细",
+               order.Content);
+        }
+
+        /// <summary>
+        /// 加工单已上传提醒
+        /// </summary>
+        /// <param name="order"></param>
+        private void SendMessageForUploadOrder(Entities.ProcessingOrder order)
+        {
+            string title = string.Format("{0}，您有加工单待确认，请查看", order.UserName);
+
+            string tplPath = this.Context.Server.MapPath("/content/templates/加工单已上传提醒.json");
+            WXTemplateBL.SendMessageForUploadOrder(
+                order.UserID,
+                tplPath,
+                Config.Setting.WXWebHost + "/dist/#/Pages/JgdDetail?ID=" + order.ID,
+                title,
+                order.OrderNo,
+               order.CreateAt.ToString("yyyy-MM-dd HH:mm:ss"),
                order.Content);
         }
 
