@@ -35,7 +35,7 @@
                     </div>
                 </div>
             </form>
-            <table id="admin-user-index" lay-filter="admin-user-index"></table>
+            <table id="admin-users-index" lay-filter="admin-users-index"></table>
         </div>
     </div>
 </div>
@@ -49,7 +49,7 @@
         , view = layui.view;
 
         table.render({
-            elem: "#admin-user-index",
+            elem: "#admin-users-index",
             url: "/handler/admin/user/list",
             skin: "auto",
             size:"sm",
@@ -76,12 +76,12 @@
             console.log(data.elem);
             console.log(data.form);
             console.log(data.field);
-            table.reload('admin-user-index', { where: data.field });
+            table.reload('admin-users-index', { where: data.field });
             return false;
         });
 
         console.log("666......");
         admin.form.render();
-        table.tool('admin-user-index');
+        table.tool('admin-users-index');
     });
 </script>

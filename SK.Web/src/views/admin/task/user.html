@@ -12,8 +12,8 @@
             待审核用户
         </div>
         <div class="layui-card-body">
-            <table id="admin-user-index" lay-filter="admin-user-index"></table>
-            <script type="text/html" id="admin-user-index-table-operate">
+            <table id="admin-task-user" lay-filter="admin-task-user"></table>
+            <script type="text/html" id="admin-task-user-table-operate">
                 <div class="opetate">
                     {{# if(!d.ispass){ }}
                     <button class="layui-btn layui-btn-primary layui-btn-xs" lay-action="/handler/admin/user/check" lay-data='{"ID":"{{d.openid}}"}' lay-event="check">通过</button>
@@ -33,7 +33,7 @@
         , view = layui.view;
 
         table.render({
-            elem: "#admin-user-index",
+            elem: "#admin-task-user",
             url: "/handler/admin/user/tasklist",
             skin: "auto",
             size:"sm",
@@ -52,11 +52,11 @@
                 { title: "座机", field: "Tel" },
                 { title: "状态", templet: "<div>{{ d.ispass ? '<span class='layui-text-green'>通过</span>':'<span class='layui-text-red'>待审核</span>'}}</div>" },
                 { title: "创建时间", field: "createtime" },
-                { title: "操作", templet: "#admin-user-index-table-operate" }
+                { title: "操作", templet: "#admin-task-user-table-operate" }
             ]]
         });
 
         admin.form.render();
-        table.tool('admin-user-index');
+        table.tool('admin-task-user');
     });
 </script>
