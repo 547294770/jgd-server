@@ -39,7 +39,8 @@ namespace SK.Admin.Controllers
                 p.UserID,
                 p.UserName,
                 p.IsReject,
-                p.StatusID
+                p.StatusID,
+                p.PickUpPic
             }).ToList();
             this.ShowResult(true, "成功", data);
         }
@@ -74,7 +75,8 @@ namespace SK.Admin.Controllers
                 p.UserID,
                 p.UserName,
                 p.IsReject,
-                p.StatusID
+                p.StatusID,
+                p.PickUpPic
             }).ToList();
             this.ShowResult(true, "成功", data);
         }
@@ -510,7 +512,7 @@ namespace SK.Admin.Controllers
             //
             SaveStatusLog(order, order.StatusID, order.Status, Entities.ProcessingOrder.OrderStatus.NoticePickUp);
 
-
+            order.PickUpPic = QF("PickUpPic");
             order.Status = Entities.ProcessingOrder.OrderStatus.NoticePickUp;
             order.PickType = Entities.ProcessingOrder.PickUpType.None;
             dc.SubmitChanges();

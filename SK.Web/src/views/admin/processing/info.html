@@ -70,7 +70,7 @@
                 cols: [[
                     { title: "编号", field: "FeeNo" },
                     { title: "类型", templet: "<div>{{ d.TypeName }}</div>" },
-                    { title: "图片", templet: "<div><img src=\"{{ d.Pic }}\" style=\"width:80px\" /></div>" },
+                    { title: "图片", templet: "<div><a href=\"{{ d.Pic }}\" target=\"_blank\"><img src=\"{{ d.Pic }}\" style=\"width:80px\" /></a></div>" },
                     { title: "明细", templet: "<div>{{ d.Content }}</div>" }
                 ]]
             });
@@ -223,6 +223,24 @@
               }
             });
 
+            //提货材料图片
+            var uploadInst = upload.render({
+                elem: '#admin-processing-pickuppic' //绑定元素
+              , url: '/handler/admin/upload/upload' //上传接口
+              , data: { }
+              , before: function (obj) { layer.load(); }
+              , done: function (res) {
+                  //上传完毕回调
+                  layer.closeAll('loading'); //关闭loading
+                  $("#admin-processing-pickuppic-preview").attr("href", res.data.src);
+                  $("#admin-processing-pickuppic-value").val(res.data.src);
+              }
+              , error: function () {
+                  //请求异常回调
+                  layer.closeAll('loading'); //关闭loading
+              }
+            });
+
             $("#admin-processing-save button").on("click", function () {
 
                 layer.confirm("提交后会改变加工单状态，确认要提交吗？", function () {
@@ -231,6 +249,7 @@
                         url: '/handler/admin/processingorder/save',
                         data: {
                             "OrderID": document.getElementById('admin-processing-orderid').value,
+                            "PickupPic": document.getElementById('admin-processing-pickuppic-value') ? document.getElementById('admin-processing-pickuppic-value').value:'',/* document.getElementById('admin-processing-pickuppic-value').value */
                             "Delivery": {
                                 "DeliveryAt": $("#admin-delivery-deliveryat").val(),
                                 "Content": $("#admin-delivery-content").val(),
@@ -287,200 +306,217 @@
     </div>
 </script>
 <script template type="text/html" lay-done="jgd_detail_callback(d);">
-<div class="layui-form" lay-filter="admin-processing-jgd-info-form">
-    <div class="layui-form-item">
-        <label class="layui-form-label">单号：</label>
-        <div class="layui-input-inline"><input type="hidden" id="admin-processing-orderid" value="{{ d.params.ID }}" /><div class="layui-form-mid layui-word-aux"><b>{{ d.params.OrderNo }}</b></div></div>
-        <label class="layui-form-label">状态：</label>
-        <div class="layui-input-inline"><div class="layui-form-mid layui-word-aux">{{ htmlFunction.status(d.params.Status,d.params.DelType,d.params.PickType) }}</div></div>
-    </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label">下单时间：</label>
-        <div class="layui-input-inline"><div class="layui-form-mid layui-word-aux">{{ d.params.CreateAt }}</div></div>
-        <label class="layui-form-label">错误驳回：</label>
-        <div class="layui-input-inline">
+    <div class="layui-form" lay-filter="admin-processing-jgd-info-form">
+        <div class="layui-form-item">
+            <label class="layui-form-label">单号：</label>
+            <div class="layui-input-inline"><input type="hidden" id="admin-processing-orderid" value="{{ d.params.ID }}" /><div class="layui-form-mid layui-word-aux"><b>{{ d.params.OrderNo }}</b></div></div>
+            <label class="layui-form-label">状态：</label>
+            <div class="layui-input-inline"><div class="layui-form-mid layui-word-aux">{{ htmlFunction.status(d.params.Status,d.params.DelType,d.params.PickType) }}</div></div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">下单时间：</label>
+            <div class="layui-input-inline"><div class="layui-form-mid layui-word-aux">{{ d.params.CreateAt }}</div></div>
+            <label class="layui-form-label">错误驳回：</label>
+            <div class="layui-input-inline">
+                <div class="layui-form-mid layui-word-aux">
+                    {{# if(d.params.IsReject){ }}
+                    <button id="admin-rejection-view" class="layui-btn layui-btn-danger layui-btn-xs">查看驳回理由</button>
+                    {{# } }}
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">加工内容：</label>
+            <div class="layui-form-mid layui-word-aux">{{ d.params.Content }}</div>
+        </div>
+        {{# if(d.params.Pic){ }}
+        <div class="layui-form-item">
+            <label class="layui-form-label">图片：</label>
+            <div class="layui-form-mid layui-word-aux"><a href="{{ d.params.Pic }}" target="_blank">{{ d.params.Pic }}</a></div>
+        </div>
+        {{# } }}
+        {{# if(d.params.Status == 'Processing'||d.params.Status == 'Producing'||d.params.Status == 'InputDelivery'){ }}
+        <div class="layui-form-item">
+            <label class="layui-form-label">上传附件：</label>
+            <div class="layui-form-mid layui-word-aux"><button type="button" class="layui-btn layui-btn-xs" id="admin-processing-pic"><i class="layui-icon">&#xe67c;</i>上传加工单截图</button></div>
+        </div>
+        {{# } }}
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">附件：</label>
+            <div class="layui-input-block">
+                <table id="admin-processing-attachment-table" lay-filter="admin-processing-attachment-table"></table>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">加工费：</label>
+            <div class="layui-input-block">
+                <table id="admin-processing-fee" lay-filter="admin-processing-fee"></table>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">送货单：</label>
+            <div class="layui-input-block">
+                <table id="admin-delivery-list" lay-filter="admin-delivery-list"></table>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">提货单：</label>
+            <div class="layui-input-block">
+                <table id="admin-pickup-list" lay-filter="admin-pickup-list"></table>
+            </div>
+        </div>
+        {{# if(d.params.PickUpPic){ }}
+        <div class="layui-form-item">
+            <label class="layui-form-label">提货材料：</label>
+            <div class="layui-form-mid layui-word-aux"><a href="{{ d.params.PickUpPic }}" target="_blank">{{ d.params.PickUpPic }}</a></div>
+        </div>
+        {{# } }}
+        {{# if(d.params.Status == 'ConfirmDeliveryMethod'&& d.params.DelType == 'LXD'){ }}
+        <fieldset>
+            <legend>录入提货信息</legend>
+            <div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">日期：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="admin-delivery-deliveryat" class="layui-input" name="DeliveryAt" placeholder="提材料日期" datetype="date" placeholder="" autocomplete="off">
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">时间段</label>
+                        <div class="layui-input-inline">
+                            <input type="time" id="admin-delivery-time1" class="layui-input" name="Time1">-
+                            <input type="time" id="admin-delivery-time2" class="layui-input" name="Time2">
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">材料内容：</label>
+                    <div class="layui-input-block">
+                        <textarea id="admin-delivery-content" placeholder="请输入内容" class="layui-textarea"></textarea>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">车辆信息：</label>
+                    <div class="layui-input-block">
+                        <textarea id="admin-delivery-vehicleinfo" placeholder="请输入内容" class="layui-textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        {{# } }}
+
+
+
+        {{# if(d.params.Status == 'ConfirmPickUpMethod'&& d.params.PickType == 'LXD'){ }}
+        <fieldset>
+            <legend>录入送货信息</legend>
+            <div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">日期：</label>
+                    <div class="layui-input-inline">
+                        <input type="text" id="admin-pickup-pickupat" class="layui-input" name="PickUpAt" placeholder="提材料日期" datetype="date" placeholder="" autocomplete="off">
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">时间段</label>
+                        <div class="layui-input-inline">
+                            <input type="time" id="admin-pickup-time1" class="layui-input" name="Time1">-
+                            <input type="time" id="admin-pickup-time2" class="layui-input" name="Time2">
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">送货内容：</label>
+                    <div class="layui-input-block">
+                        <textarea id="admin-pickup-content" placeholder="请输入内容" class="layui-textarea"></textarea>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">车辆信息：</label>
+                    <div class="layui-input-block">
+                        <textarea id="admin-pickup-vehicleinfo" placeholder="请输入内容" class="layui-textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        {{# } }}
+
+        {{# if(d.params.Status == 'InputPickUpContact'){ }}
+        <fieldset>
+            <legend>加工费信息</legend>
+            <div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">结算类型</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="sex" value="Month" lay-filter="admin-processing-fee-billtype" title="月结">
+                        <input type="radio" name="sex" value="Now" lay-filter="admin-processing-fee-billtype" title="现结" checked="">
+                        <input type="hidden" id="admin-processing-fee-billtype" value="Now" />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">附件图片：</label>
+                    <div class="layui-form-mid layui-word-aux"><img id="admin-processing-fee-pic" src="" style="width:80px" /><button type="button" class="layui-btn layui-btn-xs" id="admin-processing-fee-upload"><i class="layui-icon">&#xe67c;</i>上传图片</button></div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">加工费明细</label>
+                    <div class="layui-input-block">
+                        <textarea id="admin-processing-fee-detail" placeholder="请输入内容" class="layui-textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        {{# } }}
+
+        {{# if(d.params.Status == 'NoticeDelivery'){ }}
+        <div class="layui-form-item">
+            <label class="layui-form-label"></label>
+            <div class="layui-form-mid layui-word-aux"><button type="button" class="layui-btn" id="Button1">录入送货信息</button></div>
+        </div>
+        {{# } }}
+
+        {{# if(d.params.Status == 'Produced'){ }}
+        <div class="layui-form-item">
+            <label class="layui-form-label">上传图片：</label>
             <div class="layui-form-mid layui-word-aux">
-            {{# if(d.params.IsReject){ }}
-            <button id="admin-rejection-view" class="layui-btn layui-btn-danger layui-btn-xs">查看驳回理由</button>
-            {{# } }}
+                <input type="hidden" id="admin-processing-pickuppic-value" value="{{ d.params.PickUpPic }}" />
+                <a href="{{ d.params.PickUpPic }}" id="admin-processing-pickuppic-preview" target="_blank">{{ d.params.PickUpPic }}</a>
+                <button type="button" class="layui-btn layui-btn-xs" id="admin-processing-pickuppic"><i class="layui-icon">&#xe67c;</i>上传提货材料图片</button>
             </div>
         </div>
-    </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label">加工内容：</label>
-        <div class="layui-form-mid layui-word-aux">{{ d.params.Content }}</div>
-    </div>
-    {{# if(d.params.Pic){ }}
-    <div class="layui-form-item">
-        <label class="layui-form-label">图片：</label>
-        <div class="layui-form-mid layui-word-aux"><a href="{{ d.params.Pic }}" target="_blank">{{ d.params.Pic }}</a></div>
-    </div>
-    {{# } }}
-    {{# if(d.params.Status == 'Processing'||d.params.Status == 'Producing'||d.params.Status == 'InputDelivery'){ }}
-    <div class="layui-form-item">
-        <label class="layui-form-label">上传附件：</label>
-        <div class="layui-form-mid layui-word-aux"><button type="button" class="layui-btn layui-btn-xs" id="admin-processing-pic"><i class="layui-icon">&#xe67c;</i>上传加工单截图</button></div>
-    </div>
-     {{# } }}
+        {{# } }}
 
-    <div class="layui-form-item">
-        <label class="layui-form-label">附件：</label>
-        <div class="layui-input-block">
-            <table id="admin-processing-attachment-table" lay-filter="admin-processing-attachment-table"></table>
-        </div>
-    </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label">加工费：</label>
-        <div class="layui-input-block">
-            <table id="admin-processing-fee" lay-filter="admin-processing-fee"></table>
-        </div>
-    </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label">送货单：</label>
-        <div class="layui-input-block">
-            <table id="admin-delivery-list" lay-filter="admin-delivery-list"></table>
-        </div>
-    </div>
-    <div class="layui-form-item">
-        <label class="layui-form-label">提货单：</label>
-        <div class="layui-input-block">
-            <table id="admin-pickup-list" lay-filter="admin-pickup-list"></table>
-        </div>
-    </div>
-   
-    {{# if(d.params.Status == 'ConfirmDeliveryMethod'&& d.params.DelType == 'LXD'){ }}
-    <fieldset>
-        <legend>录入提货信息</legend>
-        <div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">日期：</label>
-                <div class="layui-input-inline">
-                    <input type="text" id="admin-delivery-deliveryat" class="layui-input" name="DeliveryAt" placeholder="提材料日期"  datetype="date" placeholder="" autocomplete="off">
-                </div>
-                <div class="layui-inline">
-                  <label class="layui-form-label">时间段</label>
-                  <div class="layui-input-inline">
-                    <input type="time" id="admin-delivery-time1" class="layui-input" name="Time1">-
-                    <input type="time" id="admin-delivery-time2" class="layui-input" name="Time2">
-                  </div>
-                </div>
-            </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">材料内容：</label>
-                <div class="layui-input-block">
-                    <textarea id="admin-delivery-content" placeholder="请输入内容" class="layui-textarea"></textarea>
-                </div>
-            </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">车辆信息：</label>
-                <div class="layui-input-block">
-                    <textarea id="admin-delivery-vehicleinfo" placeholder="请输入内容" class="layui-textarea"></textarea>
-                </div>
+        <div class="layui-form-item" style="margin-top:20px;">
+            <label class="layui-form-label"></label>
+            <div id="admin-processing-save" class="layui-input-block">
+                {{# if(d.params.Status == 'Processing'){ }}
+                <button class="layui-btn layui-btn-normal">提交确认</button>
+                {{# } }}
+                {{# if(d.params.Status == 'InputDelivery'){ }}
+                <button id="Button2" class="layui-btn layui-btn-normal">确认材料已入库</button>
+                {{# } }}
+                {{# if(d.params.Status == 'ConfirmDeliveryMethod'&& d.params.DelType == 'LXD'){ }}
+                <button id="Button8" class="layui-btn layui-btn-normal">提交并确认材料提货信息</button>
+                {{# } }}
+                {{# if(d.params.Status == 'ConfirmPickUpMethod'&& d.params.PickType == 'LXD'){ }}
+                <button id="Button9" class="layui-btn layui-btn-normal">提交并确认产品送货信息</button>
+                {{# } }}
+                {{# if(d.params.Status == 'Warehousing'){ }}
+                <button id="Button3" class="layui-btn layui-btn-normal">确认已安排生产</button>
+                {{# } }}
+                {{# if(d.params.Status == 'Producing'){ }}
+                <button id="Button4" class="layui-btn layui-btn-normal">确认生产完已入库</button>
+                {{# } }}
+                {{# if(d.params.Status == 'Produced'){ }}
+                <button id="Button5" class="layui-btn layui-btn-normal">通知客户提货</button>
+                {{# } }}
+                {{# if(d.params.Status == 'InputPickUpContact'){ }}
+                <button id="Button6" class="layui-btn layui-btn-normal">确认已备货并提交加工费确认</button>
+                {{# } }}
+                {{# if(d.params.Status == 'ConfirmationFee'){ }}
+                <button id="Button7" class="layui-btn layui-btn-normal">确认已发货</button>
+                {{# } }}
             </div>
         </div>
-    </fieldset>
 
-    {{# } }}
-
-    {{# if(d.params.Status == 'ConfirmPickUpMethod'&& d.params.PickType == 'LXD'){ }}
-    <fieldset>
-        <legend>录入送货信息</legend>
-        <div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">日期：</label>
-                <div class="layui-input-inline">
-                    <input type="text" id="admin-pickup-pickupat" class="layui-input" name="PickUpAt" placeholder="提材料日期" datetype="date" placeholder="" autocomplete="off">
-                </div>
-                <div class="layui-inline">
-                  <label class="layui-form-label">时间段</label>
-                  <div class="layui-input-inline">
-                    <input type="time" id="admin-pickup-time1" class="layui-input" name="Time1">-
-                    <input type="time" id="admin-pickup-time2" class="layui-input" name="Time2">
-                  </div>
-                </div>
-            </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">送货内容：</label>
-                <div class="layui-input-block">
-                    <textarea id="admin-pickup-content" placeholder="请输入内容" class="layui-textarea"></textarea>
-                </div>
-            </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">车辆信息：</label>
-                <div class="layui-input-block">
-                    <textarea id="admin-pickup-vehicleinfo" placeholder="请输入内容" class="layui-textarea"></textarea>
-                </div>
-            </div>
-        </div>
-    </fieldset>
-
-    {{# } }}
-
-    {{# if(d.params.Status == 'InputPickUpContact'){ }}
-    <fieldset>
-        <legend>加工费信息</legend>
-        <div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">结算类型</label>
-                <div class="layui-input-block">
-                  <input type="radio" name="sex" value="Month" lay-filter="admin-processing-fee-billtype" title="月结">
-                  <input type="radio" name="sex" value="Now" lay-filter="admin-processing-fee-billtype" title="现结" checked="">
-                  <input type="hidden" id="admin-processing-fee-billtype" value="Now" />
-                </div>
-            </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">附件图片：</label>
-                <div class="layui-form-mid layui-word-aux"><img id="admin-processing-fee-pic" src="" style="width:80px" /><button type="button" class="layui-btn layui-btn-xs" id="admin-processing-fee-upload"><i class="layui-icon">&#xe67c;</i>上传图片</button></div>
-            </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">加工费明细</label>
-                <div class="layui-input-block">
-                    <textarea id="admin-processing-fee-detail" placeholder="请输入内容" class="layui-textarea"></textarea>
-                </div>
-            </div>
-        </div>
-    </fieldset>
-    {{# } }}
-
-    {{# if(d.params.Status == 'NoticeDelivery'){ }}
-    <div class="layui-form-item">
-        <label class="layui-form-label"></label>
-        <div class="layui-form-mid layui-word-aux"><button type="button" class="layui-btn" id="Button1">录入送货信息</button></div>
     </div>
-    {{# } }}
-    
-    <div class="layui-form-item" style="margin-top:20px;">
-        <label class="layui-form-label"></label>
-        <div id="admin-processing-save" class="layui-input-block">
-            {{# if(d.params.Status == 'Processing'){ }}
-            <button class="layui-btn layui-btn-normal">提交确认</button>
-            {{# } }}
-            {{# if(d.params.Status == 'InputDelivery'){ }}
-            <button id="Button2" class="layui-btn layui-btn-normal">确认材料已入库</button>
-            {{# } }}
-            {{# if(d.params.Status == 'ConfirmDeliveryMethod'&& d.params.DelType == 'LXD'){ }}
-            <button id="Button8" class="layui-btn layui-btn-normal">提交并确认材料提货信息</button>
-            {{# } }}
-            {{# if(d.params.Status == 'ConfirmPickUpMethod'&& d.params.PickType == 'LXD'){ }}
-            <button id="Button9" class="layui-btn layui-btn-normal">提交并确认产品送货信息</button>
-            {{# } }}
-            {{# if(d.params.Status == 'Warehousing'){ }}
-            <button id="Button3" class="layui-btn layui-btn-normal">确认已安排生产</button>
-            {{# } }}
-            {{# if(d.params.Status == 'Producing'){ }}
-            <button id="Button4" class="layui-btn layui-btn-normal">确认生产完已入库</button>
-            {{# } }}
-            {{# if(d.params.Status == 'Produced'){ }}
-            <button id="Button5" class="layui-btn layui-btn-normal">通知客户提货</button>
-            {{# } }}
-            {{# if(d.params.Status == 'InputPickUpContact'){ }}
-            <button id="Button6" class="layui-btn layui-btn-normal">确认已备货并提交加工费确认</button>
-            {{# } }}
-            {{# if(d.params.Status == 'ConfirmationFee'){ }}
-            <button id="Button7" class="layui-btn layui-btn-normal">确认已发货</button>
-            {{# } }}
-        </div>
-    </div>
-
-</div>
 </script>

@@ -101,8 +101,10 @@ namespace SK.Entities
 		private SK.Entities.ProcessingOrder.PickUpType _PickType;
 		
 		private string _Pic;
-		
-		private bool _IsReject;
+
+        private string _PickUpPic;
+
+        private bool _IsReject;
 		
 		private string _StatusID;
 		
@@ -362,8 +364,29 @@ namespace SK.Entities
 				}
 			}
 		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsReject")]
+
+
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_PickUpPic", CanBeNull = false)]
+        public string PickUpPic
+        {
+            get
+            {
+                return this._PickUpPic;
+            }
+            set
+            {
+                if ((this._PickUpPic != value))
+                {
+                    this.OnPicChanging(value);
+                    this.SendPropertyChanging();
+                    this._PickUpPic = value;
+                    this.SendPropertyChanged("PickUpPic");
+                    this.OnPicChanged();
+                }
+            }
+        }
+
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsReject")]
 		public bool IsReject
 		{
 			get

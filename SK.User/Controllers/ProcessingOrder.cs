@@ -221,6 +221,8 @@ namespace SK.User.Controllers
                 order.UpdateAt = DateTime.Now;
             }
 
+            order.PickUpPic = string.Empty;
+
             StatusLogDataContext statusCxt = new StatusLogDataContext();
             StatusLog log = new StatusLog();
             var statusid = Guid.NewGuid().ToString();
@@ -403,6 +405,7 @@ namespace SK.User.Controllers
                     order.UserName,
                     order.IsReject,
                     order.Pic,
+                    order.PickUpPic,
                     IsSelf = UserInfo != null ? order.UserID == UserInfo.openid : false
                 });
         }
