@@ -447,7 +447,7 @@ namespace SK.BL
             Dictionary<string, string> dict = new Dictionary<string, string>();
 
             dict.Add("touser", touser);
-            dict.Add("template_id", TempIDCheckUser);
+            dict.Add("template_id", TempIDUploadOrder);
             dict.Add("url", url);
             dict.Add("first", first);
             dict.Add("keyword1", keyword1);
