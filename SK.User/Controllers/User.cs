@@ -63,10 +63,14 @@ namespace SK.User.Controllers
             }
             else
             {
+                string appid = System.Configuration.ConfigurationManager.AppSettings["appid"];
+                string host = System.Configuration.ConfigurationManager.AppSettings["WXWebHost"];
+                var redirect_uri = context.Server.UrlEncode(host + "/handler/user/oauth/userinfo");
+
                 var obj = new
                 {
                     code = "2222",
-                    url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxcee2bf962b1ef8f3&redirect_uri=https%3A%2F%2Ftest.alry.cn%2Fhandler%2Fuser%2Foauth%2Fuserinfo&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect"
+                    url = string.Format("https://open.weixin.qq.com/connect/oauth2/authorize?appid={0}&redirect_uri={1}&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect",appid,redirect_uri)
                 };
 
 
