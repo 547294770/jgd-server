@@ -48,7 +48,8 @@ namespace SK.Admin.Controllers
         public void unprocessed()
         {
             SK.Entities.ProcessingOrder.OrderStatus[] status = new SK.Entities.ProcessingOrder.OrderStatus[] { 
-                SK.Entities.ProcessingOrder.OrderStatus.Processing,
+                //SK.Entities.ProcessingOrder.OrderStatus.Processing,
+                SK.Entities.ProcessingOrder.OrderStatus.Print,
                 SK.Entities.ProcessingOrder.OrderStatus.InputDelivery,
                 SK.Entities.ProcessingOrder.OrderStatus.Warehousing,
                 SK.Entities.ProcessingOrder.OrderStatus.Producing,
@@ -99,7 +100,10 @@ namespace SK.Admin.Controllers
 
             switch (order.Status)
             {
-                case SK.Entities.ProcessingOrder.OrderStatus.Processing:
+                //case SK.Entities.ProcessingOrder.OrderStatus.Processing:
+                //    DoUploaded(order, dc);
+                //    break;
+                case SK.Entities.ProcessingOrder.OrderStatus.InputDelivery:
                     DoUploaded(order, dc);
                     break;
                 //case SK.Entities.ProcessingOrder.OrderStatus.Uploaded:
@@ -113,9 +117,12 @@ namespace SK.Admin.Controllers
                         }
                     }
                     break;
-                case SK.Entities.ProcessingOrder.OrderStatus.InputDelivery:
-                    DoWarehousing(order,dc);//确认材料已入库
+                case SK.Entities.ProcessingOrder.OrderStatus.Print:
+                    DoWarehousing(order, dc);//确认材料已入库
                     break;
+                //case SK.Entities.ProcessingOrder.OrderStatus.InputDelivery:
+                //    DoWarehousing(order,dc);//确认材料已入库
+                //    break;
                 case SK.Entities.ProcessingOrder.OrderStatus.Warehousing:
                     DoProducing(order,dc);//已安排生产
                     break;
@@ -434,7 +441,7 @@ namespace SK.Admin.Controllers
         /// <param name="order"></param>
         private void DoWarehousing(SK.Entities.ProcessingOrder order, ProcessingOrderDataContext dc)
         {
-            if (order.Status != Entities.ProcessingOrder.OrderStatus.InputDelivery)
+            if (order.Status != Entities.ProcessingOrder.OrderStatus.Print)
             {
                 this.FailMessage("状态错误");
                 return;

@@ -23,7 +23,9 @@ namespace SK.User.Controllers
     {
         SK.Entities.ProcessingOrder.OrderStatus[] status = new SK.Entities.ProcessingOrder.OrderStatus[] { 
                 SK.Entities.ProcessingOrder.OrderStatus.Uploaded,
-                SK.Entities.ProcessingOrder.OrderStatus.Print,
+                //SK.Entities.ProcessingOrder.OrderStatus.Print,
+                SK.Entities.ProcessingOrder.OrderStatus.ConfirmDeliveryMethod,
+                SK.Entities.ProcessingOrder.OrderStatus.Processing,
                 SK.Entities.ProcessingOrder.OrderStatus.NoticePickUp,
                 SK.Entities.ProcessingOrder.OrderStatus.AlreadyGoods,
                 SK.Entities.ProcessingOrder.OrderStatus.Shipped,
@@ -272,7 +274,7 @@ namespace SK.User.Controllers
                 SendMessageForNewOrder(order);
             }
 
-            this.ShowResult(true, "保存成功");
+            this.ShowResult(true, "保存成功", new { ID = order.ID });
 
             //switch (order.Status)
             //{
@@ -465,10 +467,7 @@ namespace SK.User.Controllers
                     order.Status = Entities.ProcessingOrder.OrderStatus.Processing;
                     SendMessageForNewOrder(order);
                     break;
-                case SK.Entities.ProcessingOrder.OrderStatus.Uploaded://
-                    DoAttachment(order);
-                    break;
-                case SK.Entities.ProcessingOrder.OrderStatus.Print://
+                case SK.Entities.ProcessingOrder.OrderStatus.Processing://
                     {
                         order.DelType = QF("DelType").ToEnum<Entities.ProcessingOrder.DeliveryType>();
                         order.Status = Entities.ProcessingOrder.OrderStatus.ConfirmDeliveryMethod;
@@ -477,10 +476,30 @@ namespace SK.User.Controllers
                         {
                             order.Status = Entities.ProcessingOrder.OrderStatus.Warehousing;
                         }
-                        if (order.DelType == Entities.ProcessingOrder.DeliveryType.None) {
+                        if (order.DelType == Entities.ProcessingOrder.DeliveryType.None)
+                        {
                             this.FailMessage("请选择送货类型");
                             return;
                         }
+                    }
+                    break;
+
+                case SK.Entities.ProcessingOrder.OrderStatus.Uploaded://
+                    DoAttachment(order);
+                    break;
+                case SK.Entities.ProcessingOrder.OrderStatus.Print://
+                    {
+                        //order.DelType = QF("DelType").ToEnum<Entities.ProcessingOrder.DeliveryType>();
+                        //order.Status = Entities.ProcessingOrder.OrderStatus.ConfirmDeliveryMethod;
+
+                        //if (order.DelType == Entities.ProcessingOrder.DeliveryType.IsWareHouse)
+                        //{
+                        //    order.Status = Entities.ProcessingOrder.OrderStatus.Warehousing;
+                        //}
+                        //if (order.DelType == Entities.ProcessingOrder.DeliveryType.None) {
+                        //    this.FailMessage("请选择送货类型");
+                        //    return;
+                        //}
                     }
                     break;
                 case SK.Entities.ProcessingOrder.OrderStatus.ConfirmDeliveryMethod://

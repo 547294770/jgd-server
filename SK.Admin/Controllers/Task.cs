@@ -17,7 +17,8 @@ namespace SK.Admin.Controllers
             WXUserDataContext cxt3 = new WXUserDataContext();
 
             SK.Entities.ProcessingOrder.OrderStatus[] status = new SK.Entities.ProcessingOrder.OrderStatus[] { 
-                SK.Entities.ProcessingOrder.OrderStatus.Processing,
+                //SK.Entities.ProcessingOrder.OrderStatus.Processing,
+                SK.Entities.ProcessingOrder.OrderStatus.Print,
                 SK.Entities.ProcessingOrder.OrderStatus.InputDelivery,
                 SK.Entities.ProcessingOrder.OrderStatus.Warehousing,
                 SK.Entities.ProcessingOrder.OrderStatus.Producing,
