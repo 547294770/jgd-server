@@ -432,6 +432,11 @@ namespace SK.User.Controllers
                 return;
             }
 
+            if (order.UserID != UserInfo.openid)
+            {
+                this.FailMessage("无权操作"); return;
+            }
+
             var oldStatus = order.Status;
             var oldStatusID = order.StatusID;
 
@@ -472,10 +477,15 @@ namespace SK.User.Controllers
                         order.DelType = QF("DelType").ToEnum<Entities.ProcessingOrder.DeliveryType>();
                         order.Status = Entities.ProcessingOrder.OrderStatus.ConfirmDeliveryMethod;
 
-                        if (order.DelType == Entities.ProcessingOrder.DeliveryType.IsWareHouse)
-                        {
-                            order.Status = Entities.ProcessingOrder.OrderStatus.Warehousing;
+                        //材料在利迅达仓库，不需要提交送货资料
+                        if (order.DelType == Entities.ProcessingOrder.DeliveryType.IsWareHouse) {
+                            order.Status = Entities.ProcessingOrder.OrderStatus.InputDelivery;
                         }
+
+                        //if (order.DelType == Entities.ProcessingOrder.DeliveryType.IsWareHouse)
+                        //{
+                        //    order.Status = Entities.ProcessingOrder.OrderStatus.Warehousing;
+                        //}
                         if (order.DelType == Entities.ProcessingOrder.DeliveryType.None)
                         {
                             this.FailMessage("请选择送货类型");
@@ -513,9 +523,10 @@ namespace SK.User.Controllers
                             || string.IsNullOrWhiteSpace(QF("Delivery[DeliveryAt]"))
                             || string.IsNullOrWhiteSpace(QF("Delivery[Time1]"))
                             || string.IsNullOrWhiteSpace(QF("Delivery[Time2]"))
-                            || string.IsNullOrWhiteSpace(QF("Delivery[VehicleInfo]"))) {
-                                this.FailMessage("送货信息不能为空");
-                                return;
+                            || string.IsNullOrWhiteSpace(QF("Delivery[VehicleInfo]")))
+                        {
+                            this.FailMessage("送货信息不能为空");
+                            return;
                         }
 
                         DoDelivery(order);

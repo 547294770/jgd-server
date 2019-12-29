@@ -684,7 +684,7 @@ namespace SK.Admin.Controllers
             WXTemplateBL.SendMessageForInLib(
                 order.UserID,
                 tplPath,
-                Config.Setting.WXWebHost + "/dist/#/Pages/JgdDetail?ID=" + order.ID,
+                Config.Setting.WXWebHost + "/dist/#/Pages/JgdInfo?ID=" + order.ID,
                 title,
                 order.OrderNo,
                 "详细见单",
@@ -704,7 +704,7 @@ namespace SK.Admin.Controllers
             WXTemplateBL.SendMessageForFee(
                 order.UserID,
                 tplPath,
-                Config.Setting.WXWebHost + "/dist/#/Pages/FeeInfo?ID=" + order.ID,
+                Config.Setting.WXWebHost + "/dist/#/Pages/JgdInfo?ID=" + order.SourceID,
                 title,
                 order.FeeNo,
                 DateTime.Now.ToString("yyyy-MM-dd"),
@@ -724,7 +724,7 @@ namespace SK.Admin.Controllers
             WXTemplateBL.SendMessageForUploadOrder(
                 order.UserID,
                 tplPath,
-                Config.Setting.WXWebHost + "/dist/#/Pages/JgdDetail?ID=" + order.ID,
+                Config.Setting.WXWebHost + "/dist/#/Pages/JgdInfo?ID=" + order.ID,
                 title,
                 order.OrderNo,
                order.CreateAt.ToString("yyyy-MM-dd HH:mm:ss"),

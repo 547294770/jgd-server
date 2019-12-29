@@ -233,6 +233,7 @@
                   //上传完毕回调
                   layer.closeAll('loading'); //关闭loading
                   $("#admin-processing-pickuppic-preview").attr("href", res.data.src);
+                  $("#admin-processing-pickuppic-preview").html(res.data.src);
                   $("#admin-processing-pickuppic-value").val(res.data.src);
               }
               , error: function () {
@@ -335,7 +336,7 @@
             <div class="layui-form-mid layui-word-aux"><a href="{{ d.params.Pic }}" target="_blank">{{ d.params.Pic }}</a></div>
         </div>
         {{# } }}
-        {{# if(d.params.Status == 'Processing'||d.params.Status == 'Producing'||d.params.Status == 'InputDelivery'){ }}
+        {{# if(d.params.Status == 'Producing'||d.params.Status == 'InputDelivery'){ }}
         <div class="layui-form-item">
             <label class="layui-form-label">上传附件：</label>
             <div class="layui-form-mid layui-word-aux"><button type="button" class="layui-btn layui-btn-xs" id="admin-processing-pic"><i class="layui-icon">&#xe67c;</i>上传加工单截图</button></div>
@@ -488,10 +489,10 @@
         <div class="layui-form-item" style="margin-top:20px;">
             <label class="layui-form-label"></label>
             <div id="admin-processing-save" class="layui-input-block">
-                {{# if(d.params.Status == 'Processing'){ }}
+                {{# if(d.params.Status == 'InputDelivery'){ }}
                 <button class="layui-btn layui-btn-normal">提交确认</button>
                 {{# } }}
-                {{# if(d.params.Status == 'InputDelivery'){ }}
+                {{# if(d.params.Status == 'Print'){ }}
                 <button id="Button2" class="layui-btn layui-btn-normal">确认材料已入库</button>
                 {{# } }}
                 {{# if(d.params.Status == 'ConfirmDeliveryMethod'&& d.params.DelType == 'LXD'){ }}
